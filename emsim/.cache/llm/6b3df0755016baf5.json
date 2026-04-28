@@ -1,0 +1,1 @@
+{"vitals_delta": {"BP_sys": -10, "BP_dia": -5, "T": 36.5}, "interventions_changed": {}, "drugs_added": [{"name": "midazolam", "dose": 10, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Midazolam may cause a modest drop in blood pressure and slight decrease in temperature without affecting the severe nature of the local anesthetic toxicity."}

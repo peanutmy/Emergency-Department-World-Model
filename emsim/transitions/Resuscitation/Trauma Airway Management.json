@@ -1,0 +1,466 @@
+{
+  "case_id": "trauma_airway_management",
+  "category": "Resuscitation",
+  "source_pdf": "pdf/Resuscitation/Trauma Airway Management.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 140,
+      "BP_sys": 95,
+      "BP_dia": 63,
+      "RR": 40,
+      "O2Sat": 90,
+      "T": 36.3
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": "NRB",
+      "PEEP": 0,
+      "FiO2": 1.0,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": true,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "tension_pneumothorax",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 modifier: 'Needle decompress -> No change'. EMS already attempted, so learner repeats with no effect.",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 95,
+          "BP_dia": 63,
+          "RR": 40,
+          "O2Sat": 90,
+          "T": 36.3
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tension_pneumothorax",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "needle_decompress"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 95,
+          "BP_dia": 63,
+          "RR": 40,
+          "O2Sat": 90,
+          "T": 36.3
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tension_pneumothorax",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "Trigger: 'RSI before chest tube or 4 min -> State 2 Worsening'. Passive decline.",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 95,
+          "BP_dia": 63,
+          "RR": 40,
+          "O2Sat": 90,
+          "T": 36.3
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tension_pneumothorax",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 240,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 70,
+          "BP_dia": 43,
+          "RR": 45,
+          "O2Sat": 85,
+          "T": 36.3
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tension_pneumothorax",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 2 trigger: 'Chest tube/thoracostomy -> State 3 Decompressed'.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 70,
+          "BP_dia": 43,
+          "RR": 45,
+          "O2Sat": 85,
+          "T": 36.3
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tension_pneumothorax",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "place_chest_tube"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 105,
+          "BP_dia": 63,
+          "RR": 30,
+          "O2Sat": 95,
+          "T": 36.3
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pneumothorax",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 3 trigger: 'RSI complete -> State 4 Intubated'. HR 110, BP 110/63, O2 96%.",
+      "before": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 105,
+          "BP_dia": 63,
+          "RR": 30,
+          "O2Sat": 95,
+          "T": 36.3
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pneumothorax",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 110,
+          "BP_dia": 63,
+          "RR": 12,
+          "O2Sat": 96,
+          "T": 36.3
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pneumothorax",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 2 modifier (branch): 'Paralysis -> RR 0'. If paralysis used before chest tube (worsening state).",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 70,
+          "BP_dia": 43,
+          "RR": 45,
+          "O2Sat": 85,
+          "T": 36.3
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tension_pneumothorax",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "rocuronium",
+          "dose": 80,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 70,
+          "BP_dia": 43,
+          "RR": 0,
+          "O2Sat": 85,
+          "T": 36.3
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tension_pneumothorax",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

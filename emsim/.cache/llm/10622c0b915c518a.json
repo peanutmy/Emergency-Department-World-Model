@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": -10, "BP_dia": -5, "RR": -2, "O2Sat": 1}, "interventions_changed": {}, "drugs_added": [{"name": "furosemide", "dose": 40, "unit": "mg", "route": "IV"}], "mechanism_severity": "moderate", "reasoning": "Furosemide may lead to slight improvements in blood pressure and respiratory rate while maintaining heart rate due to its diuretic effects."}

@@ -1,0 +1,557 @@
+{
+  "case_id": "eclampsia_with_mag_apnea",
+  "category": "OB-GYN",
+  "source_pdf": "pdf/OB-GYN/Eclampsia with Apnea Secondary to Magnesium Sulfate Administration.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 110,
+      "BP_sys": 175,
+      "BP_dia": 115,
+      "RR": 20,
+      "O2Sat": 96,
+      "T": 36.5
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "preeclampsia",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "Trigger: '3 minutes -> 2. Seizure'. HR -> 130. New state is eclampsia.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 175,
+          "BP_dia": 115,
+          "RR": 20,
+          "O2Sat": 96,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "preeclampsia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 175,
+          "BP_dia": 115,
+          "RR": 20,
+          "O2Sat": 96,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "eclampsia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 2 trigger: 'MgSO4 given -> 3. Apnea'. Scenario dose 4 g IV bolus. Apnea vitals from State 3 header.",
+      "before": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 175,
+          "BP_dia": 115,
+          "RR": 20,
+          "O2Sat": 96,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "eclampsia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "magnesium",
+          "dose": 4,
+          "unit": "g",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 600,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 165,
+          "BP_dia": 115,
+          "RR": 0,
+          "O2Sat": 88,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "eclampsia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 3 modifier: 'BVM initiated -> O2SAT 93%'.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 165,
+          "BP_dia": 115,
+          "RR": 0,
+          "O2Sat": 88,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "eclampsia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_BVM"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 165,
+          "BP_dia": 115,
+          "RR": 0,
+          "O2Sat": 93,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "eclampsia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 3 modifier: 'Propofol or midazolam for induction -> BP 160/110'. Using midazolam (blood-pressure lower risk than propofol). Scenario gives no dose -> default 2 mg.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 165,
+          "BP_dia": 115,
+          "RR": 0,
+          "O2Sat": 93,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "eclampsia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "midazolam",
+          "dose": 2,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 160,
+          "BP_dia": 110,
+          "RR": 0,
+          "O2Sat": 93,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "eclampsia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 3 trigger: 'Intubated -> 4. Post-intubation'. State 4 vitals.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 160,
+          "BP_dia": 110,
+          "RR": 0,
+          "O2Sat": 93,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "eclampsia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 165,
+          "BP_dia": 115,
+          "RR": 12,
+          "O2Sat": 98,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "eclampsia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 4 modifier: 'Antihypertensive -> BP 145/100'. Labetalol: scenario dose 20 mg IV; onset ~5 min.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 165,
+          "BP_dia": 115,
+          "RR": 12,
+          "O2Sat": 98,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "eclampsia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "labetalol",
+          "dose": 20,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 145,
+          "BP_dia": 100,
+          "RR": 12,
+          "O2Sat": 98,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "eclampsia",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

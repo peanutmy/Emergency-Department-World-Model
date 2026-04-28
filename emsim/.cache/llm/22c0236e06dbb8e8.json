@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 5}, "interventions_changed": {}, "drugs_added": [{"name": "calcium_gluconate", "dose": 1, "unit": "g", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Calcium gluconate may slightly improve heart rate in severe hyperkalemia."}

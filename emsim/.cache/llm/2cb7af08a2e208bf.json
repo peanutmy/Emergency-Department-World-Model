@@ -1,0 +1,1 @@
+{"vitals_delta": {"T": -0.5}, "interventions_changed": {}, "drugs_added": [{"name": "fentanyl", "dose": 30, "unit": "mcg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Fentanyl may cause a slight drop in temperature due to its sedative effects."}

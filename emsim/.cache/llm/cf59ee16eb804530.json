@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 10, "BP_dia": 5, "O2Sat": 2}, "interventions_changed": {}, "drugs_added": [{"name": "dobutamine", "dose": 20, "unit": "mcg/kg/min", "route": "IV"}], "mechanism_severity": "moderate", "reasoning": "Dobutamine improves cardiac output, leading to a modest increase in HR and BP, while O2Sat improves slightly due to better perfusion."}

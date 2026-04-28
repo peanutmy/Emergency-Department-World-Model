@@ -1,0 +1,77 @@
+D:\wmed\emsim\rule_engine\engine.py:127: RuntimeWarning: drug_lib: insulin_regular dose unit 'U/hr' doesn't match standard 'U' — skipping dose scaling
+  drug_lib.start_drug(h, action, t_sim_s=0.0)
+D:\wmed\emsim\rule_engine\drug_lib.py:771: RuntimeWarning: drug_lib: drug 'nitroglycerin_SL' has no class mapping — registering as neutral
+  _enqueue_effects(h, name,
+D:\wmed\emsim\rule_engine\engine.py:127: RuntimeWarning: drug_lib: epinephrine dose unit 'mcg/kg/min' doesn't match standard 'mg' — skipping dose scaling
+  drug_lib.start_drug(h, action, t_sim_s=0.0)
+D:\wmed\emsim\rule_engine\engine.py:127: RuntimeWarning: drug_lib: norepinephrine dose unit 'mcg/min' doesn't match standard 'mcg/kg/min' — skipping dose scaling
+  drug_lib.start_drug(h, action, t_sim_s=0.0)
+D:\wmed\emsim\rule_engine\engine.py:127: RuntimeWarning: drug_lib: procainamide dose unit 'mg' doesn't match standard 'mg/min' — skipping dose scaling
+  drug_lib.start_drug(h, action, t_sim_s=0.0)
+D:\wmed\emsim\rule_engine\engine.py:127: RuntimeWarning: drug_lib: epinephrine dose unit 'mg/hr' doesn't match standard 'mg' — skipping dose scaling
+  drug_lib.start_drug(h, action, t_sim_s=0.0)
+D:\wmed\emsim\rule_engine\drug_lib.py:771: RuntimeWarning: drug_lib: drug 'hypertonic_saline_3' has no class mapping — registering as neutral
+  _enqueue_effects(h, name,
+D:\wmed\emsim\rule_engine\engine.py:127: RuntimeWarning: drug_lib: norepinephrine dose unit 'mcg' doesn't match standard 'mcg/kg/min' — skipping dose scaling
+  drug_lib.start_drug(h, action, t_sim_s=0.0)
+========================================================================
+EMSim Physiology Engine — Evaluation
+========================================================================
+Total pairs             : 808
+Engine errors           : 0
+Strict pair pass        : 185/808  ( 22.9%)
+Mean partial score      : 0.887
+
+Per-vital metrics (over scored pairs):
+  vital     within_tol   dir_match       MAE
+  HR             70.4%       57.9%     14.79
+  BP_sys         70.4%       58.8%     17.05
+  BP_dia         77.0%       63.9%     10.87
+  RR             79.6%       74.9%      3.13
+  O2Sat          69.2%       70.0%      8.50
+  T              98.5%       97.8%      0.02
+
+Intervention flag match rates:
+  airway                  100.0%
+  intubated                98.9%
+  CPR_active               96.9%
+  pacing_active           100.0%
+  warming_active          100.0%
+  cooling_active          100.0%
+  needle_decompression    100.0%
+  chest_tube               99.9%
+  pericardiocentesis      100.0%
+  O2_device                98.4%
+  fluid_type               97.4%
+  PEEP                     96.2%
+  FiO2                     98.8%
+  vent_rate                96.4%
+  vent_TV_ml               96.8%
+  defib_last_J            100.0%
+  pacing_rate             100.0%
+  fluids_rate_ml_hr        99.3%
+
+Per-category pair pass rate:
+  Cardiology           66/224   29.5%
+  Communication         4/36    11.1%
+  Endocrine            15/54    27.8%
+  GI                    2/16    12.5%
+  Neurology             9/44    20.5%
+  OB-GYN               15/54    27.8%
+  Pediatrics           18/98    18.4%
+  Respiratory           5/81     6.2%
+  Resuscitation        42/152   27.6%
+  Toxicology            7/26    26.9%
+  Trauma                2/23     8.7%
+
+Pure-wait pairs    (actions=0): 21/249    8.4%
+Action pairs     (actions>=1): 164/559   29.3%
+Traceback (most recent call last):
+  File "D:\wmed\emsim\emsim_eval.py", line 410, in <module>
+    main()
+  File "D:\wmed\emsim\emsim_eval.py", line 406, in main
+    print(f"\nExported per-pair CSV \u2192 {args.export}")
+  File "C:\Users\peanu\miniconda3\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 24: character maps to <undefined>

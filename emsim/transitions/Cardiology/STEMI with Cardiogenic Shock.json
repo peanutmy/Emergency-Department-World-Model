@@ -1,0 +1,646 @@
+{
+  "case_id": "stemi_with_cardiogenic_shock",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/STEMI with Cardiogenic Shock.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 110,
+      "BP_sys": 80,
+      "BP_dia": 40,
+      "RR": 30,
+      "O2Sat": 85,
+      "T": 36.2
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": "BVM",
+      "PEEP": 0,
+      "FiO2": 1.0,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "stemi",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 modifier: 'Bolus given -> BP 85/45'. Max of 250-500 ml range = 500 ml. Fluid rate during bolus ~2000 ml/hr.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 80,
+          "BP_dia": 40,
+          "RR": 30,
+          "O2Sat": 85,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 500
+        }
+      ],
+      "duration_s": 600,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 85,
+          "BP_dia": 45,
+          "RR": 30,
+          "O2Sat": 85,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 3000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 1 modifier: '5 minutes -> desat to 80%' (inaction branch, no intubation).",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 80,
+          "BP_dia": 40,
+          "RR": 30,
+          "O2Sat": 85,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 80,
+          "BP_dia": 40,
+          "RR": 30,
+          "O2Sat": 80,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 2 trigger: 'Intubation safe -> State 4 Ongoing hypotension'. Vitals from State 4 header.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 80,
+          "BP_dia": 40,
+          "RR": 30,
+          "O2Sat": 85,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 70,
+          "BP_dia": 30,
+          "RR": 14,
+          "O2Sat": 92,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 4 modifier: 'Norepi started -> BP 75/35'. Norepinephrine infusion 0.05 mcg/kg/min initial.",
+      "before": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 70,
+          "BP_dia": 30,
+          "RR": 14,
+          "O2Sat": 92,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "norepinephrine",
+          "dose": 0.05,
+          "unit": "mcg/kg/min",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 75,
+          "BP_dia": 35,
+          "RR": 14,
+          "O2Sat": 92,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 4 modifier: 'Norepi titrated up 2-3 times -> BP 85/45'. Use max range 2 mcg/kg/min.",
+      "before": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 75,
+          "BP_dia": 35,
+          "RR": 14,
+          "O2Sat": 92,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "norepinephrine",
+          "dose": 0.05,
+          "unit": "mcg/kg/min",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 85,
+          "BP_dia": 45,
+          "RR": 14,
+          "O2Sat": 92,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 4 trigger: 'Dobutamine added -> BP 90/55' and vasopressor + inotrope -> State 5 Stabilization (HR100, BP 95/65).",
+      "before": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 85,
+          "BP_dia": 45,
+          "RR": 14,
+          "O2Sat": 92,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "dobutamine",
+          "dose": 2.5,
+          "unit": "mcg/kg/min",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 95,
+          "BP_dia": 55,
+          "RR": 14,
+          "O2Sat": 92,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "comment": "State 4 branch modifier: 'Dobutamine started 1st -> BP 50/10'. Dangerous drop without first raising SVR.",
+      "before": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 70,
+          "BP_dia": 30,
+          "RR": 14,
+          "O2Sat": 92,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "dobutamine",
+          "dose": 2.5,
+          "unit": "mcg/kg/min",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 50,
+          "BP_dia": 10,
+          "RR": 14,
+          "O2Sat": 92,
+          "T": 36.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    }
+  ]
+}

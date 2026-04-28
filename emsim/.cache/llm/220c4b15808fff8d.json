@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "O2Sat": 10}, "interventions_changed": {"O2_device": "nasal", "CPR_active": true}, "mechanism_severity": "severe", "mechanism_rhythm": "sinus", "reasoning": "Defibrillation was performed on VT, leading to a conversion to sinus rhythm and an increase in O2 saturation due to nasal oxygen application."}

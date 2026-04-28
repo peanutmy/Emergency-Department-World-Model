@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 15, "BP_sys": 10, "BP_dia": 5, "O2Sat": 5}, "interventions_changed": {"fluids_rate_ml_hr": 600}, "drugs_added": [{"name": "epinephrine", "dose": 0.6, "unit": "mg/hr", "route": "IV_infusion"}], "mechanism_severity": "severe", "reasoning": "The additional epinephrine increases HR and BP while O2Sat improves slightly due to ongoing support."}

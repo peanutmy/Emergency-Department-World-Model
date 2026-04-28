@@ -1,0 +1,208 @@
+{
+  "case_id": "chest_pain_on_the_ward",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Chest Pain on the Ward.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 98,
+      "BP_sys": 175,
+      "BP_dia": 60,
+      "RR": 20,
+      "O2Sat": 91,
+      "T": 36.7
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "stemi",
+        "severity": "moderate"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 action: 'Instruct RN to place patient on oxygen'. Scenario vague about device; use apply_O2.",
+      "before": {
+        "vitals": {
+          "HR": 98,
+          "BP_sys": 175,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 91,
+          "T": 36.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_nasal"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 98,
+          "BP_sys": 175,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 93,
+          "T": 36.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "Trigger: '8 mins -> 3. Hypoxia' (8 min elapsed total). New vitals HR 98, RR 40, BP 160/85, O2 88%.",
+      "before": {
+        "vitals": {
+          "HR": 101,
+          "BP_sys": 179,
+          "BP_dia": 90,
+          "RR": 30,
+          "O2Sat": 93,
+          "T": 36.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [],
+      "duration_s": 480,
+      "after": {
+        "vitals": {
+          "HR": 98,
+          "BP_sys": 160,
+          "BP_dia": 85,
+          "RR": 30,
+          "O2Sat": 88,
+          "T": 36.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    }
+  ]
+}

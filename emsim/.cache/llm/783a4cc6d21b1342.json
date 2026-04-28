@@ -1,0 +1,1 @@
+{"vitals_delta": {}, "interventions_changed": {}, "drugs_added": [{"name": "piperacillin_tazobactam", "dose": 4.5, "unit": "g", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "The administration of piperacillin-tazobactam does not immediately change vitals or interventions in the observation window."}

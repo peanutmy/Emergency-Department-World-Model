@@ -1,0 +1,18 @@
+File: pre_drug_removal.csv
+Total pairs: 808
+  overall             : 184/808 =  22.8%   partial=0.887
+  pure_wait           :  20/249 =   8.0%   partial=0.841
+  drug_only           :  70/212 =  33.0%   partial=0.906
+  interv_only         :  94/345 =  27.2%   partial=0.910
+  mixed_interv_drug   :   0/2   =   0.0%   partial=0.803
+  action_non_defib    : 161/533 =  30.2%   partial=0.914
+  defib               :   3/26  =  11.5%   partial=0.787
+  arrest              :  24/50  =  48.0%   partial=0.899
+
+Per-vital MAE:
+  HR      : MAE= 14.846   N=808
+  BP_sys  : MAE= 17.054   N=808
+  BP_dia  : MAE= 10.873   N=808
+  RR      : MAE=  3.133   N=808
+  O2Sat   : MAE=  8.502   N=808
+  T       : MAE=  0.022   N=808

@@ -1,0 +1,1 @@
+{"vitals_delta": {}, "interventions_changed": {}, "drugs_added": [{"name": "salbutamol", "dose": 0.5, "unit": "mg", "route": "IV"}], "mechanism_severity": "moderate", "reasoning": "Salbutamol does not significantly change vitals in the context of hyperkalemia."}

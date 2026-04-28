@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": 0, "BP_dia": 0, "RR": 0, "O2Sat": 0}, "interventions_changed": {"CPR_active": true}, "drugs_added": [{"name": "alteplase", "dose": 100, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "CPR was initiated due to the pulseless electrical activity arrest, but vitals remain unchanged as the patient is still in arrest."}

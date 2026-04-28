@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 5, "BP_sys": 5, "BP_dia": 5, "O2Sat": 1}, "interventions_changed": {}, "drugs_added": [{"name": "TXA", "dose": 1, "unit": "g", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "TXA may help stabilize the patient's condition in hemorrhagic shock, leading to slight improvements in vitals."}

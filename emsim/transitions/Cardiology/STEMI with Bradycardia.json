@@ -1,0 +1,465 @@
+{
+  "case_id": "stemi_with_bradycardia",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/STEMI with Bradycardia.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 32,
+      "BP_sys": 77,
+      "BP_dia": 40,
+      "RR": 32,
+      "O2Sat": 90,
+      "T": 37.1
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": "NRB",
+      "PEEP": 0,
+      "FiO2": 1.0,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "stemi",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 trigger: '3 min into state -> State 2 More Drowsy'.",
+      "before": {
+        "vitals": {
+          "HR": 32,
+          "BP_sys": 77,
+          "BP_dia": 40,
+          "RR": 32,
+          "O2Sat": 90,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 66,
+          "BP_dia": 36,
+          "RR": 32,
+          "O2Sat": 90,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 2 modifier: 'Atropine -> no effect'. 0.5mg IV default.",
+      "before": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 66,
+          "BP_dia": 36,
+          "RR": 32,
+          "O2Sat": 90,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "atropine",
+          "dose": 0.5,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 66,
+          "BP_dia": 36,
+          "RR": 32,
+          "O2Sat": 90,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2 trigger: '4 min into state -> State 3 VT Arrest'.",
+      "before": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 66,
+          "BP_dia": 36,
+          "RR": 32,
+          "O2Sat": 90,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "stemi",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [],
+      "duration_s": 240,
+      "after": {
+        "vitals": {
+          "HR": 200,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 0,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vf_arrest",
+            "severity": "severe"
+          },
+          "rhythm": "VT"
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 3 action: shock VT at 200 J.",
+      "before": {
+        "vitals": {
+          "HR": 200,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 0,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vf_arrest",
+            "severity": "severe"
+          },
+          "rhythm": "VT"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "defibrillate",
+          "value": 200
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 72,
+          "BP_dia": 44,
+          "RR": 32,
+          "O2Sat": 86,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": 200,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vf_arrest",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "comment": "State 3 action: epinephrine 1mg IV (ACLS).",
+      "before": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 72,
+          "BP_dia": 44,
+          "RR": 30,
+          "O2Sat": 86,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": 0,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vf_arrest",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "epinephrine",
+          "dose": 1,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 60,
+      "after": {
+        "vitals": {
+          "HR": 80,
+          "BP_sys": 100,
+          "BP_dia": 60,
+          "RR": 30,
+          "O2Sat": 94,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": 0,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vf_arrest",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    }
+  ]
+}

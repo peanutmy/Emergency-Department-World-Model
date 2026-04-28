@@ -1,0 +1,709 @@
+{
+  "case_id": "pediatric_dka_with_cerebral_edema",
+  "category": "Endocrine",
+  "source_pdf": "pdf/Endocrine/Pediatric DKA.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 120,
+      "BP_sys": 95,
+      "BP_dia": 60,
+      "RR": 34,
+      "O2Sat": 99,
+      "T": 38.5
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "dka",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 trigger: '5 minutes -> 2. Deterioration'. New vitals from State 2 header. No modifiers with vital changes in State 1.",
+      "before": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 95,
+          "BP_dia": 60,
+          "RR": 34,
+          "O2Sat": 99,
+          "T": 38.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "dka",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 28,
+          "O2Sat": 98,
+          "T": 38.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "dka",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 2 trigger: '2 minutes into state or all actions complete -> 3. Obtunded'. New vitals from State 3 header.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 28,
+          "O2Sat": 98,
+          "T": 38.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "dka",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 70,
+          "BP_sys": 140,
+          "BP_dia": 95,
+          "RR": 28,
+          "O2Sat": 97,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "dka",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 3 modifier: 'No intubation by 2 min into state -> O2SAT slowly to 88%'.",
+      "before": {
+        "vitals": {
+          "HR": 70,
+          "BP_sys": 140,
+          "BP_dia": 95,
+          "RR": 28,
+          "O2Sat": 97,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "dka",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 70,
+          "BP_sys": 140,
+          "BP_dia": 95,
+          "RR": 28,
+          "O2Sat": 88,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "dka",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 3 trigger: 'Intubation with paralytic & resp rate not considered -> 4. PEA Arrest'. Branch from p2 after.",
+      "before": {
+        "vitals": {
+          "HR": 70,
+          "BP_sys": 140,
+          "BP_dia": 95,
+          "RR": 28,
+          "O2Sat": 97,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "dka",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 12,
+          "O2Sat": 0,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 200,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 4 PEA: CPR started.",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 12,
+          "O2Sat": 0,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 200,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "start_CPR"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 12,
+          "O2Sat": 0,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 200,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 4 action: Epinephrine 0.01 mg/kg = 0.25 mg for 25 kg.",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 12,
+          "O2Sat": 0,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 200,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "epinephrine",
+          "dose": 0.25,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 60,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 12,
+          "O2Sat": 0,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 200,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "comment": "State 4 action: Sodium bicarbonate 1 mEq/kg = 25 mEq for 25 kg.",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 12,
+          "O2Sat": 0,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 200,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "sodium_bicarbonate",
+          "dose": 25,
+          "unit": "mEq",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 12,
+          "O2Sat": 0,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 200,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p8",
+      "comment": "State 4 trigger: 'One CPR cycle after RR increased -> 5. Resolution'. Resolution vitals from State 5 header.",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 12,
+          "O2Sat": 0,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 200,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 34,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 34,
+          "vent_TV_ml": 200,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "dka",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

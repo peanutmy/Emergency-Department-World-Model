@@ -1,0 +1,554 @@
+{
+  "case_id": "tricyclic_antidepressant_overdose",
+  "category": "Toxicology",
+  "source_pdf": "pdf/Toxicology/Tricyclic Antidepressant Overdose.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 122,
+      "BP_sys": 109,
+      "BP_dia": 71,
+      "RR": 14,
+      "O2Sat": 92,
+      "T": 38.1
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "tca_overdose",
+        "severity": "moderate"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 modifier: 'Supplemental O2 -> O2Sat to 97%'. Scenario doesn't specify device; default apply_O2 (nasal).",
+      "before": {
+        "vitals": {
+          "HR": 122,
+          "BP_sys": 109,
+          "BP_dia": 71,
+          "RR": 14,
+          "O2Sat": 92,
+          "T": 38.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tca_overdose",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_nasal"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 122,
+          "BP_sys": 109,
+          "BP_dia": 71,
+          "RR": 14,
+          "O2Sat": 97,
+          "T": 38.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tca_overdose",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 1 modifier: 'IV NaHCO3 bolus -> narrows QRS'. Scenario describes ECG change only; vitals unchanged. 1 amp = 50 mEq IV.",
+      "before": {
+        "vitals": {
+          "HR": 122,
+          "BP_sys": 109,
+          "BP_dia": 71,
+          "RR": 14,
+          "O2Sat": 97,
+          "T": 38.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tca_overdose",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "sodium_bicarbonate",
+          "dose": 50,
+          "unit": "mEq",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 122,
+          "BP_sys": 109,
+          "BP_dia": 71,
+          "RR": 14,
+          "O2Sat": 97,
+          "T": 38.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tca_overdose",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 1 trigger: 'Intubation -> State 2 Intubation'. State 2 vitals: HR 130, BP 90/65, O2Sat 97; vent settings Vt 500, RR set, FiO2 1.0.",
+      "before": {
+        "vitals": {
+          "HR": 122,
+          "BP_sys": 109,
+          "BP_dia": 71,
+          "RR": 14,
+          "O2Sat": 97,
+          "T": 38.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tca_overdose",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 90,
+          "BP_dia": 65,
+          "RR": 14,
+          "O2Sat": 97,
+          "T": 38.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tca_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2 trigger: '2 min after intubation -> State 3 PEA'. Loss of pulse, BP 0/0, O2Sat 0.",
+      "before": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 90,
+          "BP_dia": 65,
+          "RR": 14,
+          "O2Sat": 97,
+          "T": 38.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tca_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 122,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 14,
+          "O2Sat": 0,
+          "T": 38.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tca_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 3 learner action: CPR.",
+      "before": {
+        "vitals": {
+          "HR": 122,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 14,
+          "O2Sat": 0,
+          "T": 38.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tca_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "start_CPR"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 122,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 14,
+          "O2Sat": 0,
+          "T": 38.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tca_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 3 trigger: 'Total 6 amps NaHCO3 -> State 4 Resolution'. Final amp (cumulative 6) triggers ROSC. State 4 vitals: HR 111, BP 109/71, O2Sat 97.",
+      "before": {
+        "vitals": {
+          "HR": 122,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 14,
+          "O2Sat": 0,
+          "T": 38.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tca_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "sodium_bicarbonate",
+          "dose": 250,
+          "unit": "mEq",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 111,
+          "BP_sys": 109,
+          "BP_dia": 71,
+          "RR": 14,
+          "O2Sat": 97,
+          "T": 38.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tca_overdose",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

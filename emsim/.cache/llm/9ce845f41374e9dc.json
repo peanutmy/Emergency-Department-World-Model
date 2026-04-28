@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 20, "BP_dia": 10}, "interventions_changed": {"fluids_rate_ml_hr": 600}, "drugs_added": [{"name": "epinephrine", "dose": 0.168, "unit": "mg/hr", "route": "IV_infusion"}], "mechanism_severity": "severe", "reasoning": "The additional epinephrine infusion improves heart rate and blood pressure in response to severe anaphylaxis."}

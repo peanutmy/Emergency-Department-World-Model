@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "O2Sat": 20}, "interventions_changed": {"airway": true, "O2_device": "vent", "FiO2": 1, "intubated": true, "CPR_active": true, "defib_last_J": 200}, "mechanism_severity": "severe", "mechanism_rhythm": "asystole", "reasoning": "Defibrillation was performed on VF, but the patient remains in asystole with ongoing CPR and intubation."}

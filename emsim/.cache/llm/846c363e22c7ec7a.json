@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": 0, "BP_dia": 0, "RR": -2, "O2Sat": 0}, "interventions_changed": {"airway": true, "O2_device": "vent", "FiO2": 0.6, "intubated": true}, "mechanism_severity": "severe", "reasoning": "Intubation was performed, leading to a slight decrease in RR and an increase in FiO2 due to the change in O2 device."}

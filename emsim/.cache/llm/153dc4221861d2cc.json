@@ -1,0 +1,1 @@
+{"vitals_delta": {"O2Sat": 98}, "interventions_changed": {"airway": true, "intubated": true, "O2_device": "vent", "FiO2": 0.9}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Intubation was performed, leading to an increase in O2 saturation and a change in airway management, indicating a worsening of the patient's condition to severe due to hemorrhagic shock."}

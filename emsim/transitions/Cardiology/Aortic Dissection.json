@@ -1,0 +1,639 @@
+{
+  "case_id": "aortic_dissection",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Aortic Dissection.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 110,
+      "BP_sys": 210,
+      "BP_dia": 100,
+      "RR": 20,
+      "O2Sat": 99,
+      "T": 36.5
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "aortic_dissection",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 modifier: 'Give negative inotrope -> HR 85, BP 150/96'. Use IV labetalol as documented.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 210,
+          "BP_dia": 100,
+          "RR": 20,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "labetalol",
+          "dose": 20,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 85,
+          "BP_sys": 150,
+          "BP_dia": 96,
+          "RR": 20,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 1 trigger: '4 minutes -> 2. Increasing Chest Pain'. New vitals HR->50, BP->90/60.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 210,
+          "BP_dia": 100,
+          "RR": 20,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [],
+      "duration_s": 240,
+      "after": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 2 modifier: 'Give IV fluids -> BP 100/65'.",
+      "before": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 500
+        }
+      ],
+      "duration_s": 600,
+      "after": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 100,
+          "BP_dia": 65,
+          "RR": 20,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 3000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2 modifier: 'Give atropine -> no change'.",
+      "before": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "atropine",
+          "dose": 0.5,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 2 trigger: '3 minutes -> 3. Unstable Bradycardia'. New vitals HR 40, BP 70/30, RR 12.",
+      "before": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 40,
+          "BP_sys": 70,
+          "BP_dia": 30,
+          "RR": 12,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 3 modifier: 'Transcutaneous pacing -> BP 90/50'.",
+      "before": {
+        "vitals": {
+          "HR": 40,
+          "BP_sys": 70,
+          "BP_dia": 30,
+          "RR": 12,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "start_pacing",
+          "value": 80
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 80,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": true,
+          "pacing_rate": 80,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "comment": "State 1 branch trigger: 'Give heparin -> 4. Bradycardia-Asystolic arrest'. Heparin contraindicated in dissection -> catastrophic bleed.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 210,
+          "BP_dia": 100,
+          "RR": 20,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "heparin",
+          "dose": 5000,
+          "unit": "U",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 0,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asystole",
+            "severity": "severe"
+          },
+          "rhythm": "asystole"
+        }
+      }
+    }
+  ]
+}

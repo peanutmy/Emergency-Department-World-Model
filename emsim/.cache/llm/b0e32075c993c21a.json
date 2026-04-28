@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 5, "BP_dia": 5}, "interventions_changed": {}, "drugs_added": [{"name": "naloxone", "dose": 0.4, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Naloxone may improve heart rate and blood pressure in moderate CCB toxicity, leading to a mild improvement in severity."}

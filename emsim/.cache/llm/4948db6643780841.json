@@ -1,0 +1,1 @@
+{"vitals_delta": {"BP_sys": -20, "BP_dia": -10}, "interventions_changed": {}, "drugs_added": [{"name": "labetalol", "dose": 20, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Labetalol is expected to lower blood pressure in a patient with severe hypertension due to eclampsia."}

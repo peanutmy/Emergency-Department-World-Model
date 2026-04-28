@@ -1,0 +1,459 @@
+{
+  "case_id": "accidental_hypothermia",
+  "category": "Resuscitation",
+  "source_pdf": "pdf/Resuscitation/Accidental Hypothermia.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 0,
+      "BP_sys": 0,
+      "BP_dia": 0,
+      "RR": 10,
+      "O2Sat": 83,
+      "T": 25.0
+    },
+    "interventions": {
+      "airway": true,
+      "O2_device": "BVM",
+      "PEEP": 0,
+      "FiO2": 1.0,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": true,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "hypothermia",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 learner action: active external and minimally invasive rewarming (warm IVF, forced-air blanket). Scenario baseline vitals unchanged; warming initiated.",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 10,
+          "O2Sat": 83,
+          "T": 25.0
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypothermia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "start_warming"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 10,
+          "O2Sat": 83,
+          "T": 25.0
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 500,
+          "fluid_type": "crystalloid",
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypothermia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 1 trigger: 'Decision to intubate or 5 minutes elapsed -> State 2 Definitive airway'. Use 5 min. New vitals from State 2 header (sat drops to 70, T to 26).",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 10,
+          "O2Sat": 83,
+          "T": 25.0
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 500,
+          "fluid_type": "crystalloid",
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypothermia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 10,
+          "O2Sat": 70,
+          "T": 26.0
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 500,
+          "fluid_type": "crystalloid",
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypothermia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 2 modifier: 'intubated -> O2SAT: 90%'.",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 10,
+          "O2Sat": 70,
+          "T": 26.0
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 500,
+          "fluid_type": "crystalloid",
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypothermia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 10,
+          "O2Sat": 90,
+          "T": 26.0
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 10,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 500,
+          "fluid_type": "crystalloid",
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypothermia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "Trigger: 'ECMO consultant discussion complete -> State 3 Ongoing VF'. Scenario gives no duration; default 120 s. New vitals from State 3 (T rises to 29).",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 10,
+          "O2Sat": 90,
+          "T": 26.0
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 10,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 500,
+          "fluid_type": "crystalloid",
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypothermia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 10,
+          "O2Sat": 90,
+          "T": 29.0
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 10,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 500,
+          "fluid_type": "crystalloid",
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypothermia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 3 trigger: 'Defib at 29C -> ROSC'. State 4 vitals: bradycardia HR 35, BP 80/54, SpO2 96.",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 10,
+          "O2Sat": 90,
+          "T": 29.0
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 10,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 500,
+          "fluid_type": "crystalloid",
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypothermia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "defibrillate",
+          "value": 200
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 35,
+          "BP_sys": 80,
+          "BP_dia": 54,
+          "RR": 10,
+          "O2Sat": 96,
+          "T": 29.0
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 10,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": 200,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 500,
+          "fluid_type": "crystalloid",
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypothermia",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

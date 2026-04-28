@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": 20, "BP_dia": 10, "T": 0.5}, "interventions_changed": {}, "drugs_added": [{"name": "hydrocortisone", "dose": 6, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Hydrocortisone administration improves blood pressure and slightly raises temperature, while heart rate remains stable."}

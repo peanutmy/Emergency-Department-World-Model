@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -10, "BP_sys": -20, "BP_dia": -10}, "interventions_changed": {}, "drugs_added": [{"name": "esmolol", "dose": 500, "unit": "mcg/kg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Esmolol is a beta-blocker that reduces heart rate and blood pressure, which is consistent with the observed changes."}

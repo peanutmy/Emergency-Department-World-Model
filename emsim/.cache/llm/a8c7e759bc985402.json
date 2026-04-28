@@ -1,0 +1,1 @@
+{"vitals_delta": {"O2Sat": 0}, "interventions_changed": {"fluids_rate_ml_hr": 1500}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Fluids were given, but no immediate change in vitals is observed as the observation window is 0 seconds."}

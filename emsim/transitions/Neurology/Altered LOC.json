@@ -1,0 +1,547 @@
+{
+  "case_id": "altered_loc",
+  "category": "Neurology",
+  "source_pdf": "pdf/Neurology/Altered LOC.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 130,
+      "BP_sys": 90,
+      "BP_dia": 52,
+      "RR": 22,
+      "O2Sat": 92,
+      "T": 35.7
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "septic_shock",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 modifier: 'Bolus 1L fluid -> BP 95/65, HR 115'.",
+      "before": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 90,
+          "BP_dia": 52,
+          "RR": 22,
+          "O2Sat": 92,
+          "T": 35.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "septic_shock",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 1000
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 115,
+          "BP_sys": 95,
+          "BP_dia": 65,
+          "RR": 22,
+          "O2Sat": 92,
+          "T": 35.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "septic_shock",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 1 modifier: 'O2 placed -> sats to 97%'. Scenario says 'O2' without specifying device; use apply_O2.",
+      "before": {
+        "vitals": {
+          "HR": 115,
+          "BP_sys": 95,
+          "BP_dia": 65,
+          "RR": 22,
+          "O2Sat": 92,
+          "T": 35.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "septic_shock",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_nasal"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 115,
+          "BP_sys": 95,
+          "BP_dia": 65,
+          "RR": 22,
+          "O2Sat": 97,
+          "T": 35.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "septic_shock",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 1 trigger: 'Intubation -> State 2 Intubation'. State 2 vitals: HR 110, BP 105/65, O2 98% preoxygenating.",
+      "before": {
+        "vitals": {
+          "HR": 115,
+          "BP_sys": 95,
+          "BP_dia": 65,
+          "RR": 22,
+          "O2Sat": 97,
+          "T": 35.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "septic_shock",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 105,
+          "BP_dia": 65,
+          "RR": 12,
+          "O2Sat": 98,
+          "T": 35.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "septic_shock",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2 modifier: 'If use propofol -> BP to 80/40'. Propofol default 2 mg/kg x 70 kg = 140 mg (round to 150).",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 105,
+          "BP_dia": 65,
+          "RR": 12,
+          "O2Sat": 98,
+          "T": 35.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "septic_shock",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "propofol",
+          "dose": 150,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 60,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 80,
+          "BP_dia": 40,
+          "RR": 12,
+          "O2Sat": 98,
+          "T": 35.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "septic_shock",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 1 trigger branch: '5 minutes -> State 3 Aspiration' (if no intubation). Vitals from State 3 header: HR 120, BP 130/75, O2 86% on NRB, RR 24. NRB implicit in State 3.",
+      "before": {
+        "vitals": {
+          "HR": 115,
+          "BP_sys": 95,
+          "BP_dia": 65,
+          "RR": 22,
+          "O2Sat": 97,
+          "T": 35.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "septic_shock",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 130,
+          "BP_dia": 75,
+          "RR": 24,
+          "O2Sat": 86,
+          "T": 35.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aspiration_pneumonitis",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 3 trigger: 'No intubation -> State 4 PEA arrest'. Default 120s. Vitals: PEA (HR 0), no BP, O2 70%.",
+      "before": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 130,
+          "BP_dia": 75,
+          "RR": 24,
+          "O2Sat": 86,
+          "T": 35.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aspiration_pneumonitis",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 70,
+          "T": 35.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

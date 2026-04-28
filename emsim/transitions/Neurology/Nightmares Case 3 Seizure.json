@@ -1,0 +1,299 @@
+{
+  "case_id": "nightmares_seizure",
+  "category": "Neurology",
+  "source_pdf": "pdf/Neurology/Nightmares Case 3 Seizure.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 114,
+      "BP_sys": 144,
+      "BP_dia": 90,
+      "RR": 14,
+      "O2Sat": 99,
+      "T": 36.5
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "seizure",
+        "severity": "moderate"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 trigger: 'Vitals attempted -> State 2 Seizure'. Default 120s. Vitals: HR 114, BP 144/90, RR 14, O2 99% (State 2 header).",
+      "before": {
+        "vitals": {
+          "HR": 114,
+          "BP_sys": 144,
+          "BP_dia": 90,
+          "RR": 14,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "seizure",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 114,
+          "BP_sys": 144,
+          "BP_dia": 90,
+          "RR": 14,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "status_epilepticus",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 2 modifier: '1st dose benzodiazepine -> no effect'. Scenario specifies lorazepam 2-4 mg or midazolam 5 mg; use midazolam 5 mg (specified). Onset ~3 min.",
+      "before": {
+        "vitals": {
+          "HR": 114,
+          "BP_sys": 144,
+          "BP_dia": 90,
+          "RR": 14,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "status_epilepticus",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "midazolam",
+          "dose": 5,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 114,
+          "BP_sys": 144,
+          "BP_dia": 90,
+          "RR": 14,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "status_epilepticus",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 2 trigger: '2nd dose benzo given -> State 3 Somnolence'. Vitals: HR 98, RR 14, O2 99%.",
+      "before": {
+        "vitals": {
+          "HR": 114,
+          "BP_sys": 144,
+          "BP_dia": 90,
+          "RR": 14,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "status_epilepticus",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "midazolam",
+          "dose": 5,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 98,
+          "BP_sys": 144,
+          "BP_dia": 90,
+          "RR": 14,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "seizure",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

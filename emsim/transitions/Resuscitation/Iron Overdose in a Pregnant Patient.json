@@ -1,0 +1,547 @@
+{
+  "case_id": "iron_overdose_pregnant",
+  "category": "Resuscitation",
+  "source_pdf": "pdf/Resuscitation/Iron Overdose in a Pregnant Patient.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 130,
+      "BP_sys": 90,
+      "BP_dia": 60,
+      "RR": 28,
+      "O2Sat": 94,
+      "T": 37.0
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "iron_overdose",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 modifier: 'O2 applied -> O2 SAT 96%'. Scenario says 'Apply O2' without device; use apply_O2 default.",
+      "before": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 28,
+          "O2Sat": 94,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "iron_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_nasal"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 28,
+          "O2Sat": 96,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "iron_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 1 learner action: 1-2L saline bolus; use max 2L.",
+      "before": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 28,
+          "O2Sat": 96,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "iron_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 2000
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 28,
+          "O2Sat": 96,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "iron_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "Trigger: '5 min -> State 2 Worsening hemodynamics'. HR 140, BP 80/50, RR 25, SpO2 88.",
+      "before": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 28,
+          "O2Sat": 96,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "iron_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 25,
+          "O2Sat": 88,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "iron_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2 modifier: 'No intubation by 8 min, O2 SAT drops -> 80%'. Inaction branch from p3 after (3 more min of no action).",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 25,
+          "O2Sat": 88,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "iron_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 25,
+          "O2Sat": 80,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "iron_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 2 trigger: 'Intubate -> State 3 Persistent hypotension'. New vitals: HR 110, BP 80/55, RR 12, SpO2 96.",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 25,
+          "O2Sat": 88,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "iron_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 80,
+          "BP_dia": 55,
+          "RR": 12,
+          "O2Sat": 96,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "iron_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 3 trigger: 'Start chelation -> State 4 Resolution'. Deferoxamine 15 mg/kg/hr per Poison Control (60 kg x 15 = 900 mg/hr). New vitals: HR 95, BP 105/65, SpO2 96.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 80,
+          "BP_dia": 55,
+          "RR": 12,
+          "O2Sat": 96,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "iron_overdose",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "deferoxamine",
+          "dose": 900,
+          "unit": "mg/hr",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 95,
+          "BP_sys": 105,
+          "BP_dia": 65,
+          "RR": 12,
+          "O2Sat": 96,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "iron_overdose",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

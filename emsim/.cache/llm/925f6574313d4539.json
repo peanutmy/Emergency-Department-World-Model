@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -200, "BP_sys": 80, "BP_dia": 50, "O2Sat": 95}, "interventions_changed": {"CPR_active": true, "defib_last_J": 200}, "mechanism_severity": "severe", "mechanism_rhythm": "sinus", "reasoning": "Defibrillation was successful, leading to return of spontaneous circulation and a change in rhythm to sinus."}

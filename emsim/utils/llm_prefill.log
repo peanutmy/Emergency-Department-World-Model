@@ -1,0 +1,30 @@
+Collected 808 pairs; prefilling with 16 workers (model=gpt-4o-mini)
+    50/808  elapsed=   6.2s  rate= 8.0/s  calls=65  cache_hits=0  failures=0
+   100/808  elapsed=  10.8s  rate= 9.3/s  calls=115  cache_hits=0  failures=0
+   150/808  elapsed=  15.7s  rate= 9.6/s  calls=165  cache_hits=0  failures=0
+   200/808  elapsed=  20.6s  rate= 9.7/s  calls=215  cache_hits=0  failures=0
+   250/808  elapsed=  25.2s  rate= 9.9/s  calls=265  cache_hits=0  failures=0
+   300/808  elapsed=  30.3s  rate= 9.9/s  calls=315  cache_hits=0  failures=0
+   350/808  elapsed=  35.0s  rate=10.0/s  calls=365  cache_hits=0  failures=0
+   400/808  elapsed=  39.7s  rate=10.1/s  calls=415  cache_hits=0  failures=0
+   450/808  elapsed=  45.0s  rate=10.0/s  calls=465  cache_hits=0  failures=0
+   500/808  elapsed=  50.0s  rate=10.0/s  calls=515  cache_hits=0  failures=0
+   550/808  elapsed=  55.1s  rate=10.0/s  calls=565  cache_hits=0  failures=0
+   600/808  elapsed=  59.4s  rate=10.1/s  calls=615  cache_hits=0  failures=0
+   650/808  elapsed=  64.0s  rate=10.2/s  calls=665  cache_hits=0  failures=0
+   700/808  elapsed=  68.7s  rate=10.2/s  calls=715  cache_hits=0  failures=0
+   750/808  elapsed=  73.6s  rate=10.2/s  calls=765  cache_hits=0  failures=0
+   800/808  elapsed=  78.7s  rate=10.2/s  calls=808  cache_hits=0  failures=0
+   808/808  elapsed=  80.8s  rate=10.0/s  calls=808  cache_hits=0  failures=0
+
+Done. 808/808 pairs in 80.8s
+  model         : gpt-4o-mini
+  calls         : 808
+  cache_hits    : 0
+  failures      : 0
+  tokens_in     : 851084
+  tokens_out    : 76828
+  est. cost     : $0.1738
+
+Next:
+  python emsim_eval.py --transitions transitions --engine emsim_llm_engine:LLMEngine --export llm_phase0.csv --worst 20

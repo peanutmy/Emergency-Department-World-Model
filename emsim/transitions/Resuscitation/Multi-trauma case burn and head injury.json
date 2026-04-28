@@ -1,0 +1,731 @@
+{
+  "case_id": "multitrauma_burn_and_head_injury",
+  "category": "Resuscitation",
+  "source_pdf": "pdf/Resuscitation/Multi-trauma case burn and head injury.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 130,
+      "BP_sys": 90,
+      "BP_dia": 70,
+      "RR": 30,
+      "O2Sat": 96,
+      "T": 36.1
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": "NRB",
+      "PEEP": 0,
+      "FiO2": 1.0,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "burn",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "Patient A baseline modifier: '2L IVF -> HR 120, BP 120/80'. Crystalloid bolus.",
+      "before": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 90,
+          "BP_dia": 70,
+          "RR": 30,
+          "O2Sat": 96,
+          "T": 36.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "burn",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 2000
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 120,
+          "BP_dia": 80,
+          "RR": 30,
+          "O2Sat": 96,
+          "T": 36.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "burn",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "Patient A State 2 Intubation modifier: 'NE started -> BP 95/75'. Norepinephrine infusion (push-dose pressor); modeled as drug entry. Default 2 min post action for State 2 transition.",
+      "before": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 120,
+          "BP_dia": 80,
+          "RR": 30,
+          "O2Sat": 96,
+          "T": 36.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "burn",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "norepinephrine",
+          "dose": 10,
+          "unit": "mcg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 95,
+          "BP_dia": 75,
+          "RR": 30,
+          "O2Sat": 93,
+          "T": 36.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "burn",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "Patient A State 2 modifier: 'Propofol used -> BP 80/50 if NE started'. Propofol 2 mg/kg x 70 = 140 mg.",
+      "before": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 95,
+          "BP_dia": 75,
+          "RR": 30,
+          "O2Sat": 93,
+          "T": 36.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "burn",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "propofol",
+          "dose": 140,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 60,
+      "after": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 30,
+          "O2Sat": 93,
+          "T": 36.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "burn",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "Patient A trigger: 'Intubation complete -> State 3 Critical VBG'. State 3 vitals.",
+      "before": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 30,
+          "O2Sat": 93,
+          "T": 36.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "burn",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 80,
+          "BP_dia": 60,
+          "RR": 12,
+          "O2Sat": 95,
+          "T": 36.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cyanide_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "Patient A State 3 trigger: 'Hydroxycobalamin given -> State 4 Ventilator Alarming'. Hydroxocobalamin 5 g IV. Default 2 min post-action.",
+      "before": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 80,
+          "BP_dia": 60,
+          "RR": 12,
+          "O2Sat": 95,
+          "T": 36.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cyanide_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "hydroxocobalamin",
+          "dose": 5,
+          "unit": "g",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 85,
+          "T": 36.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cyanide_toxicity",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "Patient A State 4 trigger: 'Escharotomy -> improved ventilation, O2 95%'.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 85,
+          "T": 36.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cyanide_toxicity",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "escharotomy"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 100,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 95,
+          "T": 36.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 2000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cyanide_toxicity",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "comment": "Patient B baseline (hypoglycemia with HI). Trigger: 'If cap sugar not checked by 5 min -> State 2 Seizure'. Seizure vitals. Patient B pathology hypoglycemia.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 120,
+          "BP_dia": 78,
+          "RR": 20,
+          "O2Sat": 99,
+          "T": 35.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypoglycemia",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 145,
+          "BP_sys": 140,
+          "BP_dia": 75,
+          "RR": 12,
+          "O2Sat": 99,
+          "T": 35.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypoglycemia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p8",
+      "comment": "Patient B State 2 trigger: 'Glucose replaced -> State 3 Normal GCS'. D50 25 g IV.",
+      "before": {
+        "vitals": {
+          "HR": 145,
+          "BP_sys": 140,
+          "BP_dia": 75,
+          "RR": 12,
+          "O2Sat": 99,
+          "T": 35.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypoglycemia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "dextrose_50",
+          "dose": 25,
+          "unit": "g",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 90,
+          "BP_sys": 110,
+          "BP_dia": 78,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 35.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hypoglycemia",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "case_id": "learner_consultant_communication",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Learner-Consultant Communication.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 108,
+      "BP_sys": 88,
+      "BP_dia": 52,
+      "RR": 28,
+      "O2Sat": 97,
+      "T": 36.4
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "tamponade",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 modifier: 'Crystalloid bolus -> HR 106 and BP 100/54'. 500 mL bolus.",
+      "before": {
+        "vitals": {
+          "HR": 108,
+          "BP_sys": 88,
+          "BP_dia": 52,
+          "RR": 28,
+          "O2Sat": 97,
+          "T": 36.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tamponade",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 500
+        }
+      ],
+      "duration_s": 600,
+      "after": {
+        "vitals": {
+          "HR": 106,
+          "BP_sys": 100,
+          "BP_dia": 54,
+          "RR": 28,
+          "O2Sat": 97,
+          "T": 36.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 3000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tamponade",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "Trigger: '5 minutes elapsed -> 2. Diagnosis'. Vitals unchanged per state header.",
+      "before": {
+        "vitals": {
+          "HR": 108,
+          "BP_sys": 88,
+          "BP_dia": 52,
+          "RR": 28,
+          "O2Sat": 97,
+          "T": 36.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tamponade",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 108,
+          "BP_sys": 100,
+          "BP_dia": 54,
+          "RR": 28,
+          "O2Sat": 97,
+          "T": 36.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tamponade",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "Trigger: 5 min -> 3. Consultation. Vitals HR 106 per state 3 header (stable).",
+      "before": {
+        "vitals": {
+          "HR": 108,
+          "BP_sys": 100,
+          "BP_dia": 54,
+          "RR": 28,
+          "O2Sat": 97,
+          "T": 36.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tamponade",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 106,
+          "BP_sys": 100,
+          "BP_dia": 54,
+          "RR": 28,
+          "O2Sat": 97,
+          "T": 36.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 500,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "tamponade",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

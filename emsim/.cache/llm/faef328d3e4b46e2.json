@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -10, "BP_sys": -5, "BP_dia": -3, "O2Sat": 98, "T": 36.8}, "interventions_changed": {"airway": true, "O2_device": "vent", "FiO2": 1.0, "intubated": true}, "mechanism_severity": "severe", "reasoning": "Intubation typically improves oxygenation, leading to increased O2 saturation, while HR and BP may slightly decrease due to sedation effects."}

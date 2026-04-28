@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "O2Sat": 5}, "interventions_changed": {"intubated": true, "airway": true}, "drugs_added": [{"name": "rocuronium", "dose": 28, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Intubation was performed due to severe anaphylaxis, leading to no pulse detected and slight improvement in O2 saturation."}

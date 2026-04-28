@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -5, "BP_sys": -10, "BP_dia": -5, "O2Sat": 1}, "interventions_changed": {"O2_device": "nasal", "FiO2": 0.3}, "drugs_added": [{"name": "nitroglycerin", "dose": 0.4, "unit": "mg", "route": "SL"}], "mechanism_severity": "moderate", "reasoning": "Nitroglycerin can lower blood pressure and heart rate while slightly improving oxygen saturation."}

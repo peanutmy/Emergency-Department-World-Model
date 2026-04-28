@@ -1,0 +1,1 @@
+{"vitals_delta": {"O2Sat": 92}, "interventions_changed": {}, "drugs_added": [{"name": "furosemide", "dose": 40, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Furosemide may improve fluid status, leading to a slight increase in O2 saturation."}

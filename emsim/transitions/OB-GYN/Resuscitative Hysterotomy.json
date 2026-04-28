@@ -1,0 +1,294 @@
+{
+  "case_id": "resuscitative_hysterotomy",
+  "category": "OB-GYN",
+  "source_pdf": "pdf/OB-GYN/Resuscitative Hysterotomy.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 0,
+      "BP_sys": 0,
+      "BP_dia": 0,
+      "RR": 0,
+      "O2Sat": 75,
+      "T": 36.0
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": "BVM",
+      "PEEP": 0,
+      "FiO2": 1.0,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": true,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "pea_arrest",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 action: Initiate massive transfusion. Switch fluids to blood.",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 75,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 1500
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 75,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1500,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "Trigger: 'CPR >5 mins' and all steps complete -> State 2 Resuscitative Hysterotomy. Scenario states VS unchanged after 5 mins.",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 75,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1500,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 75,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1500,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 4 trigger: 'End resuscitative efforts'. Maternal VS unchanged (pulseless) - represented as passive time until efforts ended. Mother does not return to spontaneous circulation per scenario (patient remains unresponsive/pulseless through State 4).",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 75,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1500,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "stop_CPR"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 75,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1500,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pea_arrest",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

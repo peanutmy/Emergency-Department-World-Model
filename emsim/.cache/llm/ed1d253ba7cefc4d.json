@@ -1,0 +1,1 @@
+{"vitals_delta": {"O2Sat": 2}, "interventions_changed": {}, "drugs_added": [{"name": "magnesium", "dose": 2, "unit": "g", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Magnesium may help improve bronchospasm and slightly increase O2 saturation over time."}

@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10}, "interventions_changed": {}, "drugs_added": [{"name": "atropine", "dose": 0.5, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Atropine raises HR in bradycardia, resulting in a slight increase in HR."}

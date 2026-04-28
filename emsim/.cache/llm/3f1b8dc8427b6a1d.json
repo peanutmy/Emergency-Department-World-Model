@@ -1,0 +1,1 @@
+{"vitals_delta": {"BP_sys": -10, "BP_dia": -5, "HR": 0}, "interventions_changed": {"airway": true, "intubated": true, "O2_device": "vent", "FiO2": 1.0}, "mechanism_severity": "severe", "reasoning": "Intubation typically leads to a modest drop in blood pressure and maintains heart rate at 0 due to the severe condition."}

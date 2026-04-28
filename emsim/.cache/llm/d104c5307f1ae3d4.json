@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -10}, "interventions_changed": {}, "drugs_added": [{"name": "procainamide", "dose": 50, "unit": "mg/min", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Procainamide may help stabilize the heart rate slightly, leading to a modest decrease in HR."}

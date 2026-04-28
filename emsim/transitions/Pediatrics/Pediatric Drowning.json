@@ -1,0 +1,726 @@
+{
+  "case_id": "pediatric_drowning",
+  "category": "Pediatrics",
+  "source_pdf": "pdf/Pediatrics/Pediatric Drowning.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 150,
+      "BP_sys": 85,
+      "BP_dia": 40,
+      "RR": 38,
+      "O2Sat": 90,
+      "T": 34.0
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": "BVM",
+      "PEEP": 0,
+      "FiO2": 1.0,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "drowning",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 action: Warming measures (Bair hugger).",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 38,
+          "O2Sat": 90,
+          "T": 34.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "start_warming"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 38,
+          "O2Sat": 90,
+          "T": 34.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 1 trigger: 'Decision to intubate -> 2. Definitive airway'. State 2: O2 94% (positive pressure improves hypoxemia 90 -> 93%; then pre-oxygenation to 94%), T 36 per State 2 header (warming).",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 38,
+          "O2Sat": 90,
+          "T": 34.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 38,
+          "O2Sat": 94,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 2: RSI ketamine 1.5mg/kg x 16kg = 24 mg.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 38,
+          "O2Sat": 94,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "ketamine",
+          "dose": 24,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 60,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 38,
+          "O2Sat": 94,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2: rocuronium 1.2mg/kg x 16kg = 19.2 mg.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 38,
+          "O2Sat": 94,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "rocuronium",
+          "dose": 19.2,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 38,
+          "O2Sat": 94,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 2 trigger: 'Once intubated proceed to next stage'. Modifier: 'Sp02 falls to 80% post-intubation'.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 38,
+          "O2Sat": 94,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 25,
+          "O2Sat": 80,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": 25,
+          "vent_TV_ml": 100,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 3 modifier: 'Manual BVM -> saturations improve to 90%'. Switch from vent to BVM.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 25,
+          "O2Sat": 80,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": 25,
+          "vent_TV_ml": 100,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_BVM"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 25,
+          "O2Sat": 90,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "comment": "State 3 trigger: '5 min -> 4. Bradycardia with poor perfusion'. State 4: HR 50, O2 88%.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 25,
+          "O2Sat": 90,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 25,
+          "O2Sat": 88,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p8",
+      "comment": "State 4 expected actions: 'Start CPR given HR < 60 bpm' + 'PALS Epi 0.01 mg/kg IV'. Trigger: 'At first pulse check HR increases to 100' (after ~1 CPR cycle = 120 s). Both actions jointly cause HR 50->100.",
+      "before": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 25,
+          "O2Sat": 88,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "start_CPR"
+        },
+        {
+          "type": "drug",
+          "name": "epinephrine",
+          "dose": 0.16,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 85,
+          "BP_dia": 40,
+          "RR": 25,
+          "O2Sat": 88,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "drowning",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

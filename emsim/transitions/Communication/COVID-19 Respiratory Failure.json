@@ -1,0 +1,373 @@
+{
+  "case_id": "covid_19_respiratory_failure",
+  "category": "Communication",
+  "source_pdf": "pdf/Communication/COVID-19 Respiratory Failure.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 140,
+      "BP_sys": 100,
+      "BP_dia": 60,
+      "RR": 22,
+      "O2Sat": 90,
+      "T": 39.2
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "pneumonia",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 -> State 2 trigger: 'Move to neg pressure room, handover to bedside team'. State 2 vitals: RR 28, O2Sat 84% (worsening). No explicit duration; default 2 min.",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 100,
+          "BP_dia": 60,
+          "RR": 22,
+          "O2Sat": 90,
+          "T": 39.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pneumonia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 100,
+          "BP_dia": 60,
+          "RR": 28,
+          "O2Sat": 84,
+          "T": 39.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pneumonia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 2 modifier: 'O2Sat increases to 90% with supplemental O2' - NRB applied per scenario 'Apply O2 by NRB mask'.",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 100,
+          "BP_dia": 60,
+          "RR": 28,
+          "O2Sat": 84,
+          "T": 39.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pneumonia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_NRB"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 100,
+          "BP_dia": 60,
+          "RR": 28,
+          "O2Sat": 90,
+          "T": 39.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pneumonia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 2 -> State 3 Intubation trigger: 'All action complete'. State 3 vitals: RR 30, O2Sat 86% NRB (patient decompensating). Default 2 min.",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 100,
+          "BP_dia": 60,
+          "RR": 28,
+          "O2Sat": 90,
+          "T": 39.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pneumonia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 100,
+          "BP_dia": 60,
+          "RR": 30,
+          "O2Sat": 86,
+          "T": 39.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pneumonia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 3 -> State 4 Disposition trigger: 'Successful intubation'. State 4 vitals: RR 14, O2Sat 92% (Vented 100% FiO2).",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 100,
+          "BP_dia": 60,
+          "RR": 30,
+          "O2Sat": 86,
+          "T": 39.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pneumonia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 100,
+          "BP_dia": 60,
+          "RR": 14,
+          "O2Sat": 92,
+          "T": 39.2
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pneumonia",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

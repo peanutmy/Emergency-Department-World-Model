@@ -1,0 +1,709 @@
+{
+  "case_id": "newborn_resuscitation",
+  "category": "Pediatrics",
+  "source_pdf": "pdf/Pediatrics/Newborn Resuscitation.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 50,
+      "BP_sys": 0,
+      "BP_dia": 0,
+      "RR": 20,
+      "O2Sat": 58,
+      "T": 36.5
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "neonatal_respiratory_distress",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 action: 'warm & dry'. start_warming intervention.",
+      "before": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 20,
+          "O2Sat": 58,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "start_warming"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 20,
+          "O2Sat": 58,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 1 action: 'start PPV with 21% FiO2'. apply_BVM; FiO2 per scenario is 0.21 (not the default 1.0).",
+      "before": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 20,
+          "O2Sat": 58,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_BVM"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 20,
+          "O2Sat": 58,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 1 trigger: '1 min -> State 2 60-Second Mark'. Unchanged vitals.",
+      "before": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 20,
+          "O2Sat": 58,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 60,
+      "after": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 20,
+          "O2Sat": 58,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2 action: 'Switch to 100% FiO2' then intubate. Use intubate (vent settings per scenario: ?).",
+      "before": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 20,
+          "O2Sat": 58,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 20,
+          "O2Sat": 58,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 40,
+          "vent_TV_ml": 15,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 2 action: 'Start CPR at 90 sec or after intubation'.",
+      "before": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 20,
+          "O2Sat": 58,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 40,
+          "vent_TV_ml": 15,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "start_CPR"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 20,
+          "O2Sat": 58,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 40,
+          "vent_TV_ml": 15,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 2 trigger: '4 min -> State 3 HR>60'. State 3 vitals: HR 80, RR 40, O2 75%, BP 55/30.",
+      "before": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 20,
+          "O2Sat": 58,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 40,
+          "vent_TV_ml": 15,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 80,
+          "BP_sys": 55,
+          "BP_dia": 30,
+          "RR": 40,
+          "O2Sat": 75,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 40,
+          "vent_TV_ml": 15,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "comment": "State 3: IVF bolus 10ml/kg x 2.5kg = 25ml crystalloid.",
+      "before": {
+        "vitals": {
+          "HR": 80,
+          "BP_sys": 55,
+          "BP_dia": 30,
+          "RR": 40,
+          "O2Sat": 75,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 40,
+          "vent_TV_ml": 15,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 25
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 80,
+          "BP_sys": 55,
+          "BP_dia": 30,
+          "RR": 40,
+          "O2Sat": 75,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 40,
+          "vent_TV_ml": 15,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 25,
+          "fluid_type": "crystalloid",
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p8",
+      "comment": "State 3 trigger: '7 min -> State 4 HR>100'. 3 min elapse. State 4: HR 120, O2 83%.",
+      "before": {
+        "vitals": {
+          "HR": 80,
+          "BP_sys": 55,
+          "BP_dia": 30,
+          "RR": 40,
+          "O2Sat": 75,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 40,
+          "vent_TV_ml": 15,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 25,
+          "fluid_type": "crystalloid",
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 55,
+          "BP_dia": 30,
+          "RR": 40,
+          "O2Sat": 83,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 40,
+          "vent_TV_ml": 15,
+          "intubated": true,
+          "CPR_active": true,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 25,
+          "fluid_type": "crystalloid",
+          "warming_active": true,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "neonatal_respiratory_distress",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

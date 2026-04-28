@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 20, "BP_sys": 60, "BP_dia": 30, "O2Sat": 10}, "interventions_changed": {"CPR_active": true}, "drugs_added": [{"name": "epinephrine", "dose": 1, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Epinephrine administration in a severe PEA arrest improves blood pressure and heart rate while CPR remains active."}

@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": 0, "BP_dia": 0, "RR": 0, "O2Sat": 0, "T": 0}, "interventions_changed": {"CPR_active": true, "O2_device": "NRB", "FiO2": 1}, "mechanism_severity": "severe", "mechanism_rhythm": "asystole", "reasoning": "Defibrillation on VF did not achieve ROSC, leading to asystole and initiation of CPR."}

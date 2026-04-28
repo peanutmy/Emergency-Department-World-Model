@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "RR": 0, "O2Sat": 0}, "interventions_changed": {"airway": true, "O2_device": "vent", "intubated": true}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Intubation was performed, leading to no immediate change in vitals but establishing an airway."}

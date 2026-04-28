@@ -1,0 +1,726 @@
+{
+  "case_id": "obstetrical_trauma",
+  "category": "OB-GYN",
+  "source_pdf": "pdf/OB-GYN/Obstetrical Trauma.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 150,
+      "BP_sys": 80,
+      "BP_dia": 50,
+      "RR": 40,
+      "O2Sat": 90,
+      "T": 35.5
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": "NRB",
+      "PEEP": 0,
+      "FiO2": 1.0,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "obstetric_trauma",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 modifier: 'Needle decompression -> gush of air back, O2 95%, BP same'.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 40,
+          "O2Sat": 90,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "needle_decompress"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 40,
+          "O2Sat": 95,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 1 modifier: 'Chest tube -> 200cc blood, O2 97%, BP 85/55, RR 20'.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 40,
+          "O2Sat": 95,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "place_chest_tube"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 55,
+          "RR": 20,
+          "O2Sat": 97,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 1 action: give fluids (NS + 2u O- pRBC). Use blood (hemorrhagic shock). Modifier says 'NS/blood transfusion -> BP unchanged'.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 55,
+          "RR": 20,
+          "O2Sat": 97,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 999
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 55,
+          "RR": 20,
+          "O2Sat": 97,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 999,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 1 action: TxA 1 g IV over 10 min. Onset ~5 min per PK table.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 55,
+          "RR": 20,
+          "O2Sat": 97,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 999,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "TXA",
+          "dose": 1,
+          "unit": "g",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 600,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 55,
+          "RR": 20,
+          "O2Sat": 97,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 999,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "Trigger: 'All learner actions complete or 8 minutes -> 2. Persistent hypotension'. Default 120 s.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 55,
+          "RR": 20,
+          "O2Sat": 97,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 999,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 155,
+          "BP_sys": 75,
+          "BP_dia": 45,
+          "RR": 20,
+          "O2Sat": 95,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 999,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 2 modifier: 'Level 1 transfusion -> BP 85/60, HR 140'. Already transfusing; this is escalation to 1:1:1.",
+      "before": {
+        "vitals": {
+          "HR": 155,
+          "BP_sys": 75,
+          "BP_dia": 45,
+          "RR": 20,
+          "O2Sat": 95,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 999,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 1500
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 85,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 95,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1500,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "comment": "State 3 trigger: 'Intubation complete -> 4. Husband Arrives'. Ketamine RSI (scenario recommends BP-stable agents; default 100 mg). Then rocuronium. After vitals from State 4.",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 85,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 95,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1500,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "ketamine",
+          "dose": 100,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 60,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 85,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 85,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1500,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p8",
+      "comment": "Intubation complete -> State 4 Husband Arrives. Vent settings from State 4 (RR 12, O2Sat 99%). BP still 60/40 per State 4 vitals.",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 85,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 85,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1500,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 60,
+          "BP_dia": 40,
+          "RR": 12,
+          "O2Sat": 99,
+          "T": 35.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1500,
+          "fluid_type": "blood",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": true,
+          "chest_tube": true,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "obstetric_trauma",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

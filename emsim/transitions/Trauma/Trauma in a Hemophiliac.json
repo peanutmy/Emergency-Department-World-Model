@@ -1,0 +1,560 @@
+{
+  "case_id": "trauma_in_a_hemophiliac",
+  "category": "Trauma",
+  "source_pdf": "pdf/Trauma/Trauma in a Hemophiliac.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 110,
+      "BP_sys": 120,
+      "BP_dia": 80,
+      "RR": 14,
+      "O2Sat": 100,
+      "T": 36.0
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "polytrauma",
+        "severity": "moderate"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 modifier: 'Analgesia given -> HR 90'. Scenario doesn't specify agent in modifier row; no direct dose given. Action not invented - skipping specific drug. Use IV fluids as documented learner action '1L NS bolus' instead since it's clearly specified. This pair: 1L NS bolus over 1 hour = 1000 ml/hr, no vital change documented for fluids alone.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 120,
+          "BP_dia": 80,
+          "RR": 14,
+          "O2Sat": 100,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "polytrauma",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "fentanyl",
+          "dose": 100,
+          "unit": "mcg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 90,
+          "BP_sys": 120,
+          "BP_dia": 80,
+          "RR": 14,
+          "O2Sat": 100,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "polytrauma",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 1 learner action: 'rVIII 50U/kg'. Scenario specifies 50 U/kg x 50 kg = 2500 U IV. No PK default in guide; use 15 min (factor replacement onset). No direct vital change for this action alone; kept for action documentation - severity mild (bleeding controlled).",
+      "before": {
+        "vitals": {
+          "HR": 90,
+          "BP_sys": 120,
+          "BP_dia": 80,
+          "RR": 14,
+          "O2Sat": 100,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "polytrauma",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "rVIII",
+          "dose": 2500,
+          "unit": "U",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 900,
+      "after": {
+        "vitals": {
+          "HR": 90,
+          "BP_sys": 120,
+          "BP_dia": 80,
+          "RR": 14,
+          "O2Sat": 100,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "polytrauma",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 1 trigger: '8 minutes or all learner actions complete -> State 2 Back from CT (assume 20 minutes passed)'. New vitals per State 2: HR 95, BP 125/80, RR 12. Mechanism now includes small ICH.",
+      "before": {
+        "vitals": {
+          "HR": 90,
+          "BP_sys": 120,
+          "BP_dia": 80,
+          "RR": 14,
+          "O2Sat": 100,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "polytrauma",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 1200,
+      "after": {
+        "vitals": {
+          "HR": 95,
+          "BP_sys": 125,
+          "BP_dia": 80,
+          "RR": 12,
+          "O2Sat": 100,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "traumatic_brain_injury",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2 trigger: 'Verbalize plan for intubation -> State 3 Intubation' - sedation given; use midazolam as IV sedation agent (scenario says 'IV/IM sedation for agitation' without specific agent; midazolam is standard). State 3 vitals: HR 100, BP 120/80, RR 15.",
+      "before": {
+        "vitals": {
+          "HR": 95,
+          "BP_sys": 125,
+          "BP_dia": 80,
+          "RR": 12,
+          "O2Sat": 100,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "traumatic_brain_injury",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "midazolam",
+          "dose": 2,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 120,
+          "BP_dia": 80,
+          "RR": 15,
+          "O2Sat": 100,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "traumatic_brain_injury",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 3 modifier: 'Propofol given -> BP 95/70, HR 105'. Propofol for induction; default 2 mg/kg x 50 kg = 100 mg.",
+      "before": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 120,
+          "BP_dia": 80,
+          "RR": 15,
+          "O2Sat": 100,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "traumatic_brain_injury",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "propofol",
+          "dose": 100,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 60,
+      "after": {
+        "vitals": {
+          "HR": 105,
+          "BP_sys": 95,
+          "BP_dia": 70,
+          "RR": 15,
+          "O2Sat": 100,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "traumatic_brain_injury",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 3 trigger: 'Intubation complete -> State 4 Labs Back'. New vitals State 4: HR 85, BP 115/75, RR 12.",
+      "before": {
+        "vitals": {
+          "HR": 105,
+          "BP_sys": 95,
+          "BP_dia": 70,
+          "RR": 15,
+          "O2Sat": 100,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "traumatic_brain_injury",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 85,
+          "BP_sys": 115,
+          "BP_dia": 75,
+          "RR": 12,
+          "O2Sat": 100,
+          "T": 36.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 400,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "traumatic_brain_injury",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

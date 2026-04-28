@@ -1,0 +1,462 @@
+{
+  "case_id": "pediatric_viral_myocarditis",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Pediatric Viral Myocarditis.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 130,
+      "BP_sys": 110,
+      "BP_dia": 70,
+      "RR": 30,
+      "O2Sat": 92,
+      "T": 38.0
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": "NRB",
+      "PEEP": 0,
+      "FiO2": 1.0,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "viral_myocarditis",
+        "severity": "moderate"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 trigger: 'All actions complete or 5 min -> State 2 Hypoxia'.",
+      "before": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 110,
+          "BP_dia": 70,
+          "RR": 30,
+          "O2Sat": 92,
+          "T": 38.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "viral_myocarditis",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 35,
+          "O2Sat": 82,
+          "T": 38.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "viral_myocarditis",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 2 trigger: 'Intubation -> State 3 Hypotension'. Vent settings; BP drops per state 3.",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 35,
+          "O2Sat": 82,
+          "T": 38.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "viral_myocarditis",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 95,
+          "T": 38.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 3 auto-progression: 'BP 80/50 -> 70/40 over 2 min'.",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 95,
+          "T": 38.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 70,
+          "BP_dia": 40,
+          "RR": 12,
+          "O2Sat": 95,
+          "T": 38.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 3 modifier: 'If given IV bolus -> BP worsens 60/40' (worsens cardiogenic shock).",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 70,
+          "BP_dia": 40,
+          "RR": 12,
+          "O2Sat": 95,
+          "T": 38.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 500
+        }
+      ],
+      "duration_s": 600,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 60,
+          "BP_dia": 40,
+          "RR": 12,
+          "O2Sat": 95,
+          "T": 38.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 3000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 3 trigger: 'Inotropes started -> State 4 Resolution'. Dobutamine modeled as drug.",
+      "before": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 70,
+          "BP_dia": 40,
+          "RR": 12,
+          "O2Sat": 95,
+          "T": 38.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "dobutamine",
+          "dose": 1,
+          "unit": "mcg/kg/min",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 100,
+          "BP_dia": 60,
+          "RR": 12,
+          "O2Sat": 95,
+          "T": 38.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 12,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "cardiogenic_shock",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

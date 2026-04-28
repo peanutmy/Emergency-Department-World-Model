@@ -1,0 +1,653 @@
+{
+  "case_id": "aortic_stenosis_with_afib_and_chf",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Aortic Stenosis with A Fib and CHF.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 150,
+      "BP_sys": 105,
+      "BP_dia": 50,
+      "RR": 30,
+      "O2Sat": 95,
+      "T": 36.6
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": "NRB",
+      "PEEP": 0,
+      "FiO2": 1.0,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "chf_exacerbation",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 2 modifier: '250cc bolus -> BP 85/65, HR 145, O2 96%'.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 80,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 98,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 250
+        }
+      ],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 145,
+          "BP_sys": 85,
+          "BP_dia": 65,
+          "RR": 20,
+          "O2Sat": 96,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 3000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 2 modifier: '500cc total bolus -> BP 90/70, HR 140, O2 90%'. Second 250cc bolus.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 80,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 98,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 500
+        }
+      ],
+      "duration_s": 600,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 90,
+          "BP_dia": 70,
+          "RR": 20,
+          "O2Sat": 90,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 3000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 2 modifier: 'Amiodarone/dig given -> HR 100, BP 100/75'.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 80,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 98,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "amiodarone",
+          "dose": 300,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 100,
+          "BP_dia": 75,
+          "RR": 20,
+          "O2Sat": 98,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2 modifier: 'Norepi → BP 100/75, HR 140'.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 80,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 98,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "norepinephrine",
+          "dose": 8,
+          "unit": "mcg/min",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 600,
+      "after": {
+        "vitals": {
+          "HR": 140,
+          "BP_sys": 100,
+          "BP_dia": 75,
+          "RR": 20,
+          "O2Sat": 98,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 2 modifier: 'BB/CCB used for rate control.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 80,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 98,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "esmolol",
+          "dose": 500,
+          "unit": "mcg/kg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 70,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 98,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 3 Cardioversion modifier: 'Shock at 200J -> converts to sinus rhythm HR 82, BP 100/80'. Branch from State 2 post-rate-control state (alternative path).",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 80,
+          "BP_dia": 60,
+          "RR": 20,
+          "O2Sat": 98,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "defibrillate",
+          "value": 200
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 82,
+          "BP_sys": 100,
+          "BP_dia": 80,
+          "RR": 20,
+          "O2Sat": 98,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": 200,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "comment": "State 4 modifier: 'Nitro given -> BP 70/40' (dangerous in AS).",
+      "before": {
+        "vitals": {
+          "HR": 90,
+          "BP_sys": 100,
+          "BP_dia": 80,
+          "RR": 30,
+          "O2Sat": 90,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "nitroglycerin",
+          "dose": 0.4,
+          "unit": "mg",
+          "route": "SL"
+        }
+      ],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 90,
+          "BP_sys": 70,
+          "BP_dia": 40,
+          "RR": 30,
+          "O2Sat": 90,
+          "T": 36.6
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "chf_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    }
+  ]
+}

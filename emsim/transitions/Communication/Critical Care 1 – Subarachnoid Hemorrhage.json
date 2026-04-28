@@ -1,0 +1,717 @@
+{
+  "case_id": "critical_care_1_subarachnoid_hemorrhage",
+  "category": "Communication",
+  "source_pdf": "pdf/Communication/Critical Care 1 – Subarachnoid Hemorrhage.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 110,
+      "BP_sys": 170,
+      "BP_dia": 95,
+      "RR": 12,
+      "O2Sat": 92,
+      "T": 37.4
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": "nasal",
+      "PEEP": 0,
+      "FiO2": 0.3,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "subarachnoid_hemorrhage",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 -> State 2 trigger: '5 mins elapsing' -> BP progressively drops to 80/50.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 170,
+          "BP_dia": 95,
+          "RR": 12,
+          "O2Sat": 92,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 92,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 2 modifier: 'IV fluid bolus -> Increase sBP by 10 over 3 min'.",
+      "before": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 92,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "give_fluids",
+          "value": 1000
+        }
+      ],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 92,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 2 modifier: 'IV phenylephrine push -> Increase sBP by 10 over 1 min'. Branch from p1 after.",
+      "before": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 92,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "phenylephrine",
+          "dose": 100,
+          "unit": "mcg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 60,
+      "after": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 92,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2 -> State 3 trigger: '5 mins elapsing' -> O2SAT decreases to 87% if not intubated or BMV by 5 min. Assumes fluid bolus path (continues from p2 after).",
+      "before": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 92,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 87,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 3 modifier: 'NRB applied or FiO2 increased -> sat 88%'.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 87,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_NRB"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 88,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 3 modifier: 'BMV -> sat 92%'. Branch from p4 after.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 87,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_BVM"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 92,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "comment": "State 3 modifier: 'Oral airway -> sat 97%'. Progression from p6 (BVM) with airway adjunct added.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 92,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "place_airway"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 97,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p8",
+      "comment": "State 3 -> State 4 trigger: 'Post-intubation'. State 4 header vitals: HR 120, BP 165/90, RR 16, O2 98% on PCV (vent), GCS 3.",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 90,
+          "BP_dia": 50,
+          "RR": 12,
+          "O2Sat": 97,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "BVM",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 120,
+          "BP_sys": 165,
+          "BP_dia": 90,
+          "RR": 16,
+          "O2Sat": 98,
+          "T": 37.4
+        },
+        "interventions": {
+          "airway": true,
+          "O2_device": "vent",
+          "PEEP": 5,
+          "FiO2": 1.0,
+          "vent_rate": 16,
+          "vent_TV_ml": 400,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 1000,
+          "fluid_type": "crystalloid",
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "subarachnoid_hemorrhage",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

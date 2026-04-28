@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": 0, "BP_dia": 0, "RR": -2, "O2Sat": 0, "T": 0}, "interventions_changed": {"CPR_active": true}, "drugs_added": [{"name": "rocuronium", "dose": 19.2, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "CPR was initiated due to severe drowning, resulting in no detectable HR and a slight decrease in RR."}

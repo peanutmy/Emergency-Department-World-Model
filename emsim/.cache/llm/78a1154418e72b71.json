@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "O2Sat": 0}, "interventions_changed": {}, "drugs_added": [{"name": "amiodarone", "dose": 300, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "The patient remains in cardiac arrest with no change in vitals despite the administration of amiodarone."}

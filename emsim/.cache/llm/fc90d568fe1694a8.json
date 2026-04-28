@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "O2Sat": 1}, "interventions_changed": {}, "drugs_added": [{"name": "magnesium", "dose": 2, "unit": "g", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Magnesium administration can help improve bronchial function in asthma exacerbation, leading to a slight increase in O2 saturation and stabilization of heart rate."}

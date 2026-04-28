@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "O2Sat": 2}, "interventions_changed": {}, "drugs_added": [{"name": "amiodarone", "dose": 300, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Amiodarone is administered for ventricular tachycardia, which stabilizes the heart rhythm and improves oxygen saturation slightly."}

@@ -1,0 +1,1 @@
+{"vitals_delta": {"RR": 10}, "interventions_changed": {}, "drugs_added": [{"name": "naloxone", "dose": 0.4, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Naloxone may improve respiratory rate in cases of opioid-induced respiratory depression."}

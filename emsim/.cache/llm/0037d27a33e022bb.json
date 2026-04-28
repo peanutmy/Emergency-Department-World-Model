@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -10, "BP_sys": 10, "BP_dia": 5, "RR": -2}, "interventions_changed": {"fluids_rate_ml_hr": 50}, "mechanism_severity": "severe", "reasoning": "Fluid administration typically improves hemodynamics, leading to a slight decrease in HR and an increase in BP."}

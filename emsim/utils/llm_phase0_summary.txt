@@ -1,0 +1,66 @@
+========================================================================
+EMSim Physiology Engine — Evaluation
+========================================================================
+Total pairs             : 808
+Engine errors           : 0
+Strict pair pass        : 94/808  ( 11.6%)
+Mean partial score      : 0.855
+
+Per-vital metrics (over scored pairs):
+  vital     within_tol   dir_match       MAE
+  HR             69.2%       53.6%     15.55
+  BP_sys         71.8%       57.3%     17.18
+  BP_dia         79.5%       60.8%     10.77
+  RR             75.1%       67.6%      4.04
+  O2Sat          62.9%       64.4%      9.44
+  T              91.8%       89.0%      0.15
+
+Intervention flag match rates:
+  airway                   85.8%
+  intubated                98.0%
+  CPR_active               94.2%
+  pacing_active           100.0%
+  warming_active           99.8%
+  cooling_active          100.0%
+  needle_decompression     99.8%
+  chest_tube               99.9%
+  pericardiocentesis      100.0%
+  O2_device                93.7%
+  fluid_type               90.6%
+  PEEP                     96.0%
+  FiO2                     89.1%
+  vent_rate                89.5%
+  vent_TV_ml               89.9%
+  defib_last_J             97.8%
+  pacing_rate             100.0%
+  fluids_rate_ml_hr        95.4%
+
+Per-category pair pass rate:
+  Cardiology           32/224   14.3%
+  Communication         3/36     8.3%
+  Endocrine             8/54    14.8%
+  GI                    3/16    18.8%
+  Neurology             2/44     4.5%
+  OB-GYN               10/54    18.5%
+  Pediatrics            9/98     9.2%
+  Respiratory           3/81     3.7%
+  Resuscitation        18/152   11.8%
+  Toxicology            5/26    19.2%
+  Trauma                1/23     4.3%
+
+Pure-wait pairs    (actions=0): 14/249    5.6%
+Action pairs     (actions>=1): 80/559   14.3%
+
+Top 20 worst-predicted pairs (by tolerance-normalized vital error):
+  category       case / pair                                         score  worst vitals
+Traceback (most recent call last):
+  File "D:\wmed\emsim\emsim_eval.py", line 410, in <module>
+    main()
+  File "D:\wmed\emsim\emsim_eval.py", line 403, in main
+    print_worst(results, args.worst)
+  File "D:\wmed\emsim\emsim_eval.py", line 336, in print_worst
+    print(f"  {r['category']:<14} {tag:<50} {r['partial_score']:>6.2f}  {worst_str}")
+  File "C:\Users\peanu\miniconda3\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 84: character maps to <undefined>

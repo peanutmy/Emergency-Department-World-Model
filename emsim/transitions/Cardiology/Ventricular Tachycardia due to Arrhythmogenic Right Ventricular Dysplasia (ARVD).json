@@ -1,0 +1,211 @@
+{
+  "case_id": "vt_arvd",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Ventricular Tachycardia due to Arrhythmogenic Right Ventricular Dysplasia (ARVD).pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 162,
+      "BP_sys": 109,
+      "BP_dia": 71,
+      "RR": 18,
+      "O2Sat": 99,
+      "T": 36.8
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "vt",
+        "severity": "moderate"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 trigger: 'Antiarrhythmic -> State 2 Stabilization'. Scenario lists Procainamide/amiodarone; use amiodarone 300 mg IV (default onset-to-peak ~5 min). State 2 vitals: sinus HR 75, BP 118/77.",
+      "before": {
+        "vitals": {
+          "HR": 162,
+          "BP_sys": 109,
+          "BP_dia": 71,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vt",
+            "severity": "moderate"
+          },
+          "rhythm": "VT"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "amiodarone",
+          "dose": 300,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 75,
+          "BP_sys": 118,
+          "BP_dia": 77,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vt",
+            "severity": "mild"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2 trigger: '2 minutes -> State 3 Unstable'. Linear path continues from p2. Unstable vitals: VT HR 180, BP 80/56.",
+      "before": {
+        "vitals": {
+          "HR": 75,
+          "BP_sys": 118,
+          "BP_dia": 77,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vt",
+            "severity": "mild"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 180,
+          "BP_sys": 80,
+          "BP_dia": 56,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vt",
+            "severity": "severe"
+          },
+          "rhythm": "VT"
+        }
+      }
+    }
+  ]
+}

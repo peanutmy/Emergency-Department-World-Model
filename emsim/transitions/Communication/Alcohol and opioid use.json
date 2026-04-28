@@ -1,0 +1,42 @@
+{
+  "case_id": "alcohol_and_opioid_use",
+  "category": "Communication",
+  "source_pdf": "pdf/Communication/Alcohol and opioid use.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 115,
+      "BP_sys": 130,
+      "BP_dia": 80,
+      "RR": 15,
+      "O2Sat": 96,
+      "T": 36.5
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "alcohol_intoxication",
+        "severity": "mild"
+      }
+    }
+  },
+  "pairs": []
+}

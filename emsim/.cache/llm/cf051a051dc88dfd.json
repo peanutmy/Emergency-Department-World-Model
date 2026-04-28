@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -100}, "interventions_changed": {}, "drugs_added": [{"name": "adenosine", "dose": 1, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Adenosine is expected to significantly reduce the heart rate in SVT, leading to a decrease in HR and a change in severity."}

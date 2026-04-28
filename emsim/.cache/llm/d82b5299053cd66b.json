@@ -1,0 +1,1 @@
+{"vitals_delta": {}, "interventions_changed": {}, "drugs_added": [{"name": "insulin_regular", "dose": 10, "unit": "U", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Insulin administration may help lower potassium levels but does not significantly change immediate vitals in a mild hyperkalemia case."}

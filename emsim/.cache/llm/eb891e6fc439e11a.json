@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -150, "BP_sys": 100, "BP_dia": 60, "O2Sat": 95}, "interventions_changed": {"O2_device": "nasal", "CPR_active": true}, "mechanism_severity": "moderate", "mechanism_rhythm": "sinus", "reasoning": "Defibrillation likely converted the rhythm to sinus and initiated CPR due to initial cardiac arrest."}

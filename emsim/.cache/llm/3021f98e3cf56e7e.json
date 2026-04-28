@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 5, "O2Sat": 2}, "interventions_changed": {"O2_device": "BVM", "FiO2": 0.8}, "drugs_added": [{"name": "naloxone", "dose": 2.0, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Naloxone administration improves respiratory drive and oxygen saturation, leading to a slight increase in heart rate and blood pressure."}

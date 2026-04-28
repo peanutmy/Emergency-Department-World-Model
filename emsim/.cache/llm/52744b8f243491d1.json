@@ -1,0 +1,1 @@
+{"vitals_delta": {"T": 0.5}, "interventions_changed": {}, "drugs_added": [{"name": "ketamine", "dose": 350, "unit": "mg", "route": "IM"}], "mechanism_severity": "moderate", "reasoning": "Ketamine administration may cause a slight increase in temperature due to its effects, but no other vitals or interventions change significantly."}

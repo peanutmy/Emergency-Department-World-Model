@@ -1,0 +1,288 @@
+{
+  "case_id": "thyroid_storm",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Thyroid Storm.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 145,
+      "BP_sys": 150,
+      "BP_dia": 80,
+      "RR": 32,
+      "O2Sat": 89,
+      "T": 40.0
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": "nasal",
+      "PEEP": 0,
+      "FiO2": 0.4,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "thyroid_storm",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "Trigger: '3 minutes -> State 2 Deterioration'. New vitals from State 2 header (HR 145->150, BP 150/80->115/70, RR 32->34, O2Sat 89->93, GCS drop to 10 not in vitals schema).",
+      "before": {
+        "vitals": {
+          "HR": 145,
+          "BP_sys": 150,
+          "BP_dia": 80,
+          "RR": 32,
+          "O2Sat": 89,
+          "T": 40.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.4,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "thyroid_storm",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 115,
+          "BP_dia": 70,
+          "RR": 34,
+          "O2Sat": 93,
+          "T": 40.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.4,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "thyroid_storm",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 2 modifier: 'No intubation by 8 min -> drop O2SAT to 85%'. 5 more min after State 2 entry (total 8 min).",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 115,
+          "BP_dia": 70,
+          "RR": 34,
+          "O2Sat": 93,
+          "T": 40.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.4,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "thyroid_storm",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 115,
+          "BP_dia": 70,
+          "RR": 34,
+          "O2Sat": 85,
+          "T": 40.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.4,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "thyroid_storm",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "Trigger: 'Intubation -> State 3 Labs Back'. State 3 vitals: HR 150, a fib rhythm, BP 110/70, RR 16 (vented), O2Sat 93%.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 115,
+          "BP_dia": 70,
+          "RR": 34,
+          "O2Sat": 93,
+          "T": 40.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.4,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "thyroid_storm",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "intubate"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 110,
+          "BP_dia": 70,
+          "RR": 16,
+          "O2Sat": 93,
+          "T": 40.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "vent",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": 14,
+          "vent_TV_ml": 500,
+          "intubated": true,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "thyroid_storm",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    }
+  ]
+}

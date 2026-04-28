@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": 0, "BP_dia": 0, "O2Sat": 0}, "interventions_changed": {}, "drugs_added": [{"name": "amiodarone", "dose": 300, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "The administration of amiodarone does not change the vitals immediately, and the severe nature of the CHF exacerbation remains unchanged."}

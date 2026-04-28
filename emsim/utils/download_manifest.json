@@ -1,0 +1,854 @@
+[
+  {
+    "category": "Cardiology",
+    "title": "LVAD Pump Thrombosis",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\LVAD Pump Thrombosis.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2023/08/lvad-pump-thrombosis.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Wide Complex Tachycardia WPW",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Wide Complex Tachycardia WPW.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2022/07/wide-complex-tachycardia-wpw-1.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "NIGHTMARES CASE 9: STEMI",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\NIGHTMARES CASE 9 STEMI.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/06/nm9-stemi.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Cocaine-induced Aortic Dissection",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Cocaine-induced Aortic Dissection.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/01/cocaine-ao-dissection-1.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Beta Blocker Toxicity",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Beta Blocker Toxicity.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/11/beta-blocker-toxicity.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Agitation and Aortic Dissection",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Agitation and Aortic Dissection.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/10/agitation-with-aortic-dissection.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "TB Pericarditis",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\TB Pericarditis.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/09/tb-pericarditis-4.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "PEA Arrest and Breaking Bad News",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\PEA Arrest and Breaking Bad News.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/05/breaking-bad-news.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "COVID-19: Out-of-Hospital Cardiac Arrest",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\COVID-19 Out-of-Hospital Cardiac Arrest.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/04/covid-ohca.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "COVID-19: STEMI with VF Arrest",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\COVID-19 STEMI with VF Arrest.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/04/covid-stemi-vf.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Nightmares Case 7: Hyperkalemia",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Nightmares Case 7 Hyperkalemia.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/01/nightmares-hyperkalemia-.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Nightmares Case 6: Ventricular Tachycardia",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Nightmares Case 6 Ventricular Tachycardia.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2019/12/nm6-vtach.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Nightmares Case 5: Pulmonary Edema",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Nightmares Case 5 Pulmonary Edema.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2019/12/pulmonary-edema.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Nightmares Case 1: Bradycardia",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Nightmares Case 1 Bradycardia.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2019/10/bradycardia.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Geriatric Case 3: Termination of Resuscitation",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Geriatric Case 3 Termination of Resuscitation.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/08/geri-em-cessation-of-cpr1.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Geriatric Case 2: Chronic Digoxin Toxicity",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Geriatric Case 2 Chronic Digoxin Toxicity.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/07/geri-em-chronic-digoxin-toxicity.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "LVAD Case",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\LVAD Case.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/07/lvad-case.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Pregnant Cardiomyopathy",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Pregnant Cardiomyopathy.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/06/pregnant-cardiomyopathy.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Pediatric SVT",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Pediatric SVT.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/05/pediatric-svt.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Learner-Consultant Communication",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Learner-Consultant Communication (1).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/04/learner-consultant-communication.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Learner-Consultant Communication",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Learner-Consultant Communication (2).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/04/consult-framework-checklists.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Pediatric Viral Myocarditis",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Pediatric Viral Myocarditis.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/03/pediatric-viral-myocarditis.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Electrical Storm",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Electrical Storm.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/01/electrical-storm.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Chest Pain on the Ward",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Chest Pain on the Ward.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/12/chest-pain-on-the-ward.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Stable VT with ICD Firing",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Stable VT with ICD Firing.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/11/stable-vt-with-icd-firing.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "STEMI with Cardiogenic Shock",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\STEMI with Cardiogenic Shock.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/06/stemi-with-cardiogenic-shock.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Aortic Stenosis with A Fib and CHF",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Aortic Stenosis with A Fib and CHF.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/06/aortic-stenosis-with-a-fib-and-chf.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "STEMI with Bradycardia",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\STEMI with Bradycardia.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/06/stemi-with-bradycardia.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Coarctation of the Aorta",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Coarctation of the Aorta.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/01/coarctation-of-the-aorta.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Aortic Dissection",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Aortic Dissection.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/12/aortic-dissection2.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Thyroid Storm",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Thyroid Storm.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/10/thyroid-storm1.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "VSA Megacode",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\VSA Megacode (1).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2023/03/vsa-megacode-2020.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "VSA Megacode",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\VSA Megacode (2).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/09/vsa-megacode.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Unstable Bradycardia",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Unstable Bradycardia.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/11/bradycardia1.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Acute Respiratory Distress",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Acute Respiratory Distress.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/10/acute-resp-distress.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Dysrhythmia Secondary to Hyperkalemia",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Dysrhythmia Secondary to Hyperkalemia.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/08/hyperkalemia-case.docx"
+  },
+  {
+    "category": "Cardiology",
+    "title": "Ventricular Tachycardia due to Arrhythmogenic Right Ventricular Dysplasia (ARVD)",
+    "file": "D:\\wmed\\emsim\\docs\\Cardiology\\Ventricular Tachycardia due to Arrhythmogenic Right Ventricular Dysplasia (ARVD).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/04/vtach-with-arvd2.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "Alcohol and opioid use",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\Alcohol and opioid use (1).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2023/08/sbirt-sim.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "Alcohol and opioid use",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\Alcohol and opioid use (2).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2023/08/buprenorphinenaloxone-induction.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "Critical Care 2 – Myasthenic Crisis",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\Critical Care 2 – Myasthenic Crisis.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2023/02/crit-care-2-myasthenic-crisis.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "Critical Care 1 – Subarachnoid Hemorrhage",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\Critical Care 1 – Subarachnoid Hemorrhage.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2022/12/crit-care-1-sah.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "Allyship: Gendered Microaggressions",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\Allyship Gendered Microaggressions.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2022/08/allyship-case.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "COVID-19: Protected Intubation in the Sim Lab",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\COVID-19 Protected Intubation in the Sim Lab.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/05/protected-intubation-sim-lab.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "COVID-19: Ambulatory Care",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\COVID-19 Ambulatory Care.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/02/covid-19-ambulatory.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "COVID-19: Respiratory Failure",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\COVID-19 Respiratory Failure (1).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/02/covid-19-.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "COVID-19: Respiratory Failure",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\COVID-19 Respiratory Failure (2).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/02/props-for-covid-19.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "Geriatric Case 6: Elder Abuse",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\Geriatric Case 6 Elder Abuse.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2019/09/geri-em-elder-abuse.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "Geriatric Case 4: End of Life Care",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\Geriatric Case 4 End of Life Care.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2019/06/geri-em-eol-care.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "Geriatric Case 1: Delirium",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\Geriatric Case 1 Delirium.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/07/geri-em-delirium.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "Polytrauma for Team Communication",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\Polytrauma for Team Communication.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/06/polytrauma-for-team-communication.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "Palliative Respiratory Case",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\Palliative Respiratory Case (1).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/05/palliative-resp-case.docx"
+  },
+  {
+    "category": "Communication",
+    "title": "Palliative Respiratory Case",
+    "file": "D:\\wmed\\emsim\\docs\\Communication\\Palliative Respiratory Case (2).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/05/palliative-resp-case-med-onc-note.docx"
+  },
+  {
+    "category": "Endocrine",
+    "title": "Pediatric DKA",
+    "file": "D:\\wmed\\emsim\\docs\\Endocrine\\Pediatric DKA.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/06/pediatric-dka.docx"
+  },
+  {
+    "category": "Endocrine",
+    "title": "Adrenal Crisis",
+    "file": "D:\\wmed\\emsim\\docs\\Endocrine\\Adrenal Crisis.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/02/adrenal-crisis-case.docx"
+  },
+  {
+    "category": "Endocrine",
+    "title": "Tumour Lysis Syndrome",
+    "file": "D:\\wmed\\emsim\\docs\\Endocrine\\Tumour Lysis Syndrome.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/09/tumor-lysis-syndrome1.docx"
+  },
+  {
+    "category": "Endocrine",
+    "title": "Hypothermia with Trauma",
+    "file": "D:\\wmed\\emsim\\docs\\Endocrine\\Hypothermia with Trauma.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/01/hypothermia.docx"
+  },
+  {
+    "category": "Endocrine",
+    "title": "CAH with adrenal crisis",
+    "file": "D:\\wmed\\emsim\\docs\\Endocrine\\CAH with adrenal crisis.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/03/cah-case2.docx"
+  },
+  {
+    "category": "GI",
+    "title": "Undifferentiated Abdominal Pain + Shock",
+    "file": "D:\\wmed\\emsim\\docs\\GI\\Undifferentiated Abdominal Pain + Shock.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/07/undifferentiated-abdo-pain-shock.docx"
+  },
+  {
+    "category": "GI",
+    "title": "Massive Upper GI Bleed",
+    "file": "D:\\wmed\\emsim\\docs\\GI\\Massive Upper GI Bleed.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/05/massive-ugib.docx"
+  },
+  {
+    "category": "Neurology",
+    "title": "Nightmares Case 12: Hypertensive Encephalopathy",
+    "file": "D:\\wmed\\emsim\\docs\\Neurology\\Nightmares Case 12 Hypertensive Encephalopathy.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/11/nm12-htn-encephalopathy.docx"
+  },
+  {
+    "category": "Neurology",
+    "title": "Nightmares Case 3: Seizure",
+    "file": "D:\\wmed\\emsim\\docs\\Neurology\\Nightmares Case 3 Seizure.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2019/11/seizure-.docx"
+  },
+  {
+    "category": "Neurology",
+    "title": "Geriatric Case 5: Trauma with Head Injury",
+    "file": "D:\\wmed\\emsim\\docs\\Neurology\\Geriatric Case 5 Trauma with Head Injury.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2019/06/geriatric-trauma-with-head-injury-1.docx"
+  },
+  {
+    "category": "Neurology",
+    "title": "Elderly Psychosis and Agitation",
+    "file": "D:\\wmed\\emsim\\docs\\Neurology\\Elderly Psychosis and Agitation.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/04/elderly-psychosis-and-agitation.docx"
+  },
+  {
+    "category": "Neurology",
+    "title": "Multi-trauma (Kicked off a Horse)",
+    "file": "D:\\wmed\\emsim\\docs\\Neurology\\Multi-trauma (Kicked off a Horse).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/03/pelvic-fracture-and-sdh.docx"
+  },
+  {
+    "category": "Neurology",
+    "title": "Status Epilepticus",
+    "file": "D:\\wmed\\emsim\\docs\\Neurology\\Status Epilepticus.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/10/status-epilipticus.docx"
+  },
+  {
+    "category": "Neurology",
+    "title": "Altered LOC",
+    "file": "D:\\wmed\\emsim\\docs\\Neurology\\Altered LOC.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/09/aloc-case.docx"
+  },
+  {
+    "category": "Neurology",
+    "title": "Subarachnoid Hemorrhage with Increased Intracranial Pressure",
+    "file": "D:\\wmed\\emsim\\docs\\Neurology\\Subarachnoid Hemorrhage with Increased Intracranial Pressure.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/03/sah-case.docx"
+  },
+  {
+    "category": "OB-GYN",
+    "title": "Asthma in Pregnancy",
+    "file": "D:\\wmed\\emsim\\docs\\OB-GYN\\Asthma in Pregnancy.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2023/07/asthma-in-pregnancy.docx"
+  },
+  {
+    "category": "OB-GYN",
+    "title": "Late Post Partum Pre-eclampsia",
+    "file": "D:\\wmed\\emsim\\docs\\OB-GYN\\Late Post Partum Pre-eclampsia.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/03/pp-preeclampsia.docx"
+  },
+  {
+    "category": "OB-GYN",
+    "title": "Resuscitative Hysterotomy",
+    "file": "D:\\wmed\\emsim\\docs\\OB-GYN\\Resuscitative Hysterotomy.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/02/resuscitative-hysterotomy-.docx"
+  },
+  {
+    "category": "OB-GYN",
+    "title": "Breech Delivery + NRP",
+    "file": "D:\\wmed\\emsim\\docs\\OB-GYN\\Breech Delivery + NRP.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/04/breech-nrp.docx"
+  },
+  {
+    "category": "OB-GYN",
+    "title": "Postpartum Hemorrhage and NRP",
+    "file": "D:\\wmed\\emsim\\docs\\OB-GYN\\Postpartum Hemorrhage and NRP.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/11/pph-and-nrp-combined-case.docx"
+  },
+  {
+    "category": "OB-GYN",
+    "title": "Obstetrical Trauma",
+    "file": "D:\\wmed\\emsim\\docs\\OB-GYN\\Obstetrical Trauma.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/08/obstetrical-trauma-case.docx"
+  },
+  {
+    "category": "OB-GYN",
+    "title": "Ruptured Ectopic",
+    "file": "D:\\wmed\\emsim\\docs\\OB-GYN\\Ruptured Ectopic.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/01/ruptured-ectopic.docx"
+  },
+  {
+    "category": "OB-GYN",
+    "title": "Eclampsia with Apnea Secondary to Magnesium Sulfate Administration",
+    "file": "D:\\wmed\\emsim\\docs\\OB-GYN\\Eclampsia with Apnea Secondary to Magnesium Sulfate Administration.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/06/eclampsia-case3.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Pediatric Drowning",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Pediatric Drowning.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2023/05/peds-submersion.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Bronchiolitis",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Bronchiolitis.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2022/12/bronchiolitis.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Pediatric Status Epilepticus",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Pediatric Status Epilepticus.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/10/peds-status-epilepticus-1.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Pediatric Traumatic Brain Injury",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Pediatric Traumatic Brain Injury.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/05/peds-tbi.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Pediatric Polytrauma",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Pediatric Polytrauma.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/12/peds-polytrauma-1.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Pediatric Asthma Exacerbation",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Pediatric Asthma Exacerbation.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/11/peds-asthma.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "COVID-19: Pediatric Multisystem Inflammatory Syndrome",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\COVID-19 Pediatric Multisystem Inflammatory Syndrome.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/10/covid-peds-mis.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Pediatric Airway Obstruction",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Pediatric Airway Obstruction.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/03/pediatric-airway-obstruction-.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Non-Accidental Trauma",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Non-Accidental Trauma.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/03/non-accidental-trauma.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Pediatric Difficult Airway",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Pediatric Difficult Airway.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/02/pediatric-difficult-airway.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Newborn Resuscitation",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Newborn Resuscitation.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/10/nrp.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Anaphylaxis (+/- Laryngospasm)",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Anaphylaxis (+- Laryngospasm).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/06/anaphylaxsis.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Newborn Sepsis with Apneas",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Newborn Sepsis with Apneas.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/04/newborn-sepsis-with-apneas.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Pediatric Septic Shock",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Pediatric Septic Shock.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/02/pediatric-septic-shock.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Acute Chest Syndrome",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Acute Chest Syndrome.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/08/acute-chest-syndrome1.docx"
+  },
+  {
+    "category": "Pediatrics",
+    "title": "Procedural Sedation with Laryngospasm",
+    "file": "D:\\wmed\\emsim\\docs\\Pediatrics\\Procedural Sedation with Laryngospasm.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/07/procedural-sedation-with-laryngospasm1.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "Critical Care 4 – Post-extubation Stridor",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\Critical Care 4 – Post-extubation Stridor.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2024/06/crit-care-4-post-extubation-stridor.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "Organophosphate Poisoning",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\Organophosphate Poisoning.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2024/06/organophosphate-poisoning.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "Massive Hemoptysis",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\Massive Hemoptysis.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2022/11/massive-hemoptysis-1.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "Tracheostomy Emergency",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\Tracheostomy Emergency.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/10/tracheal-obstruction-1.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "Airway Obstruction from FB",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\Airway Obstruction from FB.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/06/airway-obstruction.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "COVID-19: Difficult Airway",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\COVID-19 Difficult Airway.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/02/covid-difficult-airway-1.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "COPDE with Pneumothorax",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\COPDE with Pneumothorax.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/09/copde-w-ptx-1.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "Nightmares Case 4: Pulmonary Embolism",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\Nightmares Case 4 Pulmonary Embolism.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2019/12/nm4-pe.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "Nightmares Case 2: Pneumonia",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\Nightmares Case 2 Pneumonia.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2019/11/nm2-pneumonia.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "Intubation with Missing BVM",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\Intubation with Missing BVM.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/01/intubation-with-missing-bvm.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "PE with Bleeding",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\PE with Bleeding.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/11/pe-with-bleeding.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "Anaphylaxis with Angioedema",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\Anaphylaxis with Angioedema.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/05/anaphylaxis.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "Massive Pulmonary Embolism",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\Massive Pulmonary Embolism.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/12/pulmonary-embolism.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "Pancreatitis with ARDS",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\Pancreatitis with ARDS.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/08/pancreatitis-with-ards1.docx"
+  },
+  {
+    "category": "Respiratory",
+    "title": "Severe Asthma Exacerbation",
+    "file": "D:\\wmed\\emsim\\docs\\Respiratory\\Severe Asthma Exacerbation.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/07/asthma-exacerbation.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Boating trauma",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Boating trauma.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2024/09/boating-accident-scenario.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Heat related illness",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Heat related illness.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2023/11/heat-related-illness-case_updated-2025-1.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "GSW Vascular Injury",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\GSW Vascular Injury.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2023/01/gsw-vascular-injury.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Ending a resuscitation",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Ending a resuscitation.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2022/02/ending-a-resuscitation-1.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Accidental Hypothermia",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Accidental Hypothermia.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/11/hypothermia.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Trauma Airway Management",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Trauma Airway Management (1).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/09/10em-trauma-case-1.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Trauma Airway Management",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Trauma Airway Management (2).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/09/10em-trauma-case-2.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Trauma Airway Management",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Trauma Airway Management (3).docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/09/10em-trauma-case-3.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Nightmares Case 10: Anaphylaxis",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Nightmares Case 10 Anaphylaxis.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/09/nm10-anaphylaxis.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Armed Overdose",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Armed Overdose.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/05/armed-overdose.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Urologic Sepsis",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Urologic Sepsis.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/08/urologic-sepsis.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Local Anesthetic Systemic Toxicity",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Local Anesthetic Systemic Toxicity.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/08/local-anesthetic-systemic-toxicity.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Inhalational Injury",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Inhalational Injury.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/05/inhalational-burn-1.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Nightmares Case 8: Sepsis/Cholangitis",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Nightmares Case 8 SepsisCholangitis.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2020/01/nm8-sepsis.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Iron Overdose in a Pregnant Patient",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Iron Overdose in a Pregnant Patient.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2018/02/pregnant-iron-od.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Anaphylaxis and Medication Error",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Anaphylaxis and Medication Error.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/12/anaphylaxis.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Burn with CO/CN Toxicity",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Burn with COCN Toxicity.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/10/burn-co-cn-case.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "ASA Toxicity",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\ASA Toxicity.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/06/asa-toxicity.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Multi-Trauma: Blunt VSA and Burn",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Multi-Trauma Blunt VSA and Burn.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/06/multitrauma-cric-and-blunt-vsa-case.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Multi-drug Overdose",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Multi-drug Overdose.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/03/ccb-od.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Multi-trauma case: burn and head injury",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Multi-trauma case burn and head injury.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/01/multitrauma-burn-and-hi.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Toxic Alcohol Ingestion",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Toxic Alcohol Ingestion.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/11/toxic-alcohol-case.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Digoxin Overdose",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Digoxin Overdose.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2016/02/digoxin-overdose.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Intra-abdominal Sepsis",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Intra-abdominal Sepsis.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/09/cholangitis.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Ruptured AAA",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Ruptured AAA.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/09/ruptured-aaa.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Stab Wound to the Neck with Neurogenic Shock",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Stab Wound to the Neck with Neurogenic Shock.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/07/stab-wound-to-neck.docx"
+  },
+  {
+    "category": "Resuscitation",
+    "title": "Opioid Overdose with ARDS",
+    "file": "D:\\wmed\\emsim\\docs\\Resuscitation\\Opioid Overdose with ARDS.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/06/opioid-overdose-with-ards1.docx"
+  },
+  {
+    "category": "Toxicology",
+    "title": "Nightmares Case 11: Opioid Overdose",
+    "file": "D:\\wmed\\emsim\\docs\\Toxicology\\Nightmares Case 11 Opioid Overdose.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/11/nm11-opioid-od.docx"
+  },
+  {
+    "category": "Toxicology",
+    "title": "Serotonin Syndrome",
+    "file": "D:\\wmed\\emsim\\docs\\Toxicology\\Serotonin Syndrome.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/06/serotonin-syndrome.docx"
+  },
+  {
+    "category": "Toxicology",
+    "title": "ASA Overdose",
+    "file": "D:\\wmed\\emsim\\docs\\Toxicology\\ASA Overdose.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/10/asa-overdose1.docx"
+  },
+  {
+    "category": "Toxicology",
+    "title": "Tricyclic Antidepressant Overdose",
+    "file": "D:\\wmed\\emsim\\docs\\Toxicology\\Tricyclic Antidepressant Overdose.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2015/05/tca-overdose.docx"
+  },
+  {
+    "category": "Trauma",
+    "title": "Critical Care 3 – Spinal Cord Injury",
+    "file": "D:\\wmed\\emsim\\docs\\Trauma\\Critical Care 3 – Spinal Cord Injury.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2023/12/crit-care-3-spinal-cord-injury.docx"
+  },
+  {
+    "category": "Trauma",
+    "title": "Gun Shot Wound",
+    "file": "D:\\wmed\\emsim\\docs\\Trauma\\Gun Shot Wound.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/04/gsw-low-back.docx"
+  },
+  {
+    "category": "Trauma",
+    "title": "Lateral Canthotomy",
+    "file": "D:\\wmed\\emsim\\docs\\Trauma\\Lateral Canthotomy.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2021/04/lateral-canthotomy-1.docx"
+  },
+  {
+    "category": "Trauma",
+    "title": "MVC with Tension Pneumothorax",
+    "file": "D:\\wmed\\emsim\\docs\\Trauma\\MVC with Tension Pneumothorax.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/06/simple-mvc-with-tension-ptx.docx"
+  },
+  {
+    "category": "Trauma",
+    "title": "Trauma in a Hemophiliac",
+    "file": "D:\\wmed\\emsim\\docs\\Trauma\\Trauma in a Hemophiliac.docx",
+    "docx_url": "https://emsimcases.com/wp-content/uploads/2017/05/hemophilia-case.docx"
+  }
+]

@@ -1,0 +1,1 @@
+{"vitals_delta": {"BP_sys": 10, "BP_dia": 5}, "interventions_changed": {}, "drugs_added": [{"name": "furosemide", "dose": 40, "unit": "mg", "route": "IV"}], "mechanism_severity": "moderate", "reasoning": "Furosemide may improve fluid status, leading to a slight increase in blood pressure."}

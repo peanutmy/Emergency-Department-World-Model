@@ -1,0 +1,1 @@
+{"vitals_delta": {"BP_sys": -10, "BP_dia": -5}, "interventions_changed": {}, "drugs_added": [{"name": "hydralazine", "dose": 10, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Hydralazine is expected to lower blood pressure in a patient with severe preeclampsia."}

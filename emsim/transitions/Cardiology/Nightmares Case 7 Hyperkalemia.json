@@ -1,0 +1,560 @@
+{
+  "case_id": "nightmares_case_7_hyperkalemia",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Nightmares Case 7 Hyperkalemia.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 40,
+      "BP_sys": 90,
+      "BP_dia": 60,
+      "RR": 18,
+      "O2Sat": 99,
+      "T": 36.5
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "hyperkalemia",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 trigger: '3 min or all actions complete -> State 2 Worsening'. Default 180s (scenario specified).",
+      "before": {
+        "vitals": {
+          "HR": 40,
+          "BP_sys": 90,
+          "BP_dia": 60,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hyperkalemia",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 70,
+          "BP_dia": 40,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hyperkalemia",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 2 modifier: 'First Ca -> HR 35, BP 80/50'. Calcium gluconate 1g IV default.",
+      "before": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 70,
+          "BP_dia": 40,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hyperkalemia",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "calcium_gluconate",
+          "dose": 1,
+          "unit": "g",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 35,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hyperkalemia",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 2 modifier: 'Atropine -> no change'. Default first dose 0.5 mg IV.",
+      "before": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 70,
+          "BP_dia": 40,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hyperkalemia",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "atropine",
+          "dose": 0.5,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 70,
+          "BP_dia": 40,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hyperkalemia",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2 trigger: 'Second Ca -> State 4 Stabilization'. Vitals from State 4 header.",
+      "before": {
+        "vitals": {
+          "HR": 35,
+          "BP_sys": 80,
+          "BP_dia": 50,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hyperkalemia",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "calcium_gluconate",
+          "dose": 1,
+          "unit": "g",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 55,
+          "BP_sys": 100,
+          "BP_dia": 60,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hyperkalemia",
+            "severity": "moderate"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 2 branch trigger: '6 min -> State 3 VF arrest'. Passive time if no Ca given.",
+      "before": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 70,
+          "BP_dia": 40,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hyperkalemia",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [],
+      "duration_s": 360,
+      "after": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 0,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vf_arrest",
+            "severity": "severe"
+          },
+          "rhythm": "VF"
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 3 trigger: 'Ca + Defib -> State 2 Worsening'. Apply Ca then defibrillate; after defib returns to State 2 vitals.",
+      "before": {
+        "vitals": {
+          "HR": 0,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 0,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vf_arrest",
+            "severity": "severe"
+          },
+          "rhythm": "VF"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "defibrillate",
+          "value": 200
+        },
+        {
+          "type": "drug",
+          "name": "calcium_gluconate",
+          "dose": 1,
+          "unit": "g",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 70,
+          "BP_dia": 40,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.5
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": 200,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "hyperkalemia",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    }
+  ]
+}

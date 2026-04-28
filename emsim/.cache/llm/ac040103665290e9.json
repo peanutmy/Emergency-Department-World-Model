@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -20, "BP_sys": 10, "BP_dia": 5, "RR": -5, "T": 0.5}, "interventions_changed": {"airway": true, "O2_device": "vent", "FiO2": 0.8, "intubated": true}, "mechanism_severity": "severe", "reasoning": "Intubation and prostaglandin E1 administration improved hemodynamics and respiratory status."}

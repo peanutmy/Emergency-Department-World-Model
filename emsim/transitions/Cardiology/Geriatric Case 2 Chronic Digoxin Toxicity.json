@@ -1,0 +1,467 @@
+{
+  "case_id": "chronic_digoxin_toxicity",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Geriatric Case 2 Chronic Digoxin Toxicity.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 30,
+      "BP_sys": 130,
+      "BP_dia": 70,
+      "RR": 16,
+      "O2Sat": 98,
+      "T": 36.8
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "digoxin_toxicity",
+        "severity": "moderate"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "Trigger: 'All actions complete or after 5 mins -> 2. Deterioration'. BP drops to 95/50, RR 22.",
+      "before": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 130,
+          "BP_dia": 70,
+          "RR": 16,
+          "O2Sat": 98,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "digoxin_toxicity",
+            "severity": "moderate"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 95,
+          "BP_dia": 50,
+          "RR": 22,
+          "O2Sat": 95,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "digoxin_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 2 modifier: 'HR to remain 30/min if atropine given' (ineffective).",
+      "before": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 95,
+          "BP_dia": 50,
+          "RR": 22,
+          "O2Sat": 95,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "digoxin_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "atropine",
+          "dose": 0.5,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 95,
+          "BP_dia": 50,
+          "RR": 22,
+          "O2Sat": 95,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "digoxin_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "Trigger: 'All actions complete or after 7 minutes -> 3. Hypotension'. BP drops to 80/40.",
+      "before": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 95,
+          "BP_dia": 50,
+          "RR": 22,
+          "O2Sat": 95,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "digoxin_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [],
+      "duration_s": 420,
+      "after": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 80,
+          "BP_dia": 40,
+          "RR": 22,
+          "O2Sat": 95,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "digoxin_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 3 modifier: 'Epi infusion -> BP 85/50, HR 35'.",
+      "before": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 80,
+          "BP_dia": 40,
+          "RR": 22,
+          "O2Sat": 95,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "digoxin_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "epinephrine",
+          "dose": 0.1,
+          "unit": "mcg/kg/min",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 35,
+          "BP_sys": 85,
+          "BP_dia": 50,
+          "RR": 22,
+          "O2Sat": 95,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "digoxin_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "State 3 trigger: 'Digifab given -> 4. Resolution'. Digifab 5 vials (empiric dose). New vitals HR 50, BP 135/70.",
+      "before": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 80,
+          "BP_dia": 40,
+          "RR": 22,
+          "O2Sat": 95,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "digoxin_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "digoxin_immune_fab",
+          "dose": 5,
+          "unit": "vials",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 1800,
+      "after": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 135,
+          "BP_dia": 70,
+          "RR": 20,
+          "O2Sat": 96,
+          "T": 36.8
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "digoxin_toxicity",
+            "severity": "mild"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    }
+  ]
+}

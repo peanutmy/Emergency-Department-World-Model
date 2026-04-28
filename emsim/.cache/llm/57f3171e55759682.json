@@ -1,0 +1,1 @@
+{"vitals_delta": {"BP_sys": -10, "BP_dia": -5, "T": 36.5}, "interventions_changed": {}, "drugs_added": [{"name": "propofol", "dose": 100, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "The administration of propofol may cause a modest drop in blood pressure while the patient remains stable with mild severity of the traumatic brain injury."}

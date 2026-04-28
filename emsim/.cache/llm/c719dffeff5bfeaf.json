@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "O2Sat": 0}, "interventions_changed": {"CPR_active": true}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Starting CPR during a VF arrest keeps HR at 0 and O2Sat unchanged while activating CPR."}

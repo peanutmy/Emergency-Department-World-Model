@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": -5, "BP_dia": -3, "RR": -2, "O2Sat": 0, "T": 0}, "interventions_changed": {"airway": true, "intubated": true}, "drugs_added": [], "mechanism_severity": "moderate", "reasoning": "Intubation typically causes a slight drop in BP and RR, while maintaining O2Sat."}

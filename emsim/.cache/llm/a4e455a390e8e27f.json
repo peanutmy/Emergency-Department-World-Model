@@ -1,0 +1,1 @@
+{"vitals_delta": {"O2Sat": 2}, "interventions_changed": {"airway": true, "O2_device": "vent", "FiO2": 0.9, "intubated": true}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Intubation improves oxygenation and increases FiO2, while the severity of septic shock escalates due to the need for airway management."}

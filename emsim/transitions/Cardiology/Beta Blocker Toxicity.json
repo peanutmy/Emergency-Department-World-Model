@@ -1,0 +1,371 @@
+{
+  "case_id": "beta_blocker_toxicity",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Beta Blocker Toxicity.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 90,
+      "BP_sys": 120,
+      "BP_dia": 75,
+      "RR": 15,
+      "O2Sat": 97,
+      "T": 36.7
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "beta_blocker_toxicity",
+        "severity": "mild"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 trigger: 'All actions complete or 5 min -> 2. Initial Resuscitation'. New vitals HR 45, BP 90/45.",
+      "before": {
+        "vitals": {
+          "HR": 90,
+          "BP_sys": 120,
+          "BP_dia": 75,
+          "RR": 15,
+          "O2Sat": 97,
+          "T": 36.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "beta_blocker_toxicity",
+            "severity": "mild"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [],
+      "duration_s": 300,
+      "after": {
+        "vitals": {
+          "HR": 45,
+          "BP_sys": 90,
+          "BP_dia": 45,
+          "RR": 18,
+          "O2Sat": 98,
+          "T": 36.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "beta_blocker_toxicity",
+            "severity": "moderate"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 2 modifier: 'Atropine -> No effect'. Dose 0.5-1 mg; use max 1 mg.",
+      "before": {
+        "vitals": {
+          "HR": 45,
+          "BP_sys": 90,
+          "BP_dia": 45,
+          "RR": 18,
+          "O2Sat": 98,
+          "T": 36.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "beta_blocker_toxicity",
+            "severity": "moderate"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "atropine",
+          "dose": 1.0,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 45,
+          "BP_sys": 90,
+          "BP_dia": 45,
+          "RR": 18,
+          "O2Sat": 98,
+          "T": 36.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "beta_blocker_toxicity",
+            "severity": "moderate"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "Trigger: 'All actions complete or 10 min -> 3. Refractory hypotension'. New vitals HR 50, BP 88/42.",
+      "before": {
+        "vitals": {
+          "HR": 45,
+          "BP_sys": 90,
+          "BP_dia": 45,
+          "RR": 18,
+          "O2Sat": 99,
+          "T": 36.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "beta_blocker_toxicity",
+            "severity": "moderate"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [],
+      "duration_s": 600,
+      "after": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 88,
+          "BP_dia": 42,
+          "RR": 18,
+          "O2Sat": 96,
+          "T": 36.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "beta_blocker_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "Trigger: 'All actions complete or 15 min -> 4. Salvage therapy'. New vitals HR 30, BP 65/30, wide-complex escape, GCS 12.",
+      "before": {
+        "vitals": {
+          "HR": 50,
+          "BP_sys": 88,
+          "BP_dia": 42,
+          "RR": 18,
+          "O2Sat": 96,
+          "T": 36.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "beta_blocker_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      },
+      "actions": [],
+      "duration_s": 900,
+      "after": {
+        "vitals": {
+          "HR": 30,
+          "BP_sys": 65,
+          "BP_dia": 30,
+          "RR": 14,
+          "O2Sat": 90,
+          "T": 36.7
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "beta_blocker_toxicity",
+            "severity": "severe"
+          },
+          "rhythm": "bradycardia"
+        }
+      }
+    }
+  ]
+}

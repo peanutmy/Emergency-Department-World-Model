@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -60}, "interventions_changed": {}, "drugs_added": [{"name": "adenosine", "dose": 6, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Adenosine is expected to convert SVT, resulting in a significant decrease in HR."}

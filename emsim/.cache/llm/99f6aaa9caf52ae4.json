@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": -3, "BP_dia": -2, "RR": -1, "O2Sat": -1, "T": 0}, "interventions_changed": {}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "The patient's condition remains unchanged due to the absence of interventions, but vitals drift slightly over time."}

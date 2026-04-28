@@ -1,0 +1,1 @@
+{"vitals_delta": {"O2Sat": 80}, "interventions_changed": {"airway": true, "O2_device": "BVM", "FiO2": 1.0}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Applying BVM improves O2 saturation but does not change other vital signs immediately."}

@@ -1,0 +1,1 @@
+{"vitals_delta": {"T": 0.5}, "interventions_changed": {}, "drugs_added": [{"name": "fentanyl", "dose": 100, "unit": "mcg", "route": "IV"}], "mechanism_severity": "moderate", "reasoning": "Fentanyl administration may cause a slight increase in temperature due to its effects, but no other vital changes are expected."}

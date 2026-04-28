@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": -10, "BP_dia": -5, "RR": -2, "O2Sat": 2}, "interventions_changed": {"O2_device": "BiPAP", "FiO2": 0.5}, "drugs_added": [{"name": "furosemide", "dose": 40, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Furosemide reduces fluid overload, improving O2Sat and slightly lowering BP and HR."}

@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 10, "BP_dia": 5, "O2Sat": 2}, "interventions_changed": {}, "drugs_added": [{"name": "naloxone", "dose": 0.4, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Naloxone administration likely improved the patient's condition, leading to a slight increase in vitals and a change in severity."}

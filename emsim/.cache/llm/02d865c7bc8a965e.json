@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 20, "BP_sys": 20, "BP_dia": 10, "O2Sat": 10}, "interventions_changed": {"CPR_active": true}, "drugs_added": [{"name": "epinephrine", "dose": 1.0, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Epinephrine administration during VF arrest increases HR and BP while CPR is initiated."}

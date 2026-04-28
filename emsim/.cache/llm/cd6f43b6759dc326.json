@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -10, "BP_sys": -20, "BP_dia": -10, "O2Sat": 2}, "interventions_changed": {"O2_device": "NRB", "FiO2": 0.9}, "mechanism_severity": "severe", "reasoning": "The administration of midazolam likely caused a slight decrease in HR and BP, while applying the NRB increased O2Sat significantly."}

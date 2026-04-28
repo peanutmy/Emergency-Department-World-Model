@@ -1,0 +1,230 @@
+{
+  "case_id": "agitation_and_aortic_dissection",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Agitation and Aortic Dissection.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 130,
+      "BP_sys": 240,
+      "BP_dia": 120,
+      "RR": 24,
+      "O2Sat": 96,
+      "T": 36.9
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "aortic_dissection",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 trigger: sedation given -> State 2 Sedated. Scenario lists benzodiazepine/etomidate/etc; use midazolam as documented sedative. New vitals from State 2 header; O2sat 100% on NRB implies NRB was placed as part of sedation workflow.",
+      "before": {
+        "vitals": {
+          "HR": 130,
+          "BP_sys": 240,
+          "BP_dia": 120,
+          "RR": 24,
+          "O2Sat": 96,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "midazolam",
+          "dose": 2.0,
+          "unit": "mg",
+          "route": "IV"
+        },
+        {
+          "type": "intervention",
+          "name": "apply_NRB"
+        }
+      ],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 200,
+          "BP_dia": 100,
+          "RR": 16,
+          "O2Sat": 100,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 3 modifier: 'Beta blocker followed by vasoactive infusion started -> BP reading on left remains 180/95'. Use esmolol (listed drug).",
+      "before": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 200,
+          "BP_dia": 100,
+          "RR": 16,
+          "O2Sat": 100,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "severe"
+          },
+          "rhythm": "sinus"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "esmolol",
+          "dose": 500,
+          "unit": "mcg/kg",
+          "route": "IV"
+        },
+        {
+          "type": "drug",
+          "name": "nitroglycerin",
+          "dose": 0.4,
+          "unit": "mg",
+          "route": "SL"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 110,
+          "BP_sys": 180,
+          "BP_dia": 95,
+          "RR": 16,
+          "O2Sat": 100,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "aortic_dissection",
+            "severity": "moderate"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    }
+  ]
+}

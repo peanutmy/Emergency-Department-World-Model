@@ -1,0 +1,1 @@
+{"vitals_delta": {"BP_sys": -10, "BP_dia": -5, "T": 0.1}, "interventions_changed": {}, "drugs_added": [{"name": "nitroglycerin", "dose": 0.4, "unit": "mg", "route": "SL"}], "mechanism_severity": "mild", "reasoning": "Nitroglycerin can lower blood pressure and slightly increase temperature due to vasodilation effects."}

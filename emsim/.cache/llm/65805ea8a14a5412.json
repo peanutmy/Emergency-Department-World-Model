@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": 0, "BP_dia": 0, "RR": 0, "O2Sat": 0, "T": 0}, "interventions_changed": {"CPR_active": true}, "mechanism_severity": "severe", "mechanism_rhythm": "asystole", "reasoning": "Defibrillation was performed on VF, but the patient remains in asystole with no pulse, necessitating CPR."}

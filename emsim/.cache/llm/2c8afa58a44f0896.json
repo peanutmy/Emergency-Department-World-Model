@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": 20, "BP_dia": 10, "O2Sat": 5}, "interventions_changed": {"CPR_active": true}, "drugs_added": [{"name": "epinephrine", "dose": 0.16, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Starting CPR in a severe drowning case results in no pulse (HR 0) but improves BP and O2Sat due to epinephrine administration."}

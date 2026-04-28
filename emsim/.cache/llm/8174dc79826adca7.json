@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -180, "BP_sys": 100, "BP_dia": 60, "O2Sat": 24}, "interventions_changed": {"CPR_active": true, "O2_device": "NRB", "FiO2": 0.9}, "mechanism_severity": "severe", "mechanism_rhythm": "sinus", "reasoning": "Defibrillation was successful, converting the rhythm to sinus and initiating CPR, while also improving oxygen saturation and blood pressure."}

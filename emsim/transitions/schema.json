@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EMSim Transition Pair Schema",
+  "description": "Unified schema for physiology engine transition pairs. A pair captures one observable state transition caused by zero or more concurrent actions over a given time window.",
+
+  "definitions": {
+    "vitals": {
+      "type": "object",
+      "required": ["HR", "BP_sys", "BP_dia", "RR", "O2Sat", "T"],
+      "properties": {
+        "HR":     {"type": "number"},
+        "BP_sys": {"type": "number"},
+        "BP_dia": {"type": "number"},
+        "RR":     {"type": "number"},
+        "O2Sat":  {"type": "number"},
+        "T":      {"type": "number"}
+      },
+      "additionalProperties": false
+    },
+
+    "interventions": {
+      "type": "object",
+      "required": [
+        "airway", "O2_device", "PEEP", "FiO2",
+        "vent_rate", "vent_TV_ml", "intubated",
+        "CPR_active", "defib_last_J",
+        "pacing_active", "pacing_rate",
+        "fluids_rate_ml_hr", "fluid_type",
+        "warming_active", "cooling_active",
+        "needle_decompression", "chest_tube", "pericardiocentesis"
+      ],
+      "properties": {
+        "airway":     {"type": "boolean"},
+        "O2_device": {
+          "type": ["string", "null"],
+          "enum": [null, "nasal", "NRB", "BVM", "HFNC", "BiPAP", "vent"]
+        },
+        "PEEP":       {"type": "number"},
+        "FiO2":       {"type": "number"},
+        "vent_rate":  {"type": ["number", "null"]},
+        "vent_TV_ml": {"type": ["number", "null"]},
+        "intubated":  {"type": "boolean"},
+
+        "CPR_active":    {"type": "boolean"},
+        "defib_last_J":  {"type": ["number", "null"]},
+        "pacing_active": {"type": "boolean"},
+        "pacing_rate":   {"type": ["number", "null"]},
+
+        "fluids_rate_ml_hr": {"type": "number"},
+        "fluid_type": {
+          "type": ["string", "null"],
+          "enum": [null, "crystalloid", "colloid", "blood"]
+        },
+
+        "warming_active": {"type": "boolean"},
+        "cooling_active": {"type": "boolean"},
+
+        "needle_decompression": {"type": "boolean"},
+        "chest_tube":           {"type": "boolean"},
+        "pericardiocentesis":   {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+
+    "mechanism": {
+      "type": "object",
+      "description": "Pathology state (name + qualitative severity) + cardiac rhythm. Rhythm is optional for backward compatibility with pre-rhythm-exposure pairs; absent rhythm fields are skipped (not failed) by the evaluator.",
+      "required": ["pathology"],
+      "properties": {
+        "pathology": {
+          "type": "object",
+          "required": ["name", "severity"],
+          "properties": {
+            "name":     {"type": "string"},
+            "severity": {"type": "string", "enum": ["mild", "moderate", "severe"]}
+          },
+          "additionalProperties": false
+        },
+        "rhythm": {
+          "type": ["string", "null"],
+          "enum": [null, "sinus", "SVT", "VT", "VF", "asystole", "PEA", "bradycardia"],
+          "description": "Cardiac rhythm. Mirrors HiddenState.rhythm. Optional in v1 — engines that don't model rhythm may omit it; evaluator skips comparison if either side is missing."
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "state": {
+      "type": "object",
+      "description": "Observable patient state at one timepoint. Drugs appear only in pair.actions[] (bolus events); there is no cumulative drugs[] field — within-pair PD is computed by the engine and does not persist across L1 stateless step() boundaries. See ENGINE_DESIGN.md §3 (HiddenState.active_drug_effects) for engine-internal PD tracking.",
+      "required": ["vitals", "interventions", "mechanism"],
+      "properties": {
+        "vitals":        {"$ref": "#/definitions/vitals"},
+        "interventions": {"$ref": "#/definitions/interventions"},
+        "mechanism":     {"$ref": "#/definitions/mechanism"}
+      },
+      "additionalProperties": false
+    },
+
+    "action": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"type": "string", "enum": ["intervention", "drug"]},
+        "name":  {"type": "string"},
+        "value": {
+          "type": "number",
+          "description": "Per-action-name units. add_PEEP: cmH2O. defibrillate: joules. start_pacing: beats per minute. give_fluids: ml/hr. Other interventions: unused (ignore)."
+        },
+        "dose":  {"type": "number"},
+        "unit":  {"type": "string"},
+        "route": {"type": "string"}
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if":   {"properties": {"type": {"const": "intervention"}}},
+          "then": {"required": ["name"]}
+        },
+        {
+          "if":   {"properties": {"type": {"const": "drug"}}},
+          "then": {"required": ["name", "dose", "unit", "route"]}
+        }
+      ]
+    },
+
+    "pair": {
+      "type": "object",
+      "required": ["id", "before", "actions", "duration_s", "after"],
+      "properties": {
+        "id":         {"type": "string"},
+        "comment":    {"type": "string"},
+        "before":     {"$ref": "#/definitions/state"},
+        "actions": {
+          "type": "array",
+          "description": "Zero or more concurrent actions taken at the start of the pair's time window. Empty array = pure time passage (null pair).",
+          "items": {"$ref": "#/definitions/action"}
+        },
+        "duration_s": {
+          "type": "number",
+          "description": "Observation window in seconds. 0 = immediate effect only. >0 = includes delayed/time-dependent effects.",
+          "minimum": 0
+        },
+        "after":      {"$ref": "#/definitions/state"}
+      },
+      "additionalProperties": false
+    }
+  },
+
+  "type": "object",
+  "required": ["case_id", "source_pdf", "initial_state", "pairs"],
+  "properties": {
+    "case_id":       {"type": "string"},
+    "source_pdf":    {"type": "string"},
+    "category":      {"type": "string"},
+    "initial_state": {"$ref": "#/definitions/state"},
+    "pairs": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/pair"}
+    }
+  },
+  "additionalProperties": false
+}

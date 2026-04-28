@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -10, "BP_sys": -5, "BP_dia": -3, "O2Sat": 1}, "interventions_changed": {"airway": false, "O2_device": "NRB", "FiO2": 1.0}, "drugs_added": [{"name": "midazolam", "dose": 0.4, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Midazolam may cause a slight decrease in HR and BP while maintaining O2 saturation with NRB."}

@@ -1,0 +1,44 @@
+PHASE 5 BASELINE SLICES:
+OVERALL                n=808 strict=188/808( 23.3%) HR=14.78 BPs=17.00 BPd=10.79 RR=3.11 O2= 8.50 T=0.02
+pure_wait              n=249 strict= 21/249(  8.4%) HR=21.73 BPs=25.08 BPd=15.86 RR=5.69 O2=14.58 T=0.06
+drug_only              n=213 strict= 73/213( 34.3%) HR=11.03 BPs=15.73 BPd=10.27 RR=1.54 O2= 4.87 T=0.01
+interv_only            n=319 strict= 91/319( 28.5%) HR= 7.64 BPs= 8.79 BPd= 5.45 RR=1.78 O2= 4.89 T=0.00
+defib                  n= 26 strict=  3/26 ( 11.5%) HR=64.81 BPs=51.52 BPd=32.32 RR=7.77 O2=24.73 T=0.00
+mixed                  n=  1 strict=  0/1  (  0.0%) HR=58.00 BPs= 0.00 BPd= 0.00 RR=0.00 O2= 0.00 T=0.00
+
+Per-drug (drug-only pairs):
+epinephrine            n= 35 strict= 12/35 ( 34.3%) HR= 8.54 BPs=11.72 BPd= 7.87 RR=1.06 O2= 5.86 T=0.00
+midazolam              n= 13 strict=  6/13 ( 46.2%) HR=14.31 BPs=10.29 BPd= 5.13 RR=2.08 O2= 1.23 T=0.00
+norepinephrine         n=  9 strict=  3/9  ( 33.3%) HR= 5.22 BPs=14.32 BPd=11.97 RR=0.44 O2= 0.33 T=0.13
+calcium_gluconate      n=  9 strict=  2/9  ( 22.2%) HR=16.11 BPs=17.57 BPd=10.12 RR=2.89 O2=10.56 T=0.00
+propofol               n=  9 strict=  0/9  (  0.0%) HR= 0.56 BPs=27.79 BPd=22.00 RR=0.00 O2= 0.00 T=0.00
+atropine               n=  8 strict=  6/8  ( 75.0%) HR= 9.38 BPs= 0.09 BPd= 0.05 RR=0.50 O2= 0.00 T=0.00
+amiodarone             n=  7 strict=  5/7  ( 71.4%) HR=18.14 BPs= 2.67 BPd= 1.54 RR=0.00 O2= 0.00 T=0.00
+sodium_bicarbonate     n=  7 strict=  5/7  ( 71.4%) HR= 1.57 BPs=13.87 BPd= 9.44 RR=1.43 O2=13.86 T=0.00
+magnesium              n=  7 strict=  2/7  ( 28.6%) HR=12.14 BPs=14.16 BPd= 9.93 RR=4.43 O2= 3.71 T=0.00
+rocuronium             n=  7 strict=  1/7  ( 14.3%) HR= 1.43 BPs= 8.99 BPd= 6.31 RR=7.86 O2= 9.86 T=0.00
+TXA                    n=  7 strict=  2/7  ( 28.6%) HR= 0.00 BPs=20.05 BPd=12.78 RR=0.00 O2= 0.00 T=0.00
+nitroglycerin          n=  6 strict=  0/6  (  0.0%) HR= 2.50 BPs=25.31 BPd=22.70 RR=0.33 O2= 0.00 T=0.00
+naloxone               n=  6 strict=  4/6  ( 66.7%) HR= 0.83 BPs= 1.60 BPd= 1.06 RR=0.67 O2= 0.00 T=0.00
+ketamine               n=  5 strict=  2/5  ( 40.0%) HR= 3.00 BPs=16.09 BPd= 9.77 RR=3.60 O2= 6.80 T=0.08
+hypertonic_saline_3pct n=  5 strict=  2/5  ( 40.0%) HR= 8.00 BPs= 8.19 BPd= 4.67 RR=0.00 O2= 0.00 T=0.00
+furosemide             n=  4 strict=  1/4  ( 25.0%) HR= 1.25 BPs=15.72 BPd=15.53 RR=0.50 O2= 0.25 T=0.00
+insulin_regular        n=  4 strict=  3/4  ( 75.0%) HR= 6.25 BPs= 8.34 BPd= 6.83 RR=0.50 O2= 1.25 T=0.00
+dobutamine             n=  4 strict=  0/4  (  0.0%) HR=17.50 BPs=19.70 BPd=22.31 RR=1.50 O2= 0.00 T=0.00
+esmolol                n=  3 strict=  1/3  ( 33.3%) HR=15.00 BPs=23.33 BPd= 8.33 RR=0.00 O2= 0.00 T=0.00
+labetalol              n=  3 strict=  0/3  (  0.0%) HR=10.33 BPs=28.33 BPd= 9.67 RR=0.00 O2= 0.00 T=0.00
+heparin                n=  3 strict=  0/3  (  0.0%) HR=36.67 BPs=72.83 BPd=36.41 RR=6.67 O2=33.00 T=0.00
+ASA                    n=  3 strict=  2/3  ( 66.7%) HR= 0.00 BPs= 0.26 BPd= 0.13 RR=0.00 O2= 0.00 T=0.00
+dextrose_50            n=  3 strict=  0/3  (  0.0%) HR=21.67 BPs=18.13 BPd= 5.20 RR=4.00 O2= 0.00 T=0.00
+adenosine              n=  3 strict=  1/3  ( 33.3%) HR=20.00 BPs=16.33 BPd=11.67 RR=3.33 O2= 0.00 T=0.00
+hydrocortisone         n=  3 strict=  1/3  ( 33.3%) HR= 0.00 BPs=10.22 BPd= 1.98 RR=0.00 O2= 0.00 T=0.00
+fentanyl               n=  3 strict=  0/3  (  0.0%) HR=10.00 BPs= 7.19 BPd= 4.96 RR=0.00 O2= 0.00 T=0.00
+dextrose_10            n=  2 strict=  2/2  (100.0%) HR= 0.00 BPs= 0.00 BPd= 0.00 RR=0.00 O2= 0.00 T=0.00
+salbutamol             n=  2 strict=  0/2  (  0.0%) HR=20.00 BPs= 0.97 BPd= 0.64 RR=0.00 O2= 0.00 T=0.00
+digoxin_immune_fab     n=  2 strict=  0/2  (  0.0%) HR=37.50 BPs=56.94 BPd=27.96 RR=1.00 O2= 0.50 T=0.00
+procainamide           n=  2 strict=  0/2  (  0.0%) HR=42.50 BPs=23.50 BPd=17.50 RR=0.00 O2= 0.00 T=0.00
+oxytocin               n=  2 strict=  2/2  (100.0%) HR= 0.00 BPs= 0.00 BPd= 0.00 RR=0.00 O2= 0.00 T=0.00
+alteplase              n=  2 strict=  0/2  (  0.0%) HR=77.50 BPs=76.30 BPd=37.70 RR=9.00 O2=94.50 T=0.00
+hydroxocobalamin       n=  2 strict=  0/2  (  0.0%) HR= 7.50 BPs=13.35 BPd=11.85 RR=0.00 O2= 5.00 T=0.00
+lipid_emulsion_20      n=  2 strict=  0/2  (  0.0%) HR=95.00 BPs=74.50 BPd=48.00 RR=8.00 O2=12.50 T=0.00
+piperacillin_tazobactam n=  2 strict=  1/2  ( 50.0%) HR= 0.00 BPs=10.65 BPd= 6.74 RR=0.00 O2= 0.00 T=0.00

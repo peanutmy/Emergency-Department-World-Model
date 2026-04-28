@@ -1,0 +1,1 @@
+{"vitals_delta": {"O2Sat": 10, "T": -0.2}, "interventions_changed": {"airway": true, "intubated": true, "O2_device": "vent", "FiO2": 1.0}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Intubation improves airway management and O2 delivery, leading to a slight increase in O2 saturation."}

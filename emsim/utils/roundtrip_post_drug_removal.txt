@@ -1,0 +1,37 @@
+========================================================================
+Round-trip test — 808 pairs
+========================================================================
+Pairs passing ALL 6 vitals within tolerance/2: 784/808  (97.0%)
+
+Per-vital error distribution (tolerance/2 thresholds in parens):
+  vital      tol/2     mean      P50      P90      P99   >tol/2
+  HR           5.0     0.00     0.00     0.00     0.00     0 (0.0%)
+  BP_sys       7.5     0.17     0.00     0.00     0.00     4 (0.5%)
+  BP_dia       7.5     0.05     0.00     0.00     0.00     3 (0.4%)
+  RR           2.0     0.27     0.00     0.00    10.00    20 (2.5%)
+  O2Sat        1.5     0.00     0.00     0.00     0.00     0 (0.0%)
+  T            0.1     0.00     0.00     0.00     0.00     0 (0.0%)
+
+Top 10 pathologies by failure count (vital > tol/2):
+    4  hyperkalemia
+    4  svt
+    4  airway_obstruction
+    3  lvad_thrombosis
+    3  pea_arrest
+    3  bronchiolitis
+    2  neonatal_respiratory_distress
+    2  tension_pneumothorax
+    1  asystole
+    1  acute_chest_syndrome
+
+Sample failure pairs (first 10 unique):
+  [Cardiology   ] lvad_case/p1  rhy=sinus      path=hyperkalemia              vital=BP_sys err=46.00 (pred=96.0 obs=50.0)
+  [Cardiology   ] lvad_case/p2  rhy=sinus      path=hyperkalemia              vital=BP_sys err=46.00 (pred=96.0 obs=50.0)
+  [Cardiology   ] lvad_pump_thrombosis/p3  rhy=sinus      path=lvad_thrombosis           vital=BP_sys err=21.78 (pred=84.8 obs=63.0)
+  [Cardiology   ] lvad_pump_thrombosis/p4  rhy=sinus      path=lvad_thrombosis           vital=BP_sys err=19.78 (pred=84.8 obs=65.0)
+  [Cardiology   ] pea_arrest_breaking_bad_news/p3  rhy=sinus      path=pea_arrest                vital=RR err=10.00 (pred=10.0 obs=0.0)
+  [Cardiology   ] pea_arrest_breaking_bad_news/p4  rhy=sinus      path=pea_arrest                vital=RR err=10.00 (pred=10.0 obs=0.0)
+  [Cardiology   ] pea_arrest_breaking_bad_news/p5  rhy=sinus      path=pea_arrest                vital=RR err=10.00 (pred=10.0 obs=0.0)
+  [Cardiology   ] pea_arrest_breaking_bad_news/p6  rhy=asystole   path=asystole                  vital=RR err=10.00 (pred=10.0 obs=0.0)
+  [Cardiology   ] pediatric_svt/p4  rhy=SVT        path=svt                       vital=RR err=10.00 (pred=50.0 obs=60.0)
+  [Cardiology   ] pediatric_svt/p5  rhy=SVT        path=svt                       vital=RR err=10.00 (pred=50.0 obs=60.0)

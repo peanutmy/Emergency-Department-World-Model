@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "O2Sat": 32}, "interventions_changed": {"CPR_active": true}, "drugs_added": [{"name": "amiodarone", "dose": 300, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "CPR was initiated due to VF arrest, resulting in no pulse and an increase in O2 saturation as the patient is being resuscitated."}

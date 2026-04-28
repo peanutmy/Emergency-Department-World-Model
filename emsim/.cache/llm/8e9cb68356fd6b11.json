@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": 0, "BP_dia": 0, "RR": 0, "O2Sat": 0}, "interventions_changed": {"CPR_active": true}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Defibrillation was performed but the patient remains in cardiac arrest, thus HR stays at 0 and CPR is initiated."}

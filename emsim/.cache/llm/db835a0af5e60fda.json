@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 10, "BP_dia": 5}, "interventions_changed": {}, "drugs_added": [{"name": "calcium_gluconate", "dose": 1, "unit": "g", "route": "IV"}], "mechanism_severity": "moderate", "reasoning": "Calcium gluconate is administered to stabilize cardiac membranes in severe hyperkalemia, leading to a modest increase in HR and BP."}

@@ -1,0 +1,468 @@
+{
+  "case_id": "nightmares_case_6_ventricular_tachycardia",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Nightmares Case 6 Ventricular Tachycardia.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 150,
+      "BP_sys": 122,
+      "BP_dia": 80,
+      "RR": 20,
+      "O2Sat": 92,
+      "T": 37.0
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "vt",
+        "severity": "moderate"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 modifier: 'O2 -> sat increase to 94%'. Scenario lists NP/NRB equipment; default apply_O2 per guide.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 122,
+          "BP_dia": 80,
+          "RR": 20,
+          "O2Sat": 92,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vt",
+            "severity": "moderate"
+          },
+          "rhythm": "VT"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_nasal"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 122,
+          "BP_dia": 80,
+          "RR": 20,
+          "O2Sat": 94,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vt",
+            "severity": "moderate"
+          },
+          "rhythm": "VT"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "Trigger: '3 min -> Phase 2 Unstable'. Vitals from State 2 header.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 122,
+          "BP_dia": 80,
+          "RR": 20,
+          "O2Sat": 92,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vt",
+            "severity": "moderate"
+          },
+          "rhythm": "VT"
+        }
+      },
+      "actions": [],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 65,
+          "RR": 26,
+          "O2Sat": 88,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vt",
+            "severity": "severe"
+          },
+          "rhythm": "VT"
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 2 trigger: 'No shock within 3 min -> Phase 3 Pulseless'. Passive time.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 65,
+          "RR": 26,
+          "O2Sat": 88,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vt",
+            "severity": "severe"
+          },
+          "rhythm": "VT"
+        }
+      },
+      "actions": [],
+      "duration_s": 180,
+      "after": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 0,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vf_arrest",
+            "severity": "severe"
+          },
+          "rhythm": "VT"
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 3 trigger: 'Defibrillation -> Phase 4 Disposition' (sinus, HR90, BP110/80, sat94% NP).",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 0,
+          "BP_dia": 0,
+          "RR": 0,
+          "O2Sat": 0,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vf_arrest",
+            "severity": "severe"
+          },
+          "rhythm": "VT"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "defibrillate",
+          "value": 200
+        },
+        {
+          "type": "intervention",
+          "name": "apply_nasal"
+        }
+      ],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 90,
+          "BP_sys": 110,
+          "BP_dia": 80,
+          "RR": 18,
+          "O2Sat": 94,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": 200,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vt",
+            "severity": "mild"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "Branch from State 2: 'Shock given (synchronized cardioversion) -> Phase 4'. Wide-regular default 100 J.",
+      "before": {
+        "vitals": {
+          "HR": 150,
+          "BP_sys": 85,
+          "BP_dia": 65,
+          "RR": 26,
+          "O2Sat": 88,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vt",
+            "severity": "severe"
+          },
+          "rhythm": "VT"
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "defibrillate",
+          "value": 200
+        },
+        {
+          "type": "intervention",
+          "name": "apply_nasal"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 90,
+          "BP_sys": 110,
+          "BP_dia": 80,
+          "RR": 18,
+          "O2Sat": 94,
+          "T": 37.0
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "nasal",
+          "PEEP": 0,
+          "FiO2": 0.3,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": 200,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "vt",
+            "severity": "mild"
+          },
+          "rhythm": "sinus"
+        }
+      }
+    }
+  ]
+}

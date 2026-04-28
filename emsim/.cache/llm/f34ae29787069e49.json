@@ -1,0 +1,1 @@
+{"vitals_delta": {}, "interventions_changed": {"intubated": true}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "The intubation action does not change the current state as the patient is already intubated."}

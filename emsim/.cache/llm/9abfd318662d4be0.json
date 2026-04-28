@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 12}, "interventions_changed": {"airway": false, "O2_device": "nasal", "FiO2": 0.3}, "drugs_added": [{"name": "atropine", "dose": 1.0, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Atropine raises HR in bradycardia, but the severe nature of the poisoning limits significant improvement."}

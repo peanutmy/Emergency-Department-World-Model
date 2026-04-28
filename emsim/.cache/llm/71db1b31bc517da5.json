@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 10}, "interventions_changed": {}, "drugs_added": [{"name": "norepinephrine", "dose": 10, "unit": "mcg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Norepinephrine administration raises BP and HR in shock states."}

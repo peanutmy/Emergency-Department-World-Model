@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -30, "BP_sys": 10, "BP_dia": 5, "O2Sat": 1}, "interventions_changed": {"O2_device": "nasal", "FiO2": 0.28}, "mechanism_severity": "moderate", "reasoning": "The administration of procainamide likely led to a decrease in heart rate and an improvement in blood pressure, while the O2 saturation increased slightly due to the application of nasal oxygen."}

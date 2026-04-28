@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 10, "BP_dia": 5}, "interventions_changed": {}, "drugs_added": [{"name": "calcium_gluconate", "dose": 2, "unit": "g", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Calcium gluconate is expected to improve heart rate and blood pressure in severe calcium channel blocker toxicity."}

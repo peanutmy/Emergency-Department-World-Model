@@ -1,0 +1,1 @@
+{"vitals_delta": {"O2Sat": 0}, "interventions_changed": {"airway": true, "intubated": true}, "drugs_added": [{"name": "rocuronium", "dose": 80, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Rocuronium was administered for intubation, leading to airway intervention changes but no immediate change in O2 saturation."}

@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 15, "BP_dia": 10, "T": 0.5}, "interventions_changed": {}, "drugs_added": [{"name": "hydrocortisone", "dose": 100, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Hydrocortisone administration in an adrenal crisis can improve hemodynamics and slightly increase temperature."}

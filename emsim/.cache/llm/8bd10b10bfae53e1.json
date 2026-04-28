@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 15}, "interventions_changed": {"airway": false, "O2_device": null, "FiO2": 0.21}, "drugs_added": [{"name": "atropine", "dose": 1.0, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Atropine administration raises HR in bradycardia, improving the patient's condition from moderate to mild severity."}

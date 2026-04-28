@@ -1,0 +1,1 @@
+{"vitals_delta": {"BP_sys": -5, "BP_dia": -3, "T": 0.5}, "interventions_changed": {}, "drugs_added": [{"name": "midazolam", "dose": 2, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "Midazolam may cause a modest drop in blood pressure and a slight increase in temperature due to sedation."}

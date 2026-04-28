@@ -1,0 +1,629 @@
+{
+  "case_id": "asthma_in_pregnancy",
+  "category": "OB-GYN",
+  "source_pdf": "pdf/OB-GYN/Asthma in Pregnancy.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 95,
+      "BP_sys": 99,
+      "BP_dia": 59,
+      "RR": 32,
+      "O2Sat": 85,
+      "T": 36.9
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "asthma_exacerbation",
+        "severity": "severe"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 modifier: 'Applies O2 (NRB) -> Sats increase to 93%'.",
+      "before": {
+        "vitals": {
+          "HR": 95,
+          "BP_sys": 99,
+          "BP_dia": 59,
+          "RR": 32,
+          "O2Sat": 85,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_NRB"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 95,
+          "BP_sys": 106,
+          "BP_dia": 68,
+          "RR": 32,
+          "O2Sat": 93,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 1 modifier: 'Does not apply supplemental O2 -> Sat drops to 80%'. Branch from initial state.",
+      "before": {
+        "vitals": {
+          "HR": 95,
+          "BP_sys": 99,
+          "BP_dia": 59,
+          "RR": 32,
+          "O2Sat": 85,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 95,
+          "BP_sys": 99,
+          "BP_dia": 59,
+          "RR": 32,
+          "O2Sat": 80,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "Trigger: 'Initiates salbutamol/ipratropium nebs -> Phase 2'. Default duration 120 s. New vitals from State 2 header.",
+      "before": {
+        "vitals": {
+          "HR": 95,
+          "BP_sys": 106,
+          "BP_dia": 68,
+          "RR": 32,
+          "O2Sat": 93,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 112,
+          "BP_sys": 106,
+          "BP_dia": 68,
+          "RR": 50,
+          "O2Sat": 93,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "comment": "State 2 trigger: 'Initiates BiPAP and gives methylprednisolone -> Phase 3'. BiPAP provides O2_device, PEEP at 5 per facilitator notes.",
+      "before": {
+        "vitals": {
+          "HR": 112,
+          "BP_sys": 106,
+          "BP_dia": 68,
+          "RR": 50,
+          "O2Sat": 93,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "NRB",
+          "PEEP": 0,
+          "FiO2": 1.0,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "intervention",
+          "name": "apply_BiPAP"
+        }
+      ],
+      "duration_s": 0,
+      "after": {
+        "vitals": {
+          "HR": 112,
+          "BP_sys": 106,
+          "BP_dia": 68,
+          "RR": 50,
+          "O2Sat": 93,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 5,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "comment": "State 2 action: Give methylprednisolone IV. Scenario dose 60-80 mg q6h; use max 80 mg. Onset ~15 min for steroids (hydrocortisone PK entry).",
+      "before": {
+        "vitals": {
+          "HR": 112,
+          "BP_sys": 106,
+          "BP_dia": 68,
+          "RR": 50,
+          "O2Sat": 93,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 5,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "methylprednisolone",
+          "dose": 80,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 900,
+      "after": {
+        "vitals": {
+          "HR": 112,
+          "BP_sys": 106,
+          "BP_dia": 68,
+          "RR": 50,
+          "O2Sat": 93,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 5,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "comment": "Transition to State 3 Stabilization. Facilitator note 'At 1h after initiating BiPAP' - but no discrete time gate; default 120 s. State 3 vitals.",
+      "before": {
+        "vitals": {
+          "HR": 112,
+          "BP_sys": 106,
+          "BP_dia": 68,
+          "RR": 50,
+          "O2Sat": 93,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 5,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "severe"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [],
+      "duration_s": 120,
+      "after": {
+        "vitals": {
+          "HR": 105,
+          "BP_sys": 106,
+          "BP_dia": 68,
+          "RR": 27,
+          "O2Sat": 96,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 5,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "comment": "State 3 modifier: 'Orders magnesium -> decrease in respiratory distress; vitals improve to HR 100, RR 25, O2 98%'. Scenario dose 2 g IV over 20 min.",
+      "before": {
+        "vitals": {
+          "HR": 105,
+          "BP_sys": 106,
+          "BP_dia": 68,
+          "RR": 27,
+          "O2Sat": 96,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 5,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "moderate"
+          },
+          "rhythm": null
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "magnesium",
+          "dose": 2,
+          "unit": "g",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 1200,
+      "after": {
+        "vitals": {
+          "HR": 100,
+          "BP_sys": 106,
+          "BP_dia": 68,
+          "RR": 25,
+          "O2Sat": 98,
+          "T": 36.9
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": "BiPAP",
+          "PEEP": 5,
+          "FiO2": 0.5,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "asthma_exacerbation",
+            "severity": "mild"
+          },
+          "rhythm": null
+        }
+      }
+    }
+  ]
+}

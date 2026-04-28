@@ -1,0 +1,1 @@
+{"vitals_delta": {"RR": 10, "O2Sat": 10}, "interventions_changed": {"airway": true, "O2_device": "BVM", "FiO2": 1.0}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Applying BVM improves ventilation and oxygen saturation in the context of severe opioid toxicity."}

@@ -1,0 +1,1 @@
+{"vitals_delta": {}, "interventions_changed": {"airway": true, "O2_device": null, "intubated": true}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Intubation was already performed, so no change in vitals or drugs, but airway status is confirmed."}

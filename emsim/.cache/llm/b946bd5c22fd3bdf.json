@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 10, "BP_dia": 5, "RR": 10, "O2Sat": 7}, "interventions_changed": {"airway": true, "O2_device": "BVM", "FiO2": 0.5}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Applying BVM improves oxygenation and ventilation, leading to slight increases in HR, BP, and O2Sat."}

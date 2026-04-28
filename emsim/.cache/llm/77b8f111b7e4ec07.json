@@ -1,0 +1,1 @@
+{"vitals_delta": {}, "interventions_changed": {}, "drugs_added": [{"name": "insulin_regular", "dose": 70, "unit": "U/hr", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "The addition of insulin does not significantly alter vitals in the short term but is part of the management for beta-blocker toxicity."}

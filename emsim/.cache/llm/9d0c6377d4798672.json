@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 15, "BP_sys": 10, "BP_dia": 5}, "interventions_changed": {"airway": true, "intubated": false}, "drugs_added": [{"name": "atropine", "dose": 0.5, "unit": "mg", "route": "IV"}], "mechanism_severity": "moderate", "reasoning": "Atropine raises HR in bradycardia, improving BP slightly, while the severe stemi pathology leads to a moderate change in severity."}

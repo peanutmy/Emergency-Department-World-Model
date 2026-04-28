@@ -1,0 +1,1 @@
+{"vitals_delta": {"O2Sat": 2}, "interventions_changed": {}, "drugs_added": [{"name": "sodium_bicarbonate", "dose": 50, "unit": "mEq", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Sodium bicarbonate may improve metabolic acidosis and slightly increase O2 saturation over time."}

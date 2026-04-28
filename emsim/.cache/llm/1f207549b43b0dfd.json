@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 14, "BP_sys": 20, "BP_dia": 10}, "interventions_changed": {"CPR_active": true}, "drugs_added": [{"name": "epinephrine", "dose": 1.0, "unit": "mg", "route": "IV"}], "mechanism_severity": "moderate", "reasoning": "Epinephrine administration raises HR and BP in response to severe bradycardia, and CPR is initiated due to the critical state."}

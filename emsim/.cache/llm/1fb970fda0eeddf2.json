@@ -1,0 +1,1 @@
+{"vitals_delta": {"O2Sat": 10, "RR": 10}, "interventions_changed": {"airway": true, "O2_device": "vent", "FiO2": 0.9, "intubated": true}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Intubation improves oxygenation and ventilation, raising O2Sat and RR."}

@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 5}, "interventions_changed": {}, "drugs_added": [{"name": "hypertonic_saline_3pct", "dose": 37.5, "unit": "ml", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "The administration of hypertonic saline may improve hemodynamics slightly, leading to a modest increase in HR."}

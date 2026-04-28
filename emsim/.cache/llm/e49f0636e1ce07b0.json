@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 10, "BP_dia": 5}, "interventions_changed": {}, "drugs_added": [{"name": "carboprost", "dose": 0.25, "unit": "mg", "route": "IM"}], "mechanism_severity": "severe", "reasoning": "Carboprost is expected to help control bleeding, leading to a slight increase in HR and BP."}

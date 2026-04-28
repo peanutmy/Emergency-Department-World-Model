@@ -1,0 +1,1 @@
+{"vitals_delta": {"O2Sat": 5}, "interventions_changed": {"O2_device": "BVM", "FiO2": 0.9, "airway": true}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Applying BVM improves O2 saturation significantly due to increased oxygen delivery."}

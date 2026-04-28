@@ -1,0 +1,1 @@
+{"vitals_delta": {"O2Sat": 10}, "interventions_changed": {"intubated": true, "O2_device": "vent", "FiO2": 1.0}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Intubation improves oxygenation, raising O2Sat while maintaining severe asthma exacerbation."}

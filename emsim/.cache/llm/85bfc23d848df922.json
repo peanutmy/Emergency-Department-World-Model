@@ -1,0 +1,1 @@
+{"vitals_delta": {"BP_sys": -10, "BP_dia": -5, "HR": 5}, "interventions_changed": {}, "drugs_added": [{"name": "nitroglycerin", "dose": 0.4, "unit": "mg", "route": "SL"}], "mechanism_severity": "moderate", "reasoning": "Nitroglycerin can cause a modest drop in blood pressure and a slight increase in heart rate."}

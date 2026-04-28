@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -20, "O2Sat": 10}, "interventions_changed": {}, "drugs_added": [{"name": "lipid_emulsion_20", "dose": 120, "unit": "mL", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "The administration of lipid emulsion may help reduce the severity of local anesthetic toxicity, leading to a slight decrease in HR and a modest increase in O2 saturation."}

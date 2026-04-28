@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 15, "BP_sys": 10, "BP_dia": 5}, "interventions_changed": {"CPR_active": true}, "drugs_added": [{"name": "epinephrine", "dose": 0.12, "unit": "mg/hr", "route": "IV_infusion"}], "mechanism_severity": "severe", "reasoning": "Epinephrine administration in a severe shock state raises HR and BP while initiating CPR due to the critical condition."}

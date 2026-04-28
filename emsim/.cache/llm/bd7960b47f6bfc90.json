@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -10, "BP_sys": -20, "BP_dia": -10}, "interventions_changed": {"O2_device": "nasal", "FiO2": 0.3}, "drugs_added": [{"name": "labetalol", "dose": 20, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Labetalol reduces heart rate and blood pressure in severe hypertension due to preeclampsia."}

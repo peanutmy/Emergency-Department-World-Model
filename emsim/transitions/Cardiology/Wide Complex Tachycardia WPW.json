@@ -1,0 +1,299 @@
+{
+  "case_id": "wpw_wide_complex_tachycardia",
+  "category": "Cardiology",
+  "source_pdf": "pdf/Cardiology/Wide Complex Tachycardia WPW.pdf",
+  "initial_state": {
+    "vitals": {
+      "HR": 180,
+      "BP_sys": 125,
+      "BP_dia": 85,
+      "RR": 22,
+      "O2Sat": 97,
+      "T": 37.1
+    },
+    "interventions": {
+      "airway": false,
+      "O2_device": null,
+      "PEEP": 0,
+      "FiO2": 0.21,
+      "vent_rate": null,
+      "vent_TV_ml": null,
+      "intubated": false,
+      "CPR_active": false,
+      "defib_last_J": null,
+      "pacing_active": false,
+      "pacing_rate": null,
+      "fluids_rate_ml_hr": 0,
+      "fluid_type": null,
+      "warming_active": false,
+      "cooling_active": false,
+      "needle_decompression": false,
+      "chest_tube": false,
+      "pericardiocentesis": false
+    },
+    "mechanism": {
+      "pathology": {
+        "name": "svt",
+        "severity": "moderate"
+      }
+    }
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "comment": "State 1 trigger: 'Procainamide/amiodarone -> phase 3 Hypotension'. Scenario C specifies procainamide; ACLS table gives 20-50 mg/min until suppressed or max 17 mg/kg (= 1190 mg for 70kg); use max 1000 mg as typical ceiling dose. Onset-to-peak: scenario-specific time not given; use default ACLS infusion ~20 min to effect. Phase 3 vitals: HR 180 WCT, BP 88/60, O2 97%.",
+      "before": {
+        "vitals": {
+          "HR": 180,
+          "BP_sys": 125,
+          "BP_dia": 85,
+          "RR": 22,
+          "O2Sat": 97,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "svt",
+            "severity": "moderate"
+          },
+          "rhythm": "VT"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "procainamide",
+          "dose": 1000,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 1200,
+      "after": {
+        "vitals": {
+          "HR": 180,
+          "BP_sys": 88,
+          "BP_dia": 60,
+          "RR": 22,
+          "O2Sat": 97,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "svt",
+            "severity": "severe"
+          },
+          "rhythm": "VT"
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "comment": "State 1 branch trigger: 'AV nodal blocker -> phase 2 Polymorphic VT'. Branch from initial_state. Scenario lists adenosine as possible medication; first ED dose 6 mg IV, onset ~20 s. Phase 2 vitals: polymorphic VT HR 200, BP 88/60, GCS drops to 14.",
+      "before": {
+        "vitals": {
+          "HR": 180,
+          "BP_sys": 125,
+          "BP_dia": 85,
+          "RR": 22,
+          "O2Sat": 97,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "svt",
+            "severity": "moderate"
+          },
+          "rhythm": "VT"
+        }
+      },
+      "actions": [
+        {
+          "type": "drug",
+          "name": "adenosine",
+          "dose": 6,
+          "unit": "mg",
+          "route": "IV"
+        }
+      ],
+      "duration_s": 20,
+      "after": {
+        "vitals": {
+          "HR": 200,
+          "BP_sys": 88,
+          "BP_dia": 60,
+          "RR": 22,
+          "O2Sat": 97,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pre_excited_af",
+            "severity": "severe"
+          },
+          "rhythm": "VT"
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "comment": "State 1 branch trigger: 'After 4 minutes -> phase 2 Polymorphic VT' (passive deterioration without AV nodal blocker). Branch from initial_state.",
+      "before": {
+        "vitals": {
+          "HR": 180,
+          "BP_sys": 125,
+          "BP_dia": 85,
+          "RR": 22,
+          "O2Sat": 97,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "svt",
+            "severity": "moderate"
+          },
+          "rhythm": "VT"
+        }
+      },
+      "actions": [],
+      "duration_s": 240,
+      "after": {
+        "vitals": {
+          "HR": 200,
+          "BP_sys": 88,
+          "BP_dia": 60,
+          "RR": 22,
+          "O2Sat": 97,
+          "T": 37.1
+        },
+        "interventions": {
+          "airway": false,
+          "O2_device": null,
+          "PEEP": 0,
+          "FiO2": 0.21,
+          "vent_rate": null,
+          "vent_TV_ml": null,
+          "intubated": false,
+          "CPR_active": false,
+          "defib_last_J": null,
+          "pacing_active": false,
+          "pacing_rate": null,
+          "fluids_rate_ml_hr": 0,
+          "fluid_type": null,
+          "warming_active": false,
+          "cooling_active": false,
+          "needle_decompression": false,
+          "chest_tube": false,
+          "pericardiocentesis": false
+        },
+        "mechanism": {
+          "pathology": {
+            "name": "pre_excited_af",
+            "severity": "severe"
+          },
+          "rhythm": "VT"
+        }
+      }
+    }
+  ]
+}

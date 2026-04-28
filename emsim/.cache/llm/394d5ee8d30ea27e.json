@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 10, "BP_dia": 5, "O2Sat": 3}, "interventions_changed": {"O2_device": "NRB", "FiO2": 0.9}, "drugs_added": [{"name": "epinephrine", "dose": 5, "unit": "mg", "route": "nebulized"}], "mechanism_severity": "moderate", "reasoning": "Epinephrine improves hemodynamics and oxygen saturation in severe airway obstruction."}

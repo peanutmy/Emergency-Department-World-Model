@@ -1,0 +1,1 @@
+{"vitals_delta": {"T": 0.2}, "interventions_changed": {}, "drugs_added": [{"name": "hydromorphone", "dose": 2, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "The administration of hydromorphone may cause a slight increase in temperature due to its effects, but no other vitals or interventions change significantly."}

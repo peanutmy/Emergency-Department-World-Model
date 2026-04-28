@@ -1,0 +1,1 @@
+{"vitals_delta": {"BP_sys": 0, "BP_dia": 0, "HR": 0, "RR": 0, "O2Sat": 0, "T": 0}, "interventions_changed": {"fluids_rate_ml_hr": 400}, "drugs_added": [], "mechanism_severity": "severe", "reasoning": "Fluids were given to address hypotension, but immediate vital changes are not expected within the observation window."}

@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 10, "BP_sys": 20, "BP_dia": 15}, "interventions_changed": {"O2_device": null, "FiO2": 0.21}, "drugs_added": [{"name": "norepinephrine", "dose": 10, "unit": "mcg", "route": "IV"}], "mechanism_severity": "moderate", "reasoning": "Norepinephrine administration improves blood pressure and heart rate in septic shock, leading to a moderate change in severity."}

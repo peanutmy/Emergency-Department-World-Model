@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "BP_sys": 0, "BP_dia": 0, "RR": 0, "O2Sat": 0, "T": 0}, "interventions_changed": {}, "drugs_added": [{"name": "lorazepam", "dose": 2.5, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "The patient remains in status epilepticus with no change in vital signs due to the ongoing severe condition."}

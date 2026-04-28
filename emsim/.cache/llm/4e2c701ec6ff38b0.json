@@ -1,0 +1,1 @@
+{"vitals_delta": {"BP_sys": -10, "BP_dia": -5, "T": 35.5}, "interventions_changed": {"warming_active": true}, "drugs_added": [{"name": "propofol", "dose": 140, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "The administration of propofol likely caused a modest drop in blood pressure and a slight decrease in temperature due to its sedative effects."}

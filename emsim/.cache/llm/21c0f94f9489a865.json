@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -50}, "interventions_changed": {}, "drugs_added": [{"name": "adenosine", "dose": 2, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "The additional adenosine likely converted the SVT to a normal rhythm, resulting in a decrease in HR."}

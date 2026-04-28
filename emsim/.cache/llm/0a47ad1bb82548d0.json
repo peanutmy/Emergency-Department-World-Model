@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 12, "BP_sys": 20, "BP_dia": 10}, "interventions_changed": {"CPR_active": false}, "drugs_added": [{"name": "epinephrine", "dose": 1, "unit": "mg", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "Epinephrine administration raises HR and BP in shock states, but the severe spinal cord injury limits the overall response."}

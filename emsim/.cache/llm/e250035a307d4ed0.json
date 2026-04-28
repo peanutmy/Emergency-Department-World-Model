@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": 0, "O2Sat": 0}, "interventions_changed": {}, "drugs_added": [{"name": "sodium_bicarbonate", "dose": 25, "unit": "mEq", "route": "IV"}], "mechanism_severity": "severe", "reasoning": "The patient remains in a state of pulseless electrical activity with no change in vital signs despite the administration of sodium bicarbonate."}

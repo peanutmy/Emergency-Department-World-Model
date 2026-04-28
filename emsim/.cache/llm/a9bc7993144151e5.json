@@ -1,0 +1,1 @@
+{"vitals_delta": {"HR": -30}, "interventions_changed": {}, "drugs_added": [{"name": "amiodarone", "dose": 150, "unit": "mg", "route": "IV"}], "mechanism_severity": "mild", "reasoning": "The administration of amiodarone in a mild VT may lead to a decrease in heart rate as the rhythm stabilizes."}
