@@ -17,15 +17,25 @@ from .sim_mode import (
     determine_target_mode,
     get_round_dt_s,
 )
+from .simulation import (
+    ClinicianTurn,
+    RoundResult,
+    SimulationOrchestrator,
+    VerbalAction,
+)
 
 __all__ = [
     "AgentActivationPolicy",
     "ClinicianMetaEvent",
+    "ClinicianTurn",
     "DECLARE_CODE",
     "EXIT_CODE",
+    "RoundResult",
     "SIM_MODE_PRIORITY",
+    "SimulationOrchestrator",
     "SimMode",
     "SimModeManager",
+    "VerbalAction",
     "determine_target_mode",
     "get_round_dt_s",
     "should_call_clinician_agent",
