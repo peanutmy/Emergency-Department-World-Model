@@ -60,10 +60,21 @@ class VerbalAction:
             self.addressed_to = str(self.addressed_to)
         self.expected_slots = deepcopy(self.expected_slots)
         self.metadata = deepcopy(self.metadata)
+        if (self.is_question or self.expects_response) and not (
+            self.target or self.addressed_to
+        ):
+            raise ValueError(
+                "verbal questions or response requests require target or addressed_to"
+            )
 
     @property
     def response_target(self) -> str:
-        return self.addressed_to or self.target or "patient"
+        response_target = self.addressed_to or self.target
+        if not response_target:
+            raise ValueError(
+                "verbal questions or response requests require target or addressed_to"
+            )
+        return response_target
 
 
 @dataclass
@@ -94,7 +105,11 @@ class ClinicianTurn:
 
 @dataclass
 class RoundResult:
-    """Outputs from one deterministic no-LLM orchestrator round."""
+    """Outputs from one deterministic no-LLM orchestrator round.
+
+    ``agent_calls`` is an M5 placeholder and remains empty in the M4 no-LLM
+    orchestrator.
+    """
 
     now_s: float
     sim_mode: SimMode
@@ -410,16 +425,13 @@ class SimulationOrchestrator:
             self.discovered_memory.add_test_result(test_name, result_payload)
             memory_deltas["test_results_added"][test_name] = result_payload
 
-            if event.source_order_id is not None:
-                order = self.workflow_engine.order_manager.get_order(
-                    event.source_order_id
-                )
-                if order.status != "completed":
-                    self.workflow_engine.order_manager.set_status(
-                        event.source_order_id,
-                        "completed",
-                        now_s=self.workflow_engine.now_s,
-                    )
+            source_order_id = event.source_order_id
+            if source_order_id is None:
+                continue
+            if self.workflow_engine.order_manager.orders.get(source_order_id) is None:
+                continue
+            # WorkflowEngine.advance owns lab order completion; do not update
+            # order status again when the orchestrator consumes the payload.
 
     def _apply_workflow_emsim_actions(
         self,

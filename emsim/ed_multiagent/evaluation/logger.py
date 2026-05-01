@@ -28,7 +28,11 @@ class RoundLogEntry:
 
 
 class RoundLogger:
-    """In-memory logger used by deterministic tests and future replay tools."""
+    """In-memory-only M4 logger for deterministic round summaries.
+
+    This logger does not persist to disk. JSONL persistence is deferred until a
+    later milestone.
+    """
 
     def __init__(self) -> None:
         self.entries: list[RoundLogEntry] = []

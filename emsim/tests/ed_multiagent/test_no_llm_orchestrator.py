@@ -31,7 +31,7 @@ from ed_multiagent.orchestrator import (
     SimulationOrchestrator,
     VerbalAction,
 )
-from ed_multiagent.world import WorkflowEngine
+from ed_multiagent.world import PendingEvent, WorkflowEngine
 
 
 FORBIDDEN_CLINICIAN_KEYS = {
@@ -237,6 +237,72 @@ def test_lab_result_ready_event_updates_discovered_memory_after_turnaround():
     }
     assert draw_round.submitted_orders[0].status == "completed"
     assert conversation.raw_turns == []
+
+
+@pytest.mark.parametrize("source_order_id", [None, "purged-order"])
+def test_lab_result_event_without_resolvable_order_still_updates_memory(
+    source_order_id: str | None,
+):
+    discovered = DiscoveredClinicalMemory()
+    orchestrator = _orchestrator(discovered_memory=discovered)
+    memory_deltas = {"test_results_added": {}}
+    event = PendingEvent(
+        event_type="lab_result_ready",
+        payload={
+            "test_name": "glucose",
+            "result": {"value": 180, "unit": "mg/dL"},
+        },
+        source_order_id=source_order_id,
+    )
+
+    orchestrator._process_fired_events([event], memory_deltas)
+
+    assert discovered.test_results == {
+        "glucose": {"value": 180, "unit": "mg/dL"}
+    }
+    assert memory_deltas["test_results_added"] == {
+        "glucose": {"value": 180, "unit": "mg/dL"}
+    }
+
+
+def test_lab_result_event_processing_does_not_complete_order_status(monkeypatch):
+    orchestrator = _orchestrator()
+    order = orchestrator.workflow_engine.submit_order(
+        order_type="lab",
+        payload={"test_name": "glucose"},
+    )
+    original_set_status = orchestrator.workflow_engine.order_manager.set_status
+    status_updates = []
+
+    def spy_set_status(
+        order_id: str,
+        status: str,
+        *,
+        now_s: float | None = None,
+    ):
+        status_updates.append((order_id, status))
+        return original_set_status(order_id, status, now_s=now_s)
+
+    monkeypatch.setattr(
+        orchestrator.workflow_engine.order_manager,
+        "set_status",
+        spy_set_status,
+    )
+    event = PendingEvent(
+        event_type="lab_result_ready",
+        payload={"test_name": "glucose"},
+        source_order_id=order.order_id,
+    )
+
+    orchestrator._process_fired_events([event], {"test_results_added": {}})
+
+    assert status_updates == []
+    assert order.status == "pending_execution"
+
+
+def test_question_without_target_or_addressed_to_raises():
+    with pytest.raises(ValueError, match="target or addressed_to"):
+        VerbalAction(content="Any allergies?", is_question=True)
 
 
 def test_response_opportunity_hardcoded_answers_update_only_answered_facts():
