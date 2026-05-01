@@ -8,8 +8,10 @@ from .response_opportunity import (
     apply_response_to_discovered_memory,
     status_for_response_mode,
 )
+from .schema import AgentTurnOutput
 
 __all__ = [
+    "AgentTurnOutput",
     "ResponseMode",
     "ResponseOpportunity",
     "ResponseOpportunityQueue",
