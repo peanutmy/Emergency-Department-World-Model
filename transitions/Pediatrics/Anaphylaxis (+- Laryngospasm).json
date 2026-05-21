@@ -1,0 +1,720 @@
+{
+  "schema_version": "educational_transition_pair_v14",
+  "case_id": "anaphylaxis_with_laryngospasm",
+  "category": "Allergy/Immunology",
+  "source_pdf": "Anaphylaxis (+- Laryngospasm).pdf",
+  "scenario_description": "A 7-year-old boy with known peanut allergy presents with wheeze, rash, and increased work of breathing after eating birthday cake. He has ongoing anaphylaxis requiring epinephrine, fluids, bronchodilator treatment, possible epinephrine infusion, and airway management for worsening airway obstruction with possible laryngospasm during intubation.",
+  "case_context": {
+    "demographics": {
+      "age": 7,
+      "sex": "M",
+      "weight_kg": 28
+    },
+    "history": [
+      "allergy_to_peanuts",
+      "ate cake at a party and developed wheeze, shortness of breath and rash within 10 minutes"
+    ],
+    "home_medications": [
+      "epinephrine auto-injector"
+    ],
+    "allergies": [
+      "peanuts"
+    ],
+    "baseline_features": {
+      "rhythm": "NSR",
+      "oxygen_device": "NRB",
+      "FiO2": 0.8,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 15",
+      "glucose_mmol_l": 6.2
+    },
+    "supporting_findings": [
+      {
+        "test_code": "CXR",
+        "test_name": "Initial Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "normal pediatric CXR"
+      },
+      {
+        "test_code": "CXR_POST_INTUBATION",
+        "test_name": "Post-intubation Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "normal"
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Epi → HR 130, BP 85/50"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 80,
+            "BP_dia": 50,
+            "RR": 40,
+            "O2Sat": 97,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "IM epinephrine left lateral thigh at 0.01mg/kg",
+          "kind_hint": "vasopressor",
+          "params": {
+            "drug_name": "epinephrine",
+            "dose": 0.01,
+            "unit": "mg/kg"
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 130,
+            "BP_sys": 85,
+            "BP_dia": 50
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "NS bolus → HR 125, BP 85/55"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 80,
+            "BP_dia": 50,
+            "RR": 40,
+            "O2Sat": 97,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "IV NS bolus (20mL/kg)",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": "normal_saline",
+            "volume_ml": 560
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 125,
+            "BP_sys": 85,
+            "BP_dia": 55
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Ventolin/Atrovent → O2 99%, increase air entry"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 80,
+            "BP_dia": 50,
+            "RR": 40,
+            "O2Sat": 97,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "Salbutamol (5mg) and Ipatropium (0.5mg) in 3mL NS neb",
+          "kind_hint": "bronchodilator",
+          "params": {
+            "drug_name": null,
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 99
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "5 minutes → 2. Hypotension; HR: 140, BP: 60/40, RR: 42, O2SAT: 97% NRB"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 80,
+            "BP_dia": 50,
+            "RR": 40,
+            "O2Sat": 97,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "5 minutes",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 5
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 60,
+            "BP_dia": 40,
+            "RR": 42,
+            "O2Sat": 97
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "RR",
+            "O2Sat"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "NS bolus → BP 70/50"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 60,
+            "BP_dia": 40,
+            "RR": 42,
+            "O2Sat": 97,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "IV NS bolus (20mL/kg)",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": "normal_saline",
+            "volume_ml": 560
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 70,
+            "BP_dia": 50
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Epi infusion → BP 85/60"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 60,
+            "BP_dia": 40,
+            "RR": 42,
+            "O2Sat": 97,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "Start iv epinephrine infusion at 0.1mcg/kg/min",
+          "kind_hint": "vasopressor",
+          "params": {
+            "drug_name": "epinephrine",
+            "dose": 0.1,
+            "unit": "mcg/kg/min"
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 85,
+            "BP_dia": 60
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Epi neb → O2 94% NRB, RR 40"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 150,
+            "BP_sys": 88,
+            "BP_dia": 60,
+            "RR": 48,
+            "O2Sat": 89,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "Nebulized epinephrine",
+          "kind_hint": "anaphylaxis_treatment",
+          "params": {
+            "drug_name": "epinephrine",
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 94,
+            "RR": 40
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat",
+            "RR"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p8",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "IV fluid → BP 90/65, HR 130"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 150,
+            "BP_sys": 88,
+            "BP_dia": 60,
+            "RR": 48,
+            "O2Sat": 89,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "IV Fluid bolus (20mL/kg)",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": "normal_saline",
+            "volume_ml": 560
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 90,
+            "BP_dia": 65,
+            "HR": 130
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia",
+            "HR"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p9",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "No intubation 4 min into state → 4. Laryngospasm; HR → to 110 over 1 min, O2SAT → 65% over 60 sec, RR → 0, BP → 80/60"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 150,
+            "BP_sys": 88,
+            "BP_dia": 60,
+            "RR": 48,
+            "O2Sat": 89,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "No intubation 4 min into state",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 4
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 110,
+            "O2Sat": 65,
+            "RR": 0,
+            "BP_sys": 80,
+            "BP_dia": 60
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "O2Sat",
+            "RR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p10",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Intubation with paralytic → 6. Resolution; HR: 100/min, BP: 90/50, RR: 10 (vented), O2SAT: 100%"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 150,
+            "BP_sys": 88,
+            "BP_dia": 60,
+            "RR": 48,
+            "O2Sat": 89,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "Intubation with paralytic",
+          "kind_hint": "airway_management",
+          "params": {
+            "procedure": "intubation",
+            "stage": "completed",
+            "rsi_medication_used": true,
+            "bvm_before": null,
+            "intubated": true
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 100,
+            "BP_sys": 90,
+            "BP_dia": 50,
+            "O2Sat": 100
+          },
+          "features": {
+            "oxygen_device": "vent",
+            "FiO2": 1,
+            "intubated": true,
+            "vent": true
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "O2Sat"
+          ],
+          "target_features": [
+            "oxygen_device",
+            "FiO2",
+            "intubated",
+            "vent"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p11",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "1 min of BVM → O2SAT to 75%"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 80,
+            "BP_dia": 60,
+            "RR": 0,
+            "O2Sat": 65,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "BVM ventilation with PEEP valve",
+          "kind_hint": "oxygen_support",
+          "params": {
+            "oxygen_device": "BVM",
+            "FiO2": 1,
+            "PEEP_used": true,
+            "PEEP_cmH2O": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 75
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p12",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "2 min of laryngospasm → 5. Bradycardia; O2SAT → 95% over 1 min of bagging, HR → 35 over 1 min"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 80,
+            "BP_dia": 60,
+            "RR": 0,
+            "O2Sat": 65,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "2 min of laryngospasm",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 2
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 95,
+            "HR": 35
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat",
+            "HR"
+          ],
+          "target_features": []
+        }
+      }
+    }
+  ]
+}

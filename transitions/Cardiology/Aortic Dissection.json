@@ -1,0 +1,579 @@
+{
+  "schema_version": "educational_transition_pair_v14",
+  "case_id": "aortic_dissection",
+  "category": "Cardiology",
+  "source_pdf": "Aortic Dissection(1).pdf",
+  "scenario_description": "A 66-year-old female with a history of hypertension and type 2 diabetes mellitus presents after syncope while walking her dog. She has retrosternal chest pain radiating to the right jaw and later develops bradycardia and hypotension in a scenario focused on aortic dissection and cardiac complications.",
+  "case_context": {
+    "demographics": {
+      "age": 66,
+      "sex": "F",
+      "weight_kg": 50
+    },
+    "history": [
+      "hypertension",
+      "diabetes_mellitus_type_2",
+      "no_previous_mi_cva_pe"
+    ],
+    "home_medications": [
+      "amlodipine",
+      "metformin",
+      "ASA"
+    ],
+    "allergies": [],
+    "baseline_features": {
+      "rhythm": "sinus_tachycardia",
+      "oxygen_device": null,
+      "FiO2": 0.21,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 15",
+      "glucose_mmol_l": 5
+    },
+    "supporting_findings": [
+      {
+        "test_code": "BMP",
+        "test_name": "Basic Metabolic Panel",
+        "test_category": "lab",
+        "result_summary": "Na 137, K 4.9, Cl 101, HCO3 24, Glu 5.0"
+      },
+      {
+        "test_code": "VBG",
+        "test_name": "Venous Blood Gas",
+        "test_category": "blood_gas",
+        "result_summary": "pH 7.23, PCO2 30, HCO3 25, Lactate 2.9"
+      },
+      {
+        "test_code": "CBC",
+        "test_name": "Complete Blood Count",
+        "test_category": "hematology",
+        "result_summary": "WBC 9.0, Hg 140, Plt 360"
+      },
+      {
+        "test_code": "TROP",
+        "test_name": "Troponin",
+        "test_category": "cardiac_test",
+        "result_summary": "Troponin 358"
+      },
+      {
+        "test_code": "ECG",
+        "test_name": "Repeat ECG",
+        "test_category": "ecg",
+        "result_summary": "Mobitz I, inferior STE"
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "Image provided; retrieved from radiopaedia.org/articles/aortic-dissection"
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Give negative inotrope (HR→85, BP→150/96)"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 210,
+            "BP_dia": 100,
+            "RR": 20,
+            "O2Sat": 99,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5
+          }
+        },
+        "action": {
+          "raw_text": "Give negative inotrope",
+          "kind_hint": "rate_control",
+          "params": {
+            "drug_name": null,
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 85,
+            "BP_sys": 150,
+            "BP_dia": 96
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Give vasodilator (HR→85, BP→135/80)"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 210,
+            "BP_dia": 100,
+            "RR": 20,
+            "O2Sat": 99,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5
+          }
+        },
+        "action": {
+          "raw_text": "Give vasodilator",
+          "kind_hint": "vasodilator",
+          "params": {
+            "drug_name": null,
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 85,
+            "BP_sys": 135,
+            "BP_dia": 80
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Give NTG SL (BP→200/100 then increases)"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 210,
+            "BP_dia": 100,
+            "RR": 20,
+            "O2Sat": 99,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5
+          }
+        },
+        "action": {
+          "raw_text": "Give NTG SL",
+          "kind_hint": "vasodilator",
+          "params": {
+            "drug_name": "nitroglycerin",
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 200,
+            "BP_dia": 100
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Give heparin → 4. Bradycardia-Asystolic arrest"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 210,
+            "BP_dia": 100,
+            "RR": 20,
+            "O2Sat": 99,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5
+          }
+        },
+        "action": {
+          "raw_text": "Give heparin",
+          "kind_hint": "anticoagulation",
+          "params": {
+            "drug_name": "heparin",
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 0,
+            "BP_sys": 0,
+            "BP_dia": 0,
+            "RR": 0,
+            "O2Sat": 0
+          },
+          "features": {
+            "rhythm": "asystole",
+            "neuro_status": "Non-responsive"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "RR",
+            "O2Sat"
+          ],
+          "target_features": [
+            "rhythm",
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "4 minutes → 2. Increasing Chest Pain"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 210,
+            "BP_dia": 100,
+            "RR": 20,
+            "O2Sat": 99,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5
+          }
+        },
+        "action": {
+          "raw_text": "4 minutes",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 4
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 50,
+            "BP_sys": 90,
+            "BP_dia": 60
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Give IV fluids → BP 100/65"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 50,
+            "BP_sys": 90,
+            "BP_dia": 60,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5
+          }
+        },
+        "action": {
+          "raw_text": "Give IV fluids",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": null,
+            "volume_ml": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 100,
+            "BP_dia": 65
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "3 minutes → 3. Unstable Bradycardia"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 50,
+            "BP_sys": 90,
+            "BP_dia": 60,
+            "RR": 20,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5
+          }
+        },
+        "action": {
+          "raw_text": "3 minutes",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 3
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 40,
+            "BP_sys": 70,
+            "BP_dia": 30,
+            "RR": 12
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "RR"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p8",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Give IV chronotropic agents → BP 90/50"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 40,
+            "BP_sys": 70,
+            "BP_dia": 30,
+            "RR": 12,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5
+          }
+        },
+        "action": {
+          "raw_text": "Give IV chronotropic agents",
+          "kind_hint": "vasopressor",
+          "params": {
+            "drug_name": null,
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 90,
+            "BP_dia": 50
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p9",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Transcutaneous pacing → BP 90/50"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 40,
+            "BP_sys": 70,
+            "BP_dia": 30,
+            "RR": 12,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5
+          }
+        },
+        "action": {
+          "raw_text": "Transcutaneous pacing",
+          "kind_hint": "transcutaneous_pacing",
+          "params": {
+            "site": null,
+            "side": null,
+            "device": null,
+            "energy_J": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 90,
+            "BP_dia": 50
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    }
+  ]
+}

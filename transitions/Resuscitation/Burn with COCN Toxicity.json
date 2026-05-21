@@ -1,0 +1,511 @@
+{
+  "schema_version": "educational_transition_pair_v16",
+  "case_id": "burn_with_co_cn_poisoning",
+  "category": "Burn / Toxicology / Shock",
+  "source_pdf": "Burn with COCN Toxicity.pdf",
+  "scenario_description": "A 33-year-old female is brought to the ED unresponsive after being dragged out of a house fire, with significant burns, soot on the face, singed eyebrows, hypotension, tachycardia, and profound altered mental status. The scenario focuses on intubation, fluid resuscitation, recognition of CO/CN poisoning, hydroxycobalamin treatment, and arrest if cyanide toxicity is not treated.",
+  "case_context": {
+    "demographics": {
+      "age": 33,
+      "sex": "F",
+      "weight_kg": 70
+    },
+    "history": [
+      "Unknown"
+    ],
+    "home_medications": [
+      "Unknown"
+    ],
+    "allergies": [
+      "None known"
+    ],
+    "baseline_features": {
+      "rhythm": "sinus_tachycardia",
+      "oxygen_device": "NRB",
+      "FiO2": 0.8,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 3 (E1 V1 M1)",
+      "glucose_mmol_l": 6.1
+    },
+    "supporting_findings": [
+      {
+        "test_code": "VBG",
+        "test_name": "Venous blood gas",
+        "test_category": "blood_gas",
+        "result_summary": "pH 6.98, PCO2 28, PO2 70, HCO3 6, lactate 11."
+      },
+      {
+        "test_code": "COHB",
+        "test_name": "Carboxyhemoglobin",
+        "test_category": "lab",
+        "result_summary": "Carboxyhgb 0.4."
+      },
+      {
+        "test_code": "ECG",
+        "test_name": "ECG",
+        "test_category": "ecg",
+        "result_summary": "Sinus tachycardia ECG."
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Chest X-ray - post intubation",
+        "test_category": "imaging",
+        "result_summary": "Normal post-intubation CXR."
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "2L IVF → HR 120, BP 82/50"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 130,
+            "BP_sys": 75,
+            "BP_dia": 45,
+            "RR": 18,
+            "O2Sat": 96,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 3 (E1 V1 M1)",
+            "glucose_mmol_l": 6.1
+          }
+        },
+        "action": {
+          "raw_text": "2L IVF",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": null,
+            "volume_ml": 2000
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 82,
+            "BP_dia": 50
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Intubate → 2. Intubation; HR → 120; BP → 80/50"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 130,
+            "BP_sys": 75,
+            "BP_dia": 45,
+            "RR": 18,
+            "O2Sat": 96,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 3 (E1 V1 M1)",
+            "glucose_mmol_l": 6.1
+          }
+        },
+        "action": {
+          "raw_text": "Intubate",
+          "kind_hint": "airway_management",
+          "params": {
+            "procedure": "intubation",
+            "stage": "completed",
+            "rsi_medication_used": null,
+            "bvm_before": null,
+            "intubated": true
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 80,
+            "BP_dia": 50
+          },
+          "features": {
+            "intubated": true
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": [
+            "intubated"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "7 minutes → 3. Critical VBG; HR → 115; BP → 75/45"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 130,
+            "BP_sys": 75,
+            "BP_dia": 45,
+            "RR": 18,
+            "O2Sat": 96,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 3 (E1 V1 M1)",
+            "glucose_mmol_l": 6.1
+          }
+        },
+        "action": {
+          "raw_text": "7 minutes",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 7
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 115,
+            "BP_sys": 75,
+            "BP_dia": 45
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Propofol used → BP 60/30"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 80,
+            "BP_dia": 50,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": null,
+            "intubated": true,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 3 (E1 V1 M1)",
+            "glucose_mmol_l": 6.1
+          }
+        },
+        "action": {
+          "raw_text": "Propofol used",
+          "kind_hint": "sedation",
+          "params": {
+            "drug_name": "propofol",
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 60,
+            "BP_dia": 30
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "7 minutes → 3. Critical VBG; HR → 115; BP → 75/45"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 80,
+            "BP_dia": 50,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": null,
+            "intubated": true,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 3 (E1 V1 M1)",
+            "glucose_mmol_l": 6.1
+          }
+        },
+        "action": {
+          "raw_text": "7 minutes",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 7
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 115,
+            "BP_sys": 75,
+            "BP_dia": 45
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Vasopressor started → BP 85/55"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 115,
+            "BP_sys": 75,
+            "BP_dia": 45,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": null,
+            "vent": null,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 3 (E1 V1 M1)",
+            "glucose_mmol_l": 6.1
+          }
+        },
+        "action": {
+          "raw_text": "Vasopressor started",
+          "kind_hint": "vasopressor",
+          "params": {
+            "drug_name": null,
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 85,
+            "BP_dia": 55
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p8",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "10 min → 4. Arrest; Rhythm → PEA; BP → -/-; Patient pulseless."
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 115,
+            "BP_sys": 75,
+            "BP_dia": 45,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": null,
+            "vent": null,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 3 (E1 V1 M1)",
+            "glucose_mmol_l": 6.1
+          }
+        },
+        "action": {
+          "raw_text": "10 min",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 10
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 0,
+            "BP_dia": 0
+          },
+          "features": {
+            "rhythm": "PEA"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": [
+            "rhythm"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p9",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Hydroxycobalamin given → 5. Resolution; Rhythm → sinus tach; HR → 110; BP → 95/60; Patient remains unresponsive."
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 115,
+            "BP_sys": 75,
+            "BP_dia": 45,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": null,
+            "vent": null,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 3 (E1 V1 M1)",
+            "glucose_mmol_l": 6.1
+          }
+        },
+        "action": {
+          "raw_text": "Hydroxycobalamin given",
+          "kind_hint": "antidote",
+          "params": {
+            "drug_name": "hydroxycobalamin",
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 95,
+            "BP_dia": 60
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "neuro_status": "remains unresponsive"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": [
+            "rhythm",
+            "neuro_status"
+          ]
+        }
+      }
+    }
+  ]
+}

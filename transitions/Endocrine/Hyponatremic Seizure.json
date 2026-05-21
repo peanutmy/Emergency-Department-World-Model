@@ -1,0 +1,376 @@
+{
+  "schema_version": "educational_transition_pair_v14",
+  "case_id": "hyponatremic_seizure",
+  "category": "Neurology",
+  "source_pdf": "Hyponatremic Seizure.pdf",
+  "scenario_description": "An elderly female with poor oral intake, weakness, and new confusion presents to the ED, develops generalized tonic-clonic seizures, is found to have severe hyponatremia, and requires hypertonic saline with later airway management.",
+  "case_context": {
+    "demographics": {
+      "age": 92,
+      "sex": "F",
+      "weight_kg": 50
+    },
+    "history": [
+      "HTN",
+      "Hypothyroidism",
+      "Depression"
+    ],
+    "home_medications": [
+      "HCTZ 25mg daily",
+      "ASA 81mg daily",
+      "Levothyroxine 125mcg daily",
+      "Celexa 20mg daily"
+    ],
+    "allergies": [
+      "Sulfa"
+    ],
+    "baseline_features": {
+      "rhythm": "NSR",
+      "oxygen_device": null,
+      "FiO2": 0.21,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 13 (E4 V4 M5)",
+      "glucose_mmol_l": 6.4
+    },
+    "supporting_findings": [
+      {
+        "test_code": "BMP",
+        "test_name": "Basic Metabolic Panel",
+        "test_category": "lab",
+        "result_summary": "Critical result: Na 101"
+      },
+      {
+        "test_code": "ECG",
+        "test_name": "ECG",
+        "test_category": "ecg",
+        "result_summary": "Normal sinus rhythm"
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Pre-intubation Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "Pre-intubation CXR image/reference provided"
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Post-intubation Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "Post-intubation CXR image/reference provided"
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "1L NS → BP 100/60"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 95,
+            "BP_sys": 90,
+            "BP_dia": 60,
+            "RR": 12,
+            "O2Sat": 96,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 6.4
+          }
+        },
+        "action": {
+          "raw_text": "1L NS",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": "normal_saline",
+            "volume_ml": 1000
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 100,
+            "BP_dia": 60
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "3 min → 2. Seizure"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 95,
+            "BP_sys": 90,
+            "BP_dia": 60,
+            "RR": 12,
+            "O2Sat": 96,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 6.4
+          }
+        },
+        "action": {
+          "raw_text": "3 min",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 3
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 155,
+            "BP_dia": 95,
+            "O2Sat": 86
+          },
+          "features": {
+            "neuro_status": "generalized tonic-clonic seizure"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "O2Sat"
+          ],
+          "target_features": [
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Hypertonic given → 4. Somnolent"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 155,
+            "BP_dia": 95,
+            "RR": null,
+            "O2Sat": 86,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "generalized tonic-clonic seizure",
+            "glucose_mmol_l": 6.4
+          }
+        },
+        "action": {
+          "raw_text": "Administer 3% NS 100ml over 10 minutes",
+          "kind_hint": "electrolyte_correction",
+          "params": {
+            "drug_name": "3% NS",
+            "dose": 100,
+            "unit": "mL"
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 100,
+            "BP_sys": 95,
+            "BP_dia": 65,
+            "RR": 6,
+            "O2Sat": 91
+          },
+          "features": {
+            "neuro_status": "not seizing, poor respiratory effort, not responsive"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "RR",
+            "O2Sat"
+          ],
+          "target_features": [
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "12 min → 5. Repeat seizure"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 100,
+            "BP_sys": 95,
+            "BP_dia": 65,
+            "RR": 6,
+            "O2Sat": 91,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "not responsive",
+            "glucose_mmol_l": 6.4
+          }
+        },
+        "action": {
+          "raw_text": "12 min",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 12
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 155,
+            "BP_dia": 95,
+            "O2Sat": 86
+          },
+          "features": {
+            "neuro_status": "another GTC seizure"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "O2Sat"
+          ],
+          "target_features": [
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Intubation → 6. Intubation"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 155,
+            "BP_dia": 95,
+            "RR": 0,
+            "O2Sat": 86,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GTC seizure",
+            "glucose_mmol_l": 6.4
+          }
+        },
+        "action": {
+          "raw_text": "Intubation",
+          "kind_hint": "airway_management",
+          "params": {
+            "procedure": "intubation",
+            "stage": "completed",
+            "rsi_medication_used": null,
+            "bvm_before": null,
+            "intubated": true
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 110,
+            "BP_dia": 75,
+            "RR": 12,
+            "O2Sat": 93
+          },
+          "features": {
+            "oxygen_device": "vent",
+            "FiO2": 1,
+            "intubated": true,
+            "vent": true,
+            "neuro_status": "Patient non-responsive"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "O2Sat"
+          ],
+          "target_features": [
+            "oxygen_device",
+            "FiO2",
+            "intubated",
+            "vent",
+            "neuro_status"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,311 @@
+{
+  "schema_version": "educational_transition_pair_v14",
+  "case_id": "massive_upper_gi_bleed",
+  "category": "Gastroenterology",
+  "source_pdf": "Massive Upper GI Bleed(1).pdf",
+  "scenario_description": "A 58-year-old male with alcoholism presents with active massive hematemesis from suspected variceal upper GI bleeding, progressing to hemorrhagic shock requiring transfusion strategy, airway management, and Sengstaken-Blakemore tube placement before definitive management.",
+  "case_context": {
+    "demographics": {
+      "age": 58,
+      "sex": "M",
+      "weight_kg": 80
+    },
+    "history": [
+      "alcoholism_10_20_beers_per_day",
+      "hypertension"
+    ],
+    "home_medications": [
+      "hydrochlorothiazide_25mg_QD"
+    ],
+    "allergies": [],
+    "baseline_features": {
+      "rhythm": "sinus_tachycardia",
+      "oxygen_device": null,
+      "FiO2": 0.21,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 13 (E3 V4 M6)",
+      "glucose_mmol_l": 10
+    },
+    "supporting_findings": [
+      {
+        "test_code": "BMP",
+        "test_name": "Basic Metabolic Panel",
+        "test_category": "lab",
+        "result_summary": "Na 129, K 4.5, Cl 104, HCO3 23, BUN 40, Cr 200, Glu 10"
+      },
+      {
+        "test_code": "VBG",
+        "test_name": "Venous Blood Gas",
+        "test_category": "blood_gas",
+        "result_summary": "pH 7.21, PCO2 32, PO2 40, HCO3 23, Lactate 4.0"
+      },
+      {
+        "test_code": "CBC",
+        "test_name": "Complete Blood Count",
+        "test_category": "hematology",
+        "result_summary": "WBC 12.1, Hg 50, Hct 22%, Plt 220"
+      },
+      {
+        "test_code": "COAG",
+        "test_name": "Coagulation Studies",
+        "test_category": "lab",
+        "result_summary": "INR 1.8, PTT 51"
+      },
+      {
+        "test_code": "LFT",
+        "test_name": "Liver Function Tests",
+        "test_category": "lab",
+        "result_summary": "AST 175, ALT 73, Bili (T) 756"
+      },
+      {
+        "test_code": "TOX",
+        "test_name": "Toxicology",
+        "test_category": "lab",
+        "result_summary": "ASA 0, APAP 0, EtOH 40"
+      },
+      {
+        "test_code": "ECG",
+        "test_name": "EKG",
+        "test_category": "ecg",
+        "result_summary": "Sinus tachycardia"
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "CXR prior to intubation image provided"
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "2 minutes -> 2. Hemorrhagic Shock"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 115,
+            "BP_sys": 105,
+            "BP_dia": 60,
+            "RR": 24,
+            "O2Sat": 96,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          }
+        },
+        "action": {
+          "raw_text": "2 minutes",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 2
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 85,
+            "BP_dia": 50
+          },
+          "features": {
+            "neuro_status": "GCS 7 (E1 V3 M4)"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": [
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Blood transfusion/MTP initiation -> HR 120, BP 95/60"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 85,
+            "BP_dia": 50,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 7 (E1 V3 M4)",
+            "glucose_mmol_l": 10
+          }
+        },
+        "action": {
+          "raw_text": "Blood transfusion/MTP initiation",
+          "kind_hint": "blood_transfusion",
+          "params": {
+            "blood_product": null,
+            "units": 2,
+            "strategy": "MTP"
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 95,
+            "BP_dia": 60
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "IV NS bolus w/o blood -> HR 125, BP 90/55 transiently."
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 85,
+            "BP_dia": 50,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 7 (E1 V3 M4)",
+            "glucose_mmol_l": 10
+          }
+        },
+        "action": {
+          "raw_text": "IV NS bolus w/o blood",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": "normal_saline",
+            "volume_ml": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 125,
+            "BP_sys": 90,
+            "BP_dia": 55
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "5 minutes w/o intubation -> 6. PEA arrest"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 85,
+            "BP_dia": 50,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 7 (E1 V3 M4)",
+            "glucose_mmol_l": 10
+          }
+        },
+        "action": {
+          "raw_text": "5 minutes w/o intubation",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 5
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 130,
+            "BP_sys": 0,
+            "BP_dia": 0
+          },
+          "features": {
+            "rhythm": "PEA"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": [
+            "rhythm"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,470 @@
+{
+  "schema_version": "educational_transition_pair_v14",
+  "case_id": "obstetrical_trauma",
+  "category": "Trauma / Obstetrics",
+  "source_pdf": "Obstetrical Trauma.pdf",
+  "scenario_description": "A 33-year-old G1P0 female at 32 weeks gestation presents after a high-speed MVC with altered level of consciousness, hypotension, left tension pneumothorax/hemothorax, pelvic instability, fetal distress, and need for trauma resuscitation, chest decompression/tube thoracostomy, transfusion, and intubation.",
+  "case_context": {
+    "demographics": {
+      "age": 33,
+      "sex": "F",
+      "weight_kg": 80
+    },
+    "history": [
+      "G1P0 - 32 weeks",
+      "no complications in current pregnancy"
+    ],
+    "home_medications": [
+      "Prenatal vitamins"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "baseline_features": {
+      "rhythm": "sinus",
+      "oxygen_device": "NRB",
+      "FiO2": 0.8,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 9 (E2 V2 M5)",
+      "glucose_mmol_l": 6
+    },
+    "supporting_findings": [
+      {
+        "test_code": "CXR",
+        "test_name": "Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "Left tension pneumothorax"
+      },
+      {
+        "test_code": "PXR",
+        "test_name": "Pelvis X-ray",
+        "test_category": "imaging",
+        "result_summary": "Open book pelvic fracture with binder"
+      },
+      {
+        "test_code": "ECG",
+        "test_name": "ECG",
+        "test_category": "ecg",
+        "result_summary": "Sinus tachycardia"
+      },
+      {
+        "test_code": "FAST",
+        "test_name": "FAST Ultrasound",
+        "test_category": "ultrasound",
+        "result_summary": "Pericardium: no PCE; abdomen: + FF"
+      },
+      {
+        "test_code": "LUNG_US",
+        "test_name": "Lung Ultrasound",
+        "test_category": "ultrasound",
+        "result_summary": "Left pneumothorax/hemothorax"
+      },
+      {
+        "test_code": "OB_US",
+        "test_name": "Obstetric Ultrasound",
+        "test_category": "ultrasound",
+        "result_summary": "Uterus: + fetal heart activity"
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Needle decompression → gush of air back, O2 95%, BP same"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 150,
+            "BP_sys": 80,
+            "BP_dia": 50,
+            "RR": 40,
+            "O2Sat": 90,
+            "T": 35.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9",
+            "glucose_mmol_l": 6
+          }
+        },
+        "action": {
+          "raw_text": "Needle decompression",
+          "kind_hint": "needle_decompression",
+          "params": {
+            "site": null,
+            "side": "left",
+            "device": null,
+            "energy_J": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 95
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Chest tube → 200cc blood, O2 97%, BP 85/55, RR 20"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 150,
+            "BP_sys": 80,
+            "BP_dia": 50,
+            "RR": 40,
+            "O2Sat": 90,
+            "T": 35.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9",
+            "glucose_mmol_l": 6
+          }
+        },
+        "action": {
+          "raw_text": "Chest tube",
+          "kind_hint": "tube_thoracostomy",
+          "params": {
+            "site": null,
+            "side": "left",
+            "device": "chest_tube",
+            "energy_J": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 85,
+            "BP_dia": 55,
+            "RR": 20,
+            "O2Sat": 97
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia",
+            "RR",
+            "O2Sat"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Level 1 transfusion → BP 85/60, HR 140"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 155,
+            "BP_sys": 75,
+            "BP_dia": 45,
+            "RR": 20,
+            "O2Sat": 95,
+            "T": null
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 6",
+            "glucose_mmol_l": 6
+          }
+        },
+        "action": {
+          "raw_text": "Level 1 transfusion",
+          "kind_hint": "blood_transfusion",
+          "params": {
+            "blood_product": null,
+            "units": null,
+            "strategy": "1:1:1"
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 85,
+            "BP_dia": 60
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "No intubation by 10 min → O2 slowly drops to 86%"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 155,
+            "BP_sys": 75,
+            "BP_dia": 45,
+            "RR": 20,
+            "O2Sat": 95,
+            "T": null
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 6",
+            "glucose_mmol_l": 6
+          }
+        },
+        "action": {
+          "raw_text": "No intubation by 10 min",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 10
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 86
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Sedation/paralytic given → O2 decreases to 85% over 1min"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 85,
+            "BP_dia": 60,
+            "RR": 20,
+            "O2Sat": 94,
+            "T": null
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 6",
+            "glucose_mmol_l": 6
+          }
+        },
+        "action": {
+          "raw_text": "Sedation/paralytic given",
+          "kind_hint": "airway_medication",
+          "params": {
+            "drug_name": null,
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 85
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Propofol used → BP 60/40, HR 150"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 85,
+            "BP_dia": 60,
+            "RR": 20,
+            "O2Sat": 94,
+            "T": null
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 6",
+            "glucose_mmol_l": 6
+          }
+        },
+        "action": {
+          "raw_text": "Propofol used",
+          "kind_hint": "airway_medication",
+          "params": {
+            "drug_name": "propofol",
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 150,
+            "BP_sys": 60,
+            "BP_dia": 40
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p7",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Intubation complete → 4. Husband Arrives"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 85,
+            "BP_dia": 60,
+            "RR": 20,
+            "O2Sat": 94,
+            "T": null
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 6",
+            "glucose_mmol_l": 6
+          }
+        },
+        "action": {
+          "raw_text": "Intubation complete",
+          "kind_hint": "airway_management",
+          "params": {
+            "procedure": "intubation",
+            "stage": "completed",
+            "rsi_medication_used": true,
+            "bvm_before": null,
+            "intubated": true
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 60,
+            "BP_dia": 40,
+            "O2Sat": 99
+          },
+          "features": {
+            "intubated": true,
+            "vent": true,
+            "oxygen_device": "vent",
+            "FiO2": 1
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "O2Sat"
+          ],
+          "target_features": [
+            "intubated",
+            "vent",
+            "oxygen_device",
+            "FiO2"
+          ]
+        }
+      }
+    }
+  ]
+}

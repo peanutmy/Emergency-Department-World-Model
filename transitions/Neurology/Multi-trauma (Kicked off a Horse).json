@@ -1,0 +1,344 @@
+{
+  "schema_version": "educational_transition_pair_v14",
+  "case_id": "multi_trauma_kicked_off_horse",
+  "category": "Trauma",
+  "source_pdf": "Multi-trauma (Kicked off a Horse).pdf",
+  "scenario_description": "A 32-year-old female presents as a trauma activation after being bucked off a horse, with hypotension, GCS 8, right temporal hematoma, unstable pelvis, perineal hematoma, and FAST positive free fluid in the RUQ. The scenario focuses on airway management in a hypotensive head-injured trauma patient, pelvic fracture management, transfusion, TXA, and recognition/treatment of herniation.",
+  "case_context": {
+    "demographics": {
+      "age": 32,
+      "sex": "F",
+      "weight_kg": 65
+    },
+    "history": [
+      "nil_past_medical_history"
+    ],
+    "home_medications": [
+      "OCP"
+    ],
+    "allergies": [
+      "none"
+    ],
+    "baseline_features": {
+      "rhythm": "sinus_tachycardia",
+      "oxygen_device": null,
+      "FiO2": 0.21,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 8 (E2 V2 M4)",
+      "glucose_mmol_l": 7.1
+    },
+    "supporting_findings": [
+      {
+        "test_code": "ECG",
+        "test_name": "ECG",
+        "test_category": "ecg",
+        "result_summary": "Sinus tachycardia ECG image provided."
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "Pre-intubation CXR image provided; normal chest radiograph female source."
+      },
+      {
+        "test_code": "PXR",
+        "test_name": "Pelvic X-ray",
+        "test_category": "imaging",
+        "result_summary": "Pelvic X-ray with fracture shown."
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Post-intubation Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "Post-intubation CXR image provided."
+      },
+      {
+        "test_code": "FAST",
+        "test_name": "FAST ultrasound",
+        "test_category": "ultrasound",
+        "result_summary": "Ultrasound showing free fluid in RUQ; no pericardial effusion."
+      },
+      {
+        "test_code": "LUNG_US",
+        "test_name": "Lung ultrasound",
+        "test_category": "ultrasound",
+        "result_summary": "Ultrasound showing normal lung sliding bilaterally."
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "2L NS → BP 85/45, HR 115"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 80,
+            "BP_dia": 40,
+            "RR": 22,
+            "O2Sat": 96,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 8 (E2 V2 M4)",
+            "glucose_mmol_l": 7.1
+          }
+        },
+        "action": {
+          "raw_text": "2L NS",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": "normal_saline",
+            "volume_ml": 2000
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 115,
+            "BP_sys": 85,
+            "BP_dia": 45
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "5 minutes → 3. Hypotension"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 80,
+            "BP_dia": 40,
+            "RR": 22,
+            "O2Sat": 96,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 8 (E2 V2 M4)",
+            "glucose_mmol_l": 7.1
+          }
+        },
+        "action": {
+          "raw_text": "5 minutes",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 5
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 130,
+            "BP_sys": 65,
+            "BP_dia": 35
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Propofol used → BP 60/30"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 80,
+            "BP_dia": 40,
+            "RR": 22,
+            "O2Sat": 96,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 8 (E2 V2 M4)",
+            "glucose_mmol_l": 7.1
+          }
+        },
+        "action": {
+          "raw_text": "Propofol used",
+          "kind_hint": "airway_medication",
+          "params": {
+            "drug_name": "propofol",
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 60,
+            "BP_dia": 30
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "1 unit PRBC → BP 70/35"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 130,
+            "BP_sys": 65,
+            "BP_dia": 35
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 8 (E2 V2 M4)",
+            "glucose_mmol_l": 7.1
+          }
+        },
+        "action": {
+          "raw_text": "1 unit PRBC",
+          "kind_hint": "blood_transfusion",
+          "params": {
+            "blood_product": "pRBC",
+            "units": 1,
+            "strategy": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 70,
+            "BP_dia": 35
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "2 units PRBC → 4. Herniation"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 130,
+            "BP_sys": 65,
+            "BP_dia": 35
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 8 (E2 V2 M4)",
+            "glucose_mmol_l": 7.1
+          }
+        },
+        "action": {
+          "raw_text": "2 units PRBC",
+          "kind_hint": "blood_transfusion",
+          "params": {
+            "blood_product": "pRBC",
+            "units": 2,
+            "strategy": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 45,
+            "BP_sys": 75,
+            "BP_dia": 45
+          },
+          "features": {
+            "neuro_status": "vitals reflect herniation; left pupil blown if learners ask"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": [
+            "neuro_status"
+          ]
+        }
+      }
+    }
+  ]
+}

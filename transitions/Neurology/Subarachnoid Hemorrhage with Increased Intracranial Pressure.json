@@ -1,0 +1,279 @@
+{
+  "schema_version": "educational_transition_pair_v14",
+  "case_id": "subarachnoid_hemorrhage_increased_icp",
+  "category": "Neurology",
+  "source_pdf": "Subarachnoid Hemorrhage with Increased Intracranial Pressure.pdf",
+  "scenario_description": "A 45-year-old male develops altered mental status after a sudden headache while weightlifting, with suspected aneurysmal subarachnoid hemorrhage, uncontrolled hypertension, need for intubation, and later acute hydrocephalus requiring ICP-lowering maneuvers.",
+  "case_context": {
+    "demographics": {
+      "age": 45,
+      "sex": "M",
+      "weight_kg": 100
+    },
+    "history": [
+      "HTN",
+      "dyslipidemia",
+      "T2DM"
+    ],
+    "home_medications": [
+      "Bisoprolol 5mg PO QD",
+      "Atorvastatin 40mg PO QD",
+      "Metformin 500mg PO BID"
+    ],
+    "allergies": [],
+    "baseline_features": {
+      "rhythm": "sinus_tachycardia",
+      "oxygen_device": null,
+      "FiO2": 0.21,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 7 (E2-pain V2-sounds M4-withdraws)",
+      "glucose_mmol_l": 10
+    },
+    "supporting_findings": [
+      {
+        "test_code": "VBG",
+        "test_name": "Venous Blood Gas",
+        "test_category": "blood_gas",
+        "result_summary": "pH 7.29, PCO2 62, PO2 45, HCO3 23, lactate 1.8"
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "IV anti-hypertensive 1st bolus → Δ BP to 187/106"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 200,
+            "BP_dia": 102,
+            "RR": 8,
+            "O2Sat": 95,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 7 (E2-pain V2-sounds M4-withdraws)",
+            "glucose_mmol_l": 10
+          }
+        },
+        "action": {
+          "raw_text": "IV anti-hypertensive 1st bolus",
+          "kind_hint": "vasodilator",
+          "params": {
+            "drug_name": null,
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 187,
+            "BP_dia": 106
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "IV anti-hypertensive 2nd bolus or infusion → Δ BP to 155/95"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 187,
+            "BP_dia": 106,
+            "RR": 8,
+            "O2Sat": 95,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 7 (E2-pain V2-sounds M4-withdraws)",
+            "glucose_mmol_l": 10
+          }
+        },
+        "action": {
+          "raw_text": "IV anti-hypertensive 2nd bolus or infusion",
+          "kind_hint": "vasodilator",
+          "params": {
+            "drug_name": null,
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 155,
+            "BP_dia": 95
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Intubation → 2. Intubation"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 200,
+            "BP_dia": 102,
+            "RR": 8,
+            "O2Sat": 95,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 7 (E2-pain V2-sounds M4-withdraws)",
+            "glucose_mmol_l": 10
+          }
+        },
+        "action": {
+          "raw_text": "Intubation",
+          "kind_hint": "airway_management",
+          "params": {
+            "procedure": "intubation",
+            "stage": "completed",
+            "rsi_medication_used": null,
+            "bvm_before": null,
+            "intubated": true
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 99
+          },
+          "features": {
+            "oxygen_device": "vent",
+            "FiO2": 1,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "paralyzed post intubation and sedated"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": [
+            "oxygen_device",
+            "FiO2",
+            "intubated",
+            "vent",
+            "PEEP_cmH2O",
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "5 minutes → 3. Hydrocephalus"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 200,
+            "BP_dia": 102,
+            "RR": 8,
+            "O2Sat": 95,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 7 (E2-pain V2-sounds M4-withdraws)",
+            "glucose_mmol_l": 10
+          }
+        },
+        "action": {
+          "raw_text": "5 minutes",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 5
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 55,
+            "BP_sys": 220,
+            "BP_dia": 112
+          },
+          "features": {
+            "neuro_status": "posturing movements; right pupillary dilatation"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": [
+            "neuro_status"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+{
+  "schema_version": "educational_transition_pair_v14",
+  "case_id": "pediatric_dka_decreased_loc",
+  "category": "Endocrinology",
+  "source_pdf": "DKA.pdf",
+  "scenario_description": "An 8-year-old girl presents to the resuscitation bay with lethargy and confusion after several days of fatigue, vomiting, and mild abdominal pain. The scenario focuses on DKA with decreased level of consciousness, deterioration requiring airway management, PEA arrest, and ROSC.",
+  "case_context": {
+    "demographics": {
+      "age": 8,
+      "sex": "F",
+      "weight_kg": 25
+    },
+    "history": [
+      "past medical history nil",
+      "immunizations UTD"
+    ],
+    "home_medications": [],
+    "allergies": [],
+    "baseline_features": {
+      "rhythm": "NSR",
+      "oxygen_device": null,
+      "FiO2": 0.21,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 9 (E2 V2 M5)",
+      "glucose_mmol_l": null
+    },
+    "supporting_findings": [
+      {
+        "test_code": "BMP",
+        "test_name": "Basic Metabolic Panel",
+        "test_category": "lab",
+        "result_summary": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+      },
+      {
+        "test_code": "VBG",
+        "test_name": "Venous Blood Gas",
+        "test_category": "blood_gas",
+        "result_summary": "pH 6.9, PCO2 20, PO2 50, HCO3 8, Lactate 5"
+      },
+      {
+        "test_code": "CBC",
+        "test_name": "Complete Blood Count",
+        "test_category": "hematology",
+        "result_summary": "WBC 16, Hg 127, Hct 0.400, Plt 400"
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "CXR post intubation; image source listed as https://emcow.files.wordpress.com/2012/11/normal-intubation2.jpg"
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Post fluid bolus, HR to 130, BP remains the same."
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 90,
+            "BP_dia": 50,
+            "RR": 34,
+            "O2Sat": 99,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "Sinus tach",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9-E2V2M5",
+            "glucose_mmol_l": null
+          }
+        },
+        "action": {
+          "raw_text": "IV fluid bolus (10cc/kg)",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": null,
+            "volume_ml": 250
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 130,
+            "BP_sys": 90,
+            "BP_dia": 50
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "5 minutes→ 2. Deterioration"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 90,
+            "BP_dia": 50,
+            "RR": 34,
+            "O2Sat": 99,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "Sinus tach",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9-E2V2M5",
+            "glucose_mmol_l": null
+          }
+        },
+        "action": {
+          "raw_text": "5 minutes",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 5
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 150,
+            "BP_sys": 60,
+            "BP_dia": 30,
+            "RR": 34,
+            "O2Sat": 99,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "Sinus tach",
+            "neuro_status": "GCS 7-E1V1M5"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "RR",
+            "O2Sat",
+            "T"
+          ],
+          "target_features": [
+            "rhythm",
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "No intubation by 2 min into state → O2SAT slowly to 88%"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 150,
+            "BP_sys": 60,
+            "BP_dia": 30,
+            "RR": 34,
+            "O2Sat": 99,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "Sinus tach",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 7-E1V1M5",
+            "glucose_mmol_l": null
+          }
+        },
+        "action": {
+          "raw_text": "No intubation by 2 min into state",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 2
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 88
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Intubation with paralytic & resp rate not considered → 3. PEA Arrest"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 150,
+            "BP_sys": 60,
+            "BP_dia": 30,
+            "RR": 34,
+            "O2Sat": 99,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "Sinus tach",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 7-E1V1M5",
+            "glucose_mmol_l": null
+          }
+        },
+        "action": {
+          "raw_text": "Intubation with paralytic & resp rate not considered",
+          "kind_hint": "airway_management",
+          "params": {
+            "procedure": "intubation",
+            "stage": "completed",
+            "rsi_medication_used": true,
+            "bvm_before": null,
+            "intubated": true
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "PEA",
+            "oxygen_device": "BVM",
+            "FiO2": 1,
+            "intubated": true,
+            "vent": false,
+            "neuro_status": "GCS 3"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "T"
+          ],
+          "target_features": [
+            "rhythm",
+            "oxygen_device",
+            "FiO2",
+            "intubated",
+            "vent",
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Intubation with resp rate considered → 4. ROSC"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 150,
+            "BP_sys": 60,
+            "BP_dia": 30,
+            "RR": 34,
+            "O2Sat": 99,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "Sinus tach",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 7-E1V1M5",
+            "glucose_mmol_l": null
+          }
+        },
+        "action": {
+          "raw_text": "Intubation with resp rate considered",
+          "kind_hint": "airway_management",
+          "params": {
+            "procedure": "intubation",
+            "stage": "completed",
+            "rsi_medication_used": null,
+            "bvm_before": null,
+            "intubated": true
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 140,
+            "BP_sys": 90,
+            "BP_dia": 50,
+            "RR": 34,
+            "O2Sat": 99,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "Sinus tach",
+            "oxygen_device": "BVM",
+            "FiO2": 1,
+            "intubated": true,
+            "vent": true,
+            "neuro_status": "GCS 3T"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "RR",
+            "O2Sat",
+            "T"
+          ],
+          "target_features": [
+            "rhythm",
+            "oxygen_device",
+            "FiO2",
+            "intubated",
+            "vent",
+            "neuro_status"
+          ]
+        }
+      }
+    }
+  ]
+}

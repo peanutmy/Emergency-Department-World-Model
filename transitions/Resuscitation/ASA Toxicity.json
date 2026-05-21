@@ -1,0 +1,317 @@
+{
+  "schema_version": "educational_transition_pair_v16",
+  "case_id": "asa_toxicity",
+  "category": "Toxicology / Metabolic Acidosis",
+  "source_pdf": "ASA Toxicity.pdf",
+  "scenario_description": "An 82-year-old male presents to a community hospital with altered level of consciousness, fever, hypotension, tachypnea, and suspected ASA toxicity. The scenario focuses on broad work-up, correction of hypoglycemia and electrolyte abnormalities, recognition of severe metabolic acidosis, urinary alkalinization, intubation planning, and dialysis arrangements.",
+  "case_context": {
+    "demographics": {
+      "age": 82,
+      "sex": "M",
+      "weight_kg": 75
+    },
+    "history": [
+      "HTN",
+      "Dyslipidemia",
+      "Hypothyroidism",
+      "Depression"
+    ],
+    "home_medications": [
+      "Metoprolol 50mg BID",
+      "Crestor 40mg OD",
+      "Levothyroxine 100mcg OD",
+      "Citalopram 20mg OD"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "baseline_features": {
+      "rhythm": "NSR",
+      "oxygen_device": "NRB",
+      "FiO2": 0.8,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 9 (E3 V2 M4)",
+      "glucose_mmol_l": 3.1
+    },
+    "supporting_findings": [
+      {
+        "test_code": "BMP",
+        "test_name": "Basic metabolic panel",
+        "test_category": "lab",
+        "result_summary": "Na 135, K 2.0, Cl 100, HCO3 10, BUN 20, Cr 580, Glu 3.3."
+      },
+      {
+        "test_code": "CA_MG_PO4",
+        "test_name": "Calcium, magnesium, phosphate, albumin",
+        "test_category": "lab",
+        "result_summary": "Ca 2.58, Mg 0.65 (low), PO4 0.80, Albumin 12."
+      },
+      {
+        "test_code": "GAP",
+        "test_name": "Anion gap and osmolar gap",
+        "test_category": "lab",
+        "result_summary": "AG 27, OG 7, Osm 300."
+      },
+      {
+        "test_code": "CK",
+        "test_name": "Creatine kinase",
+        "test_category": "lab",
+        "result_summary": "CK 500."
+      },
+      {
+        "test_code": "TSH",
+        "test_name": "Thyroid-stimulating hormone",
+        "test_category": "endocrine_test",
+        "result_summary": "TSH 0.4 (normal)."
+      },
+      {
+        "test_code": "VBG",
+        "test_name": "Venous blood gas",
+        "test_category": "blood_gas",
+        "result_summary": "pH 7.05, PCO2 30, PO2 90, HCO3 8, Lactate 10."
+      },
+      {
+        "test_code": "TROP",
+        "test_name": "Troponin",
+        "test_category": "cardiac_test",
+        "result_summary": "Troponin 7."
+      },
+      {
+        "test_code": "COAG",
+        "test_name": "Coagulation studies",
+        "test_category": "coagulation",
+        "result_summary": "INR 3.3, PTT 40."
+      },
+      {
+        "test_code": "CBC",
+        "test_name": "Complete blood count",
+        "test_category": "hematology",
+        "result_summary": "WBC 18, Hg 120, Hct 0.52, Plt 330."
+      },
+      {
+        "test_code": "AST",
+        "test_name": "AST",
+        "test_category": "lab",
+        "result_summary": "AST 300."
+      },
+      {
+        "test_code": "TOX",
+        "test_name": "Toxicology levels",
+        "test_category": "toxicology",
+        "result_summary": "Tylenol <0.15, EtOH <2, ASA 7.6."
+      },
+      {
+        "test_code": "ECG",
+        "test_name": "ECG",
+        "test_category": "ecg",
+        "result_summary": "Hypokalemia ECG."
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Chest X-ray - pre-intubation",
+        "test_category": "imaging",
+        "result_summary": "Pre-intubation CXR: ARDS."
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Chest X-ray - post-intubation",
+        "test_category": "imaging",
+        "result_summary": "Post-intubation CXR: ARDS."
+      },
+      {
+        "test_code": "ABD_US",
+        "test_name": "Abdominal ultrasound",
+        "test_category": "ultrasound",
+        "result_summary": "Abdomen: no FF."
+      },
+      {
+        "test_code": "AORTA_US",
+        "test_name": "Aortic ultrasound",
+        "test_category": "ultrasound",
+        "result_summary": "Aorta: no AAA."
+      },
+      {
+        "test_code": "CARDIAC_US",
+        "test_name": "Cardiac ultrasound",
+        "test_category": "ultrasound",
+        "result_summary": "Cardiac: no PCE."
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "1st fluid bolus → BP 95/70, HR 108"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 122,
+            "BP_sys": 83,
+            "BP_dia": 60,
+            "RR": 35,
+            "O2Sat": 93,
+            "T": 38.6
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E3 V2 M4)",
+            "glucose_mmol_l": 3.1
+          }
+        },
+        "action": {
+          "raw_text": "1st fluid bolus",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": null,
+            "volume_ml": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 108,
+            "BP_sys": 95,
+            "BP_dia": 70
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "2nd bolus→ BP 100/78, HR 97"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 108,
+            "BP_sys": 95,
+            "BP_dia": 70,
+            "RR": 35,
+            "O2Sat": 93,
+            "T": 38.6
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E3 V2 M4)",
+            "glucose_mmol_l": 3.1
+          }
+        },
+        "action": {
+          "raw_text": "2nd bolus",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": null,
+            "volume_ml": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 97,
+            "BP_sys": 100,
+            "BP_dia": 78
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "Capillary glucose not checked by 3 minutes→ 3. Seizure"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 122,
+            "BP_sys": 83,
+            "BP_dia": 60,
+            "RR": 35,
+            "O2Sat": 93,
+            "T": 38.6
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E3 V2 M4)",
+            "glucose_mmol_l": 3.1
+          }
+        },
+        "action": {
+          "raw_text": "Capillary glucose not checked by 3 minutes",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 3
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 150,
+            "BP_sys": 100,
+            "BP_dia": 75,
+            "RR": 18,
+            "O2Sat": 85
+          },
+          "features": {
+            "neuro_status": "seizure"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "RR",
+            "O2Sat"
+          ],
+          "target_features": [
+            "neuro_status"
+          ]
+        }
+      }
+    }
+  ]
+}

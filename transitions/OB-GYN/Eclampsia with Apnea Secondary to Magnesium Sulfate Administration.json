@@ -1,0 +1,326 @@
+{
+  "schema_version": "educational_transition_pair_v14",
+  "case_id": "eclampsia_apnea_magnesium_sulfate",
+  "category": "Obstetrics",
+  "source_pdf": "Eclampsia with Apnea Secondary to Magnesium Sulfate Administration.pdf",
+  "scenario_description": "A 30-year-old G1P0 female at 32 weeks gestation presents with headache, blurred vision, nausea, vomiting, and severe hypertension. She develops eclampsia requiring magnesium sulfate, then apnea requiring ventilatory support and intubation, followed by post-intubation management and antihypertensive therapy.",
+  "case_context": {
+    "demographics": {
+      "age": 30,
+      "sex": "F",
+      "weight_kg": 75
+    },
+    "history": [
+      "G1P0 at 32 weeks gestation",
+      "migraines"
+    ],
+    "home_medications": [],
+    "allergies": [],
+    "baseline_features": {
+      "rhythm": "sinus_tachycardia",
+      "oxygen_device": null,
+      "FiO2": 0.21,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 15 (E4 V5 M6)",
+      "glucose_mmol_l": 6.4
+    },
+    "supporting_findings": []
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "3 minutes → 2. Seizure"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 175,
+            "BP_dia": 115,
+            "RR": 20,
+            "O2Sat": 96,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          }
+        },
+        "action": {
+          "raw_text": "3 minutes",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 3
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 130
+          },
+          "features": {
+            "neuro_status": "actively seizing"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR"
+          ],
+          "target_features": [
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "BVM initiated → O2SAT 93%"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 165,
+            "BP_dia": 115,
+            "RR": 0,
+            "O2Sat": 88,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "not seizing; not responsive",
+            "glucose_mmol_l": 6.4
+          }
+        },
+        "action": {
+          "raw_text": "BVM initiated",
+          "kind_hint": "oxygen_support",
+          "params": {
+            "oxygen_device": "BVM",
+            "FiO2": 1,
+            "PEEP_used": null,
+            "PEEP_cmH2O": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 93
+          },
+          "features": {
+            "oxygen_device": "BVM",
+            "FiO2": 1,
+            "vent": true
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": [
+            "oxygen_device",
+            "FiO2",
+            "vent"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Propofol or midazolam for induction → BP 160/110"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 165,
+            "BP_dia": 115,
+            "RR": 0,
+            "O2Sat": 88,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "not seizing; not responsive",
+            "glucose_mmol_l": 6.4
+          }
+        },
+        "action": {
+          "raw_text": "Propofol or midazolam for induction",
+          "kind_hint": "airway_medication",
+          "params": {
+            "drug_name": null,
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 160,
+            "BP_dia": 110
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Intubated → 4. Post-intubation"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 165,
+            "BP_dia": 115,
+            "RR": 0,
+            "O2Sat": 88,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "not seizing; not responsive",
+            "glucose_mmol_l": 6.4
+          }
+        },
+        "action": {
+          "raw_text": "Intubated",
+          "kind_hint": "airway_management",
+          "params": {
+            "procedure": "intubation",
+            "stage": "completed",
+            "rsi_medication_used": false,
+            "bvm_before": null,
+            "intubated": true
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 165,
+            "BP_dia": 115,
+            "RR": 12,
+            "O2Sat": 98
+          },
+          "features": {
+            "oxygen_device": "vent",
+            "FiO2": 1,
+            "intubated": true,
+            "vent": true,
+            "neuro_status": "intubated and sedated"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": [
+            "oxygen_device",
+            "FiO2",
+            "intubated",
+            "vent",
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Antihypertensive → BP 145/100"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 165,
+            "BP_dia": 115,
+            "RR": 12,
+            "O2Sat": 98,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": "vent",
+            "FiO2": 1,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": null,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6.4
+          }
+        },
+        "action": {
+          "raw_text": "Labetolol or hydralazine",
+          "kind_hint": "vasodilator",
+          "params": {
+            "drug_name": null,
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 145,
+            "BP_dia": 100
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    }
+  ]
+}

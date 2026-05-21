@@ -1,0 +1,420 @@
+{
+  "schema_version": "educational_transition_pair_v14",
+  "case_id": "acute_respiratory_distress_pulmonary_edema",
+  "category": "Respiratory",
+  "source_pdf": "Acute Respiratory Distress.pdf",
+  "scenario_description": "A 78-year-old woman is post-op from TAH+BSO for ovarian cancer and develops acute shortness of breath shortly after transfer to the ward. She is in significant respiratory distress with pulmonary edema physiology, BiPAP is unavailable when requested, and the scenario progresses toward airway management if temporizing measures are insufficient.",
+  "case_context": {
+    "demographics": {
+      "age": 78,
+      "sex": "F",
+      "weight_kg": 80
+    },
+    "history": [
+      "STEMI 2010",
+      "CHF with grade 3-4 LV",
+      "COPD",
+      "HTN"
+    ],
+    "home_medications": [
+      "Atorvastatin",
+      "Ramipril",
+      "Lasix",
+      "Ventolin PRN",
+      "ASA (on hold)"
+    ],
+    "allergies": [],
+    "baseline_features": {
+      "rhythm": "NSR",
+      "oxygen_device": null,
+      "FiO2": 0.21,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 15",
+      "glucose_mmol_l": 6.2
+    },
+    "supporting_findings": [
+      {
+        "test_code": "ECG",
+        "test_name": "Initial ECG",
+        "test_category": "ecg",
+        "result_summary": "ECG image link provided in supporting documents; no text interpretation stated."
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "CXR resource link provided in supporting documents; no text interpretation stated."
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "NRB applied → O2SAT to 88%"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 150,
+            "BP_dia": 95,
+            "RR": 34,
+            "O2Sat": 80,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "NRB applied", 
+          "kind_hint": "oxygen_support",
+          "params": {
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "PEEP_used": null,
+            "PEEP_cmH2O": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 88
+          },
+          "features": {
+            "oxygen_device": "NRB",
+            "FiO2": 0.8
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": [
+            "oxygen_device",
+            "FiO2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "5 min → 2. Patient Tires; HR → 120/min, RR → 24, O2SAT → 85% on NRB, GCS → Now drowsy"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 150,
+            "BP_dia": 95,
+            "RR": 34,
+            "O2Sat": 88,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "5 min",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 5
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 120,
+            "RR": 24,
+            "O2Sat": 85
+          },
+          "features": {
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "neuro_status": "drowsy"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "RR",
+            "O2Sat"
+          ],
+          "target_features": [
+            "oxygen_device",
+            "FiO2",
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "If no move toward intubation by 8 min → O2SAT to 82% and patient unresponsive"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": 24,
+            "O2Sat": 85,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "drowsy",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "If no move toward intubation by 8 min",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 8
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 82
+          },
+          "features": {
+            "neuro_status": "unresponsive"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": [
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "BVM assistance → O2SAT to 89%"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": 24,
+            "O2Sat": 85,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "drowsy",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "BVM assistance",
+          "kind_hint": "oxygen_support",
+          "params": {
+            "oxygen_device": "BVM",
+            "FiO2": 1,
+            "PEEP_used": null,
+            "PEEP_cmH2O": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 89
+          },
+          "features": {
+            "oxygen_device": "BVM",
+            "FiO2": 1
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": [
+            "oxygen_device",
+            "FiO2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "BVM with PEEP → O2SAT to 92%"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": 24,
+            "O2Sat": 85,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "drowsy",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "BVM with PEEP",
+          "kind_hint": "oxygen_support",
+          "params": {
+            "oxygen_device": "BVM",
+            "FiO2": 1,
+            "PEEP_used": true,
+            "PEEP_cmH2O": 5
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 92
+          },
+          "features": {
+            "oxygen_device": "BVM",
+            "FiO2": 1,
+            "PEEP_cmH2O": 5
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": [
+            "oxygen_device",
+            "FiO2",
+            "PEEP_cmH2O"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Intubation → 3. Peri-Intubation; HR → 90, BP → 155/85, RR → 12 (vent), O2SAT → 82% with intubation then to 94% after 45 sec"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 150,
+            "BP_dia": 95,
+            "RR": 24,
+            "O2Sat": 85,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "drowsy",
+            "glucose_mmol_l": 6.2
+          }
+        },
+        "action": {
+          "raw_text": "Intubation",
+          "kind_hint": "airway_management",
+          "params": {
+            "procedure": "intubation",
+            "stage": "completed",
+            "rsi_medication_used": null,
+            "bvm_before": null,
+            "intubated": true
+          } 
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 90,
+            "BP_sys": 155,
+            "BP_dia": 85,
+            "RR": 12,
+            "O2Sat": 94
+          },
+          "features": {
+            "intubated": true,
+            "vent": true,
+            "oxygen_device": "vent",
+            "FiO2": 1
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "O2Sat"
+          ],
+          "target_features": [
+            "intubated",
+            "vent",
+            "oxygen_device",
+            "FiO2"
+          ]
+        }
+      }
+    }
+  ]
+}

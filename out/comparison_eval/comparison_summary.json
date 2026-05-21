@@ -1,0 +1,313 @@
+{
+  "by_kind_hint": {
+    "airway_management": {
+      "count": 35,
+      "improved_count": 10,
+      "mean_delta_direction_accuracy": 0.05714285714285714,
+      "mean_delta_l2": -0.1268464294060963,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 22,
+      "worsened_count": 3
+    },
+    "airway_medication": {
+      "count": 8,
+      "improved_count": 6,
+      "mean_delta_direction_accuracy": 0.2916666666666667,
+      "mean_delta_l2": -0.6593734288007901,
+      "median_delta_l2": -0.6080004337622587,
+      "unchanged_count": 2,
+      "worsened_count": 0
+    },
+    "analgesia": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "anaphylaxis_treatment": {
+      "count": 2,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 2,
+      "worsened_count": 0
+    },
+    "antiarrhythmic": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "anticoagulation": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "anticonvulsant": {
+      "count": 1,
+      "improved_count": 1,
+      "mean_delta_direction_accuracy": 0.5,
+      "mean_delta_l2": -2.8973624171937287,
+      "median_delta_l2": -2.8973624171937287,
+      "unchanged_count": 0,
+      "worsened_count": 0
+    },
+    "antidote": {
+      "count": 6,
+      "improved_count": 2,
+      "mean_delta_direction_accuracy": 0.19999999999999998,
+      "mean_delta_l2": -0.2897257861576137,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 4,
+      "worsened_count": 0
+    },
+    "blood_transfusion": {
+      "count": 7,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 7,
+      "worsened_count": 0
+    },
+    "bronchodilator": {
+      "count": 4,
+      "improved_count": 2,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": -0.17228001227812184,
+      "median_delta_l2": -0.09456002455624368,
+      "unchanged_count": 2,
+      "worsened_count": 0
+    },
+    "chronotropic_agent": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "corticosteroid": {
+      "count": 1,
+      "improved_count": 1,
+      "mean_delta_direction_accuracy": 0.5,
+      "mean_delta_l2": -0.9188611699158102,
+      "median_delta_l2": -0.9188611699158102,
+      "unchanged_count": 0,
+      "worsened_count": 0
+    },
+    "electrolyte_correction": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "fluid_bolus": {
+      "count": 35,
+      "improved_count": 3,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": -0.03314710455980313,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 32,
+      "worsened_count": 0
+    },
+    "hyperkalemia_shift": {
+      "count": 1,
+      "improved_count": 1,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": -0.5,
+      "median_delta_l2": -0.5,
+      "unchanged_count": 0,
+      "worsened_count": 0
+    },
+    "inotrope": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "membrane_stabilization": {
+      "count": 4,
+      "improved_count": 1,
+      "mean_delta_direction_accuracy": 0.08333333333333333,
+      "mean_delta_l2": -0.25,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 3,
+      "worsened_count": 0
+    },
+    "needle_decompression": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "no_action": {
+      "count": 59,
+      "improved_count": 5,
+      "mean_delta_direction_accuracy": 0.0028248587570621473,
+      "mean_delta_l2": 0.0059603458651666585,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 51,
+      "worsened_count": 3
+    },
+    "obstetric_delivery": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "oral_airway": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "osmotherapy": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "oxygen_support": {
+      "count": 31,
+      "improved_count": 9,
+      "mean_delta_direction_accuracy": 0.03225806451612903,
+      "mean_delta_l2": -0.12903225806451613,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 22,
+      "worsened_count": 0
+    },
+    "prostaglandin_infusion": {
+      "count": 1,
+      "improved_count": 1,
+      "mean_delta_direction_accuracy": 0.2,
+      "mean_delta_l2": -0.8113487950357827,
+      "median_delta_l2": -0.8113487950357827,
+      "unchanged_count": 0,
+      "worsened_count": 0
+    },
+    "rate_control": {
+      "count": 3,
+      "improved_count": 2,
+      "mean_delta_direction_accuracy": 0.11111111111111112,
+      "mean_delta_l2": -0.3837366113791565,
+      "median_delta_l2": -0.14307264677085962,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "sedation": {
+      "count": 2,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 2,
+      "worsened_count": 0
+    },
+    "surgical_airway": {
+      "count": 2,
+      "improved_count": 1,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": -0.6472768767090495,
+      "median_delta_l2": -0.6472768767090495,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "synchronized_cardioversion": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "transcutaneous_pacing": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "tube_thoracostomy": {
+      "count": 2,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 2,
+      "worsened_count": 0
+    },
+    "uterine_exploration": {
+      "count": 1,
+      "improved_count": 0,
+      "mean_delta_direction_accuracy": 0.0,
+      "mean_delta_l2": 0.0,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 1,
+      "worsened_count": 0
+    },
+    "vasodilator": {
+      "count": 7,
+      "improved_count": 1,
+      "mean_delta_direction_accuracy": 0.14285714285714285,
+      "mean_delta_l2": -0.23512829053575932,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 6,
+      "worsened_count": 0
+    },
+    "vasopressor": {
+      "count": 11,
+      "improved_count": 1,
+      "mean_delta_direction_accuracy": 0.0303030303030303,
+      "mean_delta_l2": 0.0018715710712851254,
+      "median_delta_l2": 0.0,
+      "unchanged_count": 9,
+      "worsened_count": 1
+    }
+  },
+  "overall": {
+    "improved_count": 47,
+    "improved_percentage": 20.0,
+    "mean_delta_normalized_l2": -0.11552860511018385,
+    "median_delta_normalized_l2": 0.0,
+    "num_l2_compared_pairs": 235,
+    "num_pairs": 235,
+    "unchanged_count": 181,
+    "unchanged_percentage": 77.02127659574468,
+    "worsened_count": 7,
+    "worsened_percentage": 2.9787234042553195
+  }
+}

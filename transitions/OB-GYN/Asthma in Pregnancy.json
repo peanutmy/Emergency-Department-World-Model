@@ -1,0 +1,263 @@
+{
+  "schema_version": "educational_transition_pair_v14",
+  "case_id": "asthma_in_pregnancy",
+  "category": "Respiratory/Obstetrics",
+  "source_pdf": "Asthma in Pregnancy.pdf",
+  "scenario_description": "A 30-year-old G1P0 patient at 35 weeks gestational age presents with worsening shortness of breath and severe asthma exacerbation in pregnancy, initially hypoxic on room air and requiring stepwise respiratory support and asthma therapy.",
+  "case_context": {
+    "demographics": {
+      "age": 30,
+      "sex": "F",
+      "weight_kg": 80
+    },
+    "history": [
+      "G1P0 at 35 weeks gestational age",
+      "asthma triggered by viral infections and irritants",
+      "intubated once for asthma exacerbation at age 11",
+      "ED visit and oral steroid 1 year ago"
+    ],
+    "home_medications": [
+      "salbutamol 100 mcg inhaled as needed",
+      "budesonide",
+      "prenatal vitamins"
+    ],
+    "allergies": [],
+    "baseline_features": {
+      "rhythm": "sinus",
+      "oxygen_device": null,
+      "FiO2": 0.21,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 15",
+      "glucose_mmol_l": 7
+    },
+    "supporting_findings": [
+      {
+        "test_code": "CBC",
+        "test_name": "Complete Blood Count",
+        "test_category": "hematology",
+        "result_summary": "WBC 14.1, Hgb 118, Plt 150"
+      },
+      {
+        "test_code": "BMP",
+        "test_name": "Chemistry Panel",
+        "test_category": "lab",
+        "result_summary": "Na 140, K 4.8, Cl 100, HCO3 19, AG 10, Urea 3, Cr 75, Glucose 7, Ca 2.32, Mg 1.00, Albumin 40, TSH 2.10"
+      },
+      {
+        "test_code": "VBG",
+        "test_name": "Venous Blood Gas",
+        "test_category": "blood_gas",
+        "result_summary": "pH 7.32, pCO2 40 mmHg, pO2 69 mmHg, HCO3 19, Lactate 3.0"
+      },
+      {
+        "test_code": "COAGS",
+        "test_name": "Cardiac and Coagulation Tests",
+        "test_category": "lab",
+        "result_summary": "hs-Trop 5, D-dimer 490, INR 1.0, aPTT 30"
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "Prominence to the vascular markings, normal in pregnancy; normal cardiomediastinal contour; lungs and pleural spaces are clear"
+      },
+      {
+        "test_code": "ECG",
+        "test_name": "Electrocardiogram",
+        "test_category": "ecg",
+        "result_summary": "Sinus tachycardia at 103 bpm"
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Applies O2 → Sats increase to 93%"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 95,
+            "BP_sys": 99,
+            "BP_dia": 59,
+            "RR": 32,
+            "O2Sat": 85,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 7
+          }
+        },
+        "action": {
+          "raw_text": "Applies O2",
+          "kind_hint": "oxygen_support",
+          "params": {
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "PEEP_used": false,
+            "PEEP_cmH2O": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 93
+          },
+          "features": {
+            "oxygen_device": "NRB",
+            "FiO2": 0.8
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": [
+            "oxygen_device",
+            "FiO2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Initiates salbutamol/ipratropium inhalers or nebs → Phase 2"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 95,
+            "BP_sys": 99,
+            "BP_dia": 59,
+            "RR": 32,
+            "O2Sat": 85,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 7
+          }
+        },
+        "action": {
+          "raw_text": "Initiates salbutamol/ipratropium inhalers or nebs",
+          "kind_hint": "bronchodilator",
+          "params": {
+            "drug_name": null,
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 112,
+            "BP_sys": 106,
+            "BP_dia": 68,
+            "RR": 45,
+            "O2Sat": 93,
+            "T": 36.9
+          },
+          "features": {
+            "neuro_status": "GCS 14"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "RR",
+            "O2Sat",
+            "T"
+          ],
+          "target_features": [
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Orders magnesium and asks for repeat vitals: HR: 100 BP: 106/68 RR: 25 O2SAT: 98% T: 36.9 oC FHR: 150"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 105,
+            "BP_sys": 106,
+            "BP_dia": 68,
+            "RR": 27,
+            "O2Sat": 96,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "BiPAP",
+            "FiO2": 0.5,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 7
+          }
+        },
+        "action": {
+          "raw_text": "Orders magnesium",
+          "kind_hint": "bronchodilator",
+          "params": {
+            "drug_name": "magnesium sulfate",
+            "dose": 2,
+            "unit": "g"
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 100,
+            "BP_sys": 106,
+            "BP_dia": 68,
+            "RR": 25,
+            "O2Sat": 98,
+            "T": 36.9
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia",
+            "RR",
+            "O2Sat",
+            "T"
+          ],
+          "target_features": []
+        }
+      }
+    }
+  ]
+}

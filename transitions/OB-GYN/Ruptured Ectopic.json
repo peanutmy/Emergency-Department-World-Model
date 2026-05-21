@@ -1,0 +1,227 @@
+{
+  "schema_version": "educational_transition_pair_v14",
+  "case_id": "ruptured_ectopic",
+  "category": "Obstetrics/Gynecology",
+  "source_pdf": "Ruptured Ectopic.pdf",
+  "scenario_description": "A 26-year-old female presents after syncope with dizziness, vomiting, vague abdominal pain, pallor, and hypotension. The scenario focuses on recognition of ruptured ectopic pregnancy with intra-peritoneal bleeding, bedside ultrasound, massive transfusion, and urgent gynecology operative management.",
+  "case_context": {
+    "demographics": {
+      "age": 26,
+      "sex": "F",
+      "weight_kg": 70
+    },
+    "history": [
+      "none"
+    ],
+    "home_medications": [
+      "prenatal_vitamins"
+    ],
+    "allergies": [
+      "shellfish"
+    ],
+    "baseline_features": {
+      "rhythm": "NSR",
+      "oxygen_device": null,
+      "FiO2": 0.21,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 15",
+      "glucose_mmol_l": 6.3
+    },
+    "supporting_findings": [
+      {
+        "test_code": "BHCG",
+        "test_name": "Urine beta-hCG",
+        "test_category": "lab",
+        "result_summary": "Urine beta-HCG result given if required; if asked for beta-HCG result, give back positive result."
+      },
+      {
+        "test_code": "ECG",
+        "test_name": "ECG",
+        "test_category": "ecg",
+        "result_summary": "NSR or sinus tachycardia depending on state when done."
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Post-intubation Chest X-ray",
+        "test_category": "imaging",
+        "result_summary": "Post-intubation CXR image provided."
+      },
+      {
+        "test_code": "FAST",
+        "test_name": "Focused Assessment with Sonography for Trauma",
+        "test_category": "ultrasound",
+        "result_summary": "FF RUQ."
+      },
+      {
+        "test_code": "PELVIC_US",
+        "test_name": "Transabdominal Pelvic Ultrasound",
+        "test_category": "ultrasound",
+        "result_summary": "No IUP."
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "4 min → 2. Syncope"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 100,
+            "BP_sys": 90,
+            "BP_dia": 60,
+            "RR": 12,
+            "O2Sat": 98,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          }
+        },
+        "action": {
+          "raw_text": "4 min",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 4
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 80,
+            "BP_dia": 40
+          },
+          "features": {
+            "neuro_status": "Sleepy, groans only, opens eyes to voice"
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": [
+            "neuro_status"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "6 min → BP 70/35, HR 115"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 80,
+            "BP_dia": 40
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "Sleepy, groans only, opens eyes to voice",
+            "glucose_mmol_l": 6.3
+          }
+        },
+        "action": {
+          "raw_text": "6 min",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 6
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 115,
+            "BP_sys": 70,
+            "BP_dia": 35
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p3",
+      "pair_type": "time_progression",
+      "source": {
+        "modifier_text": "8 min → BP 65/30, HR 120"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 80,
+            "BP_dia": 40
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "Sleepy, groans only, opens eyes to voice",
+            "glucose_mmol_l": 6.3
+          }
+        },
+        "action": {
+          "raw_text": "8 min",
+          "kind_hint": "no_action",
+          "params": {
+            "elapsed_min": 8
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 65,
+            "BP_dia": 30
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    }
+  ]
+}
