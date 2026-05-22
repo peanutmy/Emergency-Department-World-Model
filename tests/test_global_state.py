@@ -11,6 +11,8 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from ed_world_model.state.global_state import (
+    AgentProfile,
+    AgentProfiles,
     Demographics,
     DiagnosticResult,
     Event,
@@ -26,11 +28,158 @@ from ed_world_model.state.global_state import (
 def test_can_construct_minimal_global_state() -> None:
     state = GlobalState()
 
+    assert state.agent_profiles == AgentProfiles()
     assert state.truth_state.scenario_description is None
     assert state.truth_state.demographics == Demographics()
     assert state.patient_state.status_flags.is_alive is True
     assert state.known_facts == KnownFacts()
     assert state.runtime_state.turn_index == 0
+
+
+def test_default_agent_profile_roles_are_stable_role_names() -> None:
+    state = GlobalState()
+
+    assert state.agent_profiles.clinician.role == "clinician"
+    assert state.agent_profiles.nurse.role == "nurse"
+    assert state.agent_profiles.patient.role == "patient"
+    assert state.agent_profiles.relative.role == "relative"
+
+
+def test_agent_profile_stores_name_and_simple_trait_keys() -> None:
+    profile = AgentProfile(
+        role="clinician",
+        name="Dr. Lee",
+        traits={
+            "communication_style": "direct",
+            "experience_level": "attending",
+            "baseline_personality": "calm",
+        },
+    )
+
+    assert profile.name == "Dr. Lee"
+    assert profile.traits == {
+        "communication_style": "direct",
+        "experience_level": "attending",
+        "baseline_personality": "calm",
+    }
+
+
+def test_agent_profile_traits_support_bounded_simple_value_types() -> None:
+    profile = AgentProfile(
+        role="relative",
+        traits={
+            "relationship_role": "spouse",
+            "years_in_relationship": 32,
+            "stress_level_baseline": 0.4,
+            "is_primary_contact": True,
+            "languages": ["English", "Spanish"],
+            "health_literacy": None,
+        },
+    )
+
+    assert profile.traits == {
+        "relationship_role": "spouse",
+        "years_in_relationship": 32,
+        "stress_level_baseline": 0.4,
+        "is_primary_contact": True,
+        "languages": ["English", "Spanish"],
+        "health_literacy": None,
+    }
+
+
+def test_agent_profile_traits_reject_complex_nested_objects() -> None:
+    with pytest.raises(ValueError):
+        AgentProfile(
+            role="patient",
+            traits={"nested": {"communication_style": "brief"}},
+        )
+
+
+def test_patient_internal_state_remains_separate_from_patient_profile() -> None:
+    state = GlobalState(
+        agent_profiles={
+            "patient": {
+                "role": "patient",
+                "name": "Alex",
+                "traits": {
+                    "baseline_personality": "anxious",
+                    "communication_style": "brief answers",
+                },
+            }
+        },
+        truth_state={
+            "patient_internal_state": {
+                "chief_complaint": "shortness of breath",
+                "symptoms": ["dyspnea"],
+                "hidden_history": ["hypertension"],
+            }
+        },
+    )
+
+    assert state.agent_profiles.patient.traits == {
+        "baseline_personality": "anxious",
+        "communication_style": "brief answers",
+    }
+    assert state.truth_state.patient_internal_state.symptoms == ["dyspnea"]
+    assert "patient_internal_state" not in AgentProfile.model_fields
+    assert "agent_profiles" not in type(
+        state.truth_state.patient_internal_state
+    ).model_fields
+
+
+def test_patient_emotion_remains_separate_from_patient_profile() -> None:
+    state = GlobalState(
+        agent_profiles={
+            "patient": {
+                "role": "patient",
+                "traits": {
+                    "baseline_personality": "stoic",
+                    "communication_style": "does not volunteer extra detail",
+                },
+            }
+        },
+        psych_state={
+            "patient_emotion": {
+                "label": "worried",
+                "intensity": "medium",
+                "notes": "Becoming more concerned.",
+            }
+        },
+    )
+
+    assert state.agent_profiles.patient.traits == {
+        "baseline_personality": "stoic",
+        "communication_style": "does not volunteer extra detail",
+    }
+    assert state.psych_state.patient_emotion.label == "worried"
+    assert "patient_emotion" not in AgentProfile.model_fields
+    assert "traits" not in PatientEmotion.model_fields
+
+
+def test_known_facts_do_not_duplicate_agent_profile_traits() -> None:
+    state = GlobalState(
+        agent_profiles={
+            "nurse": {
+                "role": "nurse",
+                "traits": {
+                    "baseline_personality": "efficient",
+                    "communication_style": "reassuring",
+                },
+            }
+        },
+        known_facts={
+            "known_history": ["hypertension"],
+            "known_symptoms": ["shortness of breath"],
+        },
+    )
+
+    assert state.agent_profiles.nurse.traits == {
+        "baseline_personality": "efficient",
+        "communication_style": "reassuring",
+    }
+    assert "efficient" not in state.known_facts.known_history
+    assert "reassuring" not in state.known_facts.known_symptoms
+    assert "traits" not in KnownFacts.model_fields
 
 
 def test_demographics_defaults_are_none() -> None:
@@ -148,6 +297,18 @@ def test_known_facts_is_the_clinical_team_fact_store() -> None:
 
 def test_json_model_serialization_round_trip() -> None:
     state = GlobalState(
+        agent_profiles={
+            "clinician": {
+                "role": "clinician",
+                "name": "Dr. Lee",
+                "traits": {
+                    "baseline_personality": "calm",
+                    "communication_style": "direct",
+                    "experience_level": "emergency physician",
+                    "keeps_orders_concise": True,
+                },
+            }
+        },
         truth_state={
             "scenario_description": "Shortness of breath case",
             "demographics": {
@@ -193,6 +354,16 @@ def test_json_model_serialization_round_trip() -> None:
     loaded = GlobalState.model_validate_json(serialized)
 
     assert loaded == state
+    assert loaded.model_dump()["agent_profiles"]["clinician"] == {
+        "role": "clinician",
+        "name": "Dr. Lee",
+        "traits": {
+            "baseline_personality": "calm",
+            "communication_style": "direct",
+            "experience_level": "emergency physician",
+            "keeps_orders_concise": True,
+        },
+    }
     assert loaded.model_dump()["truth_state"]["demographics"] == {
         "name": "Alex Morgan",
         "age": 67,
@@ -201,6 +372,15 @@ def test_json_model_serialization_round_trip() -> None:
     }
     assert loaded.model_dump()["truth_state"]["test_bank"][0]["name"] == "Chest X-ray"
     assert loaded.runtime_state.messages[0].speaker == "nurse"
+
+
+def test_serialization_includes_default_agent_profiles() -> None:
+    serialized = GlobalState().model_dump()
+
+    assert serialized["agent_profiles"]["clinician"]["role"] == "clinician"
+    assert serialized["agent_profiles"]["nurse"]["role"] == "nurse"
+    assert serialized["agent_profiles"]["patient"]["role"] == "patient"
+    assert serialized["agent_profiles"]["relative"]["role"] == "relative"
 
 
 def test_raw_text_is_not_required_for_global_state_construction() -> None:

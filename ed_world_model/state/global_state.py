@@ -23,6 +23,27 @@ class Demographics(StateModel):
     weight_kg: float | None = None
 
 
+class AgentProfile(StateModel):
+    """Stable scenario-level role configuration, not runtime memory."""
+
+    role: str
+    name: str | None = None
+    traits: dict[str, str | int | float | bool | list[str] | None] = Field(
+        default_factory=dict
+    )
+
+
+class AgentProfiles(StateModel):
+    clinician: AgentProfile = Field(
+        default_factory=lambda: AgentProfile(role="clinician")
+    )
+    nurse: AgentProfile = Field(default_factory=lambda: AgentProfile(role="nurse"))
+    patient: AgentProfile = Field(default_factory=lambda: AgentProfile(role="patient"))
+    relative: AgentProfile = Field(
+        default_factory=lambda: AgentProfile(role="relative")
+    )
+
+
 class PatientInternalState(StateModel):
     """Stable hidden patient-side truth used for patient dialogue context.
 
@@ -155,6 +176,7 @@ class RuntimeState(StateModel):
 
 
 class GlobalState(StateModel):
+    agent_profiles: AgentProfiles = Field(default_factory=AgentProfiles)
     truth_state: TruthState = Field(default_factory=TruthState)
     patient_state: PatientState = Field(default_factory=PatientState)
     known_facts: KnownFacts = Field(default_factory=KnownFacts)
@@ -165,6 +187,8 @@ class GlobalState(StateModel):
 __all__ = [
     "DEFAULT_DIAGNOSTIC_TURNAROUND_TURNS",
     "DEFAULT_MAX_TURNS",
+    "AgentProfile",
+    "AgentProfiles",
     "Demographics",
     "DiagnosticResult",
     "Event",

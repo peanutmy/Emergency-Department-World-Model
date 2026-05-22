@@ -82,3 +82,47 @@ Broad pytest was not run because M1a only adds GlobalState models and focused te
 ## Exact Next Step
 
 M1b StateManager.
+
+## M1a_patch Agent Profiles
+
+- Added stable scenario-level agent profile models to
+  `ed_world_model/state/global_state.py`:
+  - `AgentProfile`
+  - `AgentProfiles`
+- Added `GlobalState.agent_profiles` with default profiles for clinician,
+  nurse, patient, and relative.
+- `AgentProfile.traits` is a flexible but bounded dictionary:
+  `dict[str, str | int | float | bool | list[str] | None]`.
+- Traits may hold stable role configuration such as communication style,
+  experience level, baseline personality, relationship role, and health
+  literacy. Complex nested trait objects are not supported.
+- Agent profiles are role configuration only. They are separate from
+  conversation memory, `runtime_state.messages`, `known_facts`,
+  `truth_state.patient_internal_state`, and dynamic
+  `psych_state.patient_emotion`.
+- Added focused tests in `tests/test_global_state.py` for default profile
+  construction, default roles, simple trait value types, bounded trait shape,
+  separation from patient internal truth and emotion, no duplication into
+  `known_facts`, and serialization.
+
+Patch test runs:
+
+```bash
+python -m pytest tests/test_global_state.py
+```
+
+Result: passed.
+
+```text
+20 passed in 0.08s
+```
+
+```bash
+python -m pytest tests/test_global_state.py tests/test_state_manager.py
+```
+
+Result: passed.
+
+```text
+49 passed in 0.08s
+```
