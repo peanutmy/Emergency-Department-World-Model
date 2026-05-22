@@ -76,6 +76,7 @@ def test_defaults_are_safe_and_empty_where_appropriate() -> None:
     assert second.runtime_state.pending_diagnostic_results == []
     assert second.runtime_state.newly_available_results == []
     assert second.runtime_state.last_turn_events == []
+    assert second.runtime_state.current_turn_events == []
 
 
 def test_test_bank_item_supports_turnaround_turns() -> None:
@@ -106,13 +107,22 @@ def test_runtime_state_separates_messages_from_last_turn_events() -> None:
                     payload={"name": "ECG"},
                 )
             ],
+            current_turn_events=[
+                Event(
+                    type="validation_drop",
+                    turn_index=1,
+                    payload={"reason": "invalid"},
+                )
+            ],
         )
     )
 
     assert state.runtime_state.messages[0].content == "How are you feeling?"
     assert state.runtime_state.last_turn_events[0].type == "diagnostic_release"
+    assert state.runtime_state.current_turn_events[0].type == "validation_drop"
     assert len(state.runtime_state.messages) == 1
     assert len(state.runtime_state.last_turn_events) == 1
+    assert len(state.runtime_state.current_turn_events) == 1
 
 
 def test_known_facts_is_the_clinical_team_fact_store() -> None:

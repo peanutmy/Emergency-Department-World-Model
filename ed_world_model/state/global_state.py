@@ -5,8 +5,8 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, NonNegativeInt
 
+from ed_world_model.constants import DEFAULT_DIAGNOSTIC_TURNAROUND_TURNS
 
-DEFAULT_DIAGNOSTIC_TURNAROUND_TURNS = 2
 DEFAULT_MAX_TURNS = 50
 
 
@@ -150,6 +150,7 @@ class RuntimeState(StateModel):
     )
     newly_available_results: list[DiagnosticResult] = Field(default_factory=list)
     last_turn_events: list[Event] = Field(default_factory=list)
+    current_turn_events: list[Event] = Field(default_factory=list)
     termination_status: str | None = None
 
 
