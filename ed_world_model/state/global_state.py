@@ -16,6 +16,13 @@ class StateModel(BaseModel):
     model_config = ConfigDict(extra="forbid", validate_assignment=True)
 
 
+class Demographics(StateModel):
+    name: str | None = None
+    age: int | None = None
+    sex: str | None = None
+    weight_kg: float | None = None
+
+
 class PatientInternalState(StateModel):
     """Stable hidden patient-side truth used for patient dialogue context.
 
@@ -41,6 +48,7 @@ class TestBankItem(StateModel):
 
 class TruthState(StateModel):
     scenario_description: str | None = None
+    demographics: Demographics = Field(default_factory=Demographics)
     patient_internal_state: PatientInternalState = Field(
         default_factory=PatientInternalState
     )
@@ -156,6 +164,7 @@ class GlobalState(StateModel):
 __all__ = [
     "DEFAULT_DIAGNOSTIC_TURNAROUND_TURNS",
     "DEFAULT_MAX_TURNS",
+    "Demographics",
     "DiagnosticResult",
     "Event",
     "Features",

@@ -6,6 +6,7 @@
   - Added Pydantic v2 GlobalState model tree:
     - `GlobalState`
     - `TruthState`
+    - `Demographics`
     - `PatientInternalState`
     - `TestBankItem`
     - `PatientState`
@@ -23,12 +24,20 @@
   - `PendingDiagnosticResult`
   - Added `DEFAULT_DIAGNOSTIC_TURNAROUND_TURNS = 2` for later runtime use.
   - Added strict schema defaults for the GlobalState model tree.
+  - Added `TruthState.demographics` for stable scenario-level patient demographics:
+    `name`, `age`, `sex`, and `weight_kg`, all defaulting to `None`.
+  - Clarified demographics are truth-state data, not physiology state and not
+    `known_facts`; later observation building decides which roles see them.
   - Clarified in model documentation that `PatientInternalState` is stable hidden patient-side truth, that its `symptoms` are static dialogue facts, and that `disclosure_rules` is free-form prompt guidance rather than a deterministic rule engine.
   - Updated `PatientEmotion.intensity` to the categorical values `low`, `medium`, `high`, or `None`.
   - Clarified in model documentation that `Event.payload` is event-specific metadata for logging, observation, and debugging only, not durable state.
   - Removed the recursive `raw_text` key guard. `raw_text` belongs to legacy transition-pair extraction/evaluation data and later runtime action/adapter boundaries, not the M1a GlobalState model layer.
 - `tests/test_global_state.py`
-  - Added focused tests for M1a model construction, defaults, diagnostic test bank items, message/event separation, known facts, serialization, GlobalState construction without `raw_text`, static patient-internal truth, categorical patient emotion intensity, and event payload metadata boundaries.
+  - Added focused tests for M1a model construction, demographics defaults,
+    demographics storage, diagnostic test bank items, message/event separation,
+    known facts, serialization including `truth_state.demographics`, GlobalState
+    construction without `raw_text`, static patient-internal truth, categorical
+    patient emotion intensity, and event payload metadata boundaries.
 - `docs/milestones/M1a_handoff.md`
   - Added this handoff.
 
@@ -43,7 +52,7 @@ python -m pytest tests/test_global_state.py
 Result: passed.
 
 ```text
-10 passed in 0.06s
+12 passed in 0.07s
 ```
 
 Broad pytest was not run because M1a only adds GlobalState models and focused tests were requested.

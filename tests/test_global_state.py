@@ -11,6 +11,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from ed_world_model.state.global_state import (
+    Demographics,
     DiagnosticResult,
     Event,
     GlobalState,
@@ -26,9 +27,39 @@ def test_can_construct_minimal_global_state() -> None:
     state = GlobalState()
 
     assert state.truth_state.scenario_description is None
+    assert state.truth_state.demographics == Demographics()
     assert state.patient_state.status_flags.is_alive is True
     assert state.known_facts == KnownFacts()
     assert state.runtime_state.turn_index == 0
+
+
+def test_demographics_defaults_are_none() -> None:
+    state = GlobalState()
+
+    assert state.truth_state.demographics.name is None
+    assert state.truth_state.demographics.age is None
+    assert state.truth_state.demographics.sex is None
+    assert state.truth_state.demographics.weight_kg is None
+
+
+def test_demographics_store_stable_patient_truth() -> None:
+    state = GlobalState(
+        truth_state={
+            "demographics": {
+                "name": "Alex Morgan",
+                "age": 67,
+                "sex": "female",
+                "weight_kg": 72.5,
+            }
+        }
+    )
+
+    assert state.truth_state.demographics == Demographics(
+        name="Alex Morgan",
+        age=67,
+        sex="female",
+        weight_kg=72.5,
+    )
 
 
 def test_defaults_are_safe_and_empty_where_appropriate() -> None:
@@ -109,6 +140,12 @@ def test_json_model_serialization_round_trip() -> None:
     state = GlobalState(
         truth_state={
             "scenario_description": "Shortness of breath case",
+            "demographics": {
+                "name": "Alex Morgan",
+                "age": 67,
+                "sex": "female",
+                "weight_kg": 72.5,
+            },
             "test_bank": [
                 {
                     "name": "Chest X-ray",
@@ -146,6 +183,12 @@ def test_json_model_serialization_round_trip() -> None:
     loaded = GlobalState.model_validate_json(serialized)
 
     assert loaded == state
+    assert loaded.model_dump()["truth_state"]["demographics"] == {
+        "name": "Alex Morgan",
+        "age": 67,
+        "sex": "female",
+        "weight_kg": 72.5,
+    }
     assert loaded.model_dump()["truth_state"]["test_bank"][0]["name"] == "Chest X-ray"
     assert loaded.runtime_state.messages[0].speaker == "nurse"
 
