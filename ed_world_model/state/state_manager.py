@@ -44,6 +44,7 @@ class StateManager:
     def update_known_facts(
         self,
         *,
+        chief_complaint: str | None = None,
         known_history: str | Iterable[str] | None = None,
         known_allergies: str | Iterable[str] | None = None,
         known_medications: str | Iterable[str] | None = None,
@@ -51,6 +52,8 @@ class StateManager:
     ) -> KnownFacts:
         """Append disclosed clinical facts without reading hidden truth_state."""
 
+        if chief_complaint is not None:
+            self._state.known_facts.chief_complaint = chief_complaint
         self._state.known_facts.known_history = self._with_extended_string_facts(
             self._state.known_facts.known_history,
             known_history,

@@ -3,6 +3,11 @@
   "case_id": "acute_respiratory_distress_pulmonary_edema",
   "category": "Respiratory",
   "source_pdf": "Acute Respiratory Distress.pdf",
+  "chief_complaint": "Acute Respiratory Distress",
+  "Symptoms": [
+    "Shortness of breath",
+    "Respiratory distress"
+  ],
   "scenario_description": "A 78-year-old woman is post-op from TAH+BSO for ovarian cancer and develops acute shortness of breath shortly after transfer to the ward. She is in significant respiratory distress with pulmonary edema physiology, BiPAP is unavailable when requested, and the scenario progresses toward airway management if temporizing measures are insufficient.",
   "case_context": {
     "demographics": {

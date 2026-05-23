@@ -107,6 +107,7 @@ class DiagnosticResult(StateModel):
 
 
 class KnownFacts(StateModel):
+    chief_complaint: str | None = None
     known_history: list[str] = Field(default_factory=list)
     known_allergies: list[str] = Field(default_factory=list)
     known_medications: list[str] = Field(default_factory=list)
@@ -115,9 +116,24 @@ class KnownFacts(StateModel):
 
 
 class PatientEmotion(StateModel):
-    label: str = "neutral"
+    label: str = "Fear"
     intensity: Literal["low", "medium", "high"] | None = None
-    notes: str | None = None
+
+    label: str = "Sadness"
+    intensity: Literal["low", "medium", "high"] | None = None
+
+    label: str = "Helplessness"
+    intensity: Literal["low", "medium", "high"] | None = None
+
+    label: str = "Overwhelm"
+    intensity: Literal["low", "medium", "high"] | None = None
+
+    label: str = "Shame"
+    intensity: Literal["low", "medium", "high"] | None = None
+
+    label: str = "Defensiveness"
+    intensity: Literal["low", "medium", "high"] | None = None
+
 
 
 class PsychState(StateModel):
