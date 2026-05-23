@@ -54,6 +54,59 @@ def state_with_test_bank() -> GlobalState:
     )
 
 
+def state_with_rich_physiology() -> GlobalState:
+    return GlobalState(
+        truth_state={
+            "scenario_description": "Hidden scenario",
+            "test_bank": [
+                {
+                    "name": "ECG",
+                    "result": "LVH and A.fib",
+                    "turnaround_turns": 1,
+                }
+            ],
+        },
+        patient_state={
+            "vitals": {
+                "HR": 110,
+                "BP_sys": 150,
+                "BP_dia": 95,
+                "RR": 34,
+                "O2Sat": 80,
+                "T": 36.9,
+            },
+            "features": {
+                "rhythm": "NSR",
+                "oxygen_device": None,
+                "FiO2": 0.21,
+                "intubated": False,
+                "vent": False,
+                "PEEP_cmH2O": None,
+                "neuro_status": "GCS 15",
+                "glucose_mmol_l": 6.2,
+            },
+            "status_flags": {
+                "is_alive": True,
+                "can_speak": True,
+                "is_conscious": True,
+            },
+        },
+        known_facts={
+            "known_history": ["hypertension"],
+            "available_results": [{"name": "ECG", "result": "LVH and A.fib"}],
+        },
+        runtime_state={
+            "messages": [{"speaker": "patient", "content": "Help."}],
+            "pending_diagnostic_results": [
+                {"test_name": "ECG", "ordered_at_turn": 0, "ready_at_turn": 1}
+            ],
+            "newly_available_results": [
+                {"name": "ECG", "result": "LVH and A.fib"}
+            ],
+        },
+    )
+
+
 def test_add_message_appends_only_to_runtime_messages() -> None:
     manager = StateManager()
 
@@ -380,6 +433,92 @@ def test_apply_physiology_update_updates_patient_state_only() -> None:
     assert manager.state.truth_state.model_dump() == truth_before
     assert manager.state.known_facts.model_dump() == known_before
     assert manager.state.psych_state.model_dump() == psych_before
+    assert manager.state.runtime_state.model_dump() == runtime_before
+
+
+def test_apply_physiology_update_merges_partial_features() -> None:
+    manager = StateManager(state_with_rich_physiology())
+
+    manager.apply_physiology_update(
+        features={
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+        }
+    )
+
+    assert manager.state.patient_state.features.model_dump() == {
+        "rhythm": "NSR",
+        "oxygen_device": "NRB",
+        "FiO2": 0.8,
+        "intubated": False,
+        "vent": False,
+        "PEEP_cmH2O": None,
+        "neuro_status": "GCS 15",
+        "glucose_mmol_l": 6.2,
+    }
+
+
+def test_apply_physiology_update_merges_partial_vitals() -> None:
+    manager = StateManager(state_with_rich_physiology())
+
+    manager.apply_physiology_update(vitals={"HR": 98, "O2Sat": 94})
+
+    assert manager.state.patient_state.vitals == Vitals(
+        HR=98,
+        BP_sys=150,
+        BP_dia=95,
+        RR=34,
+        O2Sat=94,
+        T=36.9,
+    )
+    assert manager.state.patient_state.features.model_dump()["rhythm"] == "NSR"
+    assert manager.state.patient_state.status_flags.can_speak is True
+
+
+def test_apply_physiology_update_merges_partial_status_flags() -> None:
+    manager = StateManager(state_with_rich_physiology())
+
+    manager.apply_physiology_update(status_flags={"can_speak": False})
+
+    assert manager.state.patient_state.status_flags == StatusFlags(
+        is_alive=True,
+        can_speak=False,
+        is_conscious=True,
+    )
+    assert manager.state.patient_state.vitals.HR == 110
+    assert manager.state.patient_state.features.model_dump()["rhythm"] == "NSR"
+
+
+def test_apply_physiology_update_explicit_none_overwrites_existing_value() -> None:
+    manager = StateManager(
+        GlobalState(
+            patient_state={
+                "vitals": {"O2Sat": 95},
+                "features": {"oxygen_device": "NRB"},
+            }
+        )
+    )
+
+    manager.apply_physiology_update(
+        vitals={"O2Sat": None},
+        features={"oxygen_device": None},
+    )
+
+    assert manager.state.patient_state.vitals.O2Sat is None
+    assert manager.state.patient_state.features.model_dump()["oxygen_device"] is None
+
+
+def test_partial_physiology_update_preserves_non_patient_state() -> None:
+    state = state_with_rich_physiology()
+    manager = StateManager(state)
+    truth_before = state.truth_state.model_dump()
+    known_before = state.known_facts.model_dump()
+    runtime_before = state.runtime_state.model_dump()
+
+    manager.apply_physiology_update(features={"oxygen_device": "NRB"})
+
+    assert manager.state.truth_state.model_dump() == truth_before
+    assert manager.state.known_facts.model_dump() == known_before
     assert manager.state.runtime_state.model_dump() == runtime_before
 
 

@@ -1,7 +1,7 @@
 """State mutation helpers for the v1.3.1 ED world-model runtime."""
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 from typing import Any, Literal
 
 from ed_world_model.constants import DEFAULT_DIAGNOSTIC_TURNAROUND_TURNS
@@ -165,19 +165,16 @@ class StateManager:
 
         updated_fields: list[str] = []
         if patient_state is not None:
-            self._state.patient_state = PatientState.model_validate(patient_state)
-            updated_fields.append("patient_state")
+            if self._apply_patient_state_update(patient_state):
+                updated_fields.append("patient_state")
         else:
-            if vitals is not None:
-                self._state.patient_state.vitals = Vitals.model_validate(vitals)
+            if vitals is not None and self._apply_vitals_update(vitals):
                 updated_fields.append("vitals")
-            if features is not None:
-                self._state.patient_state.features = Features.model_validate(features)
+            if features is not None and self._apply_features_update(features):
                 updated_fields.append("features")
-            if status_flags is not None:
-                self._state.patient_state.status_flags = StatusFlags.model_validate(
-                    status_flags
-                )
+            if status_flags is not None and self._apply_status_flags_update(
+                status_flags
+            ):
                 updated_fields.append("status_flags")
 
         if not updated_fields:
@@ -262,6 +259,73 @@ class StateManager:
             if current_turn is None
             else current_turn
         )
+
+    def _apply_patient_state_update(
+        self,
+        patient_state: PatientState | dict[str, Any],
+    ) -> bool:
+        updated = False
+        for field_name, update_value in self._provided_patient_state_sections(
+            patient_state
+        ).items():
+            if field_name == "vitals":
+                updated = self._apply_vitals_update(update_value) or updated
+            elif field_name == "features":
+                updated = self._apply_features_update(update_value) or updated
+            elif field_name == "status_flags":
+                updated = self._apply_status_flags_update(update_value) or updated
+        return updated
+
+    def _apply_vitals_update(self, update: Vitals | dict[str, Any]) -> bool:
+        return self._merge_physiology_section("vitals", Vitals, update)
+
+    def _apply_features_update(self, update: Features | dict[str, Any]) -> bool:
+        return self._merge_physiology_section("features", Features, update)
+
+    def _apply_status_flags_update(
+        self,
+        update: StatusFlags | dict[str, Any],
+    ) -> bool:
+        return self._merge_physiology_section("status_flags", StatusFlags, update)
+
+    def _merge_physiology_section(
+        self,
+        field_name: str,
+        model_type: type[Vitals] | type[Features] | type[StatusFlags],
+        update: Any,
+    ) -> bool:
+        update_data = self._provided_update_data(update)
+        if not update_data:
+            return False
+
+        current_model = getattr(self._state.patient_state, field_name)
+        merged_data = current_model.model_dump()
+        merged_data.update(update_data)
+        setattr(
+            self._state.patient_state,
+            field_name,
+            model_type.model_validate(merged_data),
+        )
+        return True
+
+    @staticmethod
+    def _provided_patient_state_sections(
+        patient_state: PatientState | dict[str, Any],
+    ) -> dict[str, Any]:
+        patient_state_model = PatientState.model_validate(patient_state)
+        return {
+            key: getattr(patient_state_model, key)
+            for key in ("vitals", "features", "status_flags")
+            if key in patient_state_model.model_fields_set
+        }
+
+    @staticmethod
+    def _provided_update_data(update: Any) -> dict[str, Any]:
+        if isinstance(update, Mapping):
+            return dict(update)
+        if hasattr(update, "model_dump"):
+            return update.model_dump(exclude_unset=True)
+        return dict(update)
 
     @staticmethod
     def _with_extended_string_facts(

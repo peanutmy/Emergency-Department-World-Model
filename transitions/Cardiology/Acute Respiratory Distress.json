@@ -29,6 +29,14 @@
       "ASA (on hold)"
     ],
     "allergies": [],
+    "baseline_vitals": {
+      "HR": 110,
+      "BP_sys": 150,
+      "BP_dia": 95,
+      "RR": 34,
+      "O2Sat": 80,
+      "T": 36.9
+    },
     "baseline_features": {
       "rhythm": "NSR",
       "oxygen_device": null,
@@ -44,13 +52,15 @@
         "test_code": "ECG",
         "test_name": "Initial ECG",
         "test_category": "ecg",
-        "result_summary": "ECG image link provided in supporting documents; no text interpretation stated."
+        "result_summary": "ECG image link provided in supporting documents; no text interpretation stated.",
+        "turnaround_turns": 2
       },
       {
         "test_code": "CXR",
         "test_name": "Chest X-ray",
         "test_category": "imaging",
-        "result_summary": "CXR resource link provided in supporting documents; no text interpretation stated."
+        "result_summary": "CXR resource link provided in supporting documents; no text interpretation stated.", 
+        "turnaround_turns": 3
       }
     ]
   },
