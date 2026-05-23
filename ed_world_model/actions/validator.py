@@ -150,7 +150,7 @@ class ActionValidator:
         errors: list[str] = []
         if not isinstance(action, dict):
             return _invalid("Diagnostic order must be an object.")
-        if _contains_key(action, "raw_text"):
+        if "raw_text" in action:
             errors.append("Clinician diagnostic_order must not include raw_text.")
 
         action_type = action.get("type")
