@@ -1,0 +1,73 @@
+{
+  "scenario_description": "A small fixture scenario for ScenarioLoader tests.",
+  "case_context": {
+    "demographics": {
+      "name": "Fixture Patient",
+      "age": 55,
+      "sex": "M",
+      "weight_kg": 82
+    },
+    "history": [
+      "hypertension"
+    ],
+    "allergies": [],
+    "home_medications": [
+      "amlodipine"
+    ],
+    "chief_complaint": "chest pain",
+    "symptoms": [
+      "chest pressure"
+    ],
+    "baseline_vitals": {
+      "HR": 104,
+      "BP_sys": 148,
+      "BP_dia": 92,
+      "RR": 22,
+      "O2Sat": 96,
+      "T": 37.1
+    },
+    "baseline_features": {
+      "rhythm": "sinus tachycardia",
+      "oxygen_device": null
+    },
+    "supporting_findings": [
+      {
+        "test_code": "ECG",
+        "test_name": "Initial ECG",
+        "test_category": "ecg",
+        "result_summary": "Sinus tachycardia without STEMI.",
+        "turnaround_turns": 1
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "source": {
+        "modifier_text": "PAIR_FIXTURE_MODIFIER_SHOULD_NOT_LOAD"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 999
+          },
+          "features": {
+            "fixture_pair_feature": "PAIR_FEATURE_SHOULD_NOT_LOAD"
+          }
+        },
+        "action": {
+          "raw_text": "PAIR_RAW_TEXT_SHOULD_NOT_LOAD",
+          "kind_hint": "oxygen_support",
+          "params": {}
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 101
+          }
+        },
+        "evaluation": "PAIR_EVALUATION_SHOULD_NOT_LOAD"
+      }
+    }
+  ]
+}
