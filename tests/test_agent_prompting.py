@@ -60,6 +60,10 @@ def test_prompt_includes_profile_emotion_observation_recent_messages_and_common_
         "Do not assume access to hidden state not shown here."
     ) in prompt
     assert "may stay silent" in prompt
+    assert "Avoid repeating the same information" in prompt
+    assert "Repetition is allowed when you are directly asked again" in prompt
+    assert "correcting a misunderstanding" in prompt
+    assert "new clinical or conversation context makes repetition necessary" in prompt
     assert "Output final structured JSON only." in prompt
     assert "Do not include internal reasoning in the output or store it." in prompt
     assert "Do not include chain-of-thought in the output or store it." in prompt

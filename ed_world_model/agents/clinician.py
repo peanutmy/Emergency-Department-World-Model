@@ -7,6 +7,7 @@ from typing import Any
 
 from ed_world_model.actions.registry import ActionRegistry
 from ed_world_model.agents.prompting import (
+    ANTI_REPETITION_RULE,
     COMMON_PARTIAL_OBSERVATION_RULE,
     FORBIDDEN_OUTPUT_KEYS,
     parse_agent_proposal,
@@ -106,6 +107,7 @@ def build_clinician_prompt(
             "Do not output this reasoning, rationale, analysis, "
             "internal_reasoning, or chain-of-thought."
         ),
+        ANTI_REPETITION_RULE,
         (
             "action must be one of: medical_treatment_order, diagnostic_order, "
             "or null."

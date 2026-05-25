@@ -11,6 +11,10 @@ from pydantic import ValidationError
 from ed_world_model.actions.registry import ActionRegistry, KindHint
 from ed_world_model.actions.validator import ActionValidator, ValidationResult
 from ed_world_model.adapters.noop_emotion import NoopEmotionEngine
+from ed_world_model.agents.clinician import ClinicianParserError
+from ed_world_model.agents.nurse import NurseParserError
+from ed_world_model.agents.patient import PatientParserError
+from ed_world_model.agents.relative import RelativeParserError
 from ed_world_model.agents.schemas import AgentProposal, VerbalAction
 from ed_world_model.agents.stubs import SilentAgent
 from ed_world_model.orchestration.observation_builder import ObservationBuilder
@@ -30,6 +34,13 @@ NO_ACTION_ENGINE_ACTION = {
     "kind_hint": KindHint.NO_ACTION,
     "params": {"elapsed_min": 1},
 }
+AGENT_GENERATION_ERRORS = (
+    ValidationError,
+    ClinicianParserError,
+    PatientParserError,
+    NurseParserError,
+    RelativeParserError,
+)
 
 
 @dataclass(frozen=True)
@@ -211,11 +222,11 @@ class TurnLoop:
                 proposal = AgentProposal.model_validate(
                     agent.generate(observations.get(agent_name, {}))
                 )
-            except ValidationError as exc:
-                self._record_validation_drop(
+            except AGENT_GENERATION_ERRORS as exc:
+                self._record_agent_generation_drop(
                     agent=agent_name,
-                    errors=[str(exc)],
-                    item="agent_proposal",
+                    exc=exc,
+                    phase="primary_agent_generation",
                 )
                 proposal = AgentProposal()
             if agent_name != CLINICIAN and proposal.action is not None:
@@ -288,13 +299,44 @@ class TurnLoop:
         agent: str,
         errors: list[str],
         item: str = "action",
+        phase: str | None = None,
+        error_type: str | None = None,
+        error_message: str | None = None,
     ) -> None:
+        payload: dict[str, Any] = {
+            "agent": agent,
+            "item": item,
+            "errors": list(errors),
+        }
+        if phase is not None:
+            payload["phase"] = phase
+        if error_type is not None:
+            payload["error_type"] = error_type
+        if error_message is not None:
+            payload["error_message"] = error_message
         self.state_manager.record_event(
             Event(
                 type="validation_drop",
                 turn_index=self.state_manager.state.runtime_state.turn_index,
-                payload={"agent": agent, "item": item, "errors": list(errors)},
+                payload=payload,
             )
+        )
+
+    def _record_agent_generation_drop(
+        self,
+        *,
+        agent: str,
+        exc: Exception,
+        phase: str,
+    ) -> None:
+        error_message = str(exc)
+        self._record_validation_drop(
+            agent=agent,
+            errors=[error_message],
+            item="agent_proposal",
+            phase=phase,
+            error_type=type(exc).__name__,
+            error_message=error_message,
         )
 
     def _record_nurse_shadow_execution(self, treatment_action: dict[str, Any]) -> None:
@@ -332,11 +374,11 @@ class TurnLoop:
                 proposal = AgentProposal.model_validate(
                     nurse_agent.generate(observation)
                 )
-            except ValidationError as exc:
-                self._record_validation_drop(
+            except AGENT_GENERATION_ERRORS as exc:
+                self._record_agent_generation_drop(
                     agent=NURSE,
-                    errors=[str(exc)],
-                    item="agent_proposal",
+                    exc=exc,
+                    phase="nurse_bedside_verbal_slot",
                 )
                 proposal = AgentProposal()
         if proposal is not None:

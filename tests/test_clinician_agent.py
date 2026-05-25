@@ -116,6 +116,10 @@ def test_build_prompt_says_internal_reasoning_and_chain_of_thought_are_forbidden
     assert "who they would address" in prompt
     assert "If you produce a clinician action" in prompt
     assert "silently reason about which single medical_treatment_order" in prompt
+    assert "Avoid repeating the same information" in prompt
+    assert "Repetition is allowed when you are directly asked again" in prompt
+    assert "correcting a misunderstanding" in prompt
+    assert "new clinical or conversation context makes repetition necessary" in prompt
     assert "Do not output this reasoning" in prompt
 
 

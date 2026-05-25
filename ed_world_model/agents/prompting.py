@@ -5,15 +5,38 @@ import json
 from collections.abc import Mapping
 from typing import Any
 
-from ed_world_model.agents.schemas import AgentProposal, AgentRuntimeInput, AgentRole
+from ed_world_model.agents.schemas import (
+    AgentProposal,
+    AgentRuntimeInput,
+    AgentRole,
+    VerbalOnlyProposal,
+)
 
 
 VERBAL_ONLY_ROLES = {"nurse", "patient", "relative"}
 ALL_ROLES = {"clinician", *VERBAL_ONLY_ROLES}
 FORBIDDEN_OUTPUT_KEYS = {"raw_text", "internal_reasoning", "chain_of_thought"}
+VERBAL_ONLY_FORBIDDEN_OUTPUT_KEYS = {
+    *FORBIDDEN_OUTPUT_KEYS,
+    "action",
+    "medical_treatment_order",
+    "diagnostic_order",
+    "behavior_action",
+}
+VERBAL_ONLY_RESPONSE_KEYS = {"verbal_action"}
+VERBAL_ACTION_TARGETS = {"clinician", "patient", "nurse", "relative", None}
 COMMON_PARTIAL_OBSERVATION_RULE = (
     "The following observation is a partial role-specific view of the world. "
     "Do not assume access to hidden state not shown here."
+)
+ANTI_REPETITION_RULE = (
+    "Before speaking, silently compare your planned verbal_action.content with "
+    "recent messages, especially your own prior messages. Avoid repeating the "
+    "same information, reassurance, question, concern, or instruction in "
+    "different words. If you have nothing new or useful to add, return "
+    "verbal_action as null. Repetition is allowed when you are directly asked "
+    "again, correcting a misunderstanding, confirming critical information, or "
+    "new clinical or conversation context makes repetition necessary."
 )
 
 
@@ -171,6 +194,46 @@ def parse_agent_proposal(
     return AgentProposal.model_validate(data)
 
 
+def parse_verbal_only_response(
+    output: str | Mapping[str, Any],
+    *,
+    role: AgentRole,
+) -> VerbalOnlyProposal:
+    """Parse strict final JSON for nurse, patient, and relative agents.
+
+    These agents may speak or stay silent. They must not return action fields or
+    hidden reasoning fields. The LLM-facing schema uses ``target``; the shared
+    runtime schema stores that value as ``recipient``.
+    """
+
+    if role not in VERBAL_ONLY_ROLES:
+        raise ValueError(f"Role {role!r} is not a verbal-only agent role.")
+
+    data = _coerce_strict_json_object(output)
+    forbidden_key_path = _find_forbidden_verbal_only_key(data)
+    if forbidden_key_path is not None:
+        raise ValueError(
+            "Verbal-only responses must not include action, "
+            "medical_treatment_order, diagnostic_order, behavior_action, "
+            "raw_text, internal_reasoning, or chain_of_thought fields: "
+            f"{forbidden_key_path}"
+        )
+
+    if "verbal_action" not in data:
+        raise ValueError("Verbal-only response must include verbal_action.")
+    extra_keys = sorted(set(data) - VERBAL_ONLY_RESPONSE_KEYS)
+    if extra_keys:
+        raise ValueError(
+            "Verbal-only response must contain only verbal_action; "
+            f"found extra keys {extra_keys}."
+        )
+
+    normalized = {
+        "verbal_action": _normalize_verbal_only_action(data["verbal_action"], role),
+    }
+    return VerbalOnlyProposal.model_validate(normalized)
+
+
 def _compose_prompt(
     runtime_input: AgentRuntimeInput,
     *,
@@ -185,6 +248,7 @@ def _compose_prompt(
             "The active agent may stay silent by returning null verbal_action "
             "and null action."
         ),
+        ANTI_REPETITION_RULE,
         "Output final structured JSON only.",
         "Do not include internal reasoning in the output or store it.",
         "Do not include chain-of-thought in the output or store it.",
@@ -257,6 +321,39 @@ def _coerce_json_object(output: str | Mapping[str, Any]) -> dict[str, Any]:
     return data
 
 
+def _coerce_strict_json_object(output: str | Mapping[str, Any]) -> dict[str, Any]:
+    if isinstance(output, str):
+        try:
+            data = json.loads(
+                output,
+                object_pairs_hook=_reject_duplicate_keys,
+                parse_constant=_reject_json_constant,
+            )
+        except (json.JSONDecodeError, ValueError) as exc:
+            raise ValueError("Verbal-only response must be valid strict JSON.") from exc
+    elif isinstance(output, Mapping):
+        data = dict(output)
+    else:
+        raise ValueError("Verbal-only response must be a JSON object.")
+
+    if not isinstance(data, dict):
+        raise ValueError("Verbal-only response must be a JSON object.")
+    return data
+
+
+def _reject_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"Duplicate JSON key {key!r}.")
+        result[key] = value
+    return result
+
+
+def _reject_json_constant(value: str) -> None:
+    raise ValueError(f"Invalid JSON constant {value!r}.")
+
+
 def _find_forbidden_key(value: Any, path: str = "$") -> str | None:
     if isinstance(value, Mapping):
         for key, item in value.items():
@@ -273,6 +370,57 @@ def _find_forbidden_key(value: Any, path: str = "$") -> str | None:
             if nested is not None:
                 return nested
     return None
+
+
+def _find_forbidden_verbal_only_key(value: Any, path: str = "$") -> str | None:
+    if isinstance(value, Mapping):
+        for key, item in value.items():
+            key_text = str(key)
+            current_path = f"{path}.{key_text}"
+            if key_text in VERBAL_ONLY_FORBIDDEN_OUTPUT_KEYS:
+                return current_path
+            nested = _find_forbidden_verbal_only_key(item, current_path)
+            if nested is not None:
+                return nested
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            nested = _find_forbidden_verbal_only_key(item, f"{path}[{index}]")
+            if nested is not None:
+                return nested
+    return None
+
+
+def _normalize_verbal_only_action(
+    value: Any,
+    role: AgentRole,
+) -> dict[str, Any] | None:
+    if value is None:
+        return None
+    if not isinstance(value, Mapping):
+        raise ValueError("verbal_action must be an object or null.")
+
+    verbal_action = dict(value)
+    has_target = "target" in verbal_action
+    has_recipient = "recipient" in verbal_action
+    if has_target and has_recipient:
+        raise ValueError("verbal_action must not include both target and recipient.")
+    if not has_target and not has_recipient:
+        raise ValueError("verbal_action.target is required when verbal_action is not null.")
+    if has_target:
+        target = verbal_action.pop("target")
+    else:
+        target = verbal_action.pop("recipient")
+    if target not in VERBAL_ACTION_TARGETS:
+        raise ValueError(
+            "verbal_action.target must be clinician, patient, nurse, relative, or null."
+        )
+
+    speaker = verbal_action.get("speaker")
+    if speaker != role:
+        raise ValueError(f"verbal_action.speaker must be {role!r}.")
+
+    verbal_action["recipient"] = target
+    return verbal_action
 
 
 def _format_json(value: Any) -> str:
@@ -295,12 +443,15 @@ def _sanitize_for_prompt(value: Any) -> Any:
 
 __all__ = [
     "COMMON_PARTIAL_OBSERVATION_RULE",
+    "ANTI_REPETITION_RULE",
     "FORBIDDEN_OUTPUT_KEYS",
     "VERBAL_ONLY_ROLES",
+    "VERBAL_ONLY_FORBIDDEN_OUTPUT_KEYS",
     "build_agent_prompt",
     "build_clinician_prompt",
     "build_nurse_prompt",
     "build_patient_prompt",
     "build_relative_prompt",
     "parse_agent_proposal",
+    "parse_verbal_only_response",
 ]
