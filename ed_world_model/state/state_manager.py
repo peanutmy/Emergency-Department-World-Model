@@ -15,6 +15,7 @@ from ed_world_model.state.global_state import (
     PatientEmotion,
     PatientState,
     PendingDiagnosticResult,
+    PendingQuestion,
     StatusFlags,
     TestBankItem,
     Vitals,
@@ -146,6 +147,71 @@ class StateManager:
 
         self._state.runtime_state.pending_diagnostic_results = still_pending
         return released_results
+
+    def create_pending_question(
+        self,
+        *,
+        source_agent: str,
+        target_agent: str,
+        question_text: str,
+    ) -> PendingQuestion:
+        current_turn = self._state.runtime_state.turn_index
+        question = PendingQuestion(
+            source_agent=source_agent,
+            target_agent=target_agent,
+            question_text=question_text,
+            question_id=f"q{len(self._state.runtime_state.pending_questions) + 1}",
+            created_at_turn=current_turn,
+        )
+        self._state.runtime_state.pending_questions.append(question)
+        if target_agent not in self._state.runtime_state.required_response_agents:
+            self._state.runtime_state.required_response_agents.append(target_agent)
+        self.record_event(
+            Event(
+                type="pending_question_created",
+                turn_index=current_turn,
+                payload={
+                    "question_id": question.question_id,
+                    "source_agent": source_agent,
+                    "target_agent": target_agent,
+                },
+            )
+        )
+        return question
+
+    def resolve_pending_questions_for_agent(self, agent: str) -> list[PendingQuestion]:
+        current_turn = self._state.runtime_state.turn_index
+        resolved: list[PendingQuestion] = []
+        for question in self._state.runtime_state.pending_questions:
+            if question.target_agent != agent or question.is_resolved:
+                continue
+            question.is_resolved = True
+            question.resolved_at_turn = current_turn
+            resolved.append(question)
+
+        if resolved and not any(
+            question.target_agent == agent and not question.is_resolved
+            for question in self._state.runtime_state.pending_questions
+        ):
+            self._state.runtime_state.required_response_agents = [
+                required_agent
+                for required_agent in self._state.runtime_state.required_response_agents
+                if required_agent != agent
+            ]
+        if resolved:
+            self.record_event(
+                Event(
+                    type="pending_question_resolved",
+                    turn_index=current_turn,
+                    payload={
+                        "agent": agent,
+                        "question_ids": [
+                            question.question_id for question in resolved
+                        ],
+                    },
+                )
+            )
+        return resolved
 
     def apply_physiology_update(
         self,
