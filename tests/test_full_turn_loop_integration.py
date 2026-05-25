@@ -15,6 +15,7 @@ import ed_world_model.orchestration.runner as runner_module
 from ed_world_model.actions.registry import ActionFamily, KindHint
 from ed_world_model.adapters.noop_emotion import NoopEmotionEngine
 from ed_world_model.agents.clinician import ClinicianAgent, parse_clinician_response
+from ed_world_model.agents.llm_client import FakeLLMClient
 from ed_world_model.agents.nurse import NurseAgent, parse_nurse_response
 from ed_world_model.agents.patient import PatientAgent, parse_patient_response
 from ed_world_model.agents.relative import RelativeAgent, parse_relative_response
@@ -248,6 +249,26 @@ def test_full_runner_can_run_medical_treatment_order_turn() -> None:
     assert physiology.calls[-1]["action"]["kind_hint"] == "oxygen_support"
     assert physiology.calls[-1]["action"]["raw_text"] is None
     assert runner.state.patient_state.features.oxygen_device == "NRB"
+
+
+def test_llm_client_output_still_flows_through_clinician_parser() -> None:
+    llm_client = FakeLLMClient(
+        [{"verbal_action": None, "action": _oxygen_order()}]
+    )
+    physiology = RecordingStubPhysiologyAdapter()
+    runner = IntegrationRunner(
+        GlobalState(),
+        agents={"clinician": ClinicianAgent(llm_client)},
+        physiology_adapter=physiology,
+    )
+
+    turn = runner.run_turn()
+
+    assert llm_client.prompts
+    assert turn.validation_results[0]["ok"] is True
+    assert turn.validation_results[0]["normalized_action"]["raw_text"] is None
+    assert physiology.calls[-1]["action"]["kind_hint"] == "oxygen_support"
+    assert physiology.calls[-1]["action"]["raw_text"] is None
 
 
 def test_patient_nurse_relative_verbal_only_agents_can_speak() -> None:

@@ -5,12 +5,18 @@ import argparse
 from dataclasses import dataclass, field
 import json
 from pathlib import Path
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from typing import Any
 
 from ed_world_model.actions.registry import ActionFamily, KindHint
 from ed_world_model.adapters.noop_emotion import NoopEmotionEngine
 from ed_world_model.agents.clinician import ClinicianAgent
+from ed_world_model.agents.llm_client import (
+    DEFAULT_AGENT_RESPONSE,
+    DEFAULT_VERBAL_ONLY_RESPONSE,
+    FakeLLMClient,
+    OpenAICompatibleLLMClient,
+)
 from ed_world_model.agents.nurse import NurseAgent
 from ed_world_model.agents.patient import PatientAgent
 from ed_world_model.agents.relative import RelativeAgent
@@ -18,14 +24,20 @@ from ed_world_model.orchestration.orchestrator import CLINICIAN, NURSE, PATIENT,
 from ed_world_model.orchestration.runner import (
     IntegrationRunner,
     RecordingStubPhysiologyAdapter,
-    ScriptedLLMCallable,
     TrajectoryTurn,
 )
 from ed_world_model.scenario_loader import ScenarioLoader
 from ed_world_model.state.global_state import GlobalState
 
 
-FAKE_MODE = "fake"
+AGENT_MODE_FAKE = "fake"
+AGENT_MODE_REAL = "real"
+PHYSIOLOGY_MODE_FAKE = "fake"
+PHYSIOLOGY_MODE_HYBRID = "hybrid"
+FAKE_MODE = AGENT_MODE_FAKE
+
+LLMClientFactory = Callable[[], Any]
+HybridPhysiologyAdapter: Any | None = None
 
 
 @dataclass(frozen=True)
@@ -105,13 +117,25 @@ def run_demo_scenario(
     scenario_path: str | Path,
     *,
     turns: int = 5,
-    mode: str = FAKE_MODE,
+    mode: str | None = None,
+    agent_mode: str = AGENT_MODE_FAKE,
+    physiology_mode: str = PHYSIOLOGY_MODE_FAKE,
     scenario_loader: ScenarioLoader | None = None,
+    llm_client_factory: LLMClientFactory | None = None,
+    physiology_llm_client_factory: LLMClientFactory | None = None,
 ) -> DemoResult:
-    """Load a scenario and run a deterministic fake-agent demo trajectory."""
+    """Load a scenario and run a v1.3.1 demo trajectory."""
 
-    if mode != FAKE_MODE:
-        raise ValueError(f"Unsupported demo mode {mode!r}; only 'fake' is available.")
+    if mode is not None:
+        if mode != AGENT_MODE_FAKE:
+            raise ValueError(
+                f"Unsupported legacy demo mode {mode!r}; use --agent-mode instead."
+            )
+        if agent_mode != AGENT_MODE_FAKE:
+            raise ValueError("Use either mode or agent_mode, not both.")
+        agent_mode = mode
+    _validate_agent_mode(agent_mode)
+    _validate_physiology_mode(physiology_mode)
     if turns < 0:
         raise ValueError("turns must be non-negative.")
 
@@ -120,9 +144,15 @@ def run_demo_scenario(
     state = loader.load(path, max_turns=turns)
     runner = IntegrationRunner(
         state,
-        agents=build_fake_demo_agents(state),
-        physiology_adapter=RecordingStubPhysiologyAdapter(
-            output=_fake_physiology_output
+        agents=build_demo_agents(
+            state,
+            agent_mode=agent_mode,
+            llm_client_factory=llm_client_factory,
+        ),
+        physiology_adapter=build_demo_physiology_adapter(
+            physiology_mode=physiology_mode,
+            llm_client_factory=physiology_llm_client_factory
+            or llm_client_factory,
         ),
         emotion_engine=NoopEmotionEngine(),
     )
@@ -143,6 +173,20 @@ def run_demo_scenario(
     )
 
 
+def build_demo_agents(
+    state: GlobalState,
+    *,
+    agent_mode: str = AGENT_MODE_FAKE,
+    llm_client_factory: LLMClientFactory | None = None,
+) -> dict[str, Any]:
+    """Build fake or real LLM-backed agents for the demo."""
+
+    _validate_agent_mode(agent_mode)
+    if agent_mode == AGENT_MODE_FAKE:
+        return build_fake_demo_agents(state)
+    return build_real_demo_agents(llm_client_factory=llm_client_factory)
+
+
 def build_fake_demo_agents(state: GlobalState) -> dict[str, Any]:
     """Build deterministic fake LLM-backed agents for the controlled demo."""
 
@@ -158,19 +202,61 @@ def build_fake_demo_agents(state: GlobalState) -> dict[str, Any]:
 
     return {
         CLINICIAN: ClinicianAgent(
-            ScriptedLLMCallable(clinician_script, role=CLINICIAN)
+            FakeLLMClient(
+                clinician_script,
+                default_response=DEFAULT_AGENT_RESPONSE,
+            )
         ),
         NURSE: NurseAgent(
-            ScriptedLLMCallable(
+            FakeLLMClient(
                 [_nurse_result_report_response(), _nurse_bedside_response()],
-                role=NURSE,
+                default_response=DEFAULT_VERBAL_ONLY_RESPONSE,
             )
         ),
         PATIENT: PatientAgent(
-            ScriptedLLMCallable([_patient_required_response()], role=PATIENT)
+            FakeLLMClient(
+                [_patient_required_response()],
+                default_response=DEFAULT_VERBAL_ONLY_RESPONSE,
+            )
         ),
-        RELATIVE: RelativeAgent(ScriptedLLMCallable([], role=RELATIVE)),
+        RELATIVE: RelativeAgent(
+            FakeLLMClient(
+                [],
+                default_response=DEFAULT_VERBAL_ONLY_RESPONSE,
+            )
+        ),
     }
+
+
+def build_real_demo_agents(
+    *,
+    llm_client_factory: LLMClientFactory | None = None,
+) -> dict[str, Any]:
+    """Build real-client-backed agents while preserving parser boundaries."""
+
+    llm_client = _make_real_llm_client(llm_client_factory)
+    return {
+        CLINICIAN: ClinicianAgent(llm_client),
+        NURSE: NurseAgent(llm_client),
+        PATIENT: PatientAgent(llm_client),
+        RELATIVE: RelativeAgent(llm_client),
+    }
+
+
+def build_demo_physiology_adapter(
+    *,
+    physiology_mode: str = PHYSIOLOGY_MODE_FAKE,
+    llm_client_factory: LLMClientFactory | None = None,
+) -> Any:
+    """Build fake or Hybrid physiology for the demo runner."""
+
+    _validate_physiology_mode(physiology_mode)
+    if physiology_mode == PHYSIOLOGY_MODE_FAKE:
+        return RecordingStubPhysiologyAdapter(output=_fake_physiology_output)
+
+    llm_client = _make_real_llm_client(llm_client_factory)
+    adapter_class = _hybrid_physiology_adapter_class()
+    return adapter_class(llm_client=llm_client)
 
 
 def render_readable_trajectory(result: DemoResult) -> str:
@@ -228,15 +314,27 @@ def render_demo_json(result: DemoResult) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Run a controlled fake-agent v1.3.1 scenario demo."
+        description="Run a v1.3.1 scenario demo."
     )
     parser.add_argument("--scenario", required=True, help="Path to scenario JSON.")
     parser.add_argument("--turns", type=int, default=5, help="Number of turns to run.")
     parser.add_argument(
         "--mode",
-        default=FAKE_MODE,
+        default=None,
         choices=[FAKE_MODE],
-        help="Demo mode. M10a supports only deterministic fake agents.",
+        help=argparse.SUPPRESS,
+    )
+    parser.add_argument(
+        "--agent-mode",
+        default=AGENT_MODE_FAKE,
+        choices=[AGENT_MODE_FAKE, AGENT_MODE_REAL],
+        help="Agent backend mode. Defaults to deterministic fake agents.",
+    )
+    parser.add_argument(
+        "--physiology-mode",
+        default=PHYSIOLOGY_MODE_FAKE,
+        choices=[PHYSIOLOGY_MODE_FAKE, PHYSIOLOGY_MODE_HYBRID],
+        help="Physiology backend mode. Defaults to deterministic fake physiology.",
     )
     parser.add_argument(
         "--json",
@@ -250,12 +348,49 @@ def main(argv: list[str] | None = None) -> int:
         args.scenario,
         turns=args.turns,
         mode=args.mode,
+        agent_mode=args.agent_mode,
+        physiology_mode=args.physiology_mode,
     )
     if args.json_output:
         print(render_demo_json(result))
     else:
         print(render_readable_trajectory(result), end="")
     return 0
+
+
+def _validate_agent_mode(agent_mode: str) -> None:
+    if agent_mode not in {AGENT_MODE_FAKE, AGENT_MODE_REAL}:
+        raise ValueError(
+            "agent_mode must be 'fake' or 'real'; "
+            f"received {agent_mode!r}."
+        )
+
+
+def _validate_physiology_mode(physiology_mode: str) -> None:
+    if physiology_mode not in {PHYSIOLOGY_MODE_FAKE, PHYSIOLOGY_MODE_HYBRID}:
+        raise ValueError(
+            "physiology_mode must be 'fake' or 'hybrid'; "
+            f"received {physiology_mode!r}."
+        )
+
+
+def _make_real_llm_client(
+    llm_client_factory: LLMClientFactory | None = None,
+) -> Any:
+    if llm_client_factory is not None:
+        return llm_client_factory()
+    return OpenAICompatibleLLMClient()
+
+
+def _hybrid_physiology_adapter_class() -> Any:
+    global HybridPhysiologyAdapter
+    if HybridPhysiologyAdapter is None:
+        from ed_world_model.adapters.hybrid_physiology_adapter import (
+            HybridPhysiologyAdapter as adapter_class,
+        )
+
+        HybridPhysiologyAdapter = adapter_class
+    return HybridPhysiologyAdapter
 
 
 def _initial_clinician_response(test_name: str | None) -> dict[str, Any]:

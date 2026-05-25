@@ -4,6 +4,9 @@ import inspect
 import json
 from pathlib import Path
 import sys
+from typing import Any
+
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,6 +20,36 @@ from ed_world_model.scenario_loader import ScenarioLoader
 
 FIXTURE_PATH = ROOT / "tests" / "fixtures" / "scenario_loader_minimal.json"
 EXAMPLE_SCRIPT = ROOT / "examples" / "run_demo_scenario.py"
+
+
+class SpyRealLLMClient:
+    instances: list["SpyRealLLMClient"] = []
+
+    provider = "openai"
+    model = "mock-real-agent-model"
+    last_api_error = None
+
+    def __init__(self) -> None:
+        self.prompts: list[str] = []
+        SpyRealLLMClient.instances.append(self)
+
+    def generate(self, prompt: str) -> str:
+        self.prompts.append(prompt)
+        if "You are the clinician" in prompt:
+            return '{"verbal_action": null, "action": null}'
+        return '{"verbal_action": null}'
+
+    def complete(self, prompt: str) -> str:
+        return self.generate(prompt)
+
+    def __call__(self, prompt: str) -> str:
+        return self.generate(prompt)
+
+
+class InvalidRealLLMClient(SpyRealLLMClient):
+    def generate(self, prompt: str) -> str:
+        self.prompts.append(prompt)
+        return "not json"
 
 
 def _fixture_copy(tmp_path: Path) -> Path:
@@ -53,6 +86,104 @@ def test_demo_runner_loads_minimal_scenario_and_runs_without_api(
     assert result.final_patient_state["vitals"]["HR"] == 104.0
     assert result.final_patient_state["features"]["oxygen_device"] == "NRB"
     assert result.final_patient_state["features"]["FiO2"] == 1.0
+
+
+def test_demo_default_modes_are_fake_agent_and_fake_physiology(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+
+    result = demo.run_demo_scenario(_fixture_copy(tmp_path), turns=1)
+
+    assert result.turns[0].active_agents == ["clinician"]
+    assert result.turns[0].physiology_action_kind_hint == "no_action"
+    assert result.turns[0].parser_errors == []
+
+
+def test_real_agent_mode_constructs_real_client_without_calling_api(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    SpyRealLLMClient.instances = []
+    monkeypatch.setattr(demo, "OpenAICompatibleLLMClient", SpyRealLLMClient)
+
+    result = demo.run_demo_scenario(
+        _fixture_copy(tmp_path),
+        turns=1,
+        agent_mode=demo.AGENT_MODE_REAL,
+    )
+
+    assert len(SpyRealLLMClient.instances) == 1
+    assert SpyRealLLMClient.instances[0].prompts
+    assert result.turns[0].physiology_action_kind_hint == "no_action"
+    assert result.turns[0].parser_errors == []
+
+
+def test_real_agent_mode_requires_api_key_before_run(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+
+    with pytest.raises(RuntimeError, match="OPENAI_API_KEY"):
+        demo.run_demo_scenario(
+            _fixture_copy(tmp_path),
+            turns=1,
+            agent_mode=demo.AGENT_MODE_REAL,
+        )
+
+
+def test_hybrid_physiology_mode_constructs_adapter_and_keeps_raw_text_none(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    class SpyHybridAdapter:
+        instances: list["SpyHybridAdapter"] = []
+
+        def __init__(self, *, llm_client: Any) -> None:
+            self.llm_client = llm_client
+            self.calls: list[dict[str, Any]] = []
+            SpyHybridAdapter.instances.append(self)
+
+        def predict(self, global_state, engine_facing_action):
+            self.calls.append(dict(engine_facing_action))
+            return {"vitals": global_state.patient_state.vitals.model_dump()}
+
+    SpyRealLLMClient.instances = []
+    monkeypatch.setattr(demo, "OpenAICompatibleLLMClient", SpyRealLLMClient)
+    monkeypatch.setattr(demo, "HybridPhysiologyAdapter", SpyHybridAdapter)
+
+    result = demo.run_demo_scenario(
+        _fixture_copy(tmp_path),
+        turns=1,
+        physiology_mode=demo.PHYSIOLOGY_MODE_HYBRID,
+    )
+
+    assert len(SpyRealLLMClient.instances) == 1
+    assert len(SpyHybridAdapter.instances) == 1
+    assert SpyHybridAdapter.instances[0].llm_client is SpyRealLLMClient.instances[0]
+    assert SpyHybridAdapter.instances[0].calls == [
+        {"raw_text": None, "kind_hint": "no_action", "params": {"elapsed_min": 1}}
+    ]
+    assert result.turns[0].physiology_action_kind_hint == "no_action"
+
+
+def test_real_agent_parser_error_is_dropped_and_logged(
+    tmp_path: Path,
+) -> None:
+    result = demo.run_demo_scenario(
+        _fixture_copy(tmp_path),
+        turns=1,
+        agent_mode=demo.AGENT_MODE_REAL,
+        llm_client_factory=InvalidRealLLMClient,
+    )
+
+    assert result.turns[0].physiology_action_kind_hint == "no_action"
+    assert result.turns[0].messages == []
+    assert result.turns[0].parser_errors
+    assert result.turns[0].parser_errors[0]["payload"]["agent"] == "clinician"
+    assert result.turns[0].parser_errors[0]["payload"]["item"] == "agent_proposal"
 
 
 def test_readable_output_contains_required_trajectory_fields(tmp_path: Path) -> None:
@@ -236,3 +367,20 @@ def test_cli_entrypoint_prints_readable_and_json(tmp_path: Path, capsys) -> None
     parsed = json.loads(capsys.readouterr().out)
     assert parsed["scenario_identifier"] == "demo_scenario"
     assert parsed["turns"][0]["active_agents"] == ["clinician"]
+
+    assert (
+        demo.main(
+            [
+                "--scenario",
+                str(scenario_path),
+                "--turns",
+                "1",
+                "--agent-mode",
+                "fake",
+                "--physiology-mode",
+                "fake",
+            ]
+        )
+        == 0
+    )
+    assert "Turn 0" in capsys.readouterr().out
