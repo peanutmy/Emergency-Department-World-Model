@@ -90,6 +90,7 @@ def build_clinician_prompt(
         COMMON_PARTIAL_OBSERVATION_RULE,
         "You receive only a partial role-specific observation.",
         "Do not assume hidden state not shown.",
+        "You may output at most one structured action per turn.",
         "You may produce at most one verbal_action and at most one action.",
         "You may stay silent if no useful verbal contribution.",
         (
@@ -111,6 +112,35 @@ def build_clinician_prompt(
         (
             "action must be one of: medical_treatment_order, diagnostic_order, "
             "or null."
+        ),
+        (
+            "verbal_action must be consistent with the single structured action "
+            "for this turn."
+        ),
+        (
+            "verbal_action must not promise, order, prepare, or describe "
+            "additional tests or treatments that are not represented by the "
+            "structured action for this turn."
+        ),
+        (
+            "If action.type is medical_treatment_order, verbal_action may "
+            "explain only that treatment or provide general reassurance."
+        ),
+        (
+            "If action.type is diagnostic_order, verbal_action may explain only "
+            "that one diagnostic test or provide general reassurance."
+        ),
+        (
+            "If action is null, verbal_action must not claim that a test or "
+            "treatment is being started, ordered, prepared, or performed."
+        ),
+        (
+            'Do not say things like "start oxygen and prepare ECG and chest '
+            'X-ray" when only one structured action is allowed.'
+        ),
+        (
+            "If more than one clinical step is needed, choose the single most "
+            "important action for this turn and leave the rest for future turns."
         ),
         "no_action is not selectable.",
         "If you choose no action, set action to null.",

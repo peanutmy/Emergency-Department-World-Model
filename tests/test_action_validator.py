@@ -16,7 +16,11 @@ if str(ROOT) not in sys.path:
 import ed_world_model.actions.validator as validator_module
 from ed_world_model.actions.registry import ActionFamily, ActionRegistry, KindHint
 from ed_world_model.actions.validator import ActionValidator, ValidationResult
-from ed_world_model.state.global_state import GlobalState
+from ed_world_model.state.global_state import (
+    DiagnosticResult,
+    GlobalState,
+    PendingDiagnosticResult,
+)
 from ed_world_model.state.global_state import TestBankItem as DiagnosticTestBankItem
 
 
@@ -41,6 +45,30 @@ def _state_with_tests() -> GlobalState:
             ]
         }
     )
+
+
+def _state_with_pending_test(test_name: str = "ECG") -> GlobalState:
+    state = _state_with_tests()
+    state.runtime_state.pending_diagnostic_results.append(
+        PendingDiagnosticResult(
+            test_name=test_name,
+            ordered_at_turn=0,
+            ready_at_turn=2,
+        )
+    )
+    return state
+
+
+def _state_with_released_test(
+    test_name: str = "ECG",
+    *,
+    result: str = "atrial fibrillation",
+) -> GlobalState:
+    state = _state_with_tests()
+    state.known_facts.available_results.append(
+        DiagnosticResult(name=test_name, result=result)
+    )
+    return state
 
 
 def _valid_oxygen_order(params: dict | None = None) -> dict:
@@ -207,9 +235,11 @@ def test_param_values_outside_param_options_are_not_rejected() -> None:
 
 
 def test_valid_diagnostic_order_passes_when_test_name_exists() -> None:
+    state = _state_with_tests()
+
     result = _validator().validate_clinician_proposal(
         {"type": "diagnostic_order", "test_name": "ECG"},
-        _state_with_tests(),
+        state,
     )
 
     assert result.ok is True
@@ -218,6 +248,74 @@ def test_valid_diagnostic_order_passes_when_test_name_exists() -> None:
         "type": "diagnostic_order",
         "test_name": "ECG",
     }
+    assert state.runtime_state.pending_diagnostic_results == []
+    assert state.known_facts.available_results == []
+
+
+def test_diagnostic_order_is_rejected_when_same_test_is_pending() -> None:
+    result = _validator().validate_diagnostic_order(
+        {"type": "diagnostic_order", "test_name": "ECG"},
+        _state_with_pending_test("ECG"),
+    )
+
+    assert result.ok is False
+    assert result.action_type == "diagnostic_order"
+    assert result.normalized_action is None
+    assert (
+        "Diagnostic test_name 'ECG' is already pending; "
+        "duplicate diagnostic_order is not allowed."
+    ) in result.errors
+
+
+def test_diagnostic_order_is_rejected_when_same_test_is_already_released() -> None:
+    result = _validator().validate_diagnostic_order(
+        {"type": "diagnostic_order", "test_name": "ECG"},
+        _state_with_released_test("ECG"),
+    )
+
+    assert result.ok is False
+    assert result.action_type == "diagnostic_order"
+    assert result.normalized_action is None
+    assert (
+        "Diagnostic test_name 'ECG' already has an available result; "
+        "duplicate diagnostic_order is not allowed."
+    ) in result.errors
+
+
+def test_duplicate_diagnostic_rejection_error_does_not_include_result_text() -> None:
+    result = _validator().validate_diagnostic_order(
+        {"type": "diagnostic_order", "test_name": "ECG"},
+        _state_with_released_test("ECG", result="secret rhythm result"),
+    )
+
+    assert result.ok is False
+    assert "available result" in " ".join(result.errors)
+    assert "secret rhythm result" not in " ".join(result.errors)
+
+
+def test_duplicate_diagnostic_validation_does_not_mutate_global_state() -> None:
+    state = _state_with_pending_test("ECG")
+    before = deepcopy(state.model_dump())
+
+    result = _validator().validate_diagnostic_order(
+        {"type": "diagnostic_order", "test_name": "ECG"},
+        state,
+    )
+
+    assert result.ok is False
+    assert state.model_dump() == before
+
+
+def test_duplicate_diagnostic_validation_does_not_create_pending_results() -> None:
+    state = _state_with_released_test("ECG")
+
+    result = _validator().validate_diagnostic_order(
+        {"type": "diagnostic_order", "test_name": "ECG"},
+        state,
+    )
+
+    assert result.ok is False
+    assert state.runtime_state.pending_diagnostic_results == []
 
 
 def test_canonical_action_wrapper_path_works() -> None:

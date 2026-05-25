@@ -98,6 +98,36 @@ def test_build_prompt_includes_available_diagnostic_test_names() -> None:
     assert "CXR" in prompt
 
 
+def test_build_prompt_says_at_most_one_structured_action_per_turn() -> None:
+    assert "at most one structured action per turn" in _prompt()
+
+
+def test_build_prompt_says_verbal_action_matches_single_structured_action() -> None:
+    prompt = _prompt()
+
+    assert (
+        "verbal_action must be consistent with the single structured action"
+        in prompt
+    )
+    assert "for this turn" in prompt
+
+
+def test_build_prompt_says_not_to_mention_unstructured_extra_care_steps() -> None:
+    prompt = _prompt()
+
+    assert "must not promise, order, prepare, or describe" in prompt
+    assert "additional tests or treatments" in prompt
+    assert "not represented by the structured action" in prompt
+
+
+def test_build_prompt_disallows_multi_action_verbal_pattern() -> None:
+    prompt = _prompt()
+
+    assert '"start oxygen and prepare ECG and chest X-ray"' in prompt
+    assert "when only one structured action is allowed" in prompt
+    assert "choose the single most important action for this turn" in prompt
+
+
 def test_build_prompt_says_no_action_is_not_selectable() -> None:
     assert "no_action is not selectable" in _prompt()
 
@@ -191,6 +221,30 @@ def test_parse_valid_verbal_and_action_response() -> None:
     )
 
     assert proposal.verbal_action.recipient == "nurse"
+    assert proposal.action["kind_hint"] == KindHint.OXYGEN_SUPPORT
+
+
+def test_parse_multi_action_verbal_text_still_parses_without_semantic_rejection() -> None:
+    proposal = parse_clinician_response(
+        _json_output(
+            verbal_action={
+                "speaker": "clinician",
+                "target": "patient",
+                "content": "We will start oxygen and prepare ECG and chest X-ray.",
+                "requires_response": False,
+            },
+            action={
+                "type": "medical_treatment_order",
+                "family": ActionFamily.RESPIRATORY_SUPPORT,
+                "kind_hint": KindHint.OXYGEN_SUPPORT,
+                "params": {"oxygen_device": "NRB"},
+            },
+        )
+    )
+
+    assert proposal.verbal_action.content == (
+        "We will start oxygen and prepare ECG and chest X-ray."
+    )
     assert proposal.action["kind_hint"] == KindHint.OXYGEN_SUPPORT
 
 

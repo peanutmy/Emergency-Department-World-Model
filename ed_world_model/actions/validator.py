@@ -166,6 +166,16 @@ class ActionValidator:
                 errors.append("global_state.truth_state.test_bank is required.")
             elif test_name not in test_names:
                 errors.append(f"Unknown diagnostic test_name {test_name!r}.")
+            if test_name in self._pending_diagnostic_test_names(global_state):
+                errors.append(
+                    f"Diagnostic test_name {test_name!r} is already pending; "
+                    "duplicate diagnostic_order is not allowed."
+                )
+            if test_name in self._released_diagnostic_test_names(global_state):
+                errors.append(
+                    f"Diagnostic test_name {test_name!r} already has an "
+                    "available result; duplicate diagnostic_order is not allowed."
+                )
 
         if errors:
             return ValidationResult(
@@ -247,6 +257,38 @@ class ActionValidator:
             name = getattr(test, "name", None)
             if isinstance(test, dict):
                 name = test.get("name")
+            if isinstance(name, str):
+                test_names.add(name)
+        return test_names
+
+    @staticmethod
+    def _pending_diagnostic_test_names(global_state: Any) -> set[str]:
+        runtime_state = getattr(global_state, "runtime_state", None)
+        pending_results = getattr(runtime_state, "pending_diagnostic_results", None)
+        if pending_results is None:
+            return set()
+
+        test_names: set[str] = set()
+        for pending_result in pending_results:
+            test_name = getattr(pending_result, "test_name", None)
+            if isinstance(pending_result, dict):
+                test_name = pending_result.get("test_name")
+            if isinstance(test_name, str):
+                test_names.add(test_name)
+        return test_names
+
+    @staticmethod
+    def _released_diagnostic_test_names(global_state: Any) -> set[str]:
+        known_facts = getattr(global_state, "known_facts", None)
+        available_results = getattr(known_facts, "available_results", None)
+        if available_results is None:
+            return set()
+
+        test_names: set[str] = set()
+        for result in available_results:
+            name = getattr(result, "name", None)
+            if isinstance(result, dict):
+                name = result.get("name")
             if isinstance(name, str):
                 test_names.add(name)
         return test_names

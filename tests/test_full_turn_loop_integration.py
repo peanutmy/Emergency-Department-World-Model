@@ -201,6 +201,47 @@ def test_full_runner_can_run_a_diagnostic_order_turn() -> None:
     )
 
 
+def test_duplicate_pending_diagnostic_order_is_dropped_and_uses_no_action() -> None:
+    physiology = RecordingStubPhysiologyAdapter()
+    agents = scripted_agents(
+        clinician=[{"action": {"type": "diagnostic_order", "test_name": "ECG"}}],
+    )
+    runner = IntegrationRunner(
+        _state_with_ecg(
+            runtime_state={
+                "pending_diagnostic_results": [
+                    {
+                        "test_name": "ECG",
+                        "ordered_at_turn": 0,
+                        "ready_at_turn": 5,
+                    }
+                ]
+            }
+        ),
+        agents=agents,
+        physiology_adapter=physiology,
+    )
+    pending_before = [
+        pending.model_dump()
+        for pending in runner.state.runtime_state.pending_diagnostic_results
+    ]
+
+    turn = runner.run_turn()
+
+    assert turn.validation_results[0]["ok"] is False
+    assert any(
+        "already pending" in error for error in turn.validation_results[0]["errors"]
+    )
+    assert [
+        pending.model_dump()
+        for pending in runner.state.runtime_state.pending_diagnostic_results
+    ] == pending_before
+    assert not any(
+        event["type"] == "diagnostic_order_created" for event in turn.events
+    )
+    assert physiology.calls[-1]["action"]["kind_hint"] == "no_action"
+
+
 def test_diagnostic_result_releases_before_action_selection() -> None:
     agents = scripted_agents(
         clinician=[

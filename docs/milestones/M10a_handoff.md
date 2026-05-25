@@ -222,3 +222,101 @@ and `nurse_bedside_verbal_slot triggered=True spoke=False`.
 ### Exact Next Step
 
 M10b real LLM client wrapper with fake/real switch.
+
+## M10_patch Real-Agent Demo Guardrails
+
+### Changes Made
+
+- `ed_world_model/agents/clinician.py`
+  - Added prompt-only guidance that the clinician may output at most one
+    structured action per turn.
+  - Added guidance that `verbal_action` must match that single structured
+    action and must not promise, order, prepare, or describe extra tests or
+    treatments outside the structured action for the turn.
+  - Added action-type-specific verbal guidance for treatment orders,
+    diagnostic orders, and `action: null`.
+  - Added the explicit disallowed pattern: "start oxygen and prepare ECG and
+    chest X-ray" when only one structured action is allowed.
+- `ed_world_model/actions/validator.py`
+  - Added exact duplicate diagnostic guardrails in
+    `ActionValidator.validate_diagnostic_order(...)`.
+  - A `diagnostic_order` is now rejected if the same `test_name` is already in
+    `runtime_state.pending_diagnostic_results`.
+  - A `diagnostic_order` is now rejected if the same `test_name` already exists
+    in `known_facts.available_results`.
+  - Validation errors name only the duplicated test and do not reveal result
+    text.
+- `tests/test_clinician_agent.py`
+  - Added prompt assertions for one structured action, verbal/action
+    consistency, no extra tests/treatments in verbal text, and the explicit bad
+    pattern.
+  - Added parser coverage showing inconsistent multi-action verbal text still
+    parses when the structured action is valid, because this patch does not add
+    semantic rejection.
+- `tests/test_action_validator.py`
+  - Added duplicate diagnostic coverage for pending and released diagnostics,
+    result non-leakage, non-mutation, and no pending-result creation.
+- `tests/test_full_turn_loop_integration.py`
+  - Added a focused integration test confirming a duplicate pending diagnostic
+    order is dropped and physiology uses the existing `no_action` path.
+
+### Files Modified
+
+- `ed_world_model/agents/clinician.py`
+- `ed_world_model/actions/validator.py`
+- `tests/test_clinician_agent.py`
+- `tests/test_action_validator.py`
+- `tests/test_full_turn_loop_integration.py`
+- `docs/milestones/M10a_handoff.md`
+
+### Files Intentionally Not Touched
+
+- `docs/v1_3_1.md`
+- `transition_engines/`
+- `transitions/`
+- scenario JSON files
+- `pdf/`
+- `out/`
+- existing transition engine code
+
+No real LLM client changes, prompt repair/retry loop, semantic duplicate
+suppression, behavior action, nurse physical action, task queue, async workflow,
+memory summarization, BiPAP-unavailable logic, PK/PD, or resource-availability
+system was added.
+
+### Tests Run and Results
+
+```bash
+python -m pytest tests/test_clinician_agent.py tests/test_action_validator.py
+```
+
+Result: passed.
+
+```text
+65 passed in 0.11s
+```
+
+```bash
+python -m pytest tests/test_full_turn_loop_integration.py tests/test_demo_runner.py
+```
+
+Result: passed.
+
+```text
+39 passed in 0.30s
+```
+
+### Known Limitations
+
+- Verbal/action consistency remains prompt guidance only.
+- The parser still accepts a `verbal_action` that mentions multiple clinical
+  steps if the JSON shape is otherwise valid.
+- Duplicate diagnostic checking is exact `test_name` matching only; no semantic
+  duplicate suppression was added.
+- `ActionValidator` remains validation-only and does not create pending
+  results, release results, or mutate `GlobalState`.
+
+### Exact Next Step
+
+Rerun the real-agent fake-physiology demo, then proceed to real-agent + hybrid
+physiology if clean.
