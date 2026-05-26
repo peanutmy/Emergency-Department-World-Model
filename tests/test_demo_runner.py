@@ -234,6 +234,7 @@ def test_json_output_is_valid_and_contains_expected_sections(tmp_path: Path) -> 
     assert payload["turns"][2]["physiology_action"]["params"]["oxygen_device"] == "NRB"
     assert payload["turns"][2]["physiology_action"]["params"]["FiO2"] == 1.0
     assert payload["turns"][2]["clinician_action"]["params"]["oxygen_device"] == "NRB"
+    assert "normalized_action" not in payload["turns"][2]["clinician_action"]
     assert payload["turns"][2]["nurse_bedside_slots"] == [
         {"triggered": True, "spoke": True, "visible_to": "public"}
     ]
@@ -298,16 +299,6 @@ def test_diagnostic_release_and_treatment_events_appear_after_turnaround(
             "FiO2": 1.0,
             "PEEP_used": None,
             "PEEP_cmH2O": None,
-        },
-        "normalized_action": {
-            "raw_text": None,
-            "kind_hint": "oxygen_support",
-            "params": {
-                "oxygen_device": "NRB",
-                "FiO2": 1.0,
-                "PEEP_used": None,
-                "PEEP_cmH2O": None,
-            },
         },
     }
     assert result.turns[2].nurse_shadow_execution
@@ -406,3 +397,53 @@ def test_cli_entrypoint_prints_readable_and_json(tmp_path: Path, capsys) -> None
         == 0
     )
     assert "Turn 0" in capsys.readouterr().out
+
+
+def test_cli_output_dir_writes_json_files_in_fake_mode_without_api(
+    tmp_path: Path,
+    capsys,
+    monkeypatch,
+) -> None:
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    scenario_path = _fixture_copy(tmp_path)
+    output_dir = tmp_path / "trajectory_output"
+
+    assert (
+        demo.main(
+            [
+                "--scenario",
+                str(scenario_path),
+                "--turns",
+                "2",
+                "--output-dir",
+                str(output_dir),
+            ]
+        )
+        == 0
+    )
+
+    readable = capsys.readouterr().out
+    assert "Scenario: demo_scenario" in readable
+    assert "Turn 0" in readable
+    assert sorted(path.name for path in output_dir.iterdir()) == [
+        "summary.json",
+        "trajectory.json",
+    ]
+    assert not (output_dir / "trajectory.md").exists()
+
+    trajectory = json.loads(
+        (output_dir / "trajectory.json").read_text(encoding="utf-8")
+    )
+    summary = json.loads((output_dir / "summary.json").read_text(encoding="utf-8"))
+    assert trajectory["scenario_identifier"] == "demo_scenario"
+    assert trajectory["agent_mode"] == "fake"
+    assert trajectory["physiology_mode"] == "fake"
+    assert trajectory["turn_count"] == 2
+    assert trajectory["turns"][0]["state_before"]["patient_state"]["vitals"]
+    assert trajectory["turns"][0]["state_after"]["patient_state"]["vitals"]
+    assert trajectory["turns"][0]["state_before"]["known_facts"][
+        "available_results"
+    ] == []
+    assert "truth_state" not in trajectory["turns"][0]["state_before"]
+    assert "test_bank" not in trajectory["turns"][0]["state_after"]
+    assert summary["turns_recorded"] == 2

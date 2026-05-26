@@ -209,6 +209,16 @@ def test_build_prompt_warns_against_information_dependent_treatment_without_cont
     assert "ask one focused question instead of guessing" in prompt
 
 
+def test_build_prompt_requires_drug_name_for_medication_like_actions() -> None:
+    prompt = _prompt()
+
+    assert "For medication-like actions, specify a non-empty params.drug_name." in prompt
+    assert "Dose and unit may be null." in prompt
+    assert "set action to null, ask a focused question" in prompt
+    assert "choose a non-medication stabilization action" in prompt
+    assert "Do not invent drug_name if unsupported." in prompt
+
+
 def test_build_prompt_allows_focused_question_in_treatment_verbal_action() -> None:
     prompt = _prompt()
 

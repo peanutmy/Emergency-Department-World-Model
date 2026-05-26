@@ -121,6 +121,15 @@ def test_build_prompt_includes_prompt_level_anti_repetition_with_exceptions() ->
     assert "new clinical or conversation context makes repetition necessary" in prompt
 
 
+def test_build_prompt_restricts_requires_response_to_explicit_questions() -> None:
+    prompt = _prompt()
+
+    assert "requires_response=true only for an explicit question" in prompt
+    assert "status reports, reassurance, bedside instructions" in prompt
+    assert "Nurse reports to the clinician should normally use" in prompt
+    assert "unless you explicitly ask a question" in prompt
+
+
 def test_parse_valid_nurse_verbal_action() -> None:
     proposal = parse_nurse_response(
         _json_output(
@@ -137,6 +146,38 @@ def test_parse_valid_nurse_verbal_action() -> None:
     assert proposal.action is None
     assert proposal.verbal_action is not None
     assert proposal.verbal_action.recipient == "clinician"
+
+
+def test_nurse_status_report_requires_response_true_normalizes_false() -> None:
+    proposal = parse_nurse_response(
+        _json_output(
+            verbal_action={
+                "speaker": "nurse",
+                "target": "clinician",
+                "content": "The ECG result is available.",
+                "requires_response": True,
+            }
+        )
+    )
+
+    assert proposal.verbal_action is not None
+    assert proposal.verbal_action.requires_response is False
+
+
+def test_nurse_explicit_question_can_keep_requires_response_true() -> None:
+    proposal = parse_nurse_response(
+        _json_output(
+            verbal_action={
+                "speaker": "nurse",
+                "target": "clinician",
+                "content": "Do you want me to repeat the blood pressure?",
+                "requires_response": True,
+            }
+        )
+    )
+
+    assert proposal.verbal_action is not None
+    assert proposal.verbal_action.requires_response is True
 
 
 def test_parse_null_nurse_verbal_action() -> None:

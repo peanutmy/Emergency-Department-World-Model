@@ -20,8 +20,12 @@ from ed_world_model.agents.stubs import (
     ScriptedRelativeAgent,
     SilentAgent,
 )
+from ed_world_model.agents.schemas import VerbalAction
 from ed_world_model.orchestration.observation_builder import ObservationBuilder
-from ed_world_model.orchestration.turn_loop import TurnLoop
+from ed_world_model.orchestration.turn_loop import (
+    TurnLoop,
+    update_known_facts_from_verbal_action,
+)
 from ed_world_model.state.global_state import Event, GlobalState, PendingDiagnosticResult
 from ed_world_model.state.state_manager import StateManager
 
@@ -155,6 +159,15 @@ def _oxygen_order() -> dict:
         "family": ActionFamily.RESPIRATORY_SUPPORT,
         "kind_hint": KindHint.OXYGEN_SUPPORT,
         "params": {"oxygen_device": "NRB", "FiO2": 1.0},
+    }
+
+
+def _bronchodilator_order(params: dict | None = None) -> dict:
+    return {
+        "type": "medical_treatment_order",
+        "family": ActionFamily.RESPIRATORY_SUPPORT,
+        "kind_hint": KindHint.BRONCHODILATOR,
+        "params": params if params is not None else {"drug_name": None},
     }
 
 
@@ -430,6 +443,26 @@ def test_invalid_clinician_action_is_dropped_and_no_diagnostic_created() -> None
     assert any(event["type"] == "validation_drop" for event in result.events)
 
 
+def test_rejected_medication_like_action_falls_back_to_no_action() -> None:
+    clinician = ScriptedClinicianAgent([{"action": _bronchodilator_order()}])
+    manager = StateManager(GlobalState())
+    loop, physiology, _ = _loop(manager, agents={"clinician": clinician})
+
+    result = loop.run_turn()
+
+    assert physiology.calls[-1]["action"] == {
+        "raw_text": None,
+        "kind_hint": "no_action",
+        "params": {"elapsed_min": 1},
+    }
+    assert result.physiology_action_kind_hint == "no_action"
+    assert any(
+        "params.drug_name is required" in " ".join(event["payload"]["errors"])
+        for event in result.events
+        if event["type"] == "validation_drop"
+    )
+
+
 def test_verbal_actions_commit_without_internal_reasoning_storage() -> None:
     clinician = ScriptedClinicianAgent(
         [
@@ -472,6 +505,241 @@ def test_verbal_actions_commit_without_internal_reasoning_storage() -> None:
     ]
     assert "internal_reasoning" not in str(dumped_messages)
     assert "chain" not in str(dumped_messages)
+
+
+def test_patient_verbal_disclosure_updates_known_symptoms() -> None:
+    patient_statement = "I feel short of breath."
+    patient = ScriptedPatientAgent([patient_statement])
+    manager = StateManager(
+        GlobalState(runtime_state={"required_response_agents": ["patient"]})
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+    )
+
+    loop.run_turn()
+
+    assert manager.state.known_facts.known_symptoms == [patient_statement]
+
+
+def test_patient_denial_is_stored_as_known_symptom_statement() -> None:
+    patient_statement = "I do not have chest pain."
+    patient = ScriptedPatientAgent([patient_statement])
+    manager = StateManager(
+        GlobalState(runtime_state={"required_response_agents": ["patient"]})
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+    )
+
+    loop.run_turn()
+
+    assert manager.state.known_facts.known_symptoms == [patient_statement]
+
+
+def test_normalized_exact_duplicate_patient_disclosure_is_not_duplicated() -> None:
+    manager = StateManager(GlobalState())
+
+    update_known_facts_from_verbal_action(
+        manager,
+        VerbalAction(
+            speaker="patient",
+            recipient="clinician",
+            content="I feel short of breath.",
+        ),
+    )
+    update_known_facts_from_verbal_action(
+        manager,
+        VerbalAction(
+            speaker="patient",
+            recipient="clinician",
+            content="  i feel   short of breath.  ",
+        ),
+    )
+
+    assert manager.state.known_facts.known_symptoms == ["I feel short of breath."]
+
+
+def test_similar_patient_disclosure_wording_is_still_stored_shallowly() -> None:
+    manager = StateManager(GlobalState())
+
+    update_known_facts_from_verbal_action(
+        manager,
+        VerbalAction(
+            speaker="patient",
+            recipient="clinician",
+            content="I feel short of breath.",
+        ),
+    )
+    update_known_facts_from_verbal_action(
+        manager,
+        VerbalAction(
+            speaker="patient",
+            recipient="clinician",
+            content="I am breathless.",
+        ),
+    )
+
+    assert manager.state.known_facts.known_symptoms == [
+        "I feel short of breath.",
+        "I am breathless.",
+    ]
+
+
+def test_relative_verbal_disclosure_updates_known_history() -> None:
+    relative_statement = "He has asthma."
+    relative = ScriptedRelativeAgent([relative_statement])
+    manager = StateManager(GlobalState())
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "relative": relative},
+    )
+
+    loop.run_turn(explicitly_selected_agents={"relative"})
+
+    assert manager.state.known_facts.known_history == [relative_statement]
+
+
+def test_clinician_and_nurse_verbal_actions_do_not_update_known_facts() -> None:
+    clinician = ScriptedClinicianAgent(
+        [
+            {
+                "verbal_action": {
+                    "speaker": "clinician",
+                    "content": "Do you have chest pain?",
+                }
+            }
+        ]
+    )
+    nurse = ScriptedNurseAgent(["The patient looks short of breath."])
+    manager = StateManager(
+        GlobalState(runtime_state={"required_response_agents": ["nurse"]})
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": clinician, "nurse": nurse},
+    )
+
+    loop.run_turn()
+
+    assert manager.state.known_facts.known_symptoms == []
+    assert manager.state.known_facts.known_history == []
+
+
+def test_patient_disclosure_does_not_copy_hidden_truth() -> None:
+    state = GlobalState(
+        truth_state={
+            "patient_internal_state": {
+                "symptoms": ["hidden fever"],
+                "hidden_history": ["hidden diabetes"],
+            }
+        },
+        runtime_state={"required_response_agents": ["patient"]},
+    )
+    patient = ScriptedPatientAgent(["I feel dizzy."])
+    manager = StateManager(state)
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+    )
+
+    loop.run_turn()
+
+    assert manager.state.known_facts.known_symptoms == ["I feel dizzy."]
+    assert manager.state.known_facts.known_history == []
+    assert "hidden fever" not in manager.state.known_facts.known_symptoms
+    assert "hidden diabetes" not in manager.state.known_facts.known_history
+
+
+def test_known_facts_from_patient_disclosure_persist_across_turns() -> None:
+    patient_statement = "My breathing started an hour ago."
+    state = GlobalState(
+        runtime_state={
+            "turn_index": 1,
+            "required_response_agents": ["patient"],
+            "pending_questions": [
+                {
+                    "source_agent": "clinician",
+                    "target_agent": "patient",
+                    "question_text": "When did your breathing start?",
+                    "created_at_turn": 0,
+                }
+            ],
+        }
+    )
+    patient = ScriptedPatientAgent([patient_statement])
+    manager = StateManager(state)
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+    )
+
+    loop.run_turn()
+    loop.run_turn()
+
+    assert manager.state.known_facts.known_symptoms == [patient_statement]
+
+
+def test_unconscious_patient_verbal_action_is_not_committed_or_known() -> None:
+    patient = ScriptedPatientAgent(["I should not be able to say this."])
+    manager = StateManager(
+        GlobalState(
+            patient_state={"status_flags": {"is_conscious": False}},
+            runtime_state={"required_response_agents": ["patient"]},
+        )
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+    )
+
+    result = loop.run_turn()
+
+    assert manager.state.runtime_state.messages == []
+    assert manager.state.known_facts.known_symptoms == []
+    assert any(
+        event["payload"]["item"] == "verbal_action"
+        for event in result.events
+        if event["type"] == "validation_drop"
+    )
+
+
+def test_patient_who_cannot_speak_verbal_action_is_not_committed_or_known() -> None:
+    patient = ScriptedPatientAgent(["I should not be able to say this."])
+    manager = StateManager(
+        GlobalState(
+            patient_state={"status_flags": {"can_speak": False}},
+            runtime_state={"required_response_agents": ["patient"]},
+        )
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+    )
+
+    loop.run_turn()
+
+    assert manager.state.runtime_state.messages == []
+    assert manager.state.known_facts.known_symptoms == []
+
+
+def test_relative_disclosure_updates_known_history_when_patient_cannot_speak() -> None:
+    relative_statement = "She has asthma."
+    relative = ScriptedRelativeAgent([relative_statement])
+    manager = StateManager(
+        GlobalState(patient_state={"status_flags": {"can_speak": False}})
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "relative": relative},
+    )
+
+    loop.run_turn(explicitly_selected_agents={"relative"})
+
+    assert manager.state.runtime_state.messages[0].speaker == "relative"
+    assert manager.state.known_facts.known_history == [relative_statement]
 
 
 def test_required_patient_response_commits_before_clinician_generation() -> None:

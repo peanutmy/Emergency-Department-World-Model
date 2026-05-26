@@ -23,6 +23,8 @@ from ed_world_model.orchestration.orchestrator import (
     NURSE,
     Orchestrator,
     OrchestratorDecision,
+    PATIENT,
+    RELATIVE,
 )
 from ed_world_model.state.global_state import Event, Message
 from ed_world_model.state.state_manager import StateManager
@@ -47,6 +49,8 @@ AGENT_GENERATION_ERRORS = (
 class TurnResult:
     completed: bool
     terminated: bool
+    state_before: dict[str, Any] = field(default_factory=dict)
+    state_after: dict[str, Any] = field(default_factory=dict)
     active_agents: list[str] = field(default_factory=list)
     committed_messages: list[dict[str, Any]] = field(default_factory=list)
     validation_results: list[ValidationResult] = field(default_factory=list)
@@ -88,6 +92,7 @@ class TurnLoop:
     ) -> TurnResult:
         state = self.state_manager.state
         current_turn = state.runtime_state.turn_index
+        state_before = _public_state_snapshot(state)
         released = self.state_manager.release_ready_diagnostic_results(
             current_turn=current_turn
         )
@@ -96,6 +101,8 @@ class TurnLoop:
             return TurnResult(
                 completed=False,
                 terminated=True,
+                state_before=state_before,
+                state_after=_public_state_snapshot(self.state_manager.state),
                 released_diagnostics=[_dump(result) for result in released],
                 events=_dump_current_events(self.state_manager),
                 termination_reason=termination_reason(self.state_manager.state),
@@ -219,11 +226,14 @@ class TurnLoop:
         self._apply_physiology_output(physiology_output)
 
         events = _dump_current_events(self.state_manager)
+        state_after = _public_state_snapshot(self.state_manager.state)
         self.state_manager.advance_turn()
 
         return TurnResult(
             completed=True,
             terminated=False,
+            state_before=state_before,
+            state_after=state_after,
             active_agents=list(decision.active_agents),
             committed_messages=committed_messages,
             validation_results=validation_results,
@@ -284,7 +294,8 @@ class TurnLoop:
             if verbal_action is None:
                 continue
             message = self._commit_verbal_action(verbal_action)
-            committed_messages.append(_dump(message))
+            if message is not None:
+                committed_messages.append(_dump(message))
         return committed_messages
 
     def _commit_verbal_action(
@@ -292,7 +303,17 @@ class TurnLoop:
         verbal_action: VerbalAction,
         *,
         default_recipient: str | None = None,
-    ) -> Message:
+    ) -> Message | None:
+        if not self._can_commit_verbal_action(verbal_action):
+            self._record_validation_drop(
+                agent=verbal_action.speaker,
+                item="verbal_action",
+                errors=[
+                    "patient verbal_action cannot be committed when patient "
+                    "is not alive, not conscious, or cannot speak."
+                ],
+            )
+            return None
         recipient = verbal_action.message_recipient or default_recipient
         message = self.state_manager.add_message(
             Message(
@@ -302,8 +323,19 @@ class TurnLoop:
                 turn_index=self.state_manager.state.runtime_state.turn_index,
             )
         )
+        update_known_facts_from_verbal_action(self.state_manager, verbal_action)
         self._call_pending_question_hooks(verbal_action)
         return message
+
+    def _can_commit_verbal_action(self, verbal_action: VerbalAction) -> bool:
+        if verbal_action.speaker != PATIENT:
+            return True
+        status_flags = self.state_manager.state.patient_state.status_flags
+        return (
+            status_flags.is_alive
+            and status_flags.is_conscious
+            and status_flags.can_speak
+        )
 
     def _call_pending_question_hooks(self, verbal_action: VerbalAction) -> None:
         target_agent = verbal_action.message_recipient
@@ -430,7 +462,8 @@ class TurnLoop:
                     proposal.verbal_action,
                     default_recipient="patient",
                 )
-                committed_messages.append(_dump(message))
+                if message is not None:
+                    committed_messages.append(_dump(message))
 
         self.state_manager.record_event(
             Event(
@@ -479,4 +512,56 @@ def _dump_current_events(state_manager: StateManager) -> list[dict[str, Any]]:
     ]
 
 
-__all__ = ["NO_ACTION_ENGINE_ACTION", "TurnLoop", "TurnResult"]
+def _public_state_snapshot(state: Any) -> dict[str, Any]:
+    return {
+        "patient_state": deepcopy(state.patient_state.model_dump()),
+        "known_facts": deepcopy(state.known_facts.model_dump()),
+    }
+
+
+def update_known_facts_from_verbal_action(
+    state_manager: StateManager,
+    verbal_action: VerbalAction,
+) -> None:
+    """Store committed patient-side disclosures without reading hidden truth.
+
+    This is a shallow disclosure capture, not semantic fact extraction. It only
+    records spoken patient/relative disclosures and optionally deduplicates
+    normalized exact strings. Semantic extraction/consolidation is future work.
+    """
+
+    content = verbal_action.content.strip()
+    if content == "":
+        return
+    if verbal_action.speaker == PATIENT:
+        if not _has_normalized_exact_string(
+            state_manager.state.known_facts.known_symptoms,
+            content,
+        ):
+            state_manager.update_known_facts(known_symptoms=content)
+    elif verbal_action.speaker == RELATIVE:
+        if not _has_normalized_exact_string(
+            state_manager.state.known_facts.known_history,
+            content,
+        ):
+            state_manager.update_known_facts(known_history=content)
+
+
+def _has_normalized_exact_string(existing: list[str], value: str) -> bool:
+    normalized_value = _normalize_exact_disclosure(value)
+    return any(
+        _normalize_exact_disclosure(item) == normalized_value
+        for item in existing
+    )
+
+
+def _normalize_exact_disclosure(value: str) -> str:
+    return " ".join(value.strip().lower().split())
+
+
+__all__ = [
+    "NO_ACTION_ENGINE_ACTION",
+    "TurnLoop",
+    "TurnResult",
+    "update_known_facts_from_verbal_action",
+]

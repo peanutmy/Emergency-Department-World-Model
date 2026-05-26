@@ -9,6 +9,7 @@ from ed_world_model.agents.prompting import (
     ANTI_REPETITION_RULE,
     COMMON_PARTIAL_OBSERVATION_RULE,
     FORBIDDEN_OUTPUT_KEYS,
+    VERBAL_REQUIRES_RESPONSE_RULE,
     parse_verbal_only_response,
 )
 from ed_world_model.agents.schemas import (
@@ -110,6 +111,11 @@ def build_relative_prompt(
         (
             "Profile traits shape how you speak; they must not cause you to "
             "invent hidden clinical facts, exact vitals, or care-blocking behavior."
+        ),
+        VERBAL_REQUIRES_RESPONSE_RULE,
+        (
+            "Relative concerns should normally use requires_response=false "
+            "unless you explicitly ask a question."
         ),
         "Do not return action, medical_treatment_order, diagnostic_order, or behavior_action.",
         "Do not include raw_text.",

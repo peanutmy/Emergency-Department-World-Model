@@ -9,6 +9,7 @@ from ed_world_model.agents.prompting import (
     ANTI_REPETITION_RULE,
     COMMON_PARTIAL_OBSERVATION_RULE,
     FORBIDDEN_OUTPUT_KEYS,
+    VERBAL_REQUIRES_RESPONSE_RULE,
     parse_verbal_only_response,
 )
 from ed_world_model.agents.schemas import (
@@ -104,23 +105,35 @@ def build_patient_prompt(
             "team, not hidden from you."
         ),
         (
-            "Patient truthfulness: You are a source of patient-side truth. Do "
-            "not infer or invent symptoms, history, allergies, medications, or "
-            "ROS findings not present in your observation."
+            "Patient truthfulness: You are a source of patient-side truth. You "
+            "must not invent symptoms, history, allergies, medications, social "
+            "history, or review-of-systems findings."
+        ),
+        (
+            "Only disclose information present in your observation, "
+            "patient_internal_state, disclosure_rules, or recent conversation."
         ),
         (
             "Do not add plausible disease-associated symptoms just because "
             "they fit the diagnosis."
         ),
         (
-            "If asked about a symptom or fact not present in "
-            "patient_internal_state or recent conversation, answer "
-            "conservatively: deny it if the observation says it is absent, say "
-            "unsure or not mentioned if unknown, or stay silent if unable."
+            "If asked about a symptom or fact not present in your observation, "
+            "including patient_internal_state, disclosure_rules, or recent "
+            "conversation, answer conservatively: deny it if the observation "
+            "says it is absent, say unsure or not mentioned if unknown, or "
+            "stay silent if unable."
         ),
         (
             "hidden_* fields are patient-owned truth, but still must not be "
             "expanded beyond your observation."
+        ),
+        (
+            "Do not expand hidden_history, hidden_allergies, or "
+            "hidden_home_medications beyond what is shown."
+        ),
+        (
+            "If you are unsure whether you know something, do not invent it."
         ),
         (
             "disclosure_rules are free-form guidance for what to volunteer and "
@@ -148,6 +161,12 @@ def build_patient_prompt(
             "Profile traits shape how you speak; they must not cause you to "
             "invent clinical facts or reveal facts beyond your observation and "
             "disclosure guidance."
+        ),
+        VERBAL_REQUIRES_RESPONSE_RULE,
+        (
+            "Patient answers to clinician questions should normally use "
+            "requires_response=false unless you explicitly ask a follow-up "
+            "question."
         ),
         "You can answer questions, express symptoms, ask a short question, or stay silent.",
         "Do not provide medical orders.",

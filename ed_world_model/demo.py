@@ -29,6 +29,7 @@ from ed_world_model.orchestration.runner import (
 )
 from ed_world_model.scenario_loader import ScenarioLoader
 from ed_world_model.state.global_state import GlobalState
+from ed_world_model.trajectory import TrajectoryLogger
 
 
 AGENT_MODE_FAKE = "fake"
@@ -47,6 +48,8 @@ class DemoTurn:
 
     turn_index: int
     turn_index_after: int
+    state_before: dict[str, Any]
+    state_after: dict[str, Any]
     active_agents: list[str]
     messages: list[dict[str, Any]]
     events: list[dict[str, Any]]
@@ -67,6 +70,8 @@ class DemoTurn:
         return {
             "turn_index": self.turn_index,
             "turn_index_after": self.turn_index_after,
+            "state_before": self.state_before,
+            "state_after": self.state_after,
             "active_agents": self.active_agents,
             "messages": self.messages,
             "events": self.events,
@@ -90,6 +95,9 @@ class DemoResult:
     """Complete demo trajectory plus final public runtime state."""
 
     scenario_identifier: str | None
+    agent_mode: str
+    physiology_mode: str
+    requested_turns: int
     turns: list[DemoTurn]
     final_patient_state: dict[str, Any]
     final_known_facts: dict[str, Any]
@@ -99,6 +107,10 @@ class DemoResult:
         turns = [turn.as_dict() for turn in self.turns]
         return {
             "scenario_identifier": self.scenario_identifier,
+            "agent_mode": self.agent_mode,
+            "physiology_mode": self.physiology_mode,
+            "requested_turns": self.requested_turns,
+            "turn_count": len(turns),
             "turns": turns,
             "messages": [
                 message
@@ -169,6 +181,9 @@ def run_demo_scenario(
 
     return DemoResult(
         scenario_identifier=_scenario_identifier(path),
+        agent_mode=agent_mode,
+        physiology_mode=physiology_mode,
+        requested_turns=turns,
         turns=demo_turns,
         final_patient_state=runner.state.patient_state.model_dump(),
         final_known_facts=runner.state.known_facts.model_dump(),
@@ -349,6 +364,11 @@ def main(argv: list[str] | None = None) -> int:
         dest="json_output",
         help="Print JSON instead of readable text.",
     )
+    parser.add_argument(
+        "--output-dir",
+        default=None,
+        help="Optional directory for trajectory.json and summary.json.",
+    )
     args = parser.parse_args(argv)
 
     result = run_demo_scenario(
@@ -358,6 +378,8 @@ def main(argv: list[str] | None = None) -> int:
         agent_mode=args.agent_mode,
         physiology_mode=args.physiology_mode,
     )
+    if args.output_dir is not None:
+        TrajectoryLogger(args.output_dir).save_all(result)
     if args.json_output:
         print(render_demo_json(result))
     else:
@@ -515,6 +537,8 @@ def _build_demo_turn(
     return DemoTurn(
         turn_index=trajectory_turn.turn_index_before,
         turn_index_after=trajectory_turn.turn_index_after,
+        state_before=deepcopy(trajectory_turn.state_before),
+        state_after=deepcopy(trajectory_turn.state_after),
         active_agents=list(trajectory_turn.active_agents),
         messages=list(trajectory_turn.committed_messages),
         events=events,
@@ -537,7 +561,12 @@ def _build_demo_turn(
         ],
         physiology_action_kind_hint=trajectory_turn.physiology_action_kind_hint,
         physiology_action=deepcopy(trajectory_turn.physiology_action),
-        patient_state_after=state.patient_state.model_dump(),
+        patient_state_after=deepcopy(
+            trajectory_turn.state_after.get(
+                "patient_state",
+                state.patient_state.model_dump(),
+            )
+        ),
         validation_drops=validation_drops,
         parser_errors=parser_errors,
         terminated=trajectory_turn.terminated,
@@ -556,7 +585,6 @@ def _clinician_action(trajectory_turn: TrajectoryTurn) -> dict[str, Any] | None:
         action: dict[str, Any] = {
             "type": action_type,
             "action_type": action_type,
-            "normalized_action": deepcopy(normalized_action),
         }
         if action_type == "diagnostic_order":
             test_name = normalized_action.get("test_name")
@@ -573,8 +601,8 @@ def _clinician_action(trajectory_turn: TrajectoryTurn) -> dict[str, Any] | None:
             action["params"] = deepcopy(normalized_action.get("params"))
             return action
         return {
+            "type": action_type,
             "action_type": action_type,
-            "normalized_action": validation_result.get("normalized_action"),
         }
     return None
 

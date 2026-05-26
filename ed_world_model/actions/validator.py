@@ -4,7 +4,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-from ed_world_model.actions.registry import ActionRegistry
+from ed_world_model.actions.registry import (
+    MEDICATION_LIKE_PARAMS_TEMPLATE,
+    ActionRegistry,
+)
 
 
 @dataclass(frozen=True)
@@ -122,6 +125,14 @@ class ActionValidator:
                 param_name: params.get(param_name, template_value)
                 for param_name, template_value in template.items()
             }
+            if _is_medication_like_template(template):
+                drug_name = normalized_params.get("drug_name")
+                if not isinstance(drug_name, str) or not drug_name.strip():
+                    errors.append(
+                        "medical_treatment_order.params.drug_name is required "
+                        "for medication-like kind_hint "
+                        f"{definition.kind_hint!r}."
+                    )
 
         if errors:
             return ValidationResult(
@@ -306,6 +317,10 @@ def _is_null_action(action: Any) -> bool:
     return action is None or (
         isinstance(action, dict) and "type" in action and action.get("type") is None
     )
+
+
+def _is_medication_like_template(template: dict[str, Any]) -> bool:
+    return template == dict(MEDICATION_LIKE_PARAMS_TEMPLATE)
 
 
 def _invalid(*errors: str) -> ValidationResult:

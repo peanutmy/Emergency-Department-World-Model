@@ -198,7 +198,12 @@ BLOOD_TRANSFUSION_PARAM_GUIDANCE = MappingProxyType(
 
 MEDICATION_LIKE_PARAM_GUIDANCE = MappingProxyType(
     {
-        "drug_name": "Open medication name field; may be null if unspecified.",
+        "drug_name": (
+            "Required non-empty medication name for medication-like actions. "
+            "Do not invent it; if unsupported, choose action null, ask a "
+            "focused question, order a diagnostic test, or choose a "
+            "non-medication stabilization action."
+        ),
         "dose": "Open dose field; may be null if unspecified.",
         "unit": "Open unit field; may be null if unspecified.",
     }

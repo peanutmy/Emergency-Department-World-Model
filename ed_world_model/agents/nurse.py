@@ -9,6 +9,7 @@ from ed_world_model.agents.prompting import (
     ANTI_REPETITION_RULE,
     COMMON_PARTIAL_OBSERVATION_RULE,
     FORBIDDEN_OUTPUT_KEYS,
+    VERBAL_REQUIRES_RESPONSE_RULE,
     parse_verbal_only_response,
 )
 from ed_world_model.agents.schemas import (
@@ -116,6 +117,11 @@ def build_nurse_prompt(
         (
             "Profile traits shape how you speak; they must not cause you to "
             "invent unreleased test results, clinical facts, or orders."
+        ),
+        VERBAL_REQUIRES_RESPONSE_RULE,
+        (
+            "Nurse reports to the clinician should normally use "
+            "requires_response=false unless you explicitly ask a question."
         ),
         "Do not create medical orders.",
         "Do not produce diagnostic orders.",

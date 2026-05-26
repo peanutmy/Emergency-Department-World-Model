@@ -38,6 +38,14 @@ ANTI_REPETITION_RULE = (
     "again, correcting a misunderstanding, confirming critical information, or "
     "new clinical or conversation context makes repetition necessary."
 )
+VERBAL_REQUIRES_RESPONSE_RULE = (
+    "Set verbal_action.requires_response=true only for an explicit question "
+    "that requires the target agent to answer. Use requires_response=false for "
+    "ordinary answers, symptom statements, acknowledgments, status reports, "
+    "reassurance, bedside instructions, and simple confirmations. If the "
+    "content has no question mark and is not clearly asking for an answer, use "
+    "requires_response=false."
+)
 
 
 def build_agent_prompt(runtime_input: AgentRuntimeInput | Mapping[str, Any]) -> str:
@@ -96,6 +104,12 @@ def build_nurse_prompt(runtime_input: AgentRuntimeInput | Mapping[str, Any]) -> 
             "- The nurse is verbal-only in v1.3.1.",
             "- The nurse has no physical action and must not return an action.",
             "- The nurse can report result-related info or bedside reassurance.",
+            f"- {VERBAL_REQUIRES_RESPONSE_RULE}",
+            (
+                "- Nurse reports to the clinician should normally use "
+                "requires_response=false unless the nurse explicitly asks a "
+                "question."
+            ),
             "- Stay silent if there is no useful contribution.",
             "Nurse JSON shape:",
             (
@@ -131,6 +145,12 @@ def build_patient_prompt(runtime_input: AgentRuntimeInput | Mapping[str, Any]) -
                 "- The patient can answer, be unable to answer, or stay silent "
                 "depending on communication ability."
             ),
+            f"- {VERBAL_REQUIRES_RESPONSE_RULE}",
+            (
+                "- Patient answers to clinician questions should normally use "
+                "requires_response=false unless the patient explicitly asks a "
+                "follow-up question."
+            ),
             "Patient JSON shape:",
             (
                 '{"verbal_action": {"speaker": "patient", '
@@ -152,6 +172,12 @@ def build_relative_prompt(
             "Relative output rules:",
             "- The relative is verbal-only in v1.3.1.",
             "- The relative has no behavior action.",
+            f"- {VERBAL_REQUIRES_RESPONSE_RULE}",
+            (
+                "- Relative concerns should normally use "
+                "requires_response=false unless the relative explicitly asks a "
+                "question."
+            ),
             "- Stay silent unless asked or explicitly selected.",
             "- There is no relative emotion transition in v1.3.1.",
             "Relative JSON shape:",
@@ -420,7 +446,54 @@ def _normalize_verbal_only_action(
         raise ValueError(f"verbal_action.speaker must be {role!r}.")
 
     verbal_action["recipient"] = target
+    requires_response = verbal_action.get("requires_response")
+    if (
+        requires_response not in (False, None)
+        and not _is_explicit_targeted_question(
+            verbal_action.get("content"),
+            target=target,
+        )
+    ):
+        verbal_action["requires_response"] = False
     return verbal_action
+
+
+def _is_explicit_targeted_question(content: Any, *, target: Any) -> bool:
+    if target is None or not isinstance(content, str):
+        return False
+    stripped = content.strip()
+    if not stripped:
+        return False
+    if "?" in stripped:
+        return True
+    first_word = stripped.lstrip("\"'([{").split(maxsplit=1)[0].lower()
+    first_word = first_word.rstrip(":,.;!")
+    return first_word in {
+        "who",
+        "what",
+        "when",
+        "where",
+        "why",
+        "how",
+        "can",
+        "could",
+        "would",
+        "will",
+        "do",
+        "does",
+        "did",
+        "is",
+        "are",
+        "am",
+        "was",
+        "were",
+        "have",
+        "has",
+        "had",
+        "should",
+        "may",
+        "might",
+    }
 
 
 def _format_json(value: Any) -> str:
@@ -444,6 +517,7 @@ def _sanitize_for_prompt(value: Any) -> Any:
 __all__ = [
     "COMMON_PARTIAL_OBSERVATION_RULE",
     "ANTI_REPETITION_RULE",
+    "VERBAL_REQUIRES_RESPONSE_RULE",
     "FORBIDDEN_OUTPUT_KEYS",
     "VERBAL_ONLY_ROLES",
     "VERBAL_ONLY_FORBIDDEN_OUTPUT_KEYS",

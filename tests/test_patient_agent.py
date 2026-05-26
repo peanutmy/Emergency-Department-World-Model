@@ -121,8 +121,18 @@ def test_build_prompt_says_do_not_invent_patient_truth() -> None:
 
     assert "Patient truthfulness" in prompt
     assert "source of patient-side truth" in prompt
-    assert "Do not infer or invent symptoms, history, allergies, medications" in prompt
-    assert "ROS findings not present in your observation" in prompt
+    assert "must not invent symptoms, history, allergies, medications" in prompt
+    assert "social history" in prompt
+    assert "review-of-systems findings" in prompt
+
+
+def test_build_prompt_says_to_use_only_allowed_patient_truth_sources() -> None:
+    prompt = _prompt()
+
+    assert "Only disclose information present in your observation" in prompt
+    assert "patient_internal_state" in prompt
+    assert "disclosure_rules" in prompt
+    assert "recent conversation" in prompt
 
 
 def test_build_prompt_says_not_to_add_plausible_disease_associated_symptoms() -> None:
@@ -136,12 +146,24 @@ def test_build_prompt_directs_conservative_answer_for_unlisted_symptoms() -> Non
     prompt = _prompt()
 
     assert "If asked about a symptom or fact not present" in prompt
-    assert "patient_internal_state or recent conversation" in prompt
+    assert "not present in your observation" in prompt
+    assert "including patient_internal_state, disclosure_rules" in prompt
+    assert "recent conversation" in prompt
     assert "answer conservatively" in prompt
     assert "deny it if the observation says it is absent" in prompt
     assert "unsure or not mentioned if unknown" in prompt
     assert "stay silent if unable" in prompt
     assert "must not be expanded beyond your observation" in prompt
+    assert "Do not expand hidden_history, hidden_allergies" in prompt
+    assert "hidden_home_medications beyond what is shown" in prompt
+    assert "If you are unsure whether you know something, do not invent it" in prompt
+
+
+def test_build_prompt_has_no_scenario_specific_truthfulness_examples() -> None:
+    prompt = _prompt().lower()
+
+    assert "leg swelling" not in prompt
+    assert "sputum" not in prompt
 
 
 def test_build_prompt_says_patient_may_stay_silent() -> None:
@@ -170,6 +192,15 @@ def test_build_prompt_includes_prompt_level_anti_repetition_with_exceptions() ->
     assert "new clinical or conversation context makes repetition necessary" in prompt
 
 
+def test_build_prompt_restricts_requires_response_to_explicit_questions() -> None:
+    prompt = _prompt()
+
+    assert "requires_response=true only for an explicit question" in prompt
+    assert "ordinary answers, symptom statements" in prompt
+    assert "Patient answers to clinician questions should normally use" in prompt
+    assert "unless you explicitly ask a follow-up question" in prompt
+
+
 def test_parse_valid_patient_verbal_action() -> None:
     proposal = parse_patient_response(
         _json_output(
@@ -187,6 +218,38 @@ def test_parse_valid_patient_verbal_action() -> None:
     assert proposal.verbal_action is not None
     assert proposal.verbal_action.recipient == "clinician"
     assert proposal.verbal_action.content == "My chest feels tight."
+
+
+def test_patient_statement_requires_response_true_normalizes_false() -> None:
+    proposal = parse_patient_response(
+        _json_output(
+            verbal_action={
+                "speaker": "patient",
+                "target": "clinician",
+                "content": "My chest feels tight.",
+                "requires_response": True,
+            }
+        )
+    )
+
+    assert proposal.verbal_action is not None
+    assert proposal.verbal_action.requires_response is False
+
+
+def test_patient_explicit_question_can_keep_requires_response_true() -> None:
+    proposal = parse_patient_response(
+        _json_output(
+            verbal_action={
+                "speaker": "patient",
+                "target": "clinician",
+                "content": "What is happening to me?",
+                "requires_response": True,
+            }
+        )
+    )
+
+    assert proposal.verbal_action is not None
+    assert proposal.verbal_action.requires_response is True
 
 
 def test_parse_null_patient_verbal_action() -> None:

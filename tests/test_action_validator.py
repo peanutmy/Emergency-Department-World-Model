@@ -82,6 +82,18 @@ def _valid_oxygen_order(params: dict | None = None) -> dict:
     return action
 
 
+def _treatment_order(kind_hint: str, params: dict | None = None) -> dict:
+    definition = ActionRegistry().get_definition(kind_hint)
+    action = {
+        "type": "medical_treatment_order",
+        "family": definition.family,
+        "kind_hint": kind_hint,
+    }
+    if params is not None:
+        action["params"] = params
+    return action
+
+
 def test_none_clinician_action_is_valid_no_action_without_no_action_engine_action() -> None:
     result = _validator().validate_clinician_proposal(None, GlobalState())
 
@@ -232,6 +244,86 @@ def test_param_values_outside_param_options_are_not_rejected() -> None:
     assert result.errors == []
     assert result.normalized_action["params"]["oxygen_device"] == "custom_device"
     assert result.normalized_action["params"]["FiO2"] == 0.37
+
+
+def test_medication_like_action_with_null_drug_name_is_rejected() -> None:
+    result = _validator().validate_medical_treatment_order(
+        _treatment_order(
+            KindHint.VASOPRESSOR,
+            {"drug_name": None, "dose": None, "unit": None},
+        )
+    )
+
+    assert result.ok is False
+    assert any("params.drug_name is required" in error for error in result.errors)
+
+
+def test_medication_like_action_with_empty_drug_name_is_rejected() -> None:
+    result = _validator().validate_medical_treatment_order(
+        _treatment_order(
+            KindHint.VASOPRESSOR,
+            {"drug_name": "  ", "dose": None, "unit": None},
+        )
+    )
+
+    assert result.ok is False
+    assert any("params.drug_name is required" in error for error in result.errors)
+
+
+def test_medication_like_action_with_drug_name_and_null_dose_unit_passes() -> None:
+    result = _validator().validate_medical_treatment_order(
+        _treatment_order(
+            KindHint.VASOPRESSOR,
+            {"drug_name": "norepinephrine", "dose": None, "unit": None},
+        )
+    )
+
+    assert result.ok is True
+    assert result.normalized_action["params"] == {
+        "drug_name": "norepinephrine",
+        "dose": None,
+        "unit": None,
+    }
+
+
+def test_bronchodilator_with_null_drug_name_is_rejected() -> None:
+    result = _validator().validate_medical_treatment_order(
+        _treatment_order(
+            KindHint.BRONCHODILATOR,
+            {"drug_name": None, "dose": None, "unit": None},
+        )
+    )
+
+    assert result.ok is False
+    assert any("bronchodilator" in error for error in result.errors)
+
+
+def test_rate_control_with_null_drug_name_is_rejected() -> None:
+    result = _validator().validate_medical_treatment_order(
+        _treatment_order(
+            KindHint.RATE_CONTROL,
+            {"drug_name": None, "dose": None, "unit": None},
+        )
+    )
+
+    assert result.ok is False
+    assert any("rate_control" in error for error in result.errors)
+
+
+def test_oxygen_support_does_not_require_drug_name() -> None:
+    result = _validator().validate_medical_treatment_order(
+        _valid_oxygen_order({"oxygen_device": "NRB"})
+    )
+
+    assert result.ok is True
+
+
+def test_airway_management_does_not_require_drug_name() -> None:
+    result = _validator().validate_medical_treatment_order(
+        _treatment_order(KindHint.AIRWAY_MANAGEMENT, {"stage": "preparation"})
+    )
+
+    assert result.ok is True
 
 
 def test_valid_diagnostic_order_passes_when_test_name_exists() -> None:

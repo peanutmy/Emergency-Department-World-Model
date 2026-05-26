@@ -350,6 +350,93 @@ def test_patient_nurse_relative_verbal_only_agents_can_speak() -> None:
     )
 
 
+def test_patient_answer_statement_does_not_create_new_pending_question() -> None:
+    runner = IntegrationRunner(
+        GlobalState(
+            runtime_state={
+                "turn_index": 1,
+                "pending_questions": [
+                    {
+                        "source_agent": "clinician",
+                        "target_agent": "patient",
+                        "question_text": "How is your breathing?",
+                        "created_at_turn": 0,
+                    }
+                ],
+                "required_response_agents": ["patient"],
+            }
+        ),
+        agents={
+            "patient": PatientAgent(
+                ScriptedLLMCallable(
+                    [
+                        {
+                            "verbal_action": {
+                                "speaker": "patient",
+                                "target": "clinician",
+                                "content": "My breathing feels tight.",
+                                "requires_response": True,
+                            }
+                        }
+                    ],
+                    role="patient",
+                )
+            )
+        },
+    )
+
+    turn = runner.run_turn()
+
+    assert [message["speaker"] for message in turn.committed_messages] == ["patient"]
+    assert runner.state.runtime_state.pending_questions[0].is_resolved is True
+    assert len(runner.state.runtime_state.pending_questions) == 1
+    assert not any(
+        event["type"] == "pending_question_created" for event in turn.events
+    )
+
+
+def test_nurse_report_statement_does_not_create_new_pending_question() -> None:
+    runner = IntegrationRunner(
+        _state_with_ecg(
+            runtime_state={
+                "turn_index": 1,
+                "pending_diagnostic_results": [
+                    {
+                        "test_name": "ECG",
+                        "ordered_at_turn": 0,
+                        "ready_at_turn": 1,
+                    }
+                ],
+            }
+        ),
+        agents={
+            "nurse": NurseAgent(
+                ScriptedLLMCallable(
+                    [
+                        {
+                            "verbal_action": {
+                                "speaker": "nurse",
+                                "target": "clinician",
+                                "content": "The ECG result is now available.",
+                                "requires_response": True,
+                            }
+                        }
+                    ],
+                    role="nurse",
+                )
+            )
+        },
+    )
+
+    turn = runner.run_turn()
+
+    assert [message["speaker"] for message in turn.committed_messages] == ["nurse"]
+    assert runner.state.runtime_state.pending_questions == []
+    assert not any(
+        event["type"] == "pending_question_created" for event in turn.events
+    )
+
+
 def test_nurse_bedside_verbal_slot_triggers_only_after_treatment() -> None:
     agents = {
         "clinician": ClinicianAgent(

@@ -121,6 +121,15 @@ def test_build_prompt_includes_prompt_level_anti_repetition_with_exceptions() ->
     assert "new clinical or conversation context makes repetition necessary" in prompt
 
 
+def test_build_prompt_restricts_requires_response_to_explicit_questions() -> None:
+    prompt = _prompt()
+
+    assert "requires_response=true only for an explicit question" in prompt
+    assert "ordinary answers, symptom statements" in prompt
+    assert "Relative concerns should normally use requires_response=false" in prompt
+    assert "unless you explicitly ask a question" in prompt
+
+
 def test_parse_valid_relative_verbal_action() -> None:
     proposal = parse_relative_response(
         _json_output(
@@ -137,6 +146,38 @@ def test_parse_valid_relative_verbal_action() -> None:
     assert proposal.action is None
     assert proposal.verbal_action is not None
     assert proposal.verbal_action.recipient == "clinician"
+
+
+def test_relative_concern_requires_response_true_normalizes_false() -> None:
+    proposal = parse_relative_response(
+        _json_output(
+            verbal_action={
+                "speaker": "relative",
+                "target": "clinician",
+                "content": "I am really worried about him.",
+                "requires_response": True,
+            }
+        )
+    )
+
+    assert proposal.verbal_action is not None
+    assert proposal.verbal_action.requires_response is False
+
+
+def test_relative_explicit_question_can_keep_requires_response_true() -> None:
+    proposal = parse_relative_response(
+        _json_output(
+            verbal_action={
+                "speaker": "relative",
+                "target": "clinician",
+                "content": "Is he going to be okay?",
+                "requires_response": True,
+            }
+        )
+    )
+
+    assert proposal.verbal_action is not None
+    assert proposal.verbal_action.requires_response is True
 
 
 def test_parse_null_relative_verbal_action() -> None:

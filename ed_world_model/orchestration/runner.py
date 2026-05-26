@@ -45,6 +45,8 @@ class TrajectoryTurn:
     turn_index_after: int
     completed: bool
     terminated: bool
+    state_before: dict[str, Any] = field(default_factory=dict)
+    state_after: dict[str, Any] = field(default_factory=dict)
     active_agents: list[str] = field(default_factory=list)
     committed_messages: list[dict[str, Any]] = field(default_factory=list)
     validation_results: list[dict[str, Any]] = field(default_factory=list)
@@ -305,6 +307,8 @@ def _trajectory_turn(
         turn_index_after=turn_index_after,
         completed=result.completed,
         terminated=result.terminated,
+        state_before=deepcopy(result.state_before),
+        state_after=deepcopy(result.state_after),
         active_agents=list(result.active_agents),
         committed_messages=deepcopy(result.committed_messages),
         validation_results=[_dump(item) for item in result.validation_results],

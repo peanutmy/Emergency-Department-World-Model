@@ -1,0 +1,13 @@
+{
+  "agent_mode": "real",
+  "final_turn_index": 10,
+  "output_timestamp": "2026-05-26T22:13:38.014345+00:00",
+  "physiology_mode": "hybrid",
+  "requested_turns": 10,
+  "scenario_id": null,
+  "scenario_identifier": "acute_respiratory_distress_pulmonary_edema",
+  "scenario_name": null,
+  "total_parser_errors": 0,
+  "total_validation_drops": 0,
+  "turns_recorded": 10
+}

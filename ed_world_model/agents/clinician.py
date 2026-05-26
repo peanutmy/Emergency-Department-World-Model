@@ -249,6 +249,13 @@ def build_clinician_prompt(
         "no_action is not selectable.",
         "If you choose no action, set action to null.",
         "For medical treatment, choose family -> kind_hint -> params.",
+        (
+            "For medication-like actions, specify a non-empty params.drug_name. "
+            "Dose and unit may be null. If the medication cannot be specified, "
+            "set action to null, ask a focused question, order a diagnostic "
+            "test, or choose a non-medication stabilization action. Do not "
+            "invent drug_name if unsupported."
+        ),
         "Params may be null if unknown or unspecified.",
         "Do not include raw_text.",
         "Do not include internal reasoning.",
