@@ -52,7 +52,7 @@
         "test_code": "ECG",
         "test_name": "Initial ECG",
         "test_category": "ecg",
-        "result_summary": "ECG image link provided in supporting documents; no text interpretation stated.",
+        "result_summary": "Normal sinus rhythm; ST–T wave abnormality, consider inferior ischemia; no significant change from prior ECG.",
         "turnaround_turns": 2
       },
       {

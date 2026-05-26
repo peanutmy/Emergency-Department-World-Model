@@ -153,6 +153,205 @@ def test_build_prompt_says_internal_reasoning_and_chain_of_thought_are_forbidden
     assert "Do not output this reasoning" in prompt
 
 
+def test_build_prompt_includes_emergency_stabilization_rule() -> None:
+    prompt = _prompt()
+
+    assert "Emergency stabilization" in prompt
+    assert "immediately dangerous airway/breathing/circulation findings" in prompt
+    assert "urgent stabilization first" in prompt
+    assert "Do not delay life-saving care for a long history checklist." in prompt
+
+
+def test_build_prompt_says_ask_patient_directly_if_conscious_and_can_speak() -> None:
+    prompt = _prompt()
+
+    assert "If the patient is conscious and can_speak=True" in prompt
+    assert "ask one brief focused question" in prompt
+    assert "Prefer asking the patient directly for symptoms/onset." in prompt
+    assert "Early patient contact" in prompt
+    assert "strongly prefer a patient-directed verbal_action" in prompt
+    assert "requires_response=true" in prompt
+
+
+def test_build_prompt_allows_patient_question_with_urgent_action() -> None:
+    prompt = _prompt()
+
+    assert "A focused history question is not an additional clinical action." in prompt
+    assert "single verbal_action even when the structured action is an urgent treatment" in prompt
+    assert "diagnostic order" in prompt
+    assert "Pair the urgent action with one brief patient question" in prompt
+
+
+def test_build_prompt_says_ask_at_most_one_focused_question_per_turn() -> None:
+    prompt = _prompt()
+
+    assert "One-question limit" in prompt
+    assert "Ask at most one focused history question per turn." in prompt
+    assert "Do not ask a long checklist in one message." in prompt
+
+
+def test_build_prompt_includes_key_missing_history_facts() -> None:
+    prompt = _prompt()
+
+    assert "chief complaint" in prompt
+    assert "symptoms/onset/progression" in prompt
+    assert "allergies" in prompt
+    assert "PMH" in prompt
+    assert "home medications" in prompt
+
+
+def test_build_prompt_warns_against_information_dependent_treatment_without_context() -> None:
+    prompt = _prompt()
+
+    assert "Information-dependent treatment" in prompt
+    assert "Before diagnosis-specific or medication-heavy treatments" in prompt
+    assert "consider whether enough key facts are known" in prompt
+    assert "ask one focused question instead of guessing" in prompt
+
+
+def test_build_prompt_allows_focused_question_in_treatment_verbal_action() -> None:
+    prompt = _prompt()
+
+    assert "If action.type is medical_treatment_order" in prompt
+    assert "ask one focused patient history question relevant to the current problem" in prompt
+    assert "If action.type is diagnostic_order" in prompt
+
+
+def test_build_prompt_includes_pending_available_diagnostic_result_rule() -> None:
+    prompt = _prompt()
+
+    assert "Diagnostic result use" in prompt
+    assert "Before ordering a diagnostic test" in prompt
+    assert "check pending diagnostic results and available diagnostic results" in prompt
+    assert "known_facts.available_results" in prompt
+    assert "newly_available_results" in prompt
+
+
+def test_build_prompt_includes_exact_diagnostic_result_grounding_rule() -> None:
+    prompt = _prompt()
+
+    assert "Diagnostic result grounding" in prompt
+    assert "use only the exact test names and results present" in prompt
+    assert "current observation" in prompt
+    assert "refer to it by its exact displayed test name" in prompt
+
+
+def test_build_prompt_says_not_to_substitute_or_infer_different_test_name() -> None:
+    prompt = _prompt()
+
+    assert "Do not infer or substitute a different test name." in prompt
+    assert "available result belongs to a different test" in prompt
+
+
+def test_build_prompt_says_pending_tests_are_pending_not_available() -> None:
+    prompt = _prompt()
+
+    assert "If a diagnostic test is pending" in prompt
+    assert "describe it as pending/in progress rather than available" in prompt
+
+
+def test_build_prompt_says_not_to_claim_result_ready_unless_observed() -> None:
+    prompt = _prompt()
+
+    assert "If a diagnostic result is not present in the observation" in prompt
+    assert "do not claim it is ready or available" in prompt
+
+
+def test_build_prompt_says_not_to_order_duplicate_pending_tests() -> None:
+    prompt = _prompt()
+
+    assert "Do not request or order a diagnostic test that is already pending." in prompt
+    assert "refer to it as pending or in progress rather than ordering it again" in prompt
+
+
+def test_build_prompt_says_not_to_order_tests_with_available_results() -> None:
+    prompt = _prompt()
+
+    assert (
+        "Do not request or order a diagnostic test whose result is already available."
+        in prompt
+    )
+
+
+def test_build_prompt_says_use_available_result_instead_of_reordering() -> None:
+    prompt = _prompt()
+
+    assert "If a diagnostic result is available" in prompt
+    assert "use it in your reasoning or communication" in prompt
+    assert "If a result is already available" in prompt
+    assert "use the available result instead of ordering the same test again" in prompt
+    assert "instead of ordering the same test again" in prompt
+    assert "verbal_action must not claim a duplicate test is being ordered" in prompt
+
+
+def test_build_prompt_includes_numeric_fidelity_rule() -> None:
+    prompt = _prompt()
+
+    assert "Numeric vital fidelity" in prompt
+    assert "use the values exactly as shown in the observation" in prompt
+    assert "use the exact values shown in the observation" in prompt
+    assert "low, high, hypotensive, hypertensive, tachycardic" in prompt
+    assert "If unsure, state the numeric value without interpreting it." in prompt
+    assert "If uncertain, state the numeric value without interpreting it." in prompt
+    assert "must be consistent with the observed vitals and known facts" in prompt
+    assert "pending results, and available results" in prompt
+
+
+def test_build_prompt_says_not_to_invent_unsupported_rationale() -> None:
+    prompt = _prompt()
+
+    assert "rationale grounding" in prompt
+    assert "make the verbal reason consistent with the observed vitals" in prompt
+    assert "known facts, pending results, and available results" in prompt
+    assert "Do not invent a rationale that is not supported by the observation." in prompt
+
+
+def test_build_prompt_includes_deterioration_response_rule() -> None:
+    prompt = _prompt()
+
+    assert "Deterioration response" in prompt
+    assert "remains unstable or is worsening despite prior interventions" in prompt
+    assert "prioritize reassessment and stabilizing or escalating actions" in prompt
+    assert "over non-urgent history questions" in prompt
+    assert "Do not continue asking non-urgent history questions" in prompt
+    assert "unless the information is immediately necessary for the next action" in prompt
+
+
+def test_build_prompt_does_not_add_vasopressor_specific_hard_rule() -> None:
+    prompt = _prompt().lower()
+
+    assert "do not order vasopressor" not in prompt
+    assert "vasopressor unless" not in prompt
+    assert "vasopressor-specific" not in prompt
+
+
+def test_build_prompt_does_not_add_vasopressor_fluid_oxygen_specific_hard_rules() -> None:
+    prompt = _prompt().lower()
+
+    for action_name in ("vasopressor", "fluid", "oxygen"):
+        assert f"do not order {action_name}" not in prompt
+        assert f"{action_name} unless" not in prompt
+        assert f"{action_name}-specific" not in prompt
+
+
+def test_build_prompt_does_not_include_scenario_specific_test_mismatch_examples() -> None:
+    prompt = _prompt()
+
+    assert "ECG result is available when" not in prompt
+    assert "CXR result is available when" not in prompt
+    assert "VBG result is available when" not in prompt
+    assert "for example, ECG" not in prompt
+
+
+def test_build_prompt_does_not_add_family_or_kind_hint_clinical_guidance() -> None:
+    prompt = _prompt().lower()
+
+    assert "family-level clinical guidance" not in prompt
+    assert "kind_hint-level clinical guidance" not in prompt
+    assert "clinical indication" not in prompt
+    assert "clinical contraindication" not in prompt
+
+
 def test_parse_valid_verbal_only_response() -> None:
     proposal = parse_clinician_response(
         _json_output(

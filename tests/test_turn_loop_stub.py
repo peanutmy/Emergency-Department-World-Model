@@ -88,6 +88,27 @@ class RecordingObservationBuilder(ObservationBuilder):
         return super().build_for(active_agents, global_state)
 
 
+class ObservationCheckingClinician:
+    def __init__(
+        self,
+        *,
+        expected_message: str,
+        proposal: dict | None = None,
+    ) -> None:
+        self.expected_message = expected_message
+        self.proposal = proposal or {}
+        self.generated_observations: list[dict] = []
+
+    def generate(self, observation: dict) -> dict:
+        self.generated_observations.append(deepcopy(observation))
+        messages = observation.get("recent_messages", [])
+        assert any(
+            self.expected_message in message.get("content", "")
+            for message in messages
+        )
+        return deepcopy(self.proposal)
+
+
 def _state_with_test_bank(**runtime_state) -> GlobalState:
     return GlobalState(
         truth_state={
@@ -313,6 +334,13 @@ def test_bedside_slot_records_spoke_true_when_nurse_was_active_at_turn_start() -
             {
                 "verbal_action": {
                     "speaker": "nurse",
+                    "recipient": "clinician",
+                    "content": "The ECG result is available.",
+                }
+            },
+            {
+                "verbal_action": {
+                    "speaker": "nurse",
                     "recipient": "patient",
                     "content": "I am placing this oxygen mask now.",
                 }
@@ -328,7 +356,11 @@ def test_bedside_slot_records_spoke_true_when_nurse_was_active_at_turn_start() -
     result = loop.run_turn()
 
     assert result.active_agents == ["clinician", "nurse"]
-    assert len(nurse.generated_observations) == 1
+    assert len(nurse.generated_observations) == 2
+    assert manager.state.runtime_state.messages[0].speaker == "nurse"
+    assert manager.state.runtime_state.messages[0].content == (
+        "The ECG result is available."
+    )
     assert manager.state.runtime_state.messages[-1].speaker == "nurse"
     assert manager.state.runtime_state.messages[-1].content == (
         "I am placing this oxygen mask now."
@@ -432,14 +464,98 @@ def test_verbal_actions_commit_without_internal_reasoning_storage() -> None:
     loop.run_turn()
 
     assert [message.speaker for message in manager.state.runtime_state.messages] == [
-        "clinician",
         "patient",
+        "clinician",
     ]
     dumped_messages = [
         message.model_dump() for message in manager.state.runtime_state.messages
     ]
     assert "internal_reasoning" not in str(dumped_messages)
     assert "chain" not in str(dumped_messages)
+
+
+def test_required_patient_response_commits_before_clinician_generation() -> None:
+    expected_answer = "The breathing trouble started one hour ago."
+    clinician = ObservationCheckingClinician(
+        expected_message=expected_answer,
+        proposal={
+            "verbal_action": {
+                "speaker": "clinician",
+                "recipient": "patient",
+                "content": "Do you have any medication allergies?",
+                "requires_response": True,
+            }
+        },
+    )
+    patient = ScriptedPatientAgent([expected_answer])
+    manager = StateManager(
+        GlobalState(
+            runtime_state={
+                "turn_index": 1,
+                "pending_questions": [
+                    {
+                        "source_agent": "clinician",
+                        "target_agent": "patient",
+                        "question_text": "When did your breathing trouble start?",
+                        "created_at_turn": 0,
+                    }
+                ],
+                "required_response_agents": ["patient"],
+            }
+        )
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": clinician, "patient": patient},
+    )
+
+    loop.run_turn()
+
+    assert [message.speaker for message in manager.state.runtime_state.messages] == [
+        "patient",
+        "clinician",
+    ]
+    assert clinician.generated_observations
+    assert manager.state.runtime_state.pending_questions[0].is_resolved is True
+    new_question = manager.state.runtime_state.pending_questions[1]
+    assert new_question.question_text == "Do you have any medication allergies?"
+    assert new_question.created_at_turn == 1
+    assert new_question.is_resolved is False
+    assert manager.state.runtime_state.required_response_agents == ["patient"]
+
+
+def test_nurse_result_report_commits_before_clinician_generation() -> None:
+    state = _state_with_test_bank(turn_index=1)
+    state.runtime_state.pending_diagnostic_results = [
+        PendingDiagnosticResult(test_name="ECG", ordered_at_turn=0, ready_at_turn=1)
+    ]
+    expected_report = "The ECG result is now available."
+    clinician = ObservationCheckingClinician(expected_message=expected_report)
+    nurse = ScriptedNurseAgent(
+        [
+            {
+                "verbal_action": {
+                    "speaker": "nurse",
+                    "recipient": "clinician",
+                    "content": expected_report,
+                }
+            }
+        ]
+    )
+    manager = StateManager(state)
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": clinician, "nurse": nurse},
+    )
+
+    loop.run_turn()
+
+    assert [message.speaker for message in manager.state.runtime_state.messages] == [
+        "nurse"
+    ]
+    assert clinician.generated_observations[0]["newly_available_results"] == [
+        {"name": "ECG", "result": "atrial fibrillation"}
+    ]
 
 
 def test_emotion_engine_called_only_when_verbal_messages_committed() -> None:

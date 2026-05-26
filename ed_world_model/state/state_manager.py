@@ -179,11 +179,22 @@ class StateManager:
         )
         return question
 
-    def resolve_pending_questions_for_agent(self, agent: str) -> list[PendingQuestion]:
+    def resolve_pending_questions_for_agent(
+        self,
+        agent: str,
+        *,
+        created_before_turn: int | None = None,
+    ) -> list[PendingQuestion]:
         current_turn = self._state.runtime_state.turn_index
         resolved: list[PendingQuestion] = []
         for question in self._state.runtime_state.pending_questions:
             if question.target_agent != agent or question.is_resolved:
+                continue
+            if (
+                created_before_turn is not None
+                and question.created_at_turn is not None
+                and question.created_at_turn >= created_before_turn
+            ):
                 continue
             question.is_resolved = True
             question.resolved_at_turn = current_turn

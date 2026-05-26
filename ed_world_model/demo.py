@@ -2,13 +2,14 @@
 from __future__ import annotations
 
 import argparse
+from copy import deepcopy
 from dataclasses import dataclass, field
 import json
 from pathlib import Path
 from collections.abc import Callable, Mapping
 from typing import Any
 
-from ed_world_model.actions.registry import ActionFamily, KindHint
+from ed_world_model.actions.registry import ActionFamily, ActionRegistry, KindHint
 from ed_world_model.adapters.noop_emotion import NoopEmotionEngine
 from ed_world_model.agents.clinician import ClinicianAgent
 from ed_world_model.agents.llm_client import (
@@ -55,6 +56,7 @@ class DemoTurn:
     nurse_shadow_execution: list[dict[str, Any]] = field(default_factory=list)
     nurse_bedside_slots: list[dict[str, Any]] = field(default_factory=list)
     physiology_action_kind_hint: str | None = None
+    physiology_action: dict[str, Any] | None = None
     patient_state_after: dict[str, Any] = field(default_factory=dict)
     validation_drops: list[dict[str, Any]] = field(default_factory=list)
     parser_errors: list[dict[str, Any]] = field(default_factory=list)
@@ -74,6 +76,7 @@ class DemoTurn:
             "nurse_shadow_execution": self.nurse_shadow_execution,
             "nurse_bedside_slots": self.nurse_bedside_slots,
             "physiology_action_kind_hint": self.physiology_action_kind_hint,
+            "physiology_action": self.physiology_action,
             "patient_state_after": self.patient_state_after,
             "validation_drops": self.validation_drops,
             "parser_errors": self.parser_errors,
@@ -293,6 +296,10 @@ def render_readable_trajectory(result: DemoResult) -> str:
         lines.append(
             "  physiology_action_kind_hint: "
             f"{turn.physiology_action_kind_hint or 'none'}"
+        )
+        lines.append(
+            "  physiology_action: "
+            f"{_format_physiology_action(turn.physiology_action)}"
         )
         lines.append(
             "  patient_state_after: "
@@ -529,6 +536,7 @@ def _build_demo_turn(
             if event.get("type") == "nurse_bedside_verbal_slot"
         ],
         physiology_action_kind_hint=trajectory_turn.physiology_action_kind_hint,
+        physiology_action=deepcopy(trajectory_turn.physiology_action),
         patient_state_after=state.patient_state.model_dump(),
         validation_drops=validation_drops,
         parser_errors=parser_errors,
@@ -544,11 +552,40 @@ def _clinician_action(trajectory_turn: TrajectoryTurn) -> dict[str, Any] | None:
         action_type = validation_result.get("action_type")
         if action_type is None:
             return None
+        normalized_action = validation_result.get("normalized_action") or {}
+        action: dict[str, Any] = {
+            "type": action_type,
+            "action_type": action_type,
+            "normalized_action": deepcopy(normalized_action),
+        }
+        if action_type == "diagnostic_order":
+            test_name = normalized_action.get("test_name")
+            if test_name is not None:
+                action["test_name"] = test_name
+            return action
+        if action_type == "medical_treatment_order":
+            kind_hint = normalized_action.get("kind_hint")
+            if kind_hint is not None:
+                action["kind_hint"] = kind_hint
+                family = _family_for_kind_hint(kind_hint)
+                if family is not None:
+                    action["family"] = family
+            action["params"] = deepcopy(normalized_action.get("params"))
+            return action
         return {
             "action_type": action_type,
             "normalized_action": validation_result.get("normalized_action"),
         }
     return None
+
+
+def _family_for_kind_hint(kind_hint: Any) -> str | None:
+    if not isinstance(kind_hint, str):
+        return None
+    registry = ActionRegistry()
+    if not registry.is_known_kind_hint(kind_hint):
+        return None
+    return registry.get_definition(kind_hint).family
 
 
 def _scenario_identifier(path: Path) -> str | None:
@@ -584,13 +621,40 @@ def _format_messages(messages: list[dict[str, Any]], *, indent: str) -> list[str
 def _format_clinician_action(action: dict[str, Any] | None) -> str:
     if action is None:
         return "none"
-    action_type = action.get("action_type")
+    action_type = action.get("type") or action.get("action_type")
+    parts = [f"type={action_type}"]
+    family = action.get("family")
+    if family is not None:
+        parts.append(f"family={family}")
+    kind_hint = action.get("kind_hint")
+    if kind_hint is not None:
+        parts.append(f"kind_hint={kind_hint}")
+    if "params" in action:
+        parts.append(f"params={_format_compact_value(action.get('params'))}")
+    test_name = action.get("test_name")
+    if test_name is not None:
+        parts.append(f"test_name={test_name}")
+    if parts:
+        return " ".join(parts)
     normalized = action.get("normalized_action") or {}
     if action_type == "diagnostic_order":
         return f"diagnostic_order {normalized.get('test_name')}"
     if action_type == "medical_treatment_order":
         return f"medical_treatment_order {normalized.get('kind_hint')}"
     return str(action_type)
+
+
+def _format_physiology_action(action: dict[str, Any] | None) -> str:
+    if action is None:
+        return "none"
+    parts = []
+    if action.get("kind_hint") is not None:
+        parts.append(f"kind_hint={action.get('kind_hint')}")
+    if "raw_text" in action:
+        parts.append(f"raw_text={_format_compact_value(action.get('raw_text'))}")
+    if "params" in action:
+        parts.append(f"params={_format_compact_value(action.get('params'))}")
+    return " ".join(parts) if parts else _format_compact_value(action)
 
 
 def _format_diagnostic_orders(orders: list[dict[str, Any]]) -> list[str]:
@@ -659,6 +723,10 @@ def _format_mapping(value: Any) -> str:
     if not visible:
         return "none"
     return ", ".join(f"{key}={item}" for key, item in visible.items())
+
+
+def _format_compact_value(value: Any) -> str:
+    return json.dumps(value, sort_keys=True, separators=(",", ":"))
 
 
 def _format_validation_drops(drops: list[dict[str, Any]]) -> list[str]:

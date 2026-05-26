@@ -116,6 +116,34 @@ def test_build_prompt_mentions_disclosure_rules_as_guidance() -> None:
     assert "what to reveal only if asked" in prompt
 
 
+def test_build_prompt_says_do_not_invent_patient_truth() -> None:
+    prompt = _prompt()
+
+    assert "Patient truthfulness" in prompt
+    assert "source of patient-side truth" in prompt
+    assert "Do not infer or invent symptoms, history, allergies, medications" in prompt
+    assert "ROS findings not present in your observation" in prompt
+
+
+def test_build_prompt_says_not_to_add_plausible_disease_associated_symptoms() -> None:
+    prompt = _prompt()
+
+    assert "Do not add plausible disease-associated symptoms" in prompt
+    assert "just because they fit the diagnosis" in prompt
+
+
+def test_build_prompt_directs_conservative_answer_for_unlisted_symptoms() -> None:
+    prompt = _prompt()
+
+    assert "If asked about a symptom or fact not present" in prompt
+    assert "patient_internal_state or recent conversation" in prompt
+    assert "answer conservatively" in prompt
+    assert "deny it if the observation says it is absent" in prompt
+    assert "unsure or not mentioned if unknown" in prompt
+    assert "stay silent if unable" in prompt
+    assert "must not be expanded beyond your observation" in prompt
+
+
 def test_build_prompt_says_patient_may_stay_silent() -> None:
     assert "stay silent" in _prompt()
 

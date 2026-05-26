@@ -52,6 +52,7 @@ class TurnResult:
     validation_results: list[ValidationResult] = field(default_factory=list)
     physiology_called: bool = False
     physiology_action_kind_hint: str | None = None
+    physiology_action: dict[str, Any] | None = None
     events: list[dict[str, Any]] = field(default_factory=list)
     released_diagnostics: list[dict[str, Any]] = field(default_factory=list)
     termination_reason: str | None = None
@@ -104,11 +105,37 @@ class TurnLoop:
             self.state_manager.state,
             explicitly_selected_agents=explicitly_selected_agents,
         )
-        observations = self.observation_builder.build_for(
-            decision.active_agents,
+        response_agents = [
+            agent for agent in decision.active_agents if agent != CLINICIAN
+        ]
+        response_observations = (
+            self.observation_builder.build_for(
+                response_agents,
+                self.state_manager.state,
+            )
+            if response_agents
+            else {}
+        )
+        response_proposals = self._generate_proposals_for_agents(
+            response_agents,
+            response_observations,
+        )
+        committed_messages = self._commit_primary_verbal_actions(
+            response_agents,
+            response_proposals,
+        )
+
+        clinician_observations = self.observation_builder.build_for(
+            [CLINICIAN],
             self.state_manager.state,
         )
-        proposals = self._generate_proposals(decision, observations)
+        proposals = dict(response_proposals)
+        proposals.update(
+            self._generate_proposals_for_agents(
+                [CLINICIAN],
+                clinician_observations,
+            )
+        )
 
         validation_results: list[ValidationResult] = []
         valid_action_type: str | None = None
@@ -129,20 +156,14 @@ class TurnLoop:
             )
 
         treatment_action: dict[str, Any] | None = None
-        deferred_bedside_nurse_proposal: AgentProposal | None = None
-        primary_active_agents = list(decision.active_agents)
         if valid_action_type == "medical_treatment_order" and valid_action is not None:
             treatment_action = valid_action
-            nurse_proposal = proposals.get(NURSE)
-            if nurse_proposal is not None and nurse_proposal.verbal_action is not None:
-                deferred_bedside_nurse_proposal = nurse_proposal
-                primary_active_agents = [
-                    agent for agent in primary_active_agents if agent != NURSE
-                ]
 
-        committed_messages = self._commit_primary_verbal_actions(
-            primary_active_agents,
-            proposals,
+        committed_messages.extend(
+            self._commit_primary_verbal_actions(
+                [CLINICIAN],
+                proposals,
+            )
         )
 
         if valid_action_type == "diagnostic_order" and valid_action is not None:
@@ -155,7 +176,6 @@ class TurnLoop:
             committed_messages.extend(
                 self._run_nurse_bedside_verbal_slot(
                     treatment_action,
-                    nurse_proposal=deferred_bedside_nurse_proposal,
                 )
             )
 
@@ -189,7 +209,11 @@ class TurnLoop:
             Event(
                 type="physiology_engine_call",
                 turn_index=current_turn,
-                payload={"kind_hint": physiology_action.get("kind_hint")},
+                payload={
+                    "kind_hint": physiology_action.get("kind_hint"),
+                    "raw_text": physiology_action.get("raw_text"),
+                    "params": deepcopy(physiology_action.get("params")),
+                },
             )
         )
         self._apply_physiology_output(physiology_output)
@@ -205,6 +229,7 @@ class TurnLoop:
             validation_results=validation_results,
             physiology_called=True,
             physiology_action_kind_hint=physiology_action.get("kind_hint"),
+            physiology_action=deepcopy(physiology_action),
             events=events,
             released_diagnostics=[_dump(result) for result in released],
             termination_reason=None,
@@ -215,8 +240,18 @@ class TurnLoop:
         decision: OrchestratorDecision,
         observations: dict[str, dict[str, Any]],
     ) -> dict[str, AgentProposal]:
+        return self._generate_proposals_for_agents(
+            decision.active_agents,
+            observations,
+        )
+
+    def _generate_proposals_for_agents(
+        self,
+        active_agents: list[str],
+        observations: dict[str, dict[str, Any]],
+    ) -> dict[str, AgentProposal]:
         proposals: dict[str, AgentProposal] = {}
-        for agent_name in decision.active_agents:
+        for agent_name in active_agents:
             agent = self.agents.get(agent_name, self._default_silent_agent)
             try:
                 proposal = AgentProposal.model_validate(
@@ -291,7 +326,10 @@ class TurnLoop:
             None,
         )
         if callable(resolve_pending_questions):
-            resolve_pending_questions(verbal_action.speaker)
+            resolve_pending_questions(
+                verbal_action.speaker,
+                created_before_turn=self.state_manager.state.runtime_state.turn_index,
+            )
 
     def _record_validation_drop(
         self,

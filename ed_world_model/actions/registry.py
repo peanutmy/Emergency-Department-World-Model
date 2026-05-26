@@ -131,7 +131,6 @@ OXYGEN_SUPPORT_PARAM_OPTIONS = MappingProxyType(
             "NRB",
             "BVM",
             "BiPAP",
-            "vent",
             None,
         ),
     }
@@ -171,7 +170,7 @@ AIRWAY_MANAGEMENT_PARAM_GUIDANCE = MappingProxyType(
 
 FLUID_BOLUS_PARAM_OPTIONS = MappingProxyType(
     {
-        "fluid_type": ("normal_saline", "lactated_ringers", None),
+        "fluid_type": ("normal_saline", None),
     }
 )
 

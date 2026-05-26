@@ -105,6 +105,108 @@ def build_clinician_prompt(
             "menu, and available diagnostic test names."
         ),
         (
+            "Diagnostic result grounding: When referencing diagnostic results, "
+            "use only the exact test names and results present in the current "
+            "observation. If a result is newly available or already available, "
+            "refer to it by its exact displayed test name. Do not say that one "
+            "diagnostic result is available when the available result belongs "
+            "to a different test. Do not infer or substitute a different test "
+            "name."
+        ),
+        (
+            "If a diagnostic test is pending, describe it as pending/in "
+            "progress rather than available. If a diagnostic result is not "
+            "present in the observation, do not claim it is ready or available."
+        ),
+        (
+            "Diagnostic result use: Before ordering a diagnostic test, check "
+            "pending diagnostic results and available diagnostic results in "
+            "the observation, including pending_diagnostic_results if shown, "
+            "known_facts.available_results, and newly_available_results. Do "
+            "not request or order a diagnostic test that is already pending."
+        ),
+        (
+            "If a diagnostic test is pending, refer to it as pending or in "
+            "progress rather than ordering it again. Do not request or order a "
+            "diagnostic test whose result is already available. If a result is "
+            "already available, use the available result instead of ordering "
+            "the same test again. If a diagnostic result is available, use it "
+            "in your reasoning or communication instead of ordering the same "
+            "test again."
+        ),
+        (
+            "Your verbal_action must not claim a duplicate test is being "
+            "ordered if the structured action cannot validly order it."
+        ),
+        (
+            "Numeric vital fidelity and rationale grounding: When referencing "
+            "vital signs, use the values exactly as shown in the observation "
+            "and use the exact values shown in the observation. Do not describe "
+            "a value as low, high, hypotensive, hypertensive, tachycardic, "
+            "bradycardic, hypoxic, or worsening unless the displayed current "
+            "value or visible trend supports that description. If unsure, "
+            "state the numeric value without interpreting it. If uncertain, "
+            "state the numeric value without interpreting it. When explaining "
+            "an action, make the verbal reason consistent with the observed "
+            "vitals, known facts, pending results, and available results. Your "
+            "verbal explanation for an action must be consistent with the "
+            "observed vitals and known facts. Do not invent a rationale that "
+            "is not supported by the observation."
+        ),
+        (
+            "Emergency stabilization: If the patient has immediately dangerous "
+            "airway/breathing/circulation findings, you may order urgent "
+            "stabilization first, such as oxygen support, ventilation support, "
+            "airway management, monitoring, or urgent diagnostics. Do not "
+            "delay life-saving care for a long history checklist."
+        ),
+        (
+            "Focused history: If the patient is conscious and can_speak=True, "
+            "ask one brief focused question when clinically appropriate, "
+            "especially early in the encounter. Prefer asking the patient "
+            "directly for symptoms/onset. Ask nurse/chart/relative for "
+            "objective course, medications, allergies, PMH, or if the patient "
+            "cannot answer."
+        ),
+        (
+            "A focused history question is not an additional clinical action. "
+            "It may be included as the single verbal_action even when the "
+            "structured action is an urgent treatment or diagnostic order, as "
+            "long as it does not promise another unstructured test or treatment."
+        ),
+        (
+            "Early patient contact: On the first 1-2 turns, if the patient is "
+            "conscious and can_speak=True, and chief complaint, symptoms/onset, "
+            "allergies, PMH, or home medications are missing from known_facts, "
+            "strongly prefer a patient-directed verbal_action with "
+            "requires_response=true."
+        ),
+        (
+            "If urgent ABC stabilization is needed, do not delay the structured "
+            "action. Pair the urgent action with one brief patient question "
+            "when possible."
+        ),
+        (
+            "Deterioration response: If the patient remains unstable or is "
+            "worsening despite prior interventions, prioritize reassessment "
+            "and stabilizing or escalating actions over non-urgent history "
+            "questions. Do not continue asking non-urgent history questions "
+            "while vital signs are worsening unless the information is "
+            "immediately necessary for the next action."
+        ),
+        (
+            "Information-dependent treatment: Before diagnosis-specific or "
+            "medication-heavy treatments, consider whether enough key facts "
+            "are known: chief complaint, symptoms/onset/progression, "
+            "allergies, PMH, home medications, contraindications, and relevant "
+            "results. If key facts are missing and the patient is stable "
+            "enough, ask one focused question instead of guessing."
+        ),
+        (
+            "One-question limit: Ask at most one focused history question per "
+            "turn. Do not ask a long checklist in one message."
+        ),
+        (
             "Do not output this reasoning, rationale, analysis, "
             "internal_reasoning, or chain-of-thought."
         ),
@@ -124,11 +226,13 @@ def build_clinician_prompt(
         ),
         (
             "If action.type is medical_treatment_order, verbal_action may "
-            "explain only that treatment or provide general reassurance."
+            "explain that treatment, provide general reassurance, or ask one "
+            "focused patient history question relevant to the current problem."
         ),
         (
             "If action.type is diagnostic_order, verbal_action may explain only "
-            "that one diagnostic test or provide general reassurance."
+            "that one diagnostic test, provide general reassurance, or ask one "
+            "focused patient history question relevant to the current problem."
         ),
         (
             "If action is null, verbal_action must not claim that a test or "

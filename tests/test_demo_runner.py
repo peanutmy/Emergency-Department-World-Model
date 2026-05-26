@@ -196,7 +196,12 @@ def test_readable_output_contains_required_trajectory_fields(tmp_path: Path) -> 
     assert "active_agents: clinician" in text
     assert "committed messages:" in text
     assert "clinician -> patient:" in text
-    assert "clinician_action: diagnostic_order Initial ECG" in text
+    assert "clinician_action: type=diagnostic_order test_name=Initial ECG" in text
+    assert "clinician_action: type=medical_treatment_order" in text
+    assert "family=respiratory_support" in text
+    assert "kind_hint=oxygen_support" in text
+    assert '"oxygen_device":"NRB"' in text
+    assert '"FiO2":1.0' in text
     assert "diagnostic_orders_created:" in text
     assert "diagnostic_results_released:" in text
     assert "The first diagnostic result is back and available." in text
@@ -205,6 +210,11 @@ def test_readable_output_contains_required_trajectory_fields(tmp_path: Path) -> 
     assert "spoke=True" in text
     assert "spoke=False" in text
     assert "physiology_action_kind_hint: no_action" in text
+    assert (
+        'physiology_action: kind_hint=no_action raw_text=null params={"elapsed_min":1}'
+        in text
+    )
+    assert "physiology_action: kind_hint=oxygen_support raw_text=null params=" in text
     assert "patient_state_after:" in text
     assert "validation_drops / parser_errors:" in text
     assert "events:" in text
@@ -221,6 +231,9 @@ def test_json_output_is_valid_and_contains_expected_sections(tmp_path: Path) -> 
     assert payload["messages"]
     assert payload["events"]
     assert payload["turns"][2]["physiology_action_kind_hint"] == "oxygen_support"
+    assert payload["turns"][2]["physiology_action"]["params"]["oxygen_device"] == "NRB"
+    assert payload["turns"][2]["physiology_action"]["params"]["FiO2"] == 1.0
+    assert payload["turns"][2]["clinician_action"]["params"]["oxygen_device"] == "NRB"
     assert payload["turns"][2]["nurse_bedside_slots"] == [
         {"triggered": True, "spoke": True, "visible_to": "public"}
     ]
@@ -276,7 +289,16 @@ def test_diagnostic_release_and_treatment_events_appear_after_turnaround(
         {"name": "Initial ECG", "result": "Sinus tachycardia without STEMI."}
     ]
     assert result.turns[2].clinician_action == {
+        "type": "medical_treatment_order",
         "action_type": "medical_treatment_order",
+        "family": "respiratory_support",
+        "kind_hint": "oxygen_support",
+        "params": {
+            "oxygen_device": "NRB",
+            "FiO2": 1.0,
+            "PEEP_used": None,
+            "PEEP_cmH2O": None,
+        },
         "normalized_action": {
             "raw_text": None,
             "kind_hint": "oxygen_support",

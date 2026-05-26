@@ -104,6 +104,25 @@ def build_patient_prompt(
             "team, not hidden from you."
         ),
         (
+            "Patient truthfulness: You are a source of patient-side truth. Do "
+            "not infer or invent symptoms, history, allergies, medications, or "
+            "ROS findings not present in your observation."
+        ),
+        (
+            "Do not add plausible disease-associated symptoms just because "
+            "they fit the diagnosis."
+        ),
+        (
+            "If asked about a symptom or fact not present in "
+            "patient_internal_state or recent conversation, answer "
+            "conservatively: deny it if the observation says it is absent, say "
+            "unsure or not mentioned if unknown, or stay silent if unable."
+        ),
+        (
+            "hidden_* fields are patient-owned truth, but still must not be "
+            "expanded beyond your observation."
+        ),
+        (
             "disclosure_rules are free-form guidance for what to volunteer and "
             "what to reveal only if asked."
         ),

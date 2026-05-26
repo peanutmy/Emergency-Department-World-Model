@@ -405,6 +405,41 @@ def test_advance_turn_preserves_longer_lived_runtime_and_known_fields() -> None:
     assert manager.state.runtime_state.required_response_agents == ["patient"]
 
 
+def test_resolve_pending_questions_can_skip_same_turn_questions() -> None:
+    manager = StateManager(
+        GlobalState(
+            runtime_state={
+                "turn_index": 3,
+                "pending_questions": [
+                    {
+                        "source_agent": "clinician",
+                        "target_agent": "patient",
+                        "question_text": "Old question?",
+                        "created_at_turn": 2,
+                    },
+                    {
+                        "source_agent": "clinician",
+                        "target_agent": "patient",
+                        "question_text": "Same-turn question?",
+                        "created_at_turn": 3,
+                    },
+                ],
+                "required_response_agents": ["patient"],
+            }
+        )
+    )
+
+    resolved = manager.resolve_pending_questions_for_agent(
+        "patient",
+        created_before_turn=3,
+    )
+
+    assert [question.question_text for question in resolved] == ["Old question?"]
+    assert manager.state.runtime_state.pending_questions[0].is_resolved is True
+    assert manager.state.runtime_state.pending_questions[1].is_resolved is False
+    assert manager.state.runtime_state.required_response_agents == ["patient"]
+
+
 def test_apply_physiology_update_updates_patient_state_only() -> None:
     state = GlobalState(
         truth_state={"scenario_description": "Hidden scenario"},

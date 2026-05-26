@@ -50,6 +50,7 @@ class TrajectoryTurn:
     validation_results: list[dict[str, Any]] = field(default_factory=list)
     physiology_called: bool = False
     physiology_action_kind_hint: str | None = None
+    physiology_action: dict[str, Any] | None = None
     events: list[dict[str, Any]] = field(default_factory=list)
     released_diagnostics: list[dict[str, Any]] = field(default_factory=list)
     termination_reason: str | None = None
@@ -309,6 +310,7 @@ def _trajectory_turn(
         validation_results=[_dump(item) for item in result.validation_results],
         physiology_called=result.physiology_called,
         physiology_action_kind_hint=result.physiology_action_kind_hint,
+        physiology_action=deepcopy(result.physiology_action),
         events=deepcopy(result.events),
         released_diagnostics=deepcopy(result.released_diagnostics),
         termination_reason=result.termination_reason,
