@@ -14,3 +14,9 @@ env/
 
 # macOS
 .DS_Store
+
+# vibe coding
+.vscode/
+.agent/
+.codex
+AGENTS.md

@@ -64,11 +64,20 @@
       }
     ]
   },
-  "pairs": [
-    {
-      "id": "p1",
-      "pair_type": "physiology_response",
-      "source": {
+  "agent_profiles": {
+      "clinician": {
+        "role": "clinician",
+        "name": "Dr. Lee",
+        "traits": {
+          "communication_style": "warm, gently upbeat, reassuring, patient-centered"
+        }
+      }
+    },
+    "pairs": [
+      {
+        "id": "p1",
+        "pair_type": "physiology_response",
+        "source": {
         "modifier_text": "NRB applied → O2SAT to 88%"
       },
       "input": {

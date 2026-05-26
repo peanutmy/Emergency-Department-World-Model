@@ -202,7 +202,10 @@ def build_demo_agents(
     _validate_agent_mode(agent_mode)
     if agent_mode == AGENT_MODE_FAKE:
         return build_fake_demo_agents(state)
-    return build_real_demo_agents(llm_client_factory=llm_client_factory)
+    return build_real_demo_agents(
+        state,
+        llm_client_factory=llm_client_factory,
+    )
 
 
 def build_fake_demo_agents(state: GlobalState) -> dict[str, Any]:
@@ -223,30 +226,35 @@ def build_fake_demo_agents(state: GlobalState) -> dict[str, Any]:
             FakeLLMClient(
                 clinician_script,
                 default_response=DEFAULT_AGENT_RESPONSE,
-            )
+            ),
+            profile=state.agent_profiles.clinician.model_dump(),
         ),
         NURSE: NurseAgent(
             FakeLLMClient(
                 [_nurse_result_report_response(), _nurse_bedside_response()],
                 default_response=DEFAULT_VERBAL_ONLY_RESPONSE,
-            )
+            ),
+            profile=state.agent_profiles.nurse.model_dump(),
         ),
         PATIENT: PatientAgent(
             FakeLLMClient(
                 [_patient_required_response()],
                 default_response=DEFAULT_VERBAL_ONLY_RESPONSE,
-            )
+            ),
+            profile=state.agent_profiles.patient.model_dump(),
         ),
         RELATIVE: RelativeAgent(
             FakeLLMClient(
                 [],
                 default_response=DEFAULT_VERBAL_ONLY_RESPONSE,
-            )
+            ),
+            profile=state.agent_profiles.relative.model_dump(),
         ),
     }
 
 
 def build_real_demo_agents(
+    state: GlobalState,
     *,
     llm_client_factory: LLMClientFactory | None = None,
 ) -> dict[str, Any]:
@@ -254,10 +262,22 @@ def build_real_demo_agents(
 
     llm_client = _make_real_llm_client(llm_client_factory)
     return {
-        CLINICIAN: ClinicianAgent(llm_client),
-        NURSE: NurseAgent(llm_client),
-        PATIENT: PatientAgent(llm_client),
-        RELATIVE: RelativeAgent(llm_client),
+        CLINICIAN: ClinicianAgent(
+            llm_client,
+            profile=state.agent_profiles.clinician.model_dump(),
+        ),
+        NURSE: NurseAgent(
+            llm_client,
+            profile=state.agent_profiles.nurse.model_dump(),
+        ),
+        PATIENT: PatientAgent(
+            llm_client,
+            profile=state.agent_profiles.patient.model_dump(),
+        ),
+        RELATIVE: RelativeAgent(
+            llm_client,
+            profile=state.agent_profiles.relative.model_dump(),
+        ),
     }
 
 

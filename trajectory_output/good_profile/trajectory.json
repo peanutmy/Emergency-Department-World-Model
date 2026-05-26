@@ -1,0 +1,2113 @@
+{
+  "agent_mode": "real",
+  "final_turn_index": 10,
+  "physiology_mode": "hybrid",
+  "requested_turns": 10,
+  "scenario_id": null,
+  "scenario_identifier": "acute_respiratory_distress_pulmonary_edema",
+  "scenario_name": null,
+  "turn_count": 10,
+  "turns": [
+    {
+      "active_agents": [
+        "clinician"
+      ],
+      "clinician_action": {
+        "action_type": "medical_treatment_order",
+        "family": "respiratory_support",
+        "kind_hint": "oxygen_support",
+        "params": {
+          "FiO2": 0.4,
+          "PEEP_cmH2O": null,
+          "PEEP_used": null,
+          "oxygen_device": "nasal_cannula"
+        },
+        "type": "medical_treatment_order"
+      },
+      "committed_messages": [
+        {
+          "content": "I see your oxygen saturation is 80%, which is low. I'm going to start you on oxygen to help with your breathing. Can you tell me if you are feeling short of breath or having any chest pain?",
+          "recipient": "patient",
+          "speaker": "clinician",
+          "turn_index": 0
+        },
+        {
+          "content": "I have started oxygen therapy with a nasal cannula at 40% FiO2 to help you breathe more comfortably.",
+          "recipient": "patient",
+          "speaker": "nurse",
+          "turn_index": 0
+        }
+      ],
+      "diagnostic_orders_created": [],
+      "diagnostic_results_released": [],
+      "events": [
+        {
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          },
+          "turn_index": 0,
+          "type": "pending_question_created"
+        },
+        {
+          "payload": {
+            "action": {
+              "kind_hint": "oxygen_support",
+              "params": {
+                "FiO2": 0.4,
+                "PEEP_cmH2O": null,
+                "PEEP_used": null,
+                "oxygen_device": "nasal_cannula"
+              },
+              "raw_text": null
+            },
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "ordered_by": "clinician"
+          },
+          "turn_index": 0,
+          "type": "nurse_shadow_execution"
+        },
+        {
+          "payload": {
+            "spoke": true,
+            "triggered": true,
+            "visible_to": "public"
+          },
+          "turn_index": 0,
+          "type": "nurse_bedside_verbal_slot"
+        },
+        {
+          "payload": {
+            "label": "Defensiveness"
+          },
+          "turn_index": 0,
+          "type": "emotion_update"
+        },
+        {
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "params": {
+              "FiO2": 0.4,
+              "PEEP_cmH2O": null,
+              "PEEP_used": null,
+              "oxygen_device": "nasal_cannula"
+            },
+            "raw_text": null
+          },
+          "turn_index": 0,
+          "type": "physiology_engine_call"
+        },
+        {
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          },
+          "turn_index": 0,
+          "type": "physiology_update"
+        }
+      ],
+      "nurse_bedside_verbal_slots": [
+        {
+          "spoke": true,
+          "triggered": true,
+          "visible_to": "public"
+        }
+      ],
+      "nurse_shadow_execution": [
+        {
+          "action": {
+            "kind_hint": "oxygen_support",
+            "params": {
+              "FiO2": 0.4,
+              "PEEP_cmH2O": null,
+              "PEEP_used": null,
+              "oxygen_device": "nasal_cannula"
+            },
+            "raw_text": null
+          },
+          "executed_by": "nurse",
+          "execution_mode": "shadow_execution",
+          "ordered_by": "clinician"
+        }
+      ],
+      "parser_errors": [],
+      "physiology_action": {
+        "kind_hint": "oxygen_support",
+        "params": {
+          "FiO2": 0.4,
+          "PEEP_cmH2O": null,
+          "PEEP_used": null,
+          "oxygen_device": "nasal_cannula"
+        },
+        "raw_text": null
+      },
+      "state_after": {
+        "known_facts": {
+          "available_results": [],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": []
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.4,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "nasal_cannula",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 150.0,
+            "HR": 110.0,
+            "O2Sat": 86.0,
+            "RR": 30.0,
+            "T": 36.9
+          }
+        }
+      },
+      "state_before": {
+        "known_facts": {
+          "available_results": [],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": []
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.21,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": null,
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 150.0,
+            "HR": 110.0,
+            "O2Sat": 80.0,
+            "RR": 34.0,
+            "T": 36.9
+          }
+        }
+      },
+      "terminated": false,
+      "termination_reason": null,
+      "turn_index": 0,
+      "turn_index_after": 1,
+      "validation_drops": []
+    },
+    {
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "clinician_action": {
+        "action_type": "diagnostic_order",
+        "test_name": "Initial ECG",
+        "type": "diagnostic_order"
+      },
+      "committed_messages": [
+        {
+          "content": "Yes, I am feeling short of breath, but I do not have any chest pain.",
+          "recipient": "clinician",
+          "speaker": "patient",
+          "turn_index": 1
+        },
+        {
+          "content": "Thank you for letting me know you're short of breath without chest pain. To better understand your heart's condition, I would like to order an ECG. This will help us see how your heart is working.",
+          "recipient": "patient",
+          "speaker": "clinician",
+          "turn_index": 1
+        }
+      ],
+      "diagnostic_orders_created": [
+        {
+          "ordered_at_turn": 1,
+          "ready_at_turn": 3,
+          "test_name": "Initial ECG",
+          "turnaround_turns": 2
+        }
+      ],
+      "diagnostic_results_released": [],
+      "events": [
+        {
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          },
+          "turn_index": 1,
+          "type": "pending_question_resolved"
+        },
+        {
+          "payload": {
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "test_name": "Initial ECG",
+            "turnaround_turns": 2
+          },
+          "turn_index": 1,
+          "type": "diagnostic_order_created"
+        },
+        {
+          "payload": {
+            "label": "Defensiveness"
+          },
+          "turn_index": 1,
+          "type": "emotion_update"
+        },
+        {
+          "payload": {
+            "kind_hint": "no_action",
+            "params": {
+              "elapsed_min": 1
+            },
+            "raw_text": null
+          },
+          "turn_index": 1,
+          "type": "physiology_engine_call"
+        },
+        {
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          },
+          "turn_index": 1,
+          "type": "physiology_update"
+        }
+      ],
+      "nurse_bedside_verbal_slots": [],
+      "nurse_shadow_execution": [],
+      "parser_errors": [],
+      "physiology_action": {
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        },
+        "raw_text": null
+      },
+      "state_after": {
+        "known_facts": {
+          "available_results": [],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.4,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "nasal_cannula",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 145.0,
+            "HR": 115.0,
+            "O2Sat": 82.0,
+            "RR": 32.0,
+            "T": 36.9
+          }
+        }
+      },
+      "state_before": {
+        "known_facts": {
+          "available_results": [],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": []
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.4,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "nasal_cannula",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 150.0,
+            "HR": 110.0,
+            "O2Sat": 86.0,
+            "RR": 30.0,
+            "T": 36.9
+          }
+        }
+      },
+      "terminated": false,
+      "termination_reason": null,
+      "turn_index": 1,
+      "turn_index_after": 2,
+      "validation_drops": []
+    },
+    {
+      "active_agents": [
+        "clinician"
+      ],
+      "clinician_action": {
+        "action_type": "medical_treatment_order",
+        "family": "respiratory_support",
+        "kind_hint": "oxygen_support",
+        "params": {
+          "FiO2": 0.6,
+          "PEEP_cmH2O": null,
+          "PEEP_used": null,
+          "oxygen_device": "simple_mask"
+        },
+        "type": "medical_treatment_order"
+      },
+      "committed_messages": [
+        {
+          "content": "Your oxygen saturation is still low at 82%, and your breathing rate is quite fast. I want to increase your oxygen support to help you breathe better.",
+          "recipient": "patient",
+          "speaker": "clinician",
+          "turn_index": 2
+        },
+        {
+          "content": "I have placed a simple oxygen mask on you with 60% oxygen to help you breathe more comfortably. Please try to breathe slowly and deeply.",
+          "recipient": "patient",
+          "speaker": "nurse",
+          "turn_index": 2
+        }
+      ],
+      "diagnostic_orders_created": [],
+      "diagnostic_results_released": [],
+      "events": [
+        {
+          "payload": {
+            "action": {
+              "kind_hint": "oxygen_support",
+              "params": {
+                "FiO2": 0.6,
+                "PEEP_cmH2O": null,
+                "PEEP_used": null,
+                "oxygen_device": "simple_mask"
+              },
+              "raw_text": null
+            },
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "ordered_by": "clinician"
+          },
+          "turn_index": 2,
+          "type": "nurse_shadow_execution"
+        },
+        {
+          "payload": {
+            "spoke": true,
+            "triggered": true,
+            "visible_to": "public"
+          },
+          "turn_index": 2,
+          "type": "nurse_bedside_verbal_slot"
+        },
+        {
+          "payload": {
+            "label": "Defensiveness"
+          },
+          "turn_index": 2,
+          "type": "emotion_update"
+        },
+        {
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "params": {
+              "FiO2": 0.6,
+              "PEEP_cmH2O": null,
+              "PEEP_used": null,
+              "oxygen_device": "simple_mask"
+            },
+            "raw_text": null
+          },
+          "turn_index": 2,
+          "type": "physiology_engine_call"
+        },
+        {
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          },
+          "turn_index": 2,
+          "type": "physiology_update"
+        }
+      ],
+      "nurse_bedside_verbal_slots": [
+        {
+          "spoke": true,
+          "triggered": true,
+          "visible_to": "public"
+        }
+      ],
+      "nurse_shadow_execution": [
+        {
+          "action": {
+            "kind_hint": "oxygen_support",
+            "params": {
+              "FiO2": 0.6,
+              "PEEP_cmH2O": null,
+              "PEEP_used": null,
+              "oxygen_device": "simple_mask"
+            },
+            "raw_text": null
+          },
+          "executed_by": "nurse",
+          "execution_mode": "shadow_execution",
+          "ordered_by": "clinician"
+        }
+      ],
+      "parser_errors": [],
+      "physiology_action": {
+        "kind_hint": "oxygen_support",
+        "params": {
+          "FiO2": 0.6,
+          "PEEP_cmH2O": null,
+          "PEEP_used": null,
+          "oxygen_device": "simple_mask"
+        },
+        "raw_text": null
+      },
+      "state_after": {
+        "known_facts": {
+          "available_results": [],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.6,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "simple_mask",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 145.0,
+            "HR": 115.0,
+            "O2Sat": 90.0,
+            "RR": 28.0,
+            "T": 36.9
+          }
+        }
+      },
+      "state_before": {
+        "known_facts": {
+          "available_results": [],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.4,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "nasal_cannula",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 145.0,
+            "HR": 115.0,
+            "O2Sat": 82.0,
+            "RR": 32.0,
+            "T": 36.9
+          }
+        }
+      },
+      "terminated": false,
+      "termination_reason": null,
+      "turn_index": 2,
+      "turn_index_after": 3,
+      "validation_drops": []
+    },
+    {
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "clinician_action": {
+        "action_type": "medical_treatment_order",
+        "family": "respiratory_support",
+        "kind_hint": "oxygen_support",
+        "params": {
+          "FiO2": 0.8,
+          "PEEP_cmH2O": null,
+          "PEEP_used": null,
+          "oxygen_device": "NRB"
+        },
+        "type": "medical_treatment_order"
+      },
+      "committed_messages": [
+        {
+          "content": "The initial ECG shows normal sinus rhythm with ST\u2013T wave abnormalities suggesting possible inferior ischemia, but no significant change from the prior ECG.",
+          "recipient": "clinician",
+          "speaker": "nurse",
+          "turn_index": 3
+        },
+        {
+          "content": "Your oxygen saturation is 90% but your breathing rate is still quite fast. To help you breathe better, I am going to increase your oxygen support a bit more.",
+          "recipient": "patient",
+          "speaker": "clinician",
+          "turn_index": 3
+        },
+        {
+          "content": "You are receiving oxygen through a non-rebreather mask with a high concentration to help you breathe better. Please try to stay calm and breathe slowly and deeply.",
+          "recipient": "patient",
+          "speaker": "nurse",
+          "turn_index": 3
+        }
+      ],
+      "diagnostic_orders_created": [],
+      "diagnostic_results_released": [
+        {
+          "name": "Initial ECG",
+          "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+        }
+      ],
+      "events": [
+        {
+          "payload": {
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "released_at_turn": 3,
+            "test_name": "Initial ECG"
+          },
+          "turn_index": 3,
+          "type": "diagnostic_release"
+        },
+        {
+          "payload": {
+            "action": {
+              "kind_hint": "oxygen_support",
+              "params": {
+                "FiO2": 0.8,
+                "PEEP_cmH2O": null,
+                "PEEP_used": null,
+                "oxygen_device": "NRB"
+              },
+              "raw_text": null
+            },
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "ordered_by": "clinician"
+          },
+          "turn_index": 3,
+          "type": "nurse_shadow_execution"
+        },
+        {
+          "payload": {
+            "spoke": true,
+            "triggered": true,
+            "visible_to": "public"
+          },
+          "turn_index": 3,
+          "type": "nurse_bedside_verbal_slot"
+        },
+        {
+          "payload": {
+            "label": "Defensiveness"
+          },
+          "turn_index": 3,
+          "type": "emotion_update"
+        },
+        {
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "params": {
+              "FiO2": 0.8,
+              "PEEP_cmH2O": null,
+              "PEEP_used": null,
+              "oxygen_device": "NRB"
+            },
+            "raw_text": null
+          },
+          "turn_index": 3,
+          "type": "physiology_engine_call"
+        },
+        {
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          },
+          "turn_index": 3,
+          "type": "physiology_update"
+        }
+      ],
+      "nurse_bedside_verbal_slots": [
+        {
+          "spoke": true,
+          "triggered": true,
+          "visible_to": "public"
+        }
+      ],
+      "nurse_shadow_execution": [
+        {
+          "action": {
+            "kind_hint": "oxygen_support",
+            "params": {
+              "FiO2": 0.8,
+              "PEEP_cmH2O": null,
+              "PEEP_used": null,
+              "oxygen_device": "NRB"
+            },
+            "raw_text": null
+          },
+          "executed_by": "nurse",
+          "execution_mode": "shadow_execution",
+          "ordered_by": "clinician"
+        }
+      ],
+      "parser_errors": [],
+      "physiology_action": {
+        "kind_hint": "oxygen_support",
+        "params": {
+          "FiO2": 0.8,
+          "PEEP_cmH2O": null,
+          "PEEP_used": null,
+          "oxygen_device": "NRB"
+        },
+        "raw_text": null
+      },
+      "state_after": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.8,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 145.0,
+            "HR": 115.0,
+            "O2Sat": 92.0,
+            "RR": 28.0,
+            "T": 36.9
+          }
+        }
+      },
+      "state_before": {
+        "known_facts": {
+          "available_results": [],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.6,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "simple_mask",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 145.0,
+            "HR": 115.0,
+            "O2Sat": 90.0,
+            "RR": 28.0,
+            "T": 36.9
+          }
+        }
+      },
+      "terminated": false,
+      "termination_reason": null,
+      "turn_index": 3,
+      "turn_index_after": 4,
+      "validation_drops": []
+    },
+    {
+      "active_agents": [
+        "clinician"
+      ],
+      "clinician_action": {
+        "action_type": "diagnostic_order",
+        "test_name": "Chest X-ray",
+        "type": "diagnostic_order"
+      },
+      "committed_messages": [
+        {
+          "content": "I see you are still feeling short of breath and your breathing rate is quite fast. To help you breathe better, I am going to order a chest X-ray to check your lungs.",
+          "recipient": "patient",
+          "speaker": "clinician",
+          "turn_index": 4
+        }
+      ],
+      "diagnostic_orders_created": [
+        {
+          "ordered_at_turn": 4,
+          "ready_at_turn": 7,
+          "test_name": "Chest X-ray",
+          "turnaround_turns": 3
+        }
+      ],
+      "diagnostic_results_released": [],
+      "events": [
+        {
+          "payload": {
+            "ordered_at_turn": 4,
+            "ready_at_turn": 7,
+            "test_name": "Chest X-ray",
+            "turnaround_turns": 3
+          },
+          "turn_index": 4,
+          "type": "diagnostic_order_created"
+        },
+        {
+          "payload": {
+            "label": "Defensiveness"
+          },
+          "turn_index": 4,
+          "type": "emotion_update"
+        },
+        {
+          "payload": {
+            "kind_hint": "no_action",
+            "params": {
+              "elapsed_min": 1
+            },
+            "raw_text": null
+          },
+          "turn_index": 4,
+          "type": "physiology_engine_call"
+        },
+        {
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          },
+          "turn_index": 4,
+          "type": "physiology_update"
+        }
+      ],
+      "nurse_bedside_verbal_slots": [],
+      "nurse_shadow_execution": [],
+      "parser_errors": [],
+      "physiology_action": {
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        },
+        "raw_text": null
+      },
+      "state_after": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.8,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 140.0,
+            "HR": 120.0,
+            "O2Sat": 90.0,
+            "RR": 30.0,
+            "T": 36.9
+          }
+        }
+      },
+      "state_before": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.8,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 145.0,
+            "HR": 115.0,
+            "O2Sat": 92.0,
+            "RR": 28.0,
+            "T": 36.9
+          }
+        }
+      },
+      "terminated": false,
+      "termination_reason": null,
+      "turn_index": 4,
+      "turn_index_after": 5,
+      "validation_drops": []
+    },
+    {
+      "active_agents": [
+        "clinician"
+      ],
+      "clinician_action": {
+        "action_type": "medical_treatment_order",
+        "family": "respiratory_support",
+        "kind_hint": "oxygen_support",
+        "params": {
+          "FiO2": 0.9,
+          "PEEP_cmH2O": null,
+          "PEEP_used": null,
+          "oxygen_device": "NRB"
+        },
+        "type": "medical_treatment_order"
+      },
+      "committed_messages": [
+        {
+          "content": "I see your heart rate is quite fast at 120 beats per minute. To help your breathing and oxygen levels, I am going to increase your oxygen support a bit more.",
+          "recipient": "patient",
+          "speaker": "clinician",
+          "turn_index": 5
+        },
+        {
+          "content": "You are receiving oxygen through a non-rebreather mask with a high concentration to help support your breathing. Please try to breathe slowly and deeply.",
+          "recipient": "patient",
+          "speaker": "nurse",
+          "turn_index": 5
+        }
+      ],
+      "diagnostic_orders_created": [],
+      "diagnostic_results_released": [],
+      "events": [
+        {
+          "payload": {
+            "action": {
+              "kind_hint": "oxygen_support",
+              "params": {
+                "FiO2": 0.9,
+                "PEEP_cmH2O": null,
+                "PEEP_used": null,
+                "oxygen_device": "NRB"
+              },
+              "raw_text": null
+            },
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "ordered_by": "clinician"
+          },
+          "turn_index": 5,
+          "type": "nurse_shadow_execution"
+        },
+        {
+          "payload": {
+            "spoke": true,
+            "triggered": true,
+            "visible_to": "public"
+          },
+          "turn_index": 5,
+          "type": "nurse_bedside_verbal_slot"
+        },
+        {
+          "payload": {
+            "label": "Defensiveness"
+          },
+          "turn_index": 5,
+          "type": "emotion_update"
+        },
+        {
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "params": {
+              "FiO2": 0.9,
+              "PEEP_cmH2O": null,
+              "PEEP_used": null,
+              "oxygen_device": "NRB"
+            },
+            "raw_text": null
+          },
+          "turn_index": 5,
+          "type": "physiology_engine_call"
+        },
+        {
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          },
+          "turn_index": 5,
+          "type": "physiology_update"
+        }
+      ],
+      "nurse_bedside_verbal_slots": [
+        {
+          "spoke": true,
+          "triggered": true,
+          "visible_to": "public"
+        }
+      ],
+      "nurse_shadow_execution": [
+        {
+          "action": {
+            "kind_hint": "oxygen_support",
+            "params": {
+              "FiO2": 0.9,
+              "PEEP_cmH2O": null,
+              "PEEP_used": null,
+              "oxygen_device": "NRB"
+            },
+            "raw_text": null
+          },
+          "executed_by": "nurse",
+          "execution_mode": "shadow_execution",
+          "ordered_by": "clinician"
+        }
+      ],
+      "parser_errors": [],
+      "physiology_action": {
+        "kind_hint": "oxygen_support",
+        "params": {
+          "FiO2": 0.9,
+          "PEEP_cmH2O": null,
+          "PEEP_used": null,
+          "oxygen_device": "NRB"
+        },
+        "raw_text": null
+      },
+      "state_after": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.9,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 140.0,
+            "HR": 120.0,
+            "O2Sat": 95.0,
+            "RR": 27.0,
+            "T": 36.9
+          }
+        }
+      },
+      "state_before": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.8,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 140.0,
+            "HR": 120.0,
+            "O2Sat": 90.0,
+            "RR": 30.0,
+            "T": 36.9
+          }
+        }
+      },
+      "terminated": false,
+      "termination_reason": null,
+      "turn_index": 5,
+      "turn_index_after": 6,
+      "validation_drops": []
+    },
+    {
+      "active_agents": [
+        "clinician"
+      ],
+      "clinician_action": {
+        "action_type": "medical_treatment_order",
+        "family": "respiratory_support",
+        "kind_hint": "oxygen_support",
+        "params": {
+          "FiO2": 1.0,
+          "PEEP_cmH2O": null,
+          "PEEP_used": null,
+          "oxygen_device": "NRB"
+        },
+        "type": "medical_treatment_order"
+      },
+      "committed_messages": [
+        {
+          "content": "I see you are still feeling short of breath and your heart rate is quite fast at 120. To help you breathe better, I am going to increase your oxygen support a little more. Please try to keep breathing slowly and deeply.",
+          "recipient": "patient",
+          "speaker": "clinician",
+          "turn_index": 6
+        },
+        {
+          "content": "You are now receiving oxygen through a non-rebreather mask at 100% oxygen concentration. Please try to breathe normally and let us know if you feel any discomfort.",
+          "recipient": "patient",
+          "speaker": "nurse",
+          "turn_index": 6
+        }
+      ],
+      "diagnostic_orders_created": [],
+      "diagnostic_results_released": [],
+      "events": [
+        {
+          "payload": {
+            "action": {
+              "kind_hint": "oxygen_support",
+              "params": {
+                "FiO2": 1.0,
+                "PEEP_cmH2O": null,
+                "PEEP_used": null,
+                "oxygen_device": "NRB"
+              },
+              "raw_text": null
+            },
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "ordered_by": "clinician"
+          },
+          "turn_index": 6,
+          "type": "nurse_shadow_execution"
+        },
+        {
+          "payload": {
+            "spoke": true,
+            "triggered": true,
+            "visible_to": "public"
+          },
+          "turn_index": 6,
+          "type": "nurse_bedside_verbal_slot"
+        },
+        {
+          "payload": {
+            "label": "Defensiveness"
+          },
+          "turn_index": 6,
+          "type": "emotion_update"
+        },
+        {
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "params": {
+              "FiO2": 1.0,
+              "PEEP_cmH2O": null,
+              "PEEP_used": null,
+              "oxygen_device": "NRB"
+            },
+            "raw_text": null
+          },
+          "turn_index": 6,
+          "type": "physiology_engine_call"
+        },
+        {
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          },
+          "turn_index": 6,
+          "type": "physiology_update"
+        }
+      ],
+      "nurse_bedside_verbal_slots": [
+        {
+          "spoke": true,
+          "triggered": true,
+          "visible_to": "public"
+        }
+      ],
+      "nurse_shadow_execution": [
+        {
+          "action": {
+            "kind_hint": "oxygen_support",
+            "params": {
+              "FiO2": 1.0,
+              "PEEP_cmH2O": null,
+              "PEEP_used": null,
+              "oxygen_device": "NRB"
+            },
+            "raw_text": null
+          },
+          "executed_by": "nurse",
+          "execution_mode": "shadow_execution",
+          "ordered_by": "clinician"
+        }
+      ],
+      "parser_errors": [],
+      "physiology_action": {
+        "kind_hint": "oxygen_support",
+        "params": {
+          "FiO2": 1.0,
+          "PEEP_cmH2O": null,
+          "PEEP_used": null,
+          "oxygen_device": "NRB"
+        },
+        "raw_text": null
+      },
+      "state_after": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 1.0,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 140.0,
+            "HR": 120.0,
+            "O2Sat": 96.0,
+            "RR": 27.0,
+            "T": 36.9
+          }
+        }
+      },
+      "state_before": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 0.9,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 140.0,
+            "HR": 120.0,
+            "O2Sat": 95.0,
+            "RR": 27.0,
+            "T": 36.9
+          }
+        }
+      },
+      "terminated": false,
+      "termination_reason": null,
+      "turn_index": 6,
+      "turn_index_after": 7,
+      "validation_drops": []
+    },
+    {
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "clinician_action": {
+        "action_type": "medical_treatment_order",
+        "family": "respiratory_support",
+        "kind_hint": "bronchodilator",
+        "params": {
+          "dose": null,
+          "drug_name": "albuterol",
+          "unit": null
+        },
+        "type": "medical_treatment_order"
+      },
+      "committed_messages": [
+        {
+          "content": "The chest X-ray is now available. The resource link is provided in the supporting documents for your review.",
+          "recipient": "clinician",
+          "speaker": "nurse",
+          "turn_index": 7
+        },
+        {
+          "content": "I see you are still feeling short of breath and your heart rate remains high. To help you breathe better, I want to start a bronchodilator medication. This will help open your airways and ease your breathing.",
+          "recipient": "patient",
+          "speaker": "clinician",
+          "turn_index": 7
+        },
+        {
+          "content": "You are receiving albuterol now to help open your airways. Please try to breathe slowly and deeply while the medication works.",
+          "recipient": "patient",
+          "speaker": "nurse",
+          "turn_index": 7
+        }
+      ],
+      "diagnostic_orders_created": [],
+      "diagnostic_results_released": [
+        {
+          "name": "Chest X-ray",
+          "result": "CXR resource link provided in supporting documents; no text interpretation stated."
+        }
+      ],
+      "events": [
+        {
+          "payload": {
+            "ordered_at_turn": 4,
+            "ready_at_turn": 7,
+            "released_at_turn": 7,
+            "test_name": "Chest X-ray"
+          },
+          "turn_index": 7,
+          "type": "diagnostic_release"
+        },
+        {
+          "payload": {
+            "action": {
+              "kind_hint": "bronchodilator",
+              "params": {
+                "dose": null,
+                "drug_name": "albuterol",
+                "unit": null
+              },
+              "raw_text": null
+            },
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "ordered_by": "clinician"
+          },
+          "turn_index": 7,
+          "type": "nurse_shadow_execution"
+        },
+        {
+          "payload": {
+            "spoke": true,
+            "triggered": true,
+            "visible_to": "public"
+          },
+          "turn_index": 7,
+          "type": "nurse_bedside_verbal_slot"
+        },
+        {
+          "payload": {
+            "label": "Defensiveness"
+          },
+          "turn_index": 7,
+          "type": "emotion_update"
+        },
+        {
+          "payload": {
+            "kind_hint": "bronchodilator",
+            "params": {
+              "dose": null,
+              "drug_name": "albuterol",
+              "unit": null
+            },
+            "raw_text": null
+          },
+          "turn_index": 7,
+          "type": "physiology_engine_call"
+        },
+        {
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          },
+          "turn_index": 7,
+          "type": "physiology_update"
+        }
+      ],
+      "nurse_bedside_verbal_slots": [
+        {
+          "spoke": true,
+          "triggered": true,
+          "visible_to": "public"
+        }
+      ],
+      "nurse_shadow_execution": [
+        {
+          "action": {
+            "kind_hint": "bronchodilator",
+            "params": {
+              "dose": null,
+              "drug_name": "albuterol",
+              "unit": null
+            },
+            "raw_text": null
+          },
+          "executed_by": "nurse",
+          "execution_mode": "shadow_execution",
+          "ordered_by": "clinician"
+        }
+      ],
+      "parser_errors": [],
+      "physiology_action": {
+        "kind_hint": "bronchodilator",
+        "params": {
+          "dose": null,
+          "drug_name": "albuterol",
+          "unit": null
+        },
+        "raw_text": null
+      },
+      "state_after": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR resource link provided in supporting documents; no text interpretation stated."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 1.0,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 140.0,
+            "HR": 115.0,
+            "O2Sat": 96.0,
+            "RR": 22.0,
+            "T": 36.9
+          }
+        }
+      },
+      "state_before": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 1.0,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 140.0,
+            "HR": 120.0,
+            "O2Sat": 96.0,
+            "RR": 27.0,
+            "T": 36.9
+          }
+        }
+      },
+      "terminated": false,
+      "termination_reason": null,
+      "turn_index": 7,
+      "turn_index_after": 8,
+      "validation_drops": []
+    },
+    {
+      "active_agents": [
+        "clinician"
+      ],
+      "clinician_action": {
+        "action_type": "medical_treatment_order",
+        "family": "medication_toxicology_metabolic",
+        "kind_hint": "corticosteroid",
+        "params": {
+          "dose": null,
+          "drug_name": "corticosteroid",
+          "unit": null
+        },
+        "type": "medical_treatment_order"
+      },
+      "committed_messages": [
+        {
+          "content": "I see you are still feeling short of breath and your heart rate remains elevated. To help further, I want to start a corticosteroid medication which can reduce inflammation in your airways. Does that sound okay to you?",
+          "recipient": "patient",
+          "speaker": "clinician",
+          "turn_index": 8
+        },
+        {
+          "content": "You are receiving a corticosteroid medication now. This will help reduce inflammation and improve your symptoms.",
+          "recipient": "patient",
+          "speaker": "nurse",
+          "turn_index": 8
+        }
+      ],
+      "diagnostic_orders_created": [],
+      "diagnostic_results_released": [],
+      "events": [
+        {
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          },
+          "turn_index": 8,
+          "type": "pending_question_created"
+        },
+        {
+          "payload": {
+            "action": {
+              "kind_hint": "corticosteroid",
+              "params": {
+                "dose": null,
+                "drug_name": "corticosteroid",
+                "unit": null
+              },
+              "raw_text": null
+            },
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "ordered_by": "clinician"
+          },
+          "turn_index": 8,
+          "type": "nurse_shadow_execution"
+        },
+        {
+          "payload": {
+            "spoke": true,
+            "triggered": true,
+            "visible_to": "public"
+          },
+          "turn_index": 8,
+          "type": "nurse_bedside_verbal_slot"
+        },
+        {
+          "payload": {
+            "label": "Defensiveness"
+          },
+          "turn_index": 8,
+          "type": "emotion_update"
+        },
+        {
+          "payload": {
+            "kind_hint": "corticosteroid",
+            "params": {
+              "dose": null,
+              "drug_name": "corticosteroid",
+              "unit": null
+            },
+            "raw_text": null
+          },
+          "turn_index": 8,
+          "type": "physiology_engine_call"
+        },
+        {
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          },
+          "turn_index": 8,
+          "type": "physiology_update"
+        }
+      ],
+      "nurse_bedside_verbal_slots": [
+        {
+          "spoke": true,
+          "triggered": true,
+          "visible_to": "public"
+        }
+      ],
+      "nurse_shadow_execution": [
+        {
+          "action": {
+            "kind_hint": "corticosteroid",
+            "params": {
+              "dose": null,
+              "drug_name": "corticosteroid",
+              "unit": null
+            },
+            "raw_text": null
+          },
+          "executed_by": "nurse",
+          "execution_mode": "shadow_execution",
+          "ordered_by": "clinician"
+        }
+      ],
+      "parser_errors": [],
+      "physiology_action": {
+        "kind_hint": "corticosteroid",
+        "params": {
+          "dose": null,
+          "drug_name": "corticosteroid",
+          "unit": null
+        },
+        "raw_text": null
+      },
+      "state_after": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR resource link provided in supporting documents; no text interpretation stated."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 1.0,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 140.0,
+            "HR": 115.0,
+            "O2Sat": 96.0,
+            "RR": 22.0,
+            "T": 36.9
+          }
+        }
+      },
+      "state_before": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR resource link provided in supporting documents; no text interpretation stated."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 1.0,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 140.0,
+            "HR": 115.0,
+            "O2Sat": 96.0,
+            "RR": 22.0,
+            "T": 36.9
+          }
+        }
+      },
+      "terminated": false,
+      "termination_reason": null,
+      "turn_index": 8,
+      "turn_index_after": 9,
+      "validation_drops": []
+    },
+    {
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "clinician_action": null,
+      "committed_messages": [
+        {
+          "content": "Yes, that sounds okay to me. I want to feel better and breathe easier.",
+          "recipient": "clinician",
+          "speaker": "patient",
+          "turn_index": 9
+        },
+        {
+          "content": "You are still feeling short of breath despite the treatments so far. To help further, I want to check your chest with an X-ray to see if there is anything else affecting your breathing. Is that okay?",
+          "recipient": "patient",
+          "speaker": "clinician",
+          "turn_index": 9
+        }
+      ],
+      "diagnostic_orders_created": [],
+      "diagnostic_results_released": [],
+      "events": [
+        {
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          },
+          "turn_index": 9,
+          "type": "pending_question_resolved"
+        },
+        {
+          "payload": {
+            "agent": "clinician",
+            "errors": [
+              "Diagnostic test_name 'Chest X-ray' already has an available result; duplicate diagnostic_order is not allowed."
+            ],
+            "item": "action"
+          },
+          "turn_index": 9,
+          "type": "validation_drop"
+        },
+        {
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          },
+          "turn_index": 9,
+          "type": "pending_question_created"
+        },
+        {
+          "payload": {
+            "label": "Defensiveness"
+          },
+          "turn_index": 9,
+          "type": "emotion_update"
+        },
+        {
+          "payload": {
+            "kind_hint": "no_action",
+            "params": {
+              "elapsed_min": 1
+            },
+            "raw_text": null
+          },
+          "turn_index": 9,
+          "type": "physiology_engine_call"
+        },
+        {
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          },
+          "turn_index": 9,
+          "type": "physiology_update"
+        }
+      ],
+      "nurse_bedside_verbal_slots": [],
+      "nurse_shadow_execution": [],
+      "parser_errors": [],
+      "physiology_action": {
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        },
+        "raw_text": null
+      },
+      "state_after": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR resource link provided in supporting documents; no text interpretation stated."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain.",
+            "Yes, that sounds okay to me. I want to feel better and breathe easier."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 1.0,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 135.0,
+            "HR": 120.0,
+            "O2Sat": 93.0,
+            "RR": 25.0,
+            "T": 36.9
+          }
+        }
+      },
+      "state_before": {
+        "known_facts": {
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Normal sinus rhythm; ST\u2013T wave abnormality, consider inferior ischemia; no significant change from prior ECG."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR resource link provided in supporting documents; no text interpretation stated."
+            }
+          ],
+          "chief_complaint": null,
+          "known_allergies": [],
+          "known_history": [],
+          "known_medications": [],
+          "known_symptoms": [
+            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          ]
+        },
+        "patient_state": {
+          "features": {
+            "FiO2": 1.0,
+            "PEEP_cmH2O": null,
+            "glucose_mmol_l": 6.2,
+            "intubated": false,
+            "neuro_status": "GCS 15",
+            "oxygen_device": "NRB",
+            "rhythm": "NSR",
+            "vent": false
+          },
+          "status_flags": {
+            "can_speak": true,
+            "is_alive": true,
+            "is_conscious": true
+          },
+          "vitals": {
+            "BP_dia": 95.0,
+            "BP_sys": 140.0,
+            "HR": 115.0,
+            "O2Sat": 96.0,
+            "RR": 22.0,
+            "T": 36.9
+          }
+        }
+      },
+      "terminated": false,
+      "termination_reason": null,
+      "turn_index": 9,
+      "turn_index_after": 10,
+      "validation_drops": [
+        {
+          "payload": {
+            "agent": "clinician",
+            "errors": [
+              "Diagnostic test_name 'Chest X-ray' already has an available result; duplicate diagnostic_order is not allowed."
+            ],
+            "item": "action"
+          },
+          "turn_index": 9,
+          "type": "validation_drop"
+        }
+      ]
+    }
+  ]
+}

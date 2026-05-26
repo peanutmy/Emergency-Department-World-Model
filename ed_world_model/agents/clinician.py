@@ -99,6 +99,17 @@ def build_clinician_prompt(
             "the observation, recent messages, and clinician profile/traits."
         ),
         (
+            "Use clinician AgentProfile traits to shape only communication style: "
+            "tone, concision, confidence, bedside manner, explanation depth, "
+            "teaching style, and who you address."
+        ),
+        (
+            "Profile traits must not change observed facts, available diagnostic "
+            "results, allowed actions, or action validation. Clinical decisions "
+            "must remain grounded in the role-specific observation, released "
+            "results, available action menu, and available diagnostic test names."
+        ),
+        (
             "If you produce a clinician action, first silently reason about "
             "which single medical_treatment_order or diagnostic_order fits "
             "based only on the observation, released results, available action "

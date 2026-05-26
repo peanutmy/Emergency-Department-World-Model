@@ -9,6 +9,8 @@ from typing import Any
 
 from ed_world_model.constants import DEFAULT_DIAGNOSTIC_TURNAROUND_TURNS
 from ed_world_model.state.global_state import (
+    AgentProfile,
+    AgentProfiles,
     Demographics,
     Features,
     GlobalState,
@@ -92,10 +94,43 @@ class ScenarioLoader:
             runtime_state_data["max_turns"] = max_turns
 
         return GlobalState(
+            agent_profiles=self._build_agent_profiles(scenario_data),
             truth_state=truth_state,
             patient_state=patient_state,
             runtime_state=RuntimeState(**runtime_state_data),
         )
+
+    def _build_agent_profiles(self, scenario: Mapping[str, Any]) -> AgentProfiles:
+        profiles = scenario.get("agent_profiles")
+        if profiles is None:
+            return AgentProfiles()
+
+        profiles_mapping = self._mapping_or_empty(profiles, "agent_profiles")
+        profile_data: dict[str, AgentProfile] = {}
+        for role in AgentProfiles.model_fields:
+            profile = profiles_mapping.get(role)
+            if profile is None:
+                continue
+            profile_mapping = self._mapping_or_empty(profile, f"agent_profiles.{role}")
+            filtered = {
+                key: profile_mapping[key]
+                for key in AgentProfile.model_fields
+                if key in profile_mapping
+            }
+            supplied_role = filtered.get("role")
+            if supplied_role is not None and supplied_role != role and self.strict:
+                raise ValueError(
+                    f"agent_profiles.{role}.role must be {role!r}, "
+                    f"got {supplied_role!r}."
+                )
+            filtered["role"] = role
+            try:
+                profile_data[role] = AgentProfile.model_validate(filtered)
+            except ValueError as exc:
+                if self.strict:
+                    raise ValueError(f"agent_profiles.{role} is invalid.") from exc
+
+        return AgentProfiles(**profile_data)
 
     def _build_demographics(self, case_context: Mapping[str, Any]) -> Demographics:
         demographics = self._mapping_or_empty(
