@@ -321,8 +321,8 @@
           "known_allergies": [],
           "known_history": [],
           "known_medications": [],
-          "known_symptoms": [
-            "Yes, I am feeling short of breath, but I do not have any chest pain."
+          "known_symptoms": [ 
+            "Yes, I am feeling short of breath, but I do not have any chest pain." 
           ]
         },
         "patient_state": {
