@@ -35,6 +35,14 @@ class SpyRealLLMClient:
 
     def generate(self, prompt: str) -> str:
         self.prompts.append(prompt)
+        if "Stage 1" in prompt and "You are the clinician" in prompt:
+            return '{"action": null, "verbal_decision": null}'
+        if "Stage 1" in prompt and "patient should speak" in prompt:
+            return (
+                '{"speaker": "patient", "should_speak": false, "target": null, '
+                '"intent": "stay silent", "reasoning_summary": "No response needed.", '
+                '"key_points": [], "forbidden_points": [], "requires_response": false}'
+            )
         if "You are the clinician" in prompt:
             return '{"verbal_action": null, "action": null}'
         return '{"verbal_action": null}'

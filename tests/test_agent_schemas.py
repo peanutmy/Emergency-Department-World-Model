@@ -15,7 +15,12 @@ from ed_world_model.agents.schemas import (
     AgentProposal,
     AgentRuntimeInput,
     VerbalAction,
+    VerbalDecision,
     VerbalOnlyProposal,
+)
+from ed_world_model.agents.verbal_decision import (
+    VerbalDecisionParserError,
+    parse_verbal_decision,
 )
 
 
@@ -148,3 +153,81 @@ def test_verbal_only_proposal_rejects_action() -> None:
             verbal_action=VerbalAction(speaker="nurse", content="I am here."),
             action={"type": "medical_treatment_order"},
         )
+
+
+def _valid_patient_decision() -> dict:
+    return {
+        "speaker": "patient",
+        "should_speak": True,
+        "target": "clinician",
+        "intent": "answer the clinician",
+        "reasoning_summary": "The clinician asked about symptoms.",
+        "key_points": ["shortness of breath"],
+        "forbidden_points": ["do not add leg swelling"],
+        "requires_response": False,
+    }
+
+
+def test_verbal_decision_parses_valid_json() -> None:
+    decision = parse_verbal_decision(_valid_patient_decision(), speaker="patient")
+
+    assert isinstance(decision, VerbalDecision)
+    assert decision.speaker == "patient"
+    assert decision.key_points == ["shortness of breath"]
+
+
+def test_verbal_decision_preserves_nulls() -> None:
+    payload = _valid_patient_decision()
+    payload["target"] = None
+    payload["intent"] = None
+    payload["reasoning_summary"] = None
+
+    decision = parse_verbal_decision(payload, speaker="patient")
+
+    assert decision.target is None
+    assert decision.intent is None
+    assert decision.reasoning_summary is None
+
+
+@pytest.mark.parametrize(
+    "forbidden_key",
+    ["raw_text", "chain_of_thought", "internal_reasoning", "action", "intent_type"],
+)
+def test_verbal_decision_rejects_forbidden_keys(forbidden_key: str) -> None:
+    payload = _valid_patient_decision()
+    payload[forbidden_key] = "forbidden"
+
+    with pytest.raises(VerbalDecisionParserError, match=forbidden_key):
+        parse_verbal_decision(payload, speaker="patient")
+
+
+def test_verbal_decision_rejects_invalid_speaker() -> None:
+    payload = _valid_patient_decision()
+    payload["speaker"] = "nurse"
+
+    with pytest.raises(VerbalDecisionParserError, match="speaker"):
+        parse_verbal_decision(payload, speaker="patient")
+
+
+def test_verbal_decision_silence_shape_requires_no_response() -> None:
+    decision = VerbalDecision(
+        speaker="patient",
+        should_speak=False,
+        target=None,
+        intent="stay silent",
+        reasoning_summary="No useful patient response is needed.",
+        requires_response=False,
+    )
+
+    assert decision.target is None
+    assert decision.requires_response is False
+
+
+def test_verbal_decision_does_not_require_global_state_or_profile_context() -> None:
+    fields = set(VerbalDecision.model_fields)
+
+    assert "GlobalState" not in fields
+    assert "global_state" not in fields
+    assert "profile" not in fields
+    assert "traits" not in fields
+    assert "emotion_context" not in fields

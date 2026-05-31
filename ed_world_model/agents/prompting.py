@@ -15,7 +15,12 @@ from ed_world_model.agents.schemas import (
 
 VERBAL_ONLY_ROLES = {"nurse", "patient", "relative"}
 ALL_ROLES = {"clinician", *VERBAL_ONLY_ROLES}
-FORBIDDEN_OUTPUT_KEYS = {"raw_text", "internal_reasoning", "chain_of_thought"}
+FORBIDDEN_OUTPUT_KEYS = {
+    "raw_text",
+    "internal_reasoning",
+    "chain_of_thought",
+    "intent_type",
+}
 VERBAL_ONLY_FORBIDDEN_OUTPUT_KEYS = {
     *FORBIDDEN_OUTPUT_KEYS,
     "action",

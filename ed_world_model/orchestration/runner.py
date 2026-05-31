@@ -53,6 +53,7 @@ class TrajectoryTurn:
     physiology_called: bool = False
     physiology_action_kind_hint: str | None = None
     physiology_action: dict[str, Any] | None = None
+    agent_verbal_decisions: list[dict[str, Any]] = field(default_factory=list)
     events: list[dict[str, Any]] = field(default_factory=list)
     released_diagnostics: list[dict[str, Any]] = field(default_factory=list)
     termination_reason: str | None = None
@@ -99,9 +100,18 @@ class RecordingStubPhysiologyAdapter:
 
 
 _DEFAULT_LLM_RESPONSES_BY_ROLE = {
-    CLINICIAN: {"verbal_action": None, "action": None},
+    CLINICIAN: {"action": None, "verbal_decision": None},
     NURSE: {"verbal_action": None},
-    PATIENT: {"verbal_action": None},
+    PATIENT: {
+        "speaker": PATIENT,
+        "should_speak": False,
+        "target": None,
+        "intent": "stay silent",
+        "reasoning_summary": "No patient response is needed from the observation.",
+        "key_points": [],
+        "forbidden_points": [],
+        "requires_response": False,
+    },
     RELATIVE: {"verbal_action": None},
 }
 
@@ -315,6 +325,7 @@ def _trajectory_turn(
         physiology_called=result.physiology_called,
         physiology_action_kind_hint=result.physiology_action_kind_hint,
         physiology_action=deepcopy(result.physiology_action),
+        agent_verbal_decisions=deepcopy(result.agent_verbal_decisions),
         events=deepcopy(result.events),
         released_diagnostics=deepcopy(result.released_diagnostics),
         termination_reason=result.termination_reason,

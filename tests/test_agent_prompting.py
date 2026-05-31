@@ -202,6 +202,18 @@ def test_parser_rejects_internal_reasoning_and_chain_of_thought_fields() -> None
         )
 
 
+def test_parser_rejects_intent_type_field() -> None:
+    with pytest.raises(ValueError, match="intent_type"):
+        parse_agent_proposal(
+            {
+                "verbal_action": None,
+                "action": None,
+                "intent_type": "question",
+            },
+            role="clinician",
+        )
+
+
 def test_parser_rejects_action_for_verbal_only_roles() -> None:
     with pytest.raises(ValueError, match="verbal-only"):
         parse_agent_proposal(

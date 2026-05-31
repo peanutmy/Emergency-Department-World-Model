@@ -57,6 +57,7 @@ class TurnResult:
     physiology_called: bool = False
     physiology_action_kind_hint: str | None = None
     physiology_action: dict[str, Any] | None = None
+    agent_verbal_decisions: list[dict[str, Any]] = field(default_factory=list)
     events: list[dict[str, Any]] = field(default_factory=list)
     released_diagnostics: list[dict[str, Any]] = field(default_factory=list)
     termination_reason: str | None = None
@@ -93,6 +94,7 @@ class TurnLoop:
         state = self.state_manager.state
         current_turn = state.runtime_state.turn_index
         state_before = _public_state_snapshot(state)
+        self._current_agent_verbal_decisions: list[dict[str, Any]] = []
         released = self.state_manager.release_ready_diagnostic_results(
             current_turn=current_turn
         )
@@ -237,12 +239,15 @@ class TurnLoop:
             active_agents=list(decision.active_agents),
             committed_messages=committed_messages,
             validation_results=validation_results,
-            physiology_called=True,
-            physiology_action_kind_hint=physiology_action.get("kind_hint"),
-            physiology_action=deepcopy(physiology_action),
-            events=events,
-            released_diagnostics=[_dump(result) for result in released],
-            termination_reason=None,
+                physiology_called=True,
+                physiology_action_kind_hint=physiology_action.get("kind_hint"),
+                physiology_action=deepcopy(physiology_action),
+                agent_verbal_decisions=deepcopy(
+                    self._current_agent_verbal_decisions
+                ),
+                events=events,
+                released_diagnostics=[_dump(result) for result in released],
+                termination_reason=None,
         )
 
     def _generate_proposals(
@@ -268,12 +273,15 @@ class TurnLoop:
                     agent.generate(observations.get(agent_name, {}))
                 )
             except AGENT_GENERATION_ERRORS as exc:
+                self._record_agent_verbal_decision(agent)
                 self._record_agent_generation_drop(
                     agent=agent_name,
                     exc=exc,
                     phase="primary_agent_generation",
                 )
                 proposal = AgentProposal()
+            else:
+                self._record_agent_verbal_decision(agent)
             if agent_name != CLINICIAN and proposal.action is not None:
                 self._record_validation_drop(
                     agent=agent_name,
@@ -282,6 +290,14 @@ class TurnLoop:
                 proposal = AgentProposal(verbal_action=proposal.verbal_action)
             proposals[agent_name] = proposal
         return proposals
+
+    def _record_agent_verbal_decision(self, agent: Any) -> None:
+        decision = getattr(agent, "last_verbal_decision", None)
+        if decision is None:
+            return
+        dumped = _dump(decision)
+        if isinstance(dumped, Mapping):
+            self._current_agent_verbal_decisions.append(deepcopy(dict(dumped)))
 
     def _commit_primary_verbal_actions(
         self,

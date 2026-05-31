@@ -18,8 +18,12 @@ from ed_world_model.actions.validator import ActionValidator
 from ed_world_model.agents.clinician import (
     ClinicianAgent,
     ClinicianParserError,
+    build_clinician_decision_prompt,
     build_clinician_prompt,
+    build_clinician_verbal_prompt,
+    parse_clinician_decision_response,
     parse_clinician_response,
+    parse_clinician_verbal_response,
 )
 from ed_world_model.agents.schemas import AgentProfile, ClinicianProposal
 from ed_world_model.state.global_state import (
@@ -61,6 +65,57 @@ def _prompt() -> str:
     )
 
 
+def _decision_prompt() -> str:
+    return build_clinician_decision_prompt(
+        _observation(),
+        action_registry=ActionRegistry(),
+    )
+
+
+def _clinician_decision(action=None, *, should_speak: bool = True) -> dict:
+    return {
+        "action": action,
+        "verbal_decision": (
+            {
+                "speaker": "clinician",
+                "should_speak": should_speak,
+                "target": "patient" if should_speak else None,
+                "intent": "explain the selected action" if should_speak else "stay silent",
+                "reasoning_summary": "The decision is grounded in the observation.",
+                "key_points": ["Use only the selected action."],
+                "forbidden_points": ["Do not mention extra actions."],
+                "requires_response": False,
+            }
+            if should_speak
+            else {
+                "speaker": "clinician",
+                "should_speak": False,
+                "target": None,
+                "intent": "stay silent",
+                "reasoning_summary": "No verbal message is needed.",
+                "key_points": [],
+                "forbidden_points": [],
+                "requires_response": False,
+            }
+        ),
+    }
+
+
+def _verbal_prompt() -> str:
+    return build_clinician_verbal_prompt(
+        _observation(),
+        {"type": "diagnostic_order", "test_name": "ECG"},
+        _clinician_decision(
+            {"type": "diagnostic_order", "test_name": "ECG"}
+        )["verbal_decision"],
+        profile=AgentProfile(
+            role="clinician",
+            name="Dr. Lee",
+            traits={"experience_level": "attending"},
+        ),
+    )
+
+
 def _json_output(verbal_action=None, action=None) -> str:
     return json.dumps({"verbal_action": verbal_action, "action": action})
 
@@ -96,6 +151,53 @@ def test_build_prompt_includes_available_diagnostic_test_names() -> None:
     assert "Available diagnostic test names" in prompt
     assert "ECG" in prompt
     assert "CXR" in prompt
+
+
+def test_clinician_decision_prompt_excludes_profile_traits_and_emotion() -> None:
+    prompt = build_clinician_decision_prompt(
+        {
+            **_observation(),
+            "profile": {"name": "Dr. Lee"},
+            "traits": {"style": "concise"},
+            "emotion_context": {"label": "fear"},
+            "patient_internal_state": {"hidden_history": ["hypertension"]},
+        },
+        action_registry=ActionRegistry(),
+    )
+
+    assert "Stage 1 does not use AgentProfile, traits" in prompt
+    assert '"profile"' not in prompt
+    assert '"traits"' not in prompt
+    assert '"emotion_context"' not in prompt
+    assert '"patient_internal_state"' not in prompt
+
+
+def test_clinician_decision_prompt_says_decision_not_final_message() -> None:
+    prompt = _decision_prompt()
+
+    assert "decide the structured action and verbal communication decision" in prompt
+    assert "Do not output the final verbal message in Stage 1" in prompt
+    assert '"verbal_decision"' in prompt
+
+
+def test_clinician_decision_prompt_requires_action_verbal_consistency() -> None:
+    prompt = _decision_prompt()
+
+    assert "verbal_decision must be consistent with the selected action" in prompt
+    assert "must not mention tests, treatments, or actions not represented" in prompt
+    assert "If action is null" in prompt
+
+
+def test_clinician_decision_prompt_uses_exact_results_and_vitals() -> None:
+    prompt = _decision_prompt()
+
+    assert "use exact test names and results from the observation" in prompt
+    assert "describe it as pending/in progress" in prompt
+    assert "use exact vital sign values" in prompt
+
+
+def test_clinician_decision_prompt_has_no_intent_type_field() -> None:
+    assert "intent_type" not in _decision_prompt()
 
 
 def test_build_prompt_says_at_most_one_structured_action_per_turn() -> None:
@@ -433,6 +535,33 @@ def test_parse_valid_verbal_and_action_response() -> None:
     assert proposal.action["kind_hint"] == KindHint.OXYGEN_SUPPORT
 
 
+def test_parse_valid_clinician_decision_response() -> None:
+    parsed = parse_clinician_decision_response(
+        _clinician_decision({"type": "diagnostic_order", "test_name": "ECG"})
+    )
+
+    assert parsed.action == {"type": "diagnostic_order", "test_name": "ECG"}
+    assert parsed.verbal_decision is not None
+    assert parsed.verbal_decision.speaker == "clinician"
+
+
+def test_parse_valid_clinician_final_verbal_response() -> None:
+    verbal_action = parse_clinician_verbal_response(
+        {
+            "verbal_action": {
+                "speaker": "clinician",
+                "target": "patient",
+                "content": "I am ordering the ECG.",
+                "requires_response": False,
+            }
+        }
+    )
+
+    assert verbal_action is not None
+    assert verbal_action.recipient == "patient"
+    assert verbal_action.content == "I am ordering the ECG."
+
+
 def test_parse_multi_action_verbal_text_still_parses_without_semantic_rejection() -> None:
     proposal = parse_clinician_response(
         _json_output(
@@ -548,6 +677,39 @@ def test_reject_internal_reasoning_and_chain_of_thought_anywhere() -> None:
         )
 
 
+def test_reject_intent_type_in_decision_or_final_verbal_response() -> None:
+    with pytest.raises(ClinicianParserError, match="intent_type"):
+        parse_clinician_decision_response(
+            {
+                "action": None,
+                "verbal_decision": {
+                    "speaker": "clinician",
+                    "should_speak": True,
+                    "target": "patient",
+                    "intent": "ask question",
+                    "reasoning_summary": "Need a focused question.",
+                    "key_points": [],
+                    "forbidden_points": [],
+                    "requires_response": True,
+                    "intent_type": "question",
+                },
+            }
+        )
+
+    with pytest.raises(ClinicianParserError, match="intent_type"):
+        parse_clinician_verbal_response(
+            {
+                "verbal_action": {
+                    "speaker": "clinician",
+                    "target": "patient",
+                    "content": "How are you feeling?",
+                    "requires_response": True,
+                    "intent_type": "question",
+                }
+            }
+        )
+
+
 def test_reject_invalid_json() -> None:
     with pytest.raises(ClinicianParserError, match="valid strict JSON"):
         parse_clinician_response('{"verbal_action": null, "action": null')
@@ -615,18 +777,23 @@ def test_diagnostic_order_parsed_output_contains_test_name_only_not_result() -> 
 
 def test_fake_llm_callable_generate_path_returns_parsed_proposal() -> None:
     prompts: list[str] = []
+    responses = [
+        json.dumps(_clinician_decision({"type": "diagnostic_order", "test_name": "ECG"})),
+        json.dumps(
+            {
+                "verbal_action": {
+                    "speaker": "clinician",
+                    "target": "patient",
+                    "content": "We are checking your heart tracing.",
+                    "requires_response": False,
+                }
+            }
+        ),
+    ]
 
     def fake_llm(prompt: str) -> str:
         prompts.append(prompt)
-        return _json_output(
-            verbal_action={
-                "speaker": "clinician",
-                "target": "patient",
-                "content": "We are checking your heart tracing.",
-                "requires_response": False,
-            },
-            action={"type": "diagnostic_order", "test_name": "ECG"},
-        )
+        return responses.pop(0)
 
     agent = ClinicianAgent(
         fake_llm,
@@ -635,9 +802,31 @@ def test_fake_llm_callable_generate_path_returns_parsed_proposal() -> None:
 
     proposal = agent.generate(_observation())
 
-    assert len(prompts) == 1
-    assert "You are the clinician in an ED simulation." in prompts[0]
+    assert len(prompts) == 2
+    assert "Stage 1" in prompts[0]
+    assert "Profile traits" not in prompts[0]
+    assert "Stage 2" in prompts[1]
+    assert "Profile traits" in prompts[1]
     assert proposal.verbal_action.recipient == "patient"
+    assert proposal.action == {"type": "diagnostic_order", "test_name": "ECG"}
+
+
+def test_clinician_should_speak_false_can_return_action_only_proposal() -> None:
+    prompts: list[str] = []
+
+    def fake_llm(prompt: str) -> str:
+        prompts.append(prompt)
+        return json.dumps(
+            _clinician_decision(
+                {"type": "diagnostic_order", "test_name": "ECG"},
+                should_speak=False,
+            )
+        )
+
+    proposal = ClinicianAgent(fake_llm).generate(_observation())
+
+    assert len(prompts) == 1
+    assert proposal.verbal_action is None
     assert proposal.action == {"type": "diagnostic_order", "test_name": "ECG"}
 
 

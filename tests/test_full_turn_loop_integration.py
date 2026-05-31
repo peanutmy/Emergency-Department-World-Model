@@ -14,10 +14,18 @@ if str(ROOT) not in sys.path:
 import ed_world_model.orchestration.runner as runner_module
 from ed_world_model.actions.registry import ActionFamily, KindHint
 from ed_world_model.adapters.noop_emotion import NoopEmotionEngine
-from ed_world_model.agents.clinician import ClinicianAgent, parse_clinician_response
+from ed_world_model.agents.clinician import (
+    ClinicianAgent,
+    parse_clinician_decision_response,
+    parse_clinician_response,
+)
 from ed_world_model.agents.llm_client import FakeLLMClient
 from ed_world_model.agents.nurse import NurseAgent, parse_nurse_response
-from ed_world_model.agents.patient import PatientAgent, parse_patient_response
+from ed_world_model.agents.patient import (
+    PatientAgent,
+    parse_patient_decision_response,
+    parse_patient_response,
+)
 from ed_world_model.agents.relative import RelativeAgent, parse_relative_response
 from ed_world_model.agents.schemas import AgentProposal
 from ed_world_model.orchestration.runner import (
@@ -133,6 +141,47 @@ def _verbal(role: str, content: str, target: str = "clinician") -> dict[str, Any
             "content": content,
             "requires_response": False,
         }
+    }
+
+
+def _clinician_decision(
+    action: dict[str, Any] | None = None,
+    *,
+    verbal: bool = False,
+) -> dict[str, Any]:
+    return {
+        "action": action,
+        "verbal_decision": (
+            {
+                "speaker": "clinician",
+                "should_speak": True,
+                "target": "patient",
+                "intent": "speak to patient",
+                "reasoning_summary": "A concise patient message is useful.",
+                "key_points": ["Use only the selected action."],
+                "forbidden_points": ["Do not mention extra actions."],
+                "requires_response": False,
+            }
+            if verbal
+            else None
+        ),
+    }
+
+
+def _patient_decision(
+    *,
+    target: str = "clinician",
+    requires_response: bool = False,
+) -> dict[str, Any]:
+    return {
+        "speaker": "patient",
+        "should_speak": True,
+        "target": target,
+        "intent": "answer",
+        "reasoning_summary": "The patient has a relevant response.",
+        "key_points": ["Use only the scripted patient response."],
+        "forbidden_points": ["Do not add unlisted facts."],
+        "requires_response": requires_response,
     }
 
 
@@ -271,7 +320,7 @@ def test_diagnostic_result_releases_before_action_selection() -> None:
 
 def test_full_runner_can_run_medical_treatment_order_turn() -> None:
     clinician_llm = ScriptedLLMCallable(
-        [{"verbal_action": None, "action": _oxygen_order()}]
+        [_clinician_decision(_oxygen_order())]
     )
     physiology = RecordingStubPhysiologyAdapter(
         output={"features": {"oxygen_device": "NRB"}}
@@ -294,7 +343,7 @@ def test_full_runner_can_run_medical_treatment_order_turn() -> None:
 
 def test_llm_client_output_still_flows_through_clinician_parser() -> None:
     llm_client = FakeLLMClient(
-        [{"verbal_action": None, "action": _oxygen_order()}]
+        [_clinician_decision(_oxygen_order())]
     )
     physiology = RecordingStubPhysiologyAdapter()
     runner = IntegrationRunner(
@@ -314,14 +363,20 @@ def test_llm_client_output_still_flows_through_clinician_parser() -> None:
 
 def test_patient_nurse_relative_verbal_only_agents_can_speak() -> None:
     direct_patient_proposal = PatientAgent(
-        ScriptedLLMCallable([_verbal("patient", "It hurts.")])
+        ScriptedLLMCallable(
+            [_patient_decision(), _verbal("patient", "It hurts.")],
+            role="patient",
+        )
     ).generate({"recent_messages": []})
     assert isinstance(direct_patient_proposal, AgentProposal)
     assert direct_patient_proposal.action is None
 
     agents = {
         "patient": PatientAgent(
-            ScriptedLLMCallable([_verbal("patient", "My chest feels tight.")])
+            ScriptedLLMCallable(
+                [_patient_decision(), _verbal("patient", "My chest feels tight.")],
+                role="patient",
+            )
         ),
         "nurse": NurseAgent(
             ScriptedLLMCallable([_verbal("nurse", "I can help.", "patient")])
@@ -370,6 +425,7 @@ def test_patient_answer_statement_does_not_create_new_pending_question() -> None
             "patient": PatientAgent(
                 ScriptedLLMCallable(
                     [
+                        _patient_decision(),
                         {
                             "verbal_action": {
                                 "speaker": "patient",
@@ -440,7 +496,7 @@ def test_nurse_report_statement_does_not_create_new_pending_question() -> None:
 def test_nurse_bedside_verbal_slot_triggers_only_after_treatment() -> None:
     agents = {
         "clinician": ClinicianAgent(
-            ScriptedLLMCallable([{"verbal_action": None, "action": _oxygen_order()}])
+            ScriptedLLMCallable([_clinician_decision(_oxygen_order())])
         ),
         "nurse": NurseAgent(
             ScriptedLLMCallable(
@@ -464,15 +520,14 @@ def test_nurse_bedside_verbal_slot_triggers_only_after_treatment() -> None:
 def test_invalid_clinician_action_is_dropped_and_uses_no_action() -> None:
     clinician_llm = ScriptedLLMCallable(
         [
-            {
-                "verbal_action": None,
-                "action": {
+            _clinician_decision(
+                {
                     "type": "medical_treatment_order",
                     "family": ActionFamily.RESPIRATORY_SUPPORT,
                     "kind_hint": "not_a_kind_hint",
                     "params": {},
-                },
-            }
+                }
+            )
         ]
     )
     physiology = RecordingStubPhysiologyAdapter()
@@ -574,28 +629,34 @@ def test_verbal_only_parser_errors_through_runner_are_silent() -> None:
 def test_scripted_llm_callable_clinician_default_is_parseable() -> None:
     llm = ScriptedLLMCallable([], role="clinician")
 
-    proposal = parse_clinician_response(llm("prompt"))
+    proposal = parse_clinician_decision_response(llm("prompt"))
 
-    assert proposal.verbal_action is None
+    assert proposal.verbal_decision is None
     assert proposal.action is None
 
 
 def test_scripted_llm_callable_verbal_only_defaults_are_parseable() -> None:
     defaults = {
-        "patient": (ScriptedLLMCallable([], role="patient"), parse_patient_response),
+        "patient": (
+            ScriptedLLMCallable([], role="patient"),
+            parse_patient_decision_response,
+        ),
         "nurse": (ScriptedLLMCallable([], role="nurse"), parse_nurse_response),
         "relative": (ScriptedLLMCallable([], role="relative"), parse_relative_response),
     }
 
     for llm, parser in defaults.values():
         proposal = parser(llm("prompt"))
-        assert proposal.verbal_action is None
-        assert proposal.action is None
+        if hasattr(proposal, "should_speak"):
+            assert proposal.should_speak is False
+        else:
+            assert proposal.verbal_action is None
+            assert proposal.action is None
 
 
 def test_multiturn_verbal_only_agent_exhaustion_uses_parseable_silence() -> None:
     patient_llm = ScriptedLLMCallable(
-        [_verbal("patient", "My breathing feels tight.")],
+        [_patient_decision(), _verbal("patient", "My breathing feels tight.")],
         role="patient",
     )
     runner = IntegrationRunner(
@@ -606,7 +667,7 @@ def test_multiturn_verbal_only_agent_exhaustion_uses_parseable_silence() -> None
     trajectory = runner.run(2)
 
     assert len(trajectory) == 2
-    assert len(patient_llm.prompts) == 2
+    assert len(patient_llm.prompts) == 3
     assert [message.speaker for message in runner.state.runtime_state.messages] == [
         "patient"
     ]
@@ -620,7 +681,7 @@ def test_nurse_bedside_parser_error_is_logged_and_treatment_proceeds() -> None:
         agents={
             "clinician": ClinicianAgent(
                 ScriptedLLMCallable(
-                    [{"verbal_action": None, "action": _oxygen_order()}],
+                    [_clinician_decision(_oxygen_order())],
                     role="clinician",
                 )
             ),
@@ -649,7 +710,7 @@ def test_nurse_bedside_parser_error_is_logged_and_treatment_proceeds() -> None:
 
 
 def test_no_real_llm_or_api_calls_are_required() -> None:
-    clinician_llm = ScriptedLLMCallable([{"verbal_action": None, "action": None}])
+    clinician_llm = ScriptedLLMCallable([_clinician_decision(None)])
     runner = IntegrationRunner(
         GlobalState(),
         agents={"clinician": ClinicianAgent(clinician_llm)},
@@ -819,3 +880,37 @@ def test_trajectory_turn_contains_debug_information() -> None:
         "nurse_bedside_verbal_slot",
         "physiology_engine_call",
     }
+
+
+def test_verbal_decisions_are_debug_only_not_state_or_messages() -> None:
+    clinician_llm = ScriptedLLMCallable(
+        [
+            _clinician_decision(None, verbal=True),
+            {
+                "verbal_action": {
+                    "speaker": "clinician",
+                    "target": "patient",
+                    "content": "How is your breathing?",
+                    "requires_response": True,
+                }
+            },
+        ],
+        role="clinician",
+    )
+    runner = IntegrationRunner(
+        GlobalState(),
+        agents={"clinician": ClinicianAgent(clinician_llm)},
+    )
+
+    turn = runner.run_turn()
+    state_dump = runner.state.model_dump()
+    messages_dump = [message.model_dump() for message in runner.state.runtime_state.messages]
+
+    assert turn.agent_verbal_decisions
+    assert turn.agent_verbal_decisions[0]["speaker"] == "clinician"
+    assert "reasoning_summary" in turn.agent_verbal_decisions[0]
+    assert "agent_verbal_decisions" not in state_dump
+    assert "VerbalDecision" not in str(state_dump)
+    assert "reasoning_summary" not in str(messages_dump)
+    assert "key_points" not in str(messages_dump)
+    assert "reasoning_summary" not in str(runner.state.known_facts.model_dump())

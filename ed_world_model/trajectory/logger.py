@@ -272,6 +272,11 @@ def _normalize_turn(turn: Any) -> dict[str, Any]:
             or turn_data.get("messages")
             or []
         ),
+        "agent_verbal_decisions": _normalize_verbal_decisions(
+            turn_data.get("agent_verbal_decisions")
+            or turn_data.get("verbal_decisions")
+            or []
+        ),
         "clinician_action": _normalize_clinician_action(
             turn_data.get("clinician_action")
         ),
@@ -307,6 +312,34 @@ def _normalize_turn(turn: Any) -> dict[str, Any]:
         "terminated": bool(turn_data.get("terminated", False)),
         "termination_reason": turn_data.get("termination_reason"),
     }
+
+
+def _normalize_verbal_decisions(decisions: Any) -> list[dict[str, Any]]:
+    data = _to_plain(decisions or [])
+    if not _is_sequence(data):
+        return []
+    normalized: list[dict[str, Any]] = []
+    allowed_keys = {
+        "speaker",
+        "target",
+        "should_speak",
+        "intent",
+        "reasoning_summary",
+        "key_points",
+        "forbidden_points",
+        "requires_response",
+    }
+    for item in data:
+        if not isinstance(item, Mapping):
+            continue
+        normalized.append(
+            {
+                key: deepcopy(item.get(key))
+                for key in allowed_keys
+                if key in item
+            }
+        )
+    return normalized
 
 
 def _normalize_state_snapshot(snapshot: Any) -> dict[str, Any]:

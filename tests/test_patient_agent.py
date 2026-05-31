@@ -19,7 +19,10 @@ from ed_world_model.agents.nurse import NurseParserError, parse_nurse_response
 from ed_world_model.agents.patient import (
     PatientAgent,
     PatientParserError,
+    build_patient_decision_prompt,
     build_patient_prompt,
+    build_patient_verbal_prompt,
+    parse_patient_decision_response,
     parse_patient_response,
 )
 from ed_world_model.agents.relative import RelativeParserError, parse_relative_response
@@ -64,6 +67,36 @@ def _prompt() -> str:
     )
 
 
+def _decision() -> dict:
+    return {
+        "speaker": "patient",
+        "should_speak": True,
+        "target": "clinician",
+        "intent": "answer symptom question",
+        "reasoning_summary": "The clinician asked what the patient feels.",
+        "key_points": ["short of breath", "chest tightness"],
+        "forbidden_points": ["do not add unlisted symptoms"],
+        "requires_response": False,
+    }
+
+
+def _decision_prompt() -> str:
+    return build_patient_decision_prompt(_observation())
+
+
+def _verbal_prompt() -> str:
+    return build_patient_verbal_prompt(
+        _observation(),
+        _decision(),
+        profile=AgentProfile(
+            role="patient",
+            name="Alex",
+            traits={"communication_style": "brief", "anxiety": "high"},
+        ),
+        emotion_context={"label": "fear", "intensity": "high"},
+    )
+
+
 def _json_output(verbal_action=None) -> str:
     return json.dumps({"verbal_action": verbal_action})
 
@@ -92,8 +125,52 @@ def test_build_prompt_does_not_include_full_global_state() -> None:
     assert "runtime_state" not in prompt
 
 
+def test_patient_decision_prompt_excludes_profile_traits_and_emotion() -> None:
+    prompt = build_patient_decision_prompt(
+        {
+            **_observation(),
+            "profile": {"name": "Alex"},
+            "traits": {"communication_style": "brief"},
+            "emotion_context": {"label": "fear"},
+        }
+    )
+
+    assert "Stage 1 does not use AgentProfile, traits" in prompt
+    assert '"profile"' not in prompt
+    assert '"traits"' not in prompt
+    assert '"patient_emotion"' not in prompt
+    assert '"emotion_context"' not in prompt
+
+
+def test_patient_decision_prompt_says_verbal_decision_not_final_dialogue() -> None:
+    prompt = _decision_prompt()
+
+    assert "VerbalDecision JSON only" in prompt
+    assert "Do not output final dialogue here" in prompt
+
+
+def test_patient_decision_prompt_requires_concise_summary_not_chain_of_thought() -> None:
+    prompt = _decision_prompt()
+
+    assert "short reasoning_summary" in prompt
+    assert "Do not provide step-by-step reasoning" in prompt
+    assert "Do not include chain-of-thought or internal reasoning" in prompt
+
+
+def test_patient_decision_prompt_says_not_to_invent_patient_facts() -> None:
+    prompt = _decision_prompt()
+
+    assert "must not invent symptoms, history, allergies, medications" in prompt
+    assert "social history" in prompt
+    assert "review-of-systems findings" in prompt
+
+
+def test_patient_decision_prompt_has_no_intent_type_field() -> None:
+    assert "intent_type" not in _decision_prompt()
+
+
 def test_build_prompt_includes_emotion_context_when_provided() -> None:
-    prompt = _prompt()
+    prompt = _verbal_prompt()
 
     assert "Patient emotion context" in prompt
     assert "fear" in prompt
@@ -171,14 +248,13 @@ def test_build_prompt_says_patient_may_stay_silent() -> None:
 
 
 def test_build_prompt_says_no_internal_reasoning_or_chain_of_thought() -> None:
-    prompt = _prompt()
+    prompt = _verbal_prompt()
 
-    assert "silently reason" in prompt
-    assert "profile traits" in prompt
-    assert "verbal_action.content should reflect your AgentProfile traits" in prompt
-    assert "Do not include internal reasoning." in prompt
-    assert "Do not include chain-of-thought." in prompt
-    assert "Do not output the silent reasoning" in prompt
+    assert "Profile traits" in prompt
+    assert "shape wording and tone" in prompt
+    assert "Do not include reasoning_summary" in prompt
+    assert "Do not include VerbalDecision" in prompt
+    assert "Do not include chain-of-thought or internal reasoning" in prompt
 
 
 def test_build_prompt_includes_prompt_level_anti_repetition_with_exceptions() -> None:
@@ -218,6 +294,14 @@ def test_parse_valid_patient_verbal_action() -> None:
     assert proposal.verbal_action is not None
     assert proposal.verbal_action.recipient == "clinician"
     assert proposal.verbal_action.content == "My chest feels tight."
+
+
+def test_parse_valid_patient_verbal_decision() -> None:
+    decision = parse_patient_decision_response(_decision())
+
+    assert decision.speaker == "patient"
+    assert decision.target == "clinician"
+    assert decision.key_points == ["short of breath", "chest tightness"]
 
 
 def test_patient_statement_requires_response_true_normalizes_false() -> None:
@@ -297,6 +381,11 @@ def test_reject_internal_reasoning_and_chain_of_thought() -> None:
                 }
             }
         )
+
+
+def test_reject_intent_type() -> None:
+    with pytest.raises(PatientParserError, match="intent_type"):
+        parse_patient_response({"verbal_action": None, "intent_type": "answer"})
 
 
 def test_reject_medical_diagnostic_and_behavior_actions() -> None:
@@ -392,17 +481,21 @@ def test_reject_json_constants() -> None:
 
 def test_fake_llm_callable_generate_path_returns_parsed_proposal() -> None:
     prompts: list[str] = []
-
-    def fake_llm(prompt: str) -> str:
-        prompts.append(prompt)
-        return _json_output(
+    responses = [
+        json.dumps(_decision()),
+        _json_output(
             verbal_action={
                 "speaker": "patient",
                 "target": "clinician",
                 "content": "I am scared and short of breath.",
                 "requires_response": True,
             }
-        )
+        ),
+    ]
+
+    def fake_llm(prompt: str) -> str:
+        prompts.append(prompt)
+        return responses.pop(0)
 
     agent = PatientAgent(
         fake_llm,
@@ -415,11 +508,52 @@ def test_fake_llm_callable_generate_path_returns_parsed_proposal() -> None:
     )
 
     assert isinstance(proposal, AgentProposal)
-    assert len(prompts) == 1
-    assert "You are the patient in an ED simulation." in prompts[0]
-    assert "Profile traits" in prompts[0]
+    assert len(prompts) == 2
+    assert "VerbalDecision JSON only" in prompts[0]
+    assert "Profile traits" not in prompts[0]
+    assert "Patient emotion context" not in prompts[0]
+    assert "final verbal_action JSON only" in prompts[1]
+    assert "Profile traits" in prompts[1]
     assert proposal.verbal_action.recipient == "clinician"
     assert proposal.action is None
+
+
+def test_patient_should_speak_false_returns_silent_agent_proposal() -> None:
+    prompts: list[str] = []
+
+    def fake_llm(prompt: str) -> str:
+        prompts.append(prompt)
+        return json.dumps(
+            {
+                "speaker": "patient",
+                "should_speak": False,
+                "target": None,
+                "intent": "stay silent",
+                "reasoning_summary": "No useful response is needed.",
+                "key_points": [],
+                "forbidden_points": [],
+                "requires_response": False,
+            }
+        )
+
+    proposal = PatientAgent(fake_llm).generate(_observation())
+
+    assert len(prompts) == 1
+    assert proposal.verbal_action is None
+    assert proposal.action is None
+
+
+def test_patient_final_verbal_action_rejects_decision_fields() -> None:
+    responses = [
+        json.dumps(_decision()),
+        json.dumps({"verbal_action": None, "reasoning_summary": "not allowed"}),
+    ]
+
+    def fake_llm(prompt: str) -> str:
+        return responses.pop(0)
+
+    with pytest.raises(PatientParserError, match="reasoning_summary"):
+        PatientAgent(fake_llm).generate(_observation())
 
 
 def test_no_real_llm_api_calls_or_imports() -> None:

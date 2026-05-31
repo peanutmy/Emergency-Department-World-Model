@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 from collections.abc import Callable, Mapping, Sequence
+from dataclasses import dataclass
 from typing import Any
 
 from ed_world_model.actions.registry import ActionRegistry
@@ -16,6 +17,12 @@ from ed_world_model.agents.schemas import (
     AgentProfile,
     AgentRuntimeInput,
     ClinicianProposal,
+    VerbalAction,
+    VerbalDecision,
+)
+from ed_world_model.agents.verbal_decision import (
+    VerbalDecisionParserError,
+    parse_verbal_decision,
 )
 
 
@@ -23,12 +30,26 @@ LLMCallable = Callable[[str], str]
 ACTION_TYPES = {"medical_treatment_order", "diagnostic_order"}
 TOP_LEVEL_ACTION_ALIASES = {"actions", "medical_treatment_order", "diagnostic_order"}
 TOP_LEVEL_KEYS = {"verbal_action", "action"}
+DECISION_TOP_LEVEL_KEYS = {"action", "verbal_decision"}
+FINAL_VERBAL_RESPONSE_KEYS = {"verbal_action"}
 DIAGNOSTIC_ORDER_KEYS = {"type", "test_name"}
 MEDICAL_TREATMENT_ORDER_KEYS = {"type", "family", "kind_hint", "params"}
+FINAL_CLINICIAN_VERBAL_FORBIDDEN_KEYS = {
+    *FORBIDDEN_OUTPUT_KEYS,
+    "action",
+    "verbal_decision",
+    "reasoning_summary",
+}
 
 
 class ClinicianParserError(ValueError):
     """Raised when a clinician LLM response is not valid final JSON output."""
+
+
+@dataclass(frozen=True)
+class ClinicianDecision:
+    action: dict[str, Any] | None
+    verbal_decision: VerbalDecision | None = None
 
 
 class ClinicianAgent:
@@ -40,26 +61,272 @@ class ClinicianAgent:
 
     def __init__(
         self,
-        llm_callable: LLMCallable,
+        llm_callable: LLMCallable | None = None,
         *,
+        decision_llm_callable: LLMCallable | None = None,
+        verbal_llm_callable: LLMCallable | None = None,
         profile: AgentProfile | Mapping[str, Any] | None = None,
         action_registry: ActionRegistry | None = None,
     ) -> None:
-        self._llm_callable = llm_callable
+        self._decision_llm_callable = decision_llm_callable or llm_callable
+        self._verbal_llm_callable = verbal_llm_callable or llm_callable
+        if self._decision_llm_callable is None or self._verbal_llm_callable is None:
+            raise ValueError(
+                "ClinicianAgent requires llm_callable or both decision and verbal callables."
+            )
         self._profile = _coerce_profile(profile)
         self._action_registry = action_registry or ActionRegistry()
+        self.last_verbal_decision: VerbalDecision | None = None
 
-    def build_prompt(self, observation: Mapping[str, Any]) -> str:
-        return build_clinician_prompt(
+    def build_decision_prompt(self, observation: Mapping[str, Any]) -> str:
+        return build_clinician_decision_prompt(
             observation,
-            profile=self._profile,
             action_registry=self._action_registry,
         )
 
+    def build_verbal_prompt(
+        self,
+        observation: Mapping[str, Any],
+        action: Mapping[str, Any] | None,
+        decision: VerbalDecision | Mapping[str, Any],
+    ) -> str:
+        return build_clinician_verbal_prompt(
+            observation,
+            action,
+            decision,
+            profile=self._profile,
+        )
+
+    def build_prompt(self, observation: Mapping[str, Any]) -> str:
+        return self.build_decision_prompt(observation)
+
     def generate(self, observation: dict[str, Any]) -> ClinicianProposal:
-        prompt = self.build_prompt(observation)
-        output = self._llm_callable(prompt)
-        return parse_clinician_response(output)
+        self.last_verbal_decision = None
+        decision_prompt = self.build_decision_prompt(observation)
+        decision_output = self._decision_llm_callable(decision_prompt)
+        decision = parse_clinician_decision_response(decision_output)
+        self.last_verbal_decision = decision.verbal_decision
+        if decision.verbal_decision is None or not decision.verbal_decision.should_speak:
+            return ClinicianProposal(verbal_action=None, action=decision.action)
+
+        verbal_prompt = self.build_verbal_prompt(
+            observation,
+            decision.action,
+            decision.verbal_decision,
+        )
+        verbal_output = self._verbal_llm_callable(verbal_prompt)
+        verbal_action = parse_clinician_verbal_response(verbal_output)
+        return ClinicianProposal(verbal_action=verbal_action, action=decision.action)
+
+
+def build_clinician_decision_prompt(
+    observation: Mapping[str, Any],
+    *,
+    action_registry: ActionRegistry | None = None,
+    available_diagnostic_test_names: Sequence[str] | None = None,
+    turn_index: int | None = None,
+) -> str:
+    """Build the clinician Stage 1 action and VerbalDecision prompt."""
+
+    registry = action_registry or ActionRegistry()
+    decision_observation = _clinician_decision_observation(observation)
+    diagnostic_test_names = list(
+        available_diagnostic_test_names
+        if available_diagnostic_test_names is not None
+        else _extract_available_diagnostic_test_names(decision_observation)
+    )
+
+    sections = [
+        "You are the clinician in an ED simulation.",
+        "Stage 1: decide the structured action and verbal communication decision.",
+        "Output structured JSON only.",
+        "Do not output the final verbal message in Stage 1.",
+        COMMON_PARTIAL_OBSERVATION_RULE,
+        (
+            "Stage 1 does not use AgentProfile, traits, communication style, "
+            "personality, or emotion_context. Do not use style or emotion to "
+            "choose the clinical action or communication content."
+        ),
+        "Do not include chain-of-thought or internal reasoning.",
+        (
+            "Provide only a concise reasoning_summary in verbal_decision, "
+            "grounded in the observation."
+        ),
+        (
+            "Decide at most one action: one medical_treatment_order, one "
+            "diagnostic_order, or null."
+        ),
+        "no_action is not selectable.",
+        "For medical treatment, choose family -> kind_hint -> params.",
+        (
+            "For medication-like actions, specify a non-empty params.drug_name. "
+            "Dose and unit may be null. Do not invent drug_name if unsupported."
+        ),
+        "Diagnostic order must choose exactly one available test name.",
+        (
+            "verbal_decision must be consistent with the selected action and "
+            "must not mention tests, treatments, or actions not represented by "
+            "the single structured action."
+        ),
+        (
+            "If action is null, verbal_decision must not claim a treatment or "
+            "test is being started, ordered, prepared, or performed."
+        ),
+        (
+            "If a diagnostic result is referenced, use exact test names and "
+            "results from the observation."
+        ),
+        (
+            "If a diagnostic test is pending, describe it as pending/in "
+            "progress rather than available."
+        ),
+        (
+            "When referencing vital signs, use exact vital sign values shown "
+            "in the observation."
+        ),
+        (
+            "If the patient can speak and focused history is needed, "
+            "verbal_decision may target patient with one focused question."
+        ),
+        (
+            "If there is an unresolved pending question targeting patient, do "
+            "not ask another patient question unless urgent and clearly different."
+        ),
+        (
+            "Use key_points for facts, action details, or one question the "
+            "final verbal message may include. Use forbidden_points for extra "
+            "tests, treatments, results, facts, or unsupported rationale the "
+            "final message must avoid."
+        ),
+        (
+            "Expected JSON response shape:\n"
+            "{\n"
+            '  "action": {\n'
+            '    "type": "medical_treatment_order",\n'
+            '    "family": "...",\n'
+            '    "kind_hint": "...",\n'
+            '    "params": {...}\n'
+            "  } | {\n"
+            '    "type": "diagnostic_order",\n'
+            '    "test_name": "..."\n'
+            "  } | null,\n"
+            '  "verbal_decision": {\n'
+            '    "speaker": "clinician",\n'
+            '    "should_speak": true | false,\n'
+            '    "target": "clinician" | "nurse" | "patient" | "relative" | null,\n'
+            '    "intent": "..." | null,\n'
+            '    "reasoning_summary": "..." | null,\n'
+            '    "key_points": ["..."],\n'
+            '    "forbidden_points": ["..."],\n'
+            '    "requires_response": true | false\n'
+            "  } | null\n"
+            "}"
+        ),
+    ]
+
+    if turn_index is not None:
+        sections.append(f"Turn index: {turn_index}")
+
+    sections.extend(
+        [
+            f"Role-specific observation:\n{_format_json(decision_observation)}",
+            (
+                "Available medical treatment action menu:\n"
+                f"{_format_json(_build_action_menu(registry))}"
+            ),
+            (
+                "Available diagnostic test names:\n"
+                f"{_format_json(diagnostic_test_names)}"
+            ),
+        ]
+    )
+    return "\n\n".join(sections)
+
+
+def build_clinician_verbal_prompt(
+    observation: Mapping[str, Any],
+    action: Mapping[str, Any] | None,
+    decision: VerbalDecision | Mapping[str, Any],
+    *,
+    profile: AgentProfile | Mapping[str, Any] | None = None,
+    emotion_context: Mapping[str, Any] | None = None,
+    turn_index: int | None = None,
+) -> str:
+    """Build the clinician Stage 2 final verbal-action prompt."""
+
+    clinician_profile = _coerce_profile(profile)
+    verbal_decision = _coerce_clinician_decision(decision)
+
+    sections = [
+        "You are the clinician in an ED simulation.",
+        "Stage 2: generate final verbal_action JSON only.",
+        COMMON_PARTIAL_OBSERVATION_RULE,
+        "Use VerbalDecision and selected action as the only plan.",
+        (
+            "You may use AgentProfile, traits, and emotion context only to "
+            "shape wording and tone."
+        ),
+        (
+            "Do not let profile, traits, or emotion change observed facts, "
+            "selected action, available results, or grounded clinical content."
+        ),
+        "Do not include VerbalDecision.",
+        "Do not include reasoning_summary.",
+        "Do not include chain-of-thought or internal reasoning.",
+        "Do not mention extra actions not in the structured action.",
+        "Do not add diagnostic results or facts not present in the observation.",
+        (
+            "If action is null, do not claim that a treatment or test is being "
+            "started, ordered, prepared, or performed."
+        ),
+        (
+            "If the final message references a diagnostic result, use exact "
+            "test names and results from the observation."
+        ),
+        (
+            "If the final message references a pending test, call it pending "
+            "or in progress."
+        ),
+        (
+            "If the final message references vital signs, use exact vital sign "
+            "values from the observation."
+        ),
+        (
+            "Set verbal_action.requires_response=true only if the final message "
+            "explicitly asks a question."
+        ),
+        (
+            "Expected JSON response shape:\n"
+            "{\n"
+            '  "verbal_action": {\n'
+            '    "speaker": "clinician",\n'
+            '    "target": "patient" | "nurse" | "relative" | null,\n'
+            '    "content": "...",\n'
+            '    "requires_response": true | false\n'
+            "  } | null\n"
+            "}"
+        ),
+    ]
+
+    if turn_index is not None:
+        sections.append(f"Turn index: {turn_index}")
+    if clinician_profile is not None:
+        sections.append(f"Profile:\n{_format_json(clinician_profile)}")
+        if clinician_profile.traits:
+            sections.append(
+                f"Profile traits:\n{_format_json(clinician_profile.traits)}"
+            )
+    if emotion_context is not None:
+        sections.append(f"Emotion context:\n{_format_json(emotion_context)}")
+
+    sections.extend(
+        [
+            f"Selected action:\n{_format_json(action)}",
+            f"VerbalDecision:\n{_format_json(verbal_decision)}",
+            f"Role-specific observation:\n{_format_json(observation)}",
+        ]
+    )
+    return "\n\n".join(sections)
 
 
 def build_clinician_prompt(
@@ -342,6 +609,81 @@ def parse_clinician_response(output: str | Mapping[str, Any]) -> ClinicianPropos
 parse_clinician_proposal = parse_clinician_response
 
 
+def parse_clinician_decision_response(
+    output: str | Mapping[str, Any],
+) -> ClinicianDecision:
+    """Parse clinician Stage 1 JSON into action plus transient VerbalDecision."""
+
+    data = _coerce_json_object(output)
+    forbidden_key_path = _find_forbidden_key(data)
+    if forbidden_key_path is not None:
+        raise ClinicianParserError(
+            "Clinician decision responses must not include raw_text, "
+            "internal_reasoning, chain_of_thought, or intent_type fields: "
+            f"{forbidden_key_path}"
+        )
+    extra_top_level_keys = sorted(set(data) - DECISION_TOP_LEVEL_KEYS)
+    if extra_top_level_keys:
+        raise ClinicianParserError(
+            "Clinician decision response must contain only action and "
+            f"verbal_decision; found extra keys {extra_top_level_keys}."
+        )
+    if "action" not in data or "verbal_decision" not in data:
+        raise ClinicianParserError(
+            "Clinician decision response must include action and verbal_decision."
+        )
+
+    action = _normalize_action(data["action"])
+    verbal_decision = data["verbal_decision"]
+    if verbal_decision is not None:
+        try:
+            parsed_decision = parse_verbal_decision(
+                verbal_decision,
+                speaker="clinician",
+            )
+        except VerbalDecisionParserError as exc:
+            raise ClinicianParserError(
+                f"Invalid clinician verbal_decision: {exc}"
+            ) from exc
+    else:
+        parsed_decision = None
+    return ClinicianDecision(action=action, verbal_decision=parsed_decision)
+
+
+def parse_clinician_verbal_response(
+    output: str | Mapping[str, Any],
+) -> VerbalAction | None:
+    """Parse clinician Stage 2 final verbal-action JSON."""
+
+    data = _coerce_json_object(output)
+    forbidden_key_path = _find_final_verbal_forbidden_key(data)
+    if forbidden_key_path is not None:
+        raise ClinicianParserError(
+            "Clinician final verbal responses must not include action, "
+            "verbal_decision, reasoning_summary, raw_text, internal_reasoning, "
+            f"chain_of_thought, or intent_type fields: {forbidden_key_path}"
+        )
+    extra_top_level_keys = sorted(set(data) - FINAL_VERBAL_RESPONSE_KEYS)
+    if extra_top_level_keys:
+        raise ClinicianParserError(
+            "Clinician final verbal response must contain only verbal_action; "
+            f"found extra keys {extra_top_level_keys}."
+        )
+    if "verbal_action" not in data:
+        raise ClinicianParserError(
+            "Clinician final verbal response must include verbal_action."
+        )
+    verbal_action = _normalize_final_clinician_verbal_action(data["verbal_action"])
+    if verbal_action is None:
+        return None
+    try:
+        return VerbalAction.model_validate(verbal_action)
+    except ValueError as exc:
+        raise ClinicianParserError(
+            f"Invalid clinician final verbal_action shape: {exc}"
+        ) from exc
+
+
 def _normalize_clinician_response(data: Mapping[str, Any]) -> dict[str, Any]:
     if "verbal_action" not in data or "action" not in data:
         raise ClinicianParserError(
@@ -382,6 +724,27 @@ def _normalize_verbal_action(value: Any) -> dict[str, Any] | None:
         )
     if has_target:
         verbal_action["recipient"] = verbal_action.pop("target")
+    return verbal_action
+
+
+def _normalize_final_clinician_verbal_action(value: Any) -> dict[str, Any] | None:
+    verbal_action = _normalize_verbal_action(value)
+    if verbal_action is None:
+        return None
+    target = verbal_action.get("recipient")
+    if target not in {"patient", "nurse", "relative", None}:
+        raise ClinicianParserError(
+            "verbal_action.target must be patient, nurse, relative, or null."
+        )
+    speaker = verbal_action.get("speaker")
+    if speaker != "clinician":
+        raise ClinicianParserError("verbal_action.speaker must be 'clinician'.")
+    requires_response = verbal_action.get("requires_response")
+    if (
+        requires_response not in (False, None)
+        and not _is_explicit_targeted_question(verbal_action.get("content"), target)
+    ):
+        verbal_action["requires_response"] = False
     return verbal_action
 
 
@@ -489,6 +852,62 @@ def _find_forbidden_key(value: Any, path: str = "$") -> str | None:
     return None
 
 
+def _find_final_verbal_forbidden_key(value: Any, path: str = "$") -> str | None:
+    if isinstance(value, Mapping):
+        for key, item in value.items():
+            key_text = str(key)
+            current_path = f"{path}.{key_text}"
+            if key_text in FINAL_CLINICIAN_VERBAL_FORBIDDEN_KEYS:
+                return current_path
+            nested = _find_final_verbal_forbidden_key(item, current_path)
+            if nested is not None:
+                return nested
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            nested = _find_final_verbal_forbidden_key(item, f"{path}[{index}]")
+            if nested is not None:
+                return nested
+    return None
+
+
+def _is_explicit_targeted_question(content: Any, target: Any) -> bool:
+    if target is None or not isinstance(content, str):
+        return False
+    stripped = content.strip()
+    if not stripped:
+        return False
+    if "?" in stripped:
+        return True
+    first_word = stripped.lstrip("\"'([{").split(maxsplit=1)[0].lower()
+    first_word = first_word.rstrip(":,.;!")
+    return first_word in {
+        "who",
+        "what",
+        "when",
+        "where",
+        "why",
+        "how",
+        "can",
+        "could",
+        "would",
+        "will",
+        "do",
+        "does",
+        "did",
+        "is",
+        "are",
+        "am",
+        "was",
+        "were",
+        "have",
+        "has",
+        "had",
+        "should",
+        "may",
+        "might",
+    }
+
+
 def _build_action_menu(registry: ActionRegistry) -> list[dict[str, Any]]:
     menu: list[dict[str, Any]] = []
     for family in registry.list_families():
@@ -536,6 +955,49 @@ def _coerce_test_name_list(value: Any) -> list[str]:
     return names
 
 
+def _coerce_clinician_decision(
+    decision: VerbalDecision | Mapping[str, Any],
+) -> VerbalDecision:
+    if isinstance(decision, VerbalDecision):
+        if decision.speaker != "clinician":
+            raise ValueError("Clinician VerbalDecision requires speaker='clinician'.")
+        return decision
+    coerced = VerbalDecision.model_validate(decision)
+    if coerced.speaker != "clinician":
+        raise ValueError("Clinician VerbalDecision requires speaker='clinician'.")
+    return coerced
+
+
+_CLINICIAN_DECISION_EXCLUDED_KEYS = {
+    "agent_profile",
+    "communication_style",
+    "emotion_context",
+    "patient_emotion",
+    "patient_internal_state",
+    "profile",
+    "traits",
+    "truth_state",
+}
+
+
+def _clinician_decision_observation(observation: Mapping[str, Any]) -> dict[str, Any]:
+    return _drop_keys_for_decision(observation, _CLINICIAN_DECISION_EXCLUDED_KEYS)
+
+
+def _drop_keys_for_decision(value: Any, excluded_keys: set[str]) -> Any:
+    if hasattr(value, "model_dump"):
+        return _drop_keys_for_decision(value.model_dump(), excluded_keys)
+    if isinstance(value, Mapping):
+        return {
+            str(key): _drop_keys_for_decision(item, excluded_keys)
+            for key, item in value.items()
+            if str(key) not in excluded_keys
+        }
+    if isinstance(value, list):
+        return [_drop_keys_for_decision(item, excluded_keys) for item in value]
+    return value
+
+
 def _coerce_profile(
     profile: AgentProfile | Mapping[str, Any] | None,
 ) -> AgentProfile | None:
@@ -571,9 +1033,14 @@ def _sanitize_for_prompt(value: Any) -> Any:
 
 __all__ = [
     "ClinicianAgent",
+    "ClinicianDecision",
     "ClinicianParserError",
     "LLMCallable",
+    "build_clinician_decision_prompt",
     "build_clinician_prompt",
+    "build_clinician_verbal_prompt",
+    "parse_clinician_decision_response",
     "parse_clinician_proposal",
     "parse_clinician_response",
+    "parse_clinician_verbal_response",
 ]

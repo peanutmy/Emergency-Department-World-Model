@@ -18,6 +18,20 @@ MISSING_OPENAI_API_KEY_MESSAGE = (
 )
 DEFAULT_AGENT_RESPONSE = {"verbal_action": None, "action": None}
 DEFAULT_VERBAL_ONLY_RESPONSE = {"verbal_action": None}
+DEFAULT_CLINICIAN_DECISION_RESPONSE = {
+    "action": None,
+    "verbal_decision": None,
+}
+DEFAULT_PATIENT_DECISION_RESPONSE = {
+    "speaker": "patient",
+    "should_speak": False,
+    "target": None,
+    "intent": "stay silent",
+    "reasoning_summary": "No patient response is needed from the observation.",
+    "key_points": [],
+    "forbidden_points": [],
+    "requires_response": False,
+}
 
 
 class LLMClient(Protocol):
@@ -171,6 +185,8 @@ def _sanitize_api_error(exc: Exception, api_key: str) -> str:
 
 __all__ = [
     "DEFAULT_AGENT_RESPONSE",
+    "DEFAULT_CLINICIAN_DECISION_RESPONSE",
+    "DEFAULT_PATIENT_DECISION_RESPONSE",
     "DEFAULT_VERBAL_ONLY_RESPONSE",
     "FakeLLMClient",
     "LLMClient",

@@ -13,7 +13,8 @@ from ed_world_model.actions.registry import ActionFamily, ActionRegistry, KindHi
 from ed_world_model.adapters.noop_emotion import NoopEmotionEngine
 from ed_world_model.agents.clinician import ClinicianAgent
 from ed_world_model.agents.llm_client import (
-    DEFAULT_AGENT_RESPONSE,
+    DEFAULT_CLINICIAN_DECISION_RESPONSE,
+    DEFAULT_PATIENT_DECISION_RESPONSE,
     DEFAULT_VERBAL_ONLY_RESPONSE,
     FakeLLMClient,
     OpenAICompatibleLLMClient,
@@ -60,6 +61,7 @@ class DemoTurn:
     nurse_bedside_slots: list[dict[str, Any]] = field(default_factory=list)
     physiology_action_kind_hint: str | None = None
     physiology_action: dict[str, Any] | None = None
+    agent_verbal_decisions: list[dict[str, Any]] = field(default_factory=list)
     patient_state_after: dict[str, Any] = field(default_factory=dict)
     validation_drops: list[dict[str, Any]] = field(default_factory=list)
     parser_errors: list[dict[str, Any]] = field(default_factory=list)
@@ -82,6 +84,7 @@ class DemoTurn:
             "nurse_bedside_slots": self.nurse_bedside_slots,
             "physiology_action_kind_hint": self.physiology_action_kind_hint,
             "physiology_action": self.physiology_action,
+            "agent_verbal_decisions": self.agent_verbal_decisions,
             "patient_state_after": self.patient_state_after,
             "validation_drops": self.validation_drops,
             "parser_errors": self.parser_errors,
@@ -216,16 +219,20 @@ def build_fake_demo_agents(state: GlobalState) -> dict[str, Any]:
         if state.truth_state.test_bank
         else None
     )
-    clinician_script = [_initial_clinician_response(first_test_name)]
-    clinician_script.append({"verbal_action": None, "action": None})
-    clinician_script.append(_oxygen_support_response())
-    clinician_script.append(_oxygen_support_response(verbal=False))
+    clinician_script = [
+        _initial_clinician_decision(first_test_name),
+        _initial_clinician_verbal(),
+        DEFAULT_CLINICIAN_DECISION_RESPONSE,
+        _oxygen_support_decision(verbal=True),
+        _oxygen_support_verbal(),
+        _oxygen_support_decision(verbal=False),
+    ]
 
     return {
         CLINICIAN: ClinicianAgent(
             FakeLLMClient(
                 clinician_script,
-                default_response=DEFAULT_AGENT_RESPONSE,
+                default_response=DEFAULT_CLINICIAN_DECISION_RESPONSE,
             ),
             profile=state.agent_profiles.clinician.model_dump(),
         ),
@@ -238,8 +245,8 @@ def build_fake_demo_agents(state: GlobalState) -> dict[str, Any]:
         ),
         PATIENT: PatientAgent(
             FakeLLMClient(
-                [_patient_required_response()],
-                default_response=DEFAULT_VERBAL_ONLY_RESPONSE,
+                [_patient_required_decision(), _patient_required_response()],
+                default_response=DEFAULT_PATIENT_DECISION_RESPONSE,
             ),
             profile=state.agent_profiles.patient.model_dump(),
         ),
@@ -442,10 +449,26 @@ def _hybrid_physiology_adapter_class() -> Any:
     return HybridPhysiologyAdapter
 
 
-def _initial_clinician_response(test_name: str | None) -> dict[str, Any]:
+def _initial_clinician_decision(test_name: str | None) -> dict[str, Any]:
     action = None
     if test_name is not None:
         action = {"type": "diagnostic_order", "test_name": test_name}
+    return {
+        "action": action,
+        "verbal_decision": {
+            "speaker": CLINICIAN,
+            "should_speak": True,
+            "target": PATIENT,
+            "intent": "ask how the patient is feeling",
+            "reasoning_summary": "The patient can provide focused symptom information.",
+            "key_points": ["Ask how the patient is feeling right now."],
+            "forbidden_points": ["Do not mention additional tests or treatments."],
+            "requires_response": True,
+        },
+    }
+
+
+def _initial_clinician_verbal() -> dict[str, Any]:
     return {
         "verbal_action": {
             "speaker": CLINICIAN,
@@ -453,21 +476,33 @@ def _initial_clinician_response(test_name: str | None) -> dict[str, Any]:
             "content": "Can you tell me how you are feeling right now?",
             "requires_response": True,
         },
-        "action": action,
     }
 
 
-def _oxygen_support_response(*, verbal: bool = True) -> dict[str, Any]:
-    verbal_action = None
-    if verbal:
-        verbal_action = {
-            "speaker": CLINICIAN,
-            "target": PATIENT,
-            "content": "I am starting oxygen support while we keep reassessing.",
-            "requires_response": False,
-        }
+def _oxygen_support_decision(*, verbal: bool = True) -> dict[str, Any]:
+    verbal_decision = {
+        "speaker": CLINICIAN,
+        "should_speak": verbal,
+        "target": PATIENT if verbal else None,
+        "intent": (
+            "explain oxygen support"
+            if verbal
+            else "stay silent while oxygen support continues"
+        ),
+        "reasoning_summary": (
+            "Oxygen support is the selected structured action."
+            if verbal
+            else "The treatment action can proceed without another verbal message."
+        ),
+        "key_points": (
+            ["Oxygen support is starting.", "The team will keep reassessing."]
+            if verbal
+            else []
+        ),
+        "forbidden_points": ["Do not mention additional tests or treatments."],
+        "requires_response": False,
+    }
     return {
-        "verbal_action": verbal_action,
         "action": {
             "type": "medical_treatment_order",
             "family": ActionFamily.RESPIRATORY_SUPPORT,
@@ -477,6 +512,31 @@ def _oxygen_support_response(*, verbal: bool = True) -> dict[str, Any]:
                 "FiO2": 1.0,
             },
         },
+        "verbal_decision": verbal_decision,
+    }
+
+
+def _oxygen_support_verbal() -> dict[str, Any]:
+    return {
+        "verbal_action": {
+            "speaker": CLINICIAN,
+            "target": PATIENT,
+            "content": "I am starting oxygen support while we keep reassessing.",
+            "requires_response": False,
+        },
+    }
+
+
+def _patient_required_decision() -> dict[str, Any]:
+    return {
+        "speaker": PATIENT,
+        "should_speak": True,
+        "target": CLINICIAN,
+        "intent": "answer the clinician's symptom question",
+        "reasoning_summary": "The clinician asked the patient how they are feeling.",
+        "key_points": ["The patient feels short of breath and uncomfortable."],
+        "forbidden_points": ["Do not add new symptoms."],
+        "requires_response": False,
     }
 
 
@@ -581,6 +641,7 @@ def _build_demo_turn(
         ],
         physiology_action_kind_hint=trajectory_turn.physiology_action_kind_hint,
         physiology_action=deepcopy(trajectory_turn.physiology_action),
+        agent_verbal_decisions=deepcopy(trajectory_turn.agent_verbal_decisions),
         patient_state_after=deepcopy(
             trajectory_turn.state_after.get(
                 "patient_state",
