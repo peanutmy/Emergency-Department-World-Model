@@ -23,6 +23,12 @@ from ed_world_model.state.global_state import (
     RuntimeState,
     TestBankItem as StateTestBankItem,
 )
+from ed_world_model.facts.schemas import (
+    KnownAllergy,
+    KnownHistory,
+    KnownMedication,
+    KnownSymptom,
+)
 
 
 def test_can_construct_minimal_global_state() -> None:
@@ -142,7 +148,6 @@ def test_patient_emotion_remains_separate_from_patient_profile() -> None:
             "patient_emotion": {
                 "label": "worried",
                 "intensity": "medium",
-                "notes": "Becoming more concerned.",
             }
         },
     )
@@ -168,8 +173,20 @@ def test_known_facts_do_not_duplicate_agent_profile_traits() -> None:
             }
         },
         known_facts={
-            "known_history": ["hypertension"],
-            "known_symptoms": ["shortness of breath"],
+            "known_history": [
+                {
+                    "item": "hypertension",
+                    "status": "present",
+                    "source_texts": ["I have hypertension."],
+                }
+            ],
+            "known_symptoms": [
+                {
+                    "name": "shortness of breath",
+                    "status": "present",
+                    "source_texts": ["I feel short of breath."],
+                }
+            ],
         },
     )
 
@@ -215,7 +232,13 @@ def test_defaults_are_safe_and_empty_where_appropriate() -> None:
     first = GlobalState()
     second = GlobalState()
 
-    first.known_facts.known_history.append("hypertension")
+    first.known_facts.known_history.append(
+        KnownHistory(
+            item="hypertension",
+            status="present",
+            source_texts=["I have hypertension."],
+        )
+    )
     first.runtime_state.messages.append(Message(speaker="patient", content="Hello."))
 
     assert second.known_facts.known_history == []
@@ -277,10 +300,34 @@ def test_runtime_state_separates_messages_from_last_turn_events() -> None:
 def test_known_facts_is_the_clinical_team_fact_store() -> None:
     state = GlobalState(
         known_facts=KnownFacts(
-            known_history=["hypertension"],
-            known_allergies=["penicillin"],
-            known_medications=["metformin"],
-            known_symptoms=["shortness of breath"],
+            known_history=[
+                KnownHistory(
+                    item="hypertension",
+                    status="present",
+                    source_texts=["I have hypertension."],
+                )
+            ],
+            known_allergies=[
+                KnownAllergy(
+                    substance="penicillin",
+                    status="present",
+                    source_texts=["I am allergic to penicillin."],
+                )
+            ],
+            known_medications=[
+                KnownMedication(
+                    name="metformin",
+                    status="current",
+                    source_texts=["I take metformin."],
+                )
+            ],
+            known_symptoms=[
+                KnownSymptom(
+                    name="shortness of breath",
+                    status="present",
+                    source_texts=["I feel short of breath."],
+                )
+            ],
             available_results=[
                 DiagnosticResult(name="ECG", result="LVH and A.fib")
             ],
@@ -292,7 +339,54 @@ def test_known_facts_is_the_clinical_team_fact_store() -> None:
     assert "case_memory" not in GlobalState.model_fields
     assert "clinical_facts" not in GlobalState.model_fields
     assert "memory" not in RuntimeState.model_fields
+    assert "known_patient_statements" not in KnownFacts.model_fields
+    assert "known_relative_statements" not in KnownFacts.model_fields
+    assert "structured_symptoms" not in KnownFacts.model_fields
+    assert "structured_history" not in KnownFacts.model_fields
+    assert "structured_allergies" not in KnownFacts.model_fields
+    assert "structured_medications" not in KnownFacts.model_fields
     assert state.known_facts.available_results[0].name == "ECG"
+
+
+def test_known_facts_fields_are_structured_fact_lists() -> None:
+    state = GlobalState(
+        known_facts={
+            "known_symptoms": [
+                {
+                    "name": "shortness of breath",
+                    "status": "present",
+                    "source_texts": ["I cannot breathe."],
+                }
+            ],
+            "known_history": [
+                {
+                    "item": "asthma",
+                    "status": "present",
+                    "source_texts": ["I have asthma."],
+                }
+            ],
+            "known_allergies": [
+                {
+                    "substance": "penicillin",
+                    "status": "present",
+                    "source_texts": ["Penicillin gives me hives."],
+                }
+            ],
+            "known_medications": [
+                {
+                    "name": "albuterol",
+                    "status": "current",
+                    "source_texts": ["I use albuterol."],
+                }
+            ],
+        }
+    )
+
+    assert isinstance(state.known_facts.known_symptoms[0], KnownSymptom)
+    assert isinstance(state.known_facts.known_history[0], KnownHistory)
+    assert isinstance(state.known_facts.known_allergies[0], KnownAllergy)
+    assert isinstance(state.known_facts.known_medications[0], KnownMedication)
+    assert not isinstance(state.known_facts.known_symptoms[0], str)
 
 
 def test_json_model_serialization_round_trip() -> None:

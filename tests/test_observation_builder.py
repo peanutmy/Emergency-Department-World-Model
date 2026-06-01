@@ -69,8 +69,20 @@ def _rich_state() -> GlobalState:
             },
         },
         known_facts={
-            "known_history": [DISCLOSED_HISTORY],
-            "known_symptoms": ["dyspnea"],
+            "known_history": [
+                {
+                    "item": DISCLOSED_HISTORY,
+                    "status": "present",
+                    "source_texts": ["Family says she has asthma."],
+                }
+            ],
+            "known_symptoms": [
+                {
+                    "name": "dyspnea",
+                    "status": "present",
+                    "source_texts": ["I feel short of breath."],
+                }
+            ],
             "available_results": [
                 {"name": "Chest X-ray", "result": "released pulmonary edema"}
             ],
@@ -154,8 +166,22 @@ def test_clinician_observation_includes_patient_state() -> None:
 def test_clinician_observation_includes_known_facts() -> None:
     observation = ObservationBuilder().build_clinician_observation(_rich_state())
 
-    assert observation["known_facts"]["known_history"] == [DISCLOSED_HISTORY]
-    assert observation["known_facts"]["known_symptoms"] == ["dyspnea"]
+    assert observation["known_facts"]["known_history"] == [
+        {
+            "item": DISCLOSED_HISTORY,
+            "status": "present",
+            "source_texts": ["Family says she has asthma."],
+        }
+    ]
+    assert observation["known_facts"]["known_symptoms"] == [
+        {
+            "name": "dyspnea",
+            "status": "present",
+            "onset": None,
+            "severity": None,
+            "source_texts": ["I feel short of breath."],
+        }
+    ]
 
 
 def test_clinician_observation_includes_released_chief_complaint() -> None:

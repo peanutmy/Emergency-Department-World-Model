@@ -1,10 +1,17 @@
 """State mutation helpers for the v1.3.1 ED world-model runtime."""
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
+from collections.abc import Callable, Iterable, Mapping
 from typing import Any, Literal
 
 from ed_world_model.constants import DEFAULT_DIAGNOSTIC_TURNAROUND_TURNS
+from ed_world_model.facts.schemas import (
+    FactExtractionResult,
+    KnownAllergy,
+    KnownHistory,
+    KnownMedication,
+    KnownSymptom,
+)
 from ed_world_model.state.global_state import (
     DiagnosticResult,
     Event,
@@ -46,30 +53,51 @@ class StateManager:
         self,
         *,
         chief_complaint: str | None = None,
-        known_history: str | Iterable[str] | None = None,
-        known_allergies: str | Iterable[str] | None = None,
-        known_medications: str | Iterable[str] | None = None,
-        known_symptoms: str | Iterable[str] | None = None,
+        known_history: Any = None,
+        known_allergies: Any = None,
+        known_medications: Any = None,
+        known_symptoms: Any = None,
     ) -> KnownFacts:
-        """Append disclosed clinical facts without reading hidden truth_state."""
+        """Append structured disclosed facts without reading hidden truth_state."""
 
         if chief_complaint is not None:
             self._state.known_facts.chief_complaint = chief_complaint
-        self._state.known_facts.known_history = self._with_extended_string_facts(
+        result = FactExtractionResult(
+            symptoms=self._coerce_fact_values(known_symptoms, KnownSymptom),
+            history=self._coerce_fact_values(known_history, KnownHistory),
+            allergies=self._coerce_fact_values(known_allergies, KnownAllergy),
+            medications=self._coerce_fact_values(known_medications, KnownMedication),
+        )
+        self.apply_fact_extraction_result(result)
+        return self._state.known_facts
+
+    def apply_fact_extraction_result(
+        self,
+        result: FactExtractionResult | Mapping[str, Any],
+    ) -> KnownFacts:
+        """Apply extracted patient/relative facts to known_facts."""
+
+        result_model = FactExtractionResult.model_validate(result)
+        if result_model.ignored:
+            return self._state.known_facts
+
+        for symptom in result_model.symptoms:
+            self._upsert_known_symptom(symptom)
+
+        self._state.known_facts.known_history = self._with_merged_fact_sources(
             self._state.known_facts.known_history,
-            known_history,
+            result_model.history,
+            self._history_key,
         )
-        self._state.known_facts.known_allergies = self._with_extended_string_facts(
+        self._state.known_facts.known_allergies = self._with_merged_fact_sources(
             self._state.known_facts.known_allergies,
-            known_allergies,
+            result_model.allergies,
+            self._allergy_key,
         )
-        self._state.known_facts.known_medications = self._with_extended_string_facts(
+        self._state.known_facts.known_medications = self._with_merged_fact_sources(
             self._state.known_facts.known_medications,
-            known_medications,
-        )
-        self._state.known_facts.known_symptoms = self._with_extended_string_facts(
-            self._state.known_facts.known_symptoms,
-            known_symptoms,
+            result_model.medications,
+            self._medication_key,
         )
         return self._state.known_facts
 
@@ -404,16 +432,117 @@ class StateManager:
             return update.model_dump(exclude_unset=True)
         return dict(update)
 
+    def _upsert_known_symptom(self, symptom: KnownSymptom) -> None:
+        new_symptom = symptom.model_copy(deep=True)
+        new_key = self._normalized_fact_text(new_symptom.name)
+        for existing in self._state.known_facts.known_symptoms:
+            if self._normalized_fact_text(existing.name) != new_key:
+                continue
+            if existing.onset is None and new_symptom.onset is not None:
+                existing.onset = new_symptom.onset
+            if existing.severity is None and new_symptom.severity is not None:
+                existing.severity = new_symptom.severity
+            if (
+                existing.status == "uncertain"
+                and new_symptom.status in {"present", "absent"}
+            ):
+                existing.status = new_symptom.status
+            self._append_new_source_texts(
+                existing.source_texts,
+                new_symptom.source_texts,
+            )
+            return
+
+        self._state.known_facts.known_symptoms.append(new_symptom)
+
     @staticmethod
-    def _with_extended_string_facts(
+    def _append_new_source_texts(
         existing: list[str],
-        values: str | Iterable[str] | None,
-    ) -> list[str]:
+        new_values: Iterable[str],
+    ) -> None:
+        for source_text in new_values:
+            if source_text not in existing:
+                existing.append(source_text)
+
+    @classmethod
+    def _with_merged_fact_sources(
+        cls,
+        existing: list[Any],
+        new_values: Iterable[Any],
+        key_fn: Callable[[Any], Any],
+    ) -> list[Any]:
+        updated = [item.model_copy(deep=True) for item in existing]
+        for value in new_values:
+            value_copy = value.model_copy(deep=True)
+            key = key_fn(value_copy)
+            match = next((item for item in updated if key_fn(item) == key), None)
+            if match is not None:
+                cls._append_new_source_texts(
+                    match.source_texts,
+                    value_copy.source_texts,
+                )
+                continue
+            updated.append(value_copy)
+        return updated
+
+    @classmethod
+    def _coerce_fact_values(cls, values: Any, model_type: Any) -> list[Any]:
         if values is None:
-            return list(existing)
+            return []
         if isinstance(values, str):
-            return [*existing, values]
-        return [*existing, *values]
+            raise TypeError("known_facts fields require structured fact objects.")
+        if isinstance(values, model_type):
+            return [values]
+        if isinstance(values, Mapping):
+            return [model_type.model_validate(values)]
+        if isinstance(values, Iterable):
+            coerced = []
+            for value in values:
+                if isinstance(value, str):
+                    raise TypeError(
+                        "known_facts fields require structured fact objects."
+                    )
+                coerced.append(model_type.model_validate(value))
+            return coerced
+        return [model_type.model_validate(values)]
+
+    @classmethod
+    def _history_key(cls, history: KnownHistory) -> tuple[str, str]:
+        return (
+            cls._normalized_fact_text(history.item),
+            history.status,
+        )
+
+    @classmethod
+    def _allergy_key(
+        cls,
+        allergy: KnownAllergy,
+    ) -> tuple[str | None, str, str | None]:
+        return (
+            cls._normalized_optional_fact_text(allergy.substance),
+            allergy.status,
+            cls._normalized_optional_fact_text(allergy.reaction),
+        )
+
+    @classmethod
+    def _medication_key(
+        cls,
+        medication: KnownMedication,
+    ) -> tuple[str | None, str]:
+        return (
+            cls._normalized_optional_fact_text(medication.name),
+            medication.status,
+        )
+
+    @classmethod
+    def _normalized_optional_fact_text(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        return cls._normalized_fact_text(value)
+
+    @staticmethod
+    def _normalized_fact_text(value: str) -> str:
+        return " ".join(value.replace("-", " ").strip().lower().split())
 
 
 __all__ = ["StateManager"]

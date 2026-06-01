@@ -14,7 +14,7 @@ except ImportError:  # pragma: no cover
 
 MISSING_OPENAI_API_KEY_MESSAGE = (
     "OPENAI_API_KEY is not set. Export it before using --agent-mode real "
-    "or --physiology-mode hybrid."
+    "or --physiology-mode hybrid or --fact-extractor llm."
 )
 DEFAULT_AGENT_RESPONSE = {"verbal_action": None, "action": None}
 DEFAULT_VERBAL_ONLY_RESPONSE = {"verbal_action": None}

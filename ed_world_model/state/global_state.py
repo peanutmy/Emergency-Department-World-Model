@@ -6,6 +6,12 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, NonNegativeInt
 
 from ed_world_model.constants import DEFAULT_DIAGNOSTIC_TURNAROUND_TURNS
+from ed_world_model.facts.schemas import (
+    KnownAllergy,
+    KnownHistory,
+    KnownMedication,
+    KnownSymptom,
+)
 
 DEFAULT_MAX_TURNS = 50
 
@@ -108,10 +114,10 @@ class DiagnosticResult(StateModel):
 
 class KnownFacts(StateModel):
     chief_complaint: str | None = None
-    known_history: list[str] = Field(default_factory=list)
-    known_allergies: list[str] = Field(default_factory=list)
-    known_medications: list[str] = Field(default_factory=list)
-    known_symptoms: list[str] = Field(default_factory=list)
+    known_history: list[KnownHistory] = Field(default_factory=list)
+    known_allergies: list[KnownAllergy] = Field(default_factory=list)
+    known_medications: list[KnownMedication] = Field(default_factory=list)
+    known_symptoms: list[KnownSymptom] = Field(default_factory=list)
     available_results: list[DiagnosticResult] = Field(default_factory=list)
 
 
@@ -210,7 +216,11 @@ __all__ = [
     "Event",
     "Features",
     "GlobalState",
+    "KnownAllergy",
     "KnownFacts",
+    "KnownHistory",
+    "KnownMedication",
+    "KnownSymptom",
     "Message",
     "PatientEmotion",
     "PatientInternalState",

@@ -5,8 +5,18 @@ import inspect
 import json
 from pathlib import Path
 
+from ed_world_model.agents.llm_client import FakeLLMClient
+from ed_world_model.agents.stubs import ScriptedPatientAgent, SilentAgent
+from ed_world_model.facts.llm_extractor import LLMFactExtractor
+from ed_world_model.orchestration.runner import IntegrationRunner
+from ed_world_model.state.global_state import GlobalState
 from ed_world_model.trajectory import TrajectoryLogger
 import ed_world_model.trajectory.logger as logger_module
+
+
+class FailingFactLLMClient:
+    def generate(self, prompt: str) -> str:
+        raise RuntimeError("provider failure for sk-test-secret")
 
 
 def _sample_trajectory() -> dict:
@@ -14,6 +24,7 @@ def _sample_trajectory() -> dict:
         "scenario_identifier": "case-123",
         "agent_mode": "fake",
         "physiology_mode": "fake",
+        "fact_extractor_mode": "none",
         "requested_turns": 1,
         "final_turn_index": 1,
         "turns": [
@@ -34,7 +45,15 @@ def _sample_trajectory() -> dict:
                         "known_history": [],
                         "known_allergies": [],
                         "known_medications": [],
-                        "known_symptoms": ["dyspnea"],
+                        "known_symptoms": [
+                            {
+                                "name": "dyspnea",
+                                "status": "present",
+                                "onset": None,
+                                "severity": None,
+                                "source_texts": ["I feel short of breath."],
+                            }
+                        ],
                         "available_results": [],
                     },
                     "truth_state": {"hidden": "not for trajectory snapshots"},
@@ -100,7 +119,15 @@ def _sample_trajectory() -> dict:
                         "known_history": [],
                         "known_allergies": [],
                         "known_medications": [],
-                        "known_symptoms": ["dyspnea"],
+                        "known_symptoms": [
+                            {
+                                "name": "dyspnea",
+                                "status": "present",
+                                "onset": None,
+                                "severity": None,
+                                "source_texts": ["I feel short of breath."],
+                            }
+                        ],
                         "available_results": [
                             {"name": "ECG", "result": "Sinus tachycardia."}
                         ],
@@ -167,11 +194,20 @@ def test_save_json_writes_valid_json_with_required_turn_fields(tmp_path: Path) -
     assert payload["scenario_identifier"] == "case-123"
     assert payload["agent_mode"] == "fake"
     assert payload["physiology_mode"] == "fake"
+    assert payload["fact_extractor_mode"] == "none"
     assert payload["turn_count"] == 1
     assert payload["final_turn_index"] == 1
     assert turn["state_before"]["patient_state"]["vitals"]["O2Sat"] == 88.0
     assert turn["state_after"]["patient_state"]["vitals"]["O2Sat"] == 93.0
-    assert turn["state_before"]["known_facts"]["known_symptoms"] == ["dyspnea"]
+    assert turn["state_before"]["known_facts"]["known_symptoms"] == [
+        {
+            "name": "dyspnea",
+            "status": "present",
+            "onset": None,
+            "severity": None,
+            "source_texts": ["I feel short of breath."],
+        }
+    ]
     assert turn["state_after"]["known_facts"]["available_results"] == [
         {"name": "ECG", "result": "Sinus tachycardia."}
     ]
@@ -184,6 +220,113 @@ def test_save_json_writes_valid_json_with_required_turn_fields(tmp_path: Path) -
         "invalid duplicate order"
     ]
     assert turn["parser_errors"][0]["payload"]["error_type"] == "PatientParserError"
+
+
+def test_trajectory_known_facts_do_not_add_raw_statement_stores(tmp_path: Path) -> None:
+    path = TrajectoryLogger(tmp_path).save_json(_sample_trajectory())
+
+    payload = _read_json(path)
+    known_facts = payload["turns"][0]["state_before"]["known_facts"]
+    assert "known_patient_statements" not in known_facts
+    assert "known_relative_statements" not in known_facts
+    assert "structured_symptoms" not in known_facts
+    assert "structured_history" not in known_facts
+
+
+def test_trajectory_preserves_fact_extraction_error_events(tmp_path: Path) -> None:
+    trajectory = _sample_trajectory()
+    trajectory["turns"][0]["events"].append(
+        {
+            "type": "fact_extraction_error",
+            "turn_index": 0,
+            "payload": {
+                "speaker": "patient",
+                "error_type": "RuntimeError",
+                "error_message": "extractor failed",
+            },
+        }
+    )
+
+    path = TrajectoryLogger(tmp_path).save_json(trajectory)
+
+    payload = _read_json(path)
+    assert any(
+        event["type"] == "fact_extraction_error"
+        for event in payload["turns"][0]["events"]
+    )
+
+
+def test_trajectory_json_includes_known_facts_after_llm_fact_extractor(
+    tmp_path: Path,
+) -> None:
+    patient_statement = "I feel short of breath."
+    llm_client = FakeLLMClient(
+        [
+            {
+                "symptoms": [
+                    {
+                        "name": "shortness of breath",
+                        "status": "present",
+                        "onset": None,
+                        "severity": None,
+                        "source_texts": [patient_statement],
+                    }
+                ]
+            }
+        ]
+    )
+    runner = IntegrationRunner(
+        GlobalState(runtime_state={"required_response_agents": ["patient"]}),
+        agents={
+            "clinician": SilentAgent(),
+            "patient": ScriptedPatientAgent([patient_statement]),
+        },
+        fact_extractor=LLMFactExtractor(llm_client),
+    )
+
+    turn = runner.run_turn()
+    path = TrajectoryLogger(tmp_path).save_json([turn])
+
+    payload = _read_json(path)
+    assert payload["turns"][0]["state_after"]["known_facts"]["known_symptoms"] == [
+        {
+            "name": "shortness of breath",
+            "status": "present",
+            "onset": None,
+            "severity": None,
+            "source_texts": [patient_statement],
+        }
+    ]
+    known_facts = payload["turns"][0]["state_after"]["known_facts"]
+    assert "known_patient_statements" not in known_facts
+
+
+def test_fact_extraction_error_redacts_api_key_in_events_and_trajectory_json(
+    tmp_path: Path,
+) -> None:
+    runner = IntegrationRunner(
+        GlobalState(runtime_state={"required_response_agents": ["patient"]}),
+        agents={
+            "clinician": SilentAgent(),
+            "patient": ScriptedPatientAgent(["I feel short of breath."]),
+        },
+        fact_extractor=LLMFactExtractor(FailingFactLLMClient()),
+    )
+
+    turn = runner.run_turn()
+
+    assert turn.completed is True
+    error_events = [
+        event for event in turn.events if event["type"] == "fact_extraction_error"
+    ]
+    assert error_events
+    assert "sk-test-secret" not in str(error_events[0]["payload"])
+    assert "[REDACTED_API_KEY]" in error_events[0]["payload"]["error_message"]
+
+    path = TrajectoryLogger(tmp_path).save_json([turn])
+    payload_text = path.read_text(encoding="utf-8")
+    assert "sk-test-secret" not in payload_text
+    assert "[REDACTED_API_KEY]" in payload_text
 
 
 def test_save_summary_writes_valid_summary_json(tmp_path: Path) -> None:

@@ -19,6 +19,7 @@ from ed_world_model.agents.stubs import (
     ScriptedRelativeAgent,
     SilentAgent,
 )
+from ed_world_model.facts.extractor import FactExtractor
 from ed_world_model.orchestration.observation_builder import ObservationBuilder
 from ed_world_model.orchestration.orchestrator import (
     CLINICIAN,
@@ -169,6 +170,7 @@ class IntegrationRunner:
         orchestrator: Orchestrator | None = None,
         observation_builder: ObservationBuilder | None = None,
         action_validator: ActionValidator | None = None,
+        fact_extractor: FactExtractor | None = None,
         scenario_loader: ScenarioLoader | None = None,
         max_turns: int | None = None,
     ) -> None:
@@ -193,6 +195,7 @@ class IntegrationRunner:
             observation_builder=observation_builder or ObservationBuilder(),
             action_validator=action_validator or ActionValidator(ActionRegistry()),
             emotion_engine=self.emotion_engine,
+            fact_extractor=fact_extractor,
         )
 
     @property
@@ -243,6 +246,7 @@ def run_trajectory(
     agents: Mapping[str, Any] | None = None,
     physiology_adapter: Any | None = None,
     emotion_engine: Any | None = None,
+    fact_extractor: FactExtractor | None = None,
     max_turns: int | None = None,
     explicitly_selected_agents_by_turn: Sequence[set[str] | None] | None = None,
 ) -> list[TrajectoryTurn]:
@@ -251,6 +255,7 @@ def run_trajectory(
         agents=agents,
         physiology_adapter=physiology_adapter,
         emotion_engine=emotion_engine,
+        fact_extractor=fact_extractor,
         max_turns=max_turns,
     )
     return runner.run(

@@ -135,6 +135,11 @@ def _build_trajectory_payload(
             source_mapping,
             "physiology_mode",
         ),
+        "fact_extractor_mode": _first_present(
+            safe_metadata,
+            source_mapping,
+            "fact_extractor_mode",
+        ),
         "requested_turns": _first_present(
             safe_metadata,
             source_mapping,
@@ -200,6 +205,11 @@ def _build_summary_payload(
             safe_metadata,
             trajectory,
             "physiology_mode",
+        ),
+        "fact_extractor_mode": _first_present(
+            safe_metadata,
+            trajectory,
+            "fact_extractor_mode",
         ),
         "requested_turns": _first_present(
             safe_metadata,

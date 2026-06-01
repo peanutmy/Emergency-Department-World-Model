@@ -17,6 +17,8 @@ from ed_world_model.agents.patient import PatientParserError
 from ed_world_model.agents.relative import RelativeParserError
 from ed_world_model.agents.schemas import AgentProposal, VerbalAction
 from ed_world_model.agents.stubs import SilentAgent
+from ed_world_model.facts.extractor import FactExtractionContext, FactExtractor
+from ed_world_model.facts.schemas import FactExtractionResult
 from ed_world_model.orchestration.observation_builder import ObservationBuilder
 from ed_world_model.orchestration.orchestrator import (
     CLINICIAN,
@@ -76,6 +78,7 @@ class TurnLoop:
         observation_builder: ObservationBuilder | None = None,
         action_validator: ActionValidator | None = None,
         emotion_engine: Any | None = None,
+        fact_extractor: FactExtractor | None = None,
     ) -> None:
         self.state_manager = state_manager
         self.orchestrator = orchestrator or Orchestrator()
@@ -83,6 +86,7 @@ class TurnLoop:
         self.action_validator = action_validator or ActionValidator(ActionRegistry())
         self.physiology_adapter = physiology_adapter
         self.emotion_engine = emotion_engine or NoopEmotionEngine()
+        self.fact_extractor = fact_extractor
         self.agents = dict(agents or {})
         self._default_silent_agent = SilentAgent()
 
@@ -339,7 +343,11 @@ class TurnLoop:
                 turn_index=self.state_manager.state.runtime_state.turn_index,
             )
         )
-        update_known_facts_from_verbal_action(self.state_manager, verbal_action)
+        update_known_facts_from_verbal_action(
+            self.state_manager,
+            verbal_action,
+            fact_extractor=self.fact_extractor,
+        )
         self._call_pending_question_hooks(verbal_action)
         return message
 
@@ -538,41 +546,89 @@ def _public_state_snapshot(state: Any) -> dict[str, Any]:
 def update_known_facts_from_verbal_action(
     state_manager: StateManager,
     verbal_action: VerbalAction,
+    *,
+    fact_extractor: FactExtractor | None = None,
 ) -> None:
-    """Store committed patient-side disclosures without reading hidden truth.
-
-    This is a shallow disclosure capture, not semantic fact extraction. It only
-    records spoken patient/relative disclosures and optionally deduplicates
-    normalized exact strings. Semantic extraction/consolidation is future work.
-    """
+    """Extract structured patient/relative disclosures into known_facts."""
 
     content = verbal_action.content.strip()
-    if content == "":
+    if content == "" or verbal_action.speaker not in {PATIENT, RELATIVE}:
         return
-    if verbal_action.speaker == PATIENT:
-        if not _has_normalized_exact_string(
-            state_manager.state.known_facts.known_symptoms,
-            content,
-        ):
-            state_manager.update_known_facts(known_symptoms=content)
-    elif verbal_action.speaker == RELATIVE:
-        if not _has_normalized_exact_string(
-            state_manager.state.known_facts.known_history,
-            content,
-        ):
-            state_manager.update_known_facts(known_history=content)
+    if fact_extractor is None:
+        return
 
+    try:
+        result = FactExtractionResult.model_validate(
+            fact_extractor.extract(
+                content=content,
+                speaker=verbal_action.speaker,
+                context=_fact_extraction_context(state_manager, verbal_action),
+            )
+        )
+    except Exception as exc:
+        state_manager.record_event(
+            Event(
+                type="fact_extraction_error",
+                turn_index=state_manager.state.runtime_state.turn_index,
+                payload={
+                    "speaker": verbal_action.speaker,
+                    "error_type": type(exc).__name__,
+                    "error_message": str(exc),
+                },
+            )
+        )
+        return
 
-def _has_normalized_exact_string(existing: list[str], value: str) -> bool:
-    normalized_value = _normalize_exact_disclosure(value)
-    return any(
-        _normalize_exact_disclosure(item) == normalized_value
-        for item in existing
+    if result.ignored:
+        return
+
+    fact_counts = {
+        "symptoms": len(result.symptoms),
+        "history": len(result.history),
+        "allergies": len(result.allergies),
+        "medications": len(result.medications),
+    }
+    if not any(fact_counts.values()):
+        return
+
+    state_manager.apply_fact_extraction_result(result)
+    state_manager.record_event(
+        Event(
+            type="fact_extraction_applied",
+            turn_index=state_manager.state.runtime_state.turn_index,
+            payload={
+                "speaker": verbal_action.speaker,
+                "fact_counts": fact_counts,
+            },
+        )
     )
 
 
-def _normalize_exact_disclosure(value: str) -> str:
-    return " ".join(value.strip().lower().split())
+def _fact_extraction_context(
+    state_manager: StateManager,
+    verbal_action: VerbalAction,
+) -> FactExtractionContext:
+    return FactExtractionContext(
+        recent_messages=[
+            _dump(message)
+            for message in state_manager.state.runtime_state.messages[-10:]
+        ],
+        known_facts=state_manager.state.known_facts.model_dump(),
+        last_question=_last_question_for_speaker(
+            state_manager,
+            verbal_action.speaker,
+        ),
+    )
+
+
+def _last_question_for_speaker(
+    state_manager: StateManager,
+    speaker: str,
+) -> str | None:
+    for question in reversed(state_manager.state.runtime_state.pending_questions):
+        if question.target_agent == speaker and not question.is_resolved:
+            return question.question_text
+    return None
 
 
 __all__ = [

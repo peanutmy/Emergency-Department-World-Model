@@ -22,6 +22,11 @@ from ed_world_model.agents.llm_client import (
 from ed_world_model.agents.nurse import NurseAgent
 from ed_world_model.agents.patient import PatientAgent
 from ed_world_model.agents.relative import RelativeAgent
+from ed_world_model.facts import (
+    FactExtractionResult,
+    FakeFactExtractor,
+    LLMFactExtractor,
+)
 from ed_world_model.orchestration.orchestrator import CLINICIAN, NURSE, PATIENT, RELATIVE
 from ed_world_model.orchestration.runner import (
     IntegrationRunner,
@@ -37,6 +42,9 @@ AGENT_MODE_FAKE = "fake"
 AGENT_MODE_REAL = "real"
 PHYSIOLOGY_MODE_FAKE = "fake"
 PHYSIOLOGY_MODE_HYBRID = "hybrid"
+FACT_EXTRACTOR_MODE_NONE = "none"
+FACT_EXTRACTOR_MODE_FAKE = "fake"
+FACT_EXTRACTOR_MODE_LLM = "llm"
 FAKE_MODE = AGENT_MODE_FAKE
 
 LLMClientFactory = Callable[[], Any]
@@ -100,6 +108,7 @@ class DemoResult:
     scenario_identifier: str | None
     agent_mode: str
     physiology_mode: str
+    fact_extractor_mode: str
     requested_turns: int
     turns: list[DemoTurn]
     final_patient_state: dict[str, Any]
@@ -112,6 +121,7 @@ class DemoResult:
             "scenario_identifier": self.scenario_identifier,
             "agent_mode": self.agent_mode,
             "physiology_mode": self.physiology_mode,
+            "fact_extractor_mode": self.fact_extractor_mode,
             "requested_turns": self.requested_turns,
             "turn_count": len(turns),
             "turns": turns,
@@ -138,9 +148,11 @@ def run_demo_scenario(
     mode: str | None = None,
     agent_mode: str = AGENT_MODE_FAKE,
     physiology_mode: str = PHYSIOLOGY_MODE_FAKE,
+    fact_extractor_mode: str = FACT_EXTRACTOR_MODE_NONE,
     scenario_loader: ScenarioLoader | None = None,
     llm_client_factory: LLMClientFactory | None = None,
     physiology_llm_client_factory: LLMClientFactory | None = None,
+    fact_llm_client_factory: LLMClientFactory | None = None,
 ) -> DemoResult:
     """Load a scenario and run a v1.3.1 demo trajectory."""
 
@@ -154,6 +166,7 @@ def run_demo_scenario(
         agent_mode = mode
     _validate_agent_mode(agent_mode)
     _validate_physiology_mode(physiology_mode)
+    _validate_fact_extractor_mode(fact_extractor_mode)
     if turns < 0:
         raise ValueError("turns must be non-negative.")
 
@@ -173,6 +186,10 @@ def run_demo_scenario(
             or llm_client_factory,
         ),
         emotion_engine=NoopEmotionEngine(),
+        fact_extractor=build_demo_fact_extractor(
+            fact_extractor_mode=fact_extractor_mode,
+            llm_client_factory=fact_llm_client_factory or llm_client_factory,
+        ),
     )
 
     demo_turns: list[DemoTurn] = []
@@ -186,6 +203,7 @@ def run_demo_scenario(
         scenario_identifier=_scenario_identifier(path),
         agent_mode=agent_mode,
         physiology_mode=physiology_mode,
+        fact_extractor_mode=fact_extractor_mode,
         requested_turns=turns,
         turns=demo_turns,
         final_patient_state=runner.state.patient_state.model_dump(),
@@ -304,6 +322,28 @@ def build_demo_physiology_adapter(
     return adapter_class(llm_client=llm_client)
 
 
+def build_demo_fact_extractor(
+    *,
+    fact_extractor_mode: str = FACT_EXTRACTOR_MODE_NONE,
+    llm_client_factory: LLMClientFactory | None = None,
+) -> Any | None:
+    """Build the optional patient/relative disclosure extractor."""
+
+    _validate_fact_extractor_mode(fact_extractor_mode)
+    if fact_extractor_mode == FACT_EXTRACTOR_MODE_NONE:
+        return None
+    if fact_extractor_mode == FACT_EXTRACTOR_MODE_FAKE:
+        return FakeFactExtractor(
+            default_result=FactExtractionResult(
+                ignored=True,
+                reason="Fake fact extractor configured with no scripted facts.",
+            )
+        )
+
+    llm_client = _make_real_llm_client(llm_client_factory)
+    return LLMFactExtractor(llm_client)
+
+
 def render_readable_trajectory(result: DemoResult) -> str:
     """Render a compact, readable per-turn trajectory."""
 
@@ -386,6 +426,16 @@ def main(argv: list[str] | None = None) -> int:
         help="Physiology backend mode. Defaults to deterministic fake physiology.",
     )
     parser.add_argument(
+        "--fact-extractor",
+        default=FACT_EXTRACTOR_MODE_NONE,
+        choices=[
+            FACT_EXTRACTOR_MODE_NONE,
+            FACT_EXTRACTOR_MODE_FAKE,
+            FACT_EXTRACTOR_MODE_LLM,
+        ],
+        help="Patient/relative disclosure extractor. Defaults to none.",
+    )
+    parser.add_argument(
         "--json",
         action="store_true",
         dest="json_output",
@@ -404,6 +454,7 @@ def main(argv: list[str] | None = None) -> int:
         mode=args.mode,
         agent_mode=args.agent_mode,
         physiology_mode=args.physiology_mode,
+        fact_extractor_mode=args.fact_extractor,
     )
     if args.output_dir is not None:
         TrajectoryLogger(args.output_dir).save_all(result)
@@ -427,6 +478,18 @@ def _validate_physiology_mode(physiology_mode: str) -> None:
         raise ValueError(
             "physiology_mode must be 'fake' or 'hybrid'; "
             f"received {physiology_mode!r}."
+        )
+
+
+def _validate_fact_extractor_mode(fact_extractor_mode: str) -> None:
+    if fact_extractor_mode not in {
+        FACT_EXTRACTOR_MODE_NONE,
+        FACT_EXTRACTOR_MODE_FAKE,
+        FACT_EXTRACTOR_MODE_LLM,
+    }:
+        raise ValueError(
+            "fact_extractor_mode must be 'none', 'fake', or 'llm'; "
+            f"received {fact_extractor_mode!r}."
         )
 
 

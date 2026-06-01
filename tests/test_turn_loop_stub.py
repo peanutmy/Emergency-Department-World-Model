@@ -13,6 +13,16 @@ if str(ROOT) not in sys.path:
 import ed_world_model.orchestration.turn_loop as turn_loop_module
 from ed_world_model.actions.registry import ActionFamily, ActionRegistry, KindHint
 from ed_world_model.actions.validator import ActionValidator
+from ed_world_model.agents.llm_client import FakeLLMClient
+from ed_world_model.facts.extractor import FakeFactExtractor
+from ed_world_model.facts.llm_extractor import LLMFactExtractor
+from ed_world_model.facts.schemas import (
+    FactExtractionResult,
+    KnownAllergy,
+    KnownHistory,
+    KnownMedication,
+    KnownSymptom,
+)
 from ed_world_model.agents.stubs import (
     ScriptedClinicianAgent,
     ScriptedNurseAgent,
@@ -139,6 +149,7 @@ def _loop(
     emotion_engine: FakeEmotionEngine | None = None,
     agents: dict | None = None,
     observation_builder: ObservationBuilder | None = None,
+    fact_extractor=None,
 ) -> tuple[TurnLoop, FakePhysiologyAdapter, FakeEmotionEngine]:
     physiology_adapter = physiology_adapter or FakePhysiologyAdapter()
     emotion_engine = emotion_engine or FakeEmotionEngine()
@@ -149,6 +160,7 @@ def _loop(
         observation_builder=observation_builder or ObservationBuilder(),
         action_validator=ActionValidator(ActionRegistry()),
         emotion_engine=emotion_engine,
+        fact_extractor=fact_extractor,
     )
     return loop, physiology_adapter, emotion_engine
 
@@ -507,7 +519,124 @@ def test_verbal_actions_commit_without_internal_reasoning_storage() -> None:
     assert "chain" not in str(dumped_messages)
 
 
-def test_patient_verbal_disclosure_updates_known_symptoms() -> None:
+def test_patient_verbal_disclosure_with_fake_extractor_updates_known_symptoms() -> None:
+    patient_statement = "I feel short of breath."
+    patient = ScriptedPatientAgent([patient_statement])
+    extractor = FakeFactExtractor(
+        [
+            FactExtractionResult(
+                symptoms=[
+                    KnownSymptom(
+                        name="shortness of breath",
+                        status="present",
+                        source_texts=[patient_statement],
+                    )
+                ]
+            )
+        ]
+    )
+    manager = StateManager(
+        GlobalState(runtime_state={"required_response_agents": ["patient"]})
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+        fact_extractor=extractor,
+    )
+
+    result = loop.run_turn()
+
+    assert manager.state.known_facts.known_symptoms == [
+        KnownSymptom(
+            name="shortness of breath",
+            status="present",
+            source_texts=[patient_statement],
+        )
+    ]
+    assert manager.state.runtime_state.messages[0].content == patient_statement
+    assert extractor.calls[0]["speaker"] == "patient"
+    assert any(event["type"] == "fact_extraction_applied" for event in result.events)
+
+
+def test_patient_verbal_disclosure_with_llm_extractor_updates_known_symptoms() -> None:
+    patient_statement = "I feel short of breath."
+    patient = ScriptedPatientAgent([patient_statement])
+    llm_client = FakeLLMClient(
+        [
+            {
+                "symptoms": [
+                    {
+                        "name": "shortness of breath",
+                        "status": "present",
+                        "onset": None,
+                        "severity": None,
+                        "source_texts": [patient_statement],
+                    }
+                ]
+            }
+        ]
+    )
+    manager = StateManager(
+        GlobalState(runtime_state={"required_response_agents": ["patient"]})
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+        fact_extractor=LLMFactExtractor(llm_client),
+    )
+
+    result = loop.run_turn()
+
+    assert manager.state.known_facts.known_symptoms == [
+        KnownSymptom(
+            name="shortness of breath",
+            status="present",
+            source_texts=[patient_statement],
+        )
+    ]
+    assert llm_client.prompts
+    assert any(event["type"] == "fact_extraction_applied" for event in result.events)
+
+
+def test_llm_fact_extractor_patient_denial_updates_symptom_absent() -> None:
+    patient_statement = "No chest pain."
+    patient = ScriptedPatientAgent([patient_statement])
+    llm_client = FakeLLMClient(
+        [
+            {
+                "symptoms": [
+                    {
+                        "name": "chest pain",
+                        "status": "absent",
+                        "onset": None,
+                        "severity": None,
+                        "source_texts": [patient_statement],
+                    }
+                ]
+            }
+        ]
+    )
+    manager = StateManager(
+        GlobalState(runtime_state={"required_response_agents": ["patient"]})
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+        fact_extractor=LLMFactExtractor(llm_client),
+    )
+
+    loop.run_turn()
+
+    assert manager.state.known_facts.known_symptoms == [
+        KnownSymptom(
+            name="chest pain",
+            status="absent",
+            source_texts=[patient_statement],
+        )
+    ]
+
+
+def test_patient_verbal_disclosure_without_extractor_does_not_update_known_facts() -> None:
     patient_statement = "I feel short of breath."
     patient = ScriptedPatientAgent([patient_statement])
     manager = StateManager(
@@ -520,26 +649,12 @@ def test_patient_verbal_disclosure_updates_known_symptoms() -> None:
 
     loop.run_turn()
 
-    assert manager.state.known_facts.known_symptoms == [patient_statement]
+    assert manager.state.known_facts.known_symptoms == []
+    assert manager.state.known_facts.known_history == []
+    assert manager.state.runtime_state.messages[0].content == patient_statement
 
 
-def test_patient_denial_is_stored_as_known_symptom_statement() -> None:
-    patient_statement = "I do not have chest pain."
-    patient = ScriptedPatientAgent([patient_statement])
-    manager = StateManager(
-        GlobalState(runtime_state={"required_response_agents": ["patient"]})
-    )
-    loop, _, _ = _loop(
-        manager,
-        agents={"clinician": SilentAgent(), "patient": patient},
-    )
-
-    loop.run_turn()
-
-    assert manager.state.known_facts.known_symptoms == [patient_statement]
-
-
-def test_normalized_exact_duplicate_patient_disclosure_is_not_duplicated() -> None:
+def test_update_known_facts_from_verbal_action_without_extractor_is_noop() -> None:
     manager = StateManager(GlobalState())
 
     update_known_facts_from_verbal_action(
@@ -550,59 +665,56 @@ def test_normalized_exact_duplicate_patient_disclosure_is_not_duplicated() -> No
             content="I feel short of breath.",
         ),
     )
-    update_known_facts_from_verbal_action(
-        manager,
-        VerbalAction(
-            speaker="patient",
-            recipient="clinician",
-            content="  i feel   short of breath.  ",
-        ),
-    )
 
-    assert manager.state.known_facts.known_symptoms == ["I feel short of breath."]
+    assert manager.state.known_facts.known_symptoms == []
 
 
-def test_similar_patient_disclosure_wording_is_still_stored_shallowly() -> None:
-    manager = StateManager(GlobalState())
-
-    update_known_facts_from_verbal_action(
-        manager,
-        VerbalAction(
-            speaker="patient",
-            recipient="clinician",
-            content="I feel short of breath.",
-        ),
-    )
-    update_known_facts_from_verbal_action(
-        manager,
-        VerbalAction(
-            speaker="patient",
-            recipient="clinician",
-            content="I am breathless.",
-        ),
-    )
-
-    assert manager.state.known_facts.known_symptoms == [
-        "I feel short of breath.",
-        "I am breathless.",
-    ]
-
-
-def test_relative_verbal_disclosure_updates_known_history() -> None:
-    relative_statement = "He has asthma."
+def test_relative_verbal_disclosure_with_fake_extractor_updates_structured_facts() -> None:
+    relative_statement = "He has asthma, takes albuterol, and is allergic to penicillin."
     relative = ScriptedRelativeAgent([relative_statement])
+    extractor = FakeFactExtractor(
+        [
+            FactExtractionResult(
+                history=[
+                    KnownHistory(
+                        item="asthma",
+                        status="present",
+                        source_texts=[relative_statement],
+                    )
+                ],
+                allergies=[
+                    KnownAllergy(
+                        substance="penicillin",
+                        status="present",
+                        source_texts=[relative_statement],
+                    )
+                ],
+                medications=[
+                    KnownMedication(
+                        name="albuterol",
+                        status="current",
+                        source_texts=[relative_statement],
+                    )
+                ],
+            )
+        ]
+    )
     manager = StateManager(GlobalState())
     loop, _, _ = _loop(
         manager,
         agents={"clinician": SilentAgent(), "relative": relative},
+        fact_extractor=extractor,
     )
 
     loop.run_turn(explicitly_selected_agents={"relative"})
 
-    assert manager.state.known_facts.known_history == [relative_statement]
+    assert manager.state.known_facts.known_history[0].item == "asthma"
+    assert manager.state.known_facts.known_allergies[0].substance == "penicillin"
+    assert manager.state.known_facts.known_medications[0].name == "albuterol"
+    assert extractor.calls[0]["speaker"] == "relative"
 
 
-def test_clinician_and_nurse_verbal_actions_do_not_update_known_facts() -> None:
+def test_clinician_and_nurse_verbal_actions_do_not_update_known_facts_or_extract() -> None:
     clinician = ScriptedClinicianAgent(
         [
             {
@@ -617,15 +729,30 @@ def test_clinician_and_nurse_verbal_actions_do_not_update_known_facts() -> None:
     manager = StateManager(
         GlobalState(runtime_state={"required_response_agents": ["nurse"]})
     )
+    extractor = FakeFactExtractor(
+        [
+            FactExtractionResult(
+                symptoms=[
+                    KnownSymptom(
+                        name="shortness of breath",
+                        status="present",
+                        source_texts=["should not be used"],
+                    )
+                ]
+            )
+        ]
+    )
     loop, _, _ = _loop(
         manager,
         agents={"clinician": clinician, "nurse": nurse},
+        fact_extractor=extractor,
     )
 
     loop.run_turn()
 
     assert manager.state.known_facts.known_symptoms == []
     assert manager.state.known_facts.known_history == []
+    assert extractor.calls == []
 
 
 def test_patient_disclosure_does_not_copy_hidden_truth() -> None:
@@ -639,18 +766,38 @@ def test_patient_disclosure_does_not_copy_hidden_truth() -> None:
         runtime_state={"required_response_agents": ["patient"]},
     )
     patient = ScriptedPatientAgent(["I feel dizzy."])
+    extractor = FakeFactExtractor(
+        [
+            FactExtractionResult(
+                symptoms=[
+                    KnownSymptom(
+                        name="dizziness",
+                        status="present",
+                        source_texts=["I feel dizzy."],
+                    )
+                ]
+            )
+        ]
+    )
     manager = StateManager(state)
     loop, _, _ = _loop(
         manager,
         agents={"clinician": SilentAgent(), "patient": patient},
+        fact_extractor=extractor,
     )
 
     loop.run_turn()
 
-    assert manager.state.known_facts.known_symptoms == ["I feel dizzy."]
+    assert manager.state.known_facts.known_symptoms == [
+        KnownSymptom(
+            name="dizziness",
+            status="present",
+            source_texts=["I feel dizzy."],
+        )
+    ]
     assert manager.state.known_facts.known_history == []
-    assert "hidden fever" not in manager.state.known_facts.known_symptoms
-    assert "hidden diabetes" not in manager.state.known_facts.known_history
+    assert "hidden fever" not in str(manager.state.known_facts.model_dump())
+    assert "hidden diabetes" not in str(manager.state.known_facts.model_dump())
 
 
 def test_known_facts_from_patient_disclosure_persist_across_turns() -> None:
@@ -670,16 +817,212 @@ def test_known_facts_from_patient_disclosure_persist_across_turns() -> None:
         }
     )
     patient = ScriptedPatientAgent([patient_statement])
+    extractor = FakeFactExtractor(
+        [
+            FactExtractionResult(
+                symptoms=[
+                    KnownSymptom(
+                        name="breathing trouble",
+                        status="present",
+                        onset="one hour ago",
+                        source_texts=[patient_statement],
+                    )
+                ]
+            )
+        ]
+    )
     manager = StateManager(state)
     loop, _, _ = _loop(
         manager,
         agents={"clinician": SilentAgent(), "patient": patient},
+        fact_extractor=extractor,
     )
 
     loop.run_turn()
     loop.run_turn()
 
-    assert manager.state.known_facts.known_symptoms == [patient_statement]
+    assert manager.state.known_facts.known_symptoms == [
+        KnownSymptom(
+            name="breathing trouble",
+            status="present",
+            onset="one hour ago",
+            source_texts=[patient_statement],
+        )
+    ]
+
+
+def test_fact_extraction_error_records_event_and_does_not_crash() -> None:
+    patient = ScriptedPatientAgent(["I feel short of breath."])
+    extractor = FakeFactExtractor([RuntimeError("extractor failed")])
+    manager = StateManager(
+        GlobalState(runtime_state={"required_response_agents": ["patient"]})
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+        fact_extractor=extractor,
+    )
+
+    result = loop.run_turn()
+
+    assert result.completed is True
+    assert manager.state.known_facts.known_symptoms == []
+    error_events = [
+        event for event in result.events if event["type"] == "fact_extraction_error"
+    ]
+    assert error_events
+    assert error_events[0]["payload"]["error_type"] == "RuntimeError"
+
+
+def test_llm_fact_extraction_parse_error_records_event_and_turn_continues() -> None:
+    patient = ScriptedPatientAgent(["I feel short of breath."])
+    llm_client = FakeLLMClient(["not json"])
+    manager = StateManager(
+        GlobalState(runtime_state={"required_response_agents": ["patient"]})
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+        fact_extractor=LLMFactExtractor(llm_client),
+    )
+
+    result = loop.run_turn()
+
+    assert result.completed is True
+    assert manager.state.known_facts.known_symptoms == []
+    error_events = [
+        event for event in result.events if event["type"] == "fact_extraction_error"
+    ]
+    assert error_events
+    assert error_events[0]["payload"]["error_type"] == "FactExtractionError"
+
+
+def test_ignored_fact_extraction_result_does_not_update_known_facts() -> None:
+    patient = ScriptedPatientAgent(["I feel short of breath."])
+    extractor = FakeFactExtractor([FactExtractionResult(ignored=True)])
+    manager = StateManager(
+        GlobalState(runtime_state={"required_response_agents": ["patient"]})
+    )
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+        fact_extractor=extractor,
+    )
+
+    loop.run_turn()
+
+    assert manager.state.known_facts.known_symptoms == []
+
+
+def test_elliptical_answer_can_update_existing_symptom_when_extractor_maps_it() -> None:
+    state = GlobalState(
+        known_facts={
+            "known_symptoms": [
+                {
+                    "name": "shortness of breath",
+                    "status": "present",
+                    "source_texts": ["I am short of breath."],
+                }
+            ]
+        },
+        runtime_state={
+            "turn_index": 1,
+            "required_response_agents": ["patient"],
+            "pending_questions": [
+                {
+                    "source_agent": "clinician",
+                    "target_agent": "patient",
+                    "question_text": "When did the shortness of breath start?",
+                    "created_at_turn": 0,
+                }
+            ],
+        },
+    )
+    patient = ScriptedPatientAgent(["A few hours ago."])
+    extractor = FakeFactExtractor(
+        [
+            FactExtractionResult(
+                symptoms=[
+                    KnownSymptom(
+                        name="shortness of breath",
+                        status="present",
+                        onset="a few hours ago",
+                        source_texts=["A few hours ago."],
+                    )
+                ]
+            )
+        ]
+    )
+    manager = StateManager(state)
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+        fact_extractor=extractor,
+    )
+
+    loop.run_turn()
+
+    assert extractor.calls[0]["context"].last_question == (
+        "When did the shortness of breath start?"
+    )
+    symptoms = manager.state.known_facts.known_symptoms
+    assert len(symptoms) == 1
+    assert symptoms[0].onset == "a few hours ago"
+
+
+def test_llm_fact_extractor_elliptical_onset_merges_with_existing_symptom() -> None:
+    state = GlobalState(
+        known_facts={
+            "known_symptoms": [
+                {
+                    "name": "shortness of breath",
+                    "status": "present",
+                    "source_texts": ["I am short of breath."],
+                }
+            ]
+        },
+        runtime_state={
+            "turn_index": 1,
+            "required_response_agents": ["patient"],
+            "pending_questions": [
+                {
+                    "source_agent": "clinician",
+                    "target_agent": "patient",
+                    "question_text": "When did the shortness of breath start?",
+                    "created_at_turn": 0,
+                }
+            ],
+        },
+    )
+    patient = ScriptedPatientAgent(["A few hours ago."])
+    llm_client = FakeLLMClient(
+        [
+            {
+                "symptoms": [
+                    {
+                        "name": "shortness of breath",
+                        "status": "present",
+                        "onset": "a few hours ago",
+                        "severity": None,
+                        "source_texts": ["A few hours ago."],
+                    }
+                ]
+            }
+        ]
+    )
+    manager = StateManager(state)
+    loop, _, _ = _loop(
+        manager,
+        agents={"clinician": SilentAgent(), "patient": patient},
+        fact_extractor=LLMFactExtractor(llm_client),
+    )
+
+    loop.run_turn()
+
+    symptoms = manager.state.known_facts.known_symptoms
+    assert len(symptoms) == 1
+    assert symptoms[0].onset == "a few hours ago"
+    assert "When did the shortness of breath start?" in llm_client.prompts[0]
 
 
 def test_unconscious_patient_verbal_action_is_not_committed_or_known() -> None:
@@ -728,18 +1071,38 @@ def test_patient_who_cannot_speak_verbal_action_is_not_committed_or_known() -> N
 def test_relative_disclosure_updates_known_history_when_patient_cannot_speak() -> None:
     relative_statement = "She has asthma."
     relative = ScriptedRelativeAgent([relative_statement])
+    extractor = FakeFactExtractor(
+        [
+            FactExtractionResult(
+                history=[
+                    KnownHistory(
+                        item="asthma",
+                        status="present",
+                        source_texts=[relative_statement],
+                    )
+                ]
+            )
+        ]
+    )
     manager = StateManager(
         GlobalState(patient_state={"status_flags": {"can_speak": False}})
     )
     loop, _, _ = _loop(
         manager,
         agents={"clinician": SilentAgent(), "relative": relative},
+        fact_extractor=extractor,
     )
 
     loop.run_turn(explicitly_selected_agents={"relative"})
 
     assert manager.state.runtime_state.messages[0].speaker == "relative"
-    assert manager.state.known_facts.known_history == [relative_statement]
+    assert manager.state.known_facts.known_history == [
+        KnownHistory(
+            item="asthma",
+            status="present",
+            source_texts=[relative_statement],
+        )
+    ]
 
 
 def test_required_patient_response_commits_before_clinician_generation() -> None:

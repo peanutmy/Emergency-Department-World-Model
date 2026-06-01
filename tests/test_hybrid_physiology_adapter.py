@@ -104,10 +104,34 @@ def _state() -> GlobalState:
             },
             "known_facts": {
                 "chief_complaint": "shortness of breath",
-                "known_history": ["asthma"],
-                "known_allergies": ["penicillin"],
-                "known_medications": ["inhaler"],
-                "known_symptoms": ["wheezing"],
+                "known_history": [
+                    {
+                        "item": "asthma",
+                        "status": "present",
+                        "source_texts": ["I have asthma."],
+                    }
+                ],
+                "known_allergies": [
+                    {
+                        "substance": "penicillin",
+                        "status": "present",
+                        "source_texts": ["I am allergic to penicillin."],
+                    }
+                ],
+                "known_medications": [
+                    {
+                        "name": "inhaler",
+                        "status": "current",
+                        "source_texts": ["I use an inhaler."],
+                    }
+                ],
+                "known_symptoms": [
+                    {
+                        "name": "wheezing",
+                        "status": "present",
+                        "source_texts": ["I am wheezing."],
+                    }
+                ],
                 "available_results": [
                     {"name": "ECG", "result": "RELEASED_ECG_RESULT"}
                 ],
@@ -180,7 +204,11 @@ def test_builds_engine_input_from_runtime_state_and_action() -> None:
         "hidden_history"
     ] == ["COPD"]
     assert engine_input["case_context"]["known_facts"]["known_history"] == [
-        "asthma"
+        {
+            "item": "asthma",
+            "status": "present",
+            "source_texts": ["I have asthma."],
+        }
     ]
     assert engine_input["before"]["vitals"]["O2Sat"] == 88
     assert engine_input["before"]["features"]["work_of_breathing"] == "high"

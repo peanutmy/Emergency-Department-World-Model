@@ -11,6 +11,13 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from ed_world_model.constants import DEFAULT_DIAGNOSTIC_TURNAROUND_TURNS
+from ed_world_model.facts.schemas import (
+    FactExtractionResult,
+    KnownAllergy,
+    KnownHistory,
+    KnownMedication,
+    KnownSymptom,
+)
 from ed_world_model.state.global_state import (
     DiagnosticResult,
     Event,
@@ -92,7 +99,13 @@ def state_with_rich_physiology() -> GlobalState:
             },
         },
         known_facts={
-            "known_history": ["hypertension"],
+            "known_history": [
+                {
+                    "item": "hypertension",
+                    "status": "present",
+                    "source_texts": ["I have hypertension."],
+                }
+            ],
             "available_results": [{"name": "ECG", "result": "LVH and A.fib"}],
         },
         runtime_state={
@@ -144,15 +157,456 @@ def test_update_known_facts_updates_known_facts_without_touching_truth_state() -
     manager = StateManager(state)
 
     manager.update_known_facts(
-        known_history=["hypertension"],
-        known_symptoms="shortness of breath",
+        known_history=[
+            KnownHistory(
+                item="hypertension",
+                status="present",
+                source_texts=["I have hypertension."],
+            )
+        ],
+        known_symptoms=KnownSymptom(
+            name="shortness of breath",
+            status="present",
+            source_texts=["I feel short of breath."],
+        ),
     )
 
-    assert manager.state.known_facts.known_history == ["hypertension"]
-    assert manager.state.known_facts.known_symptoms == ["shortness of breath"]
+    assert manager.state.known_facts.known_history == [
+        KnownHistory(
+            item="hypertension",
+            status="present",
+            source_texts=["I have hypertension."],
+        )
+    ]
+    assert manager.state.known_facts.known_symptoms == [
+        KnownSymptom(
+            name="shortness of breath",
+            status="present",
+            source_texts=["I feel short of breath."],
+        )
+    ]
     assert manager.state.known_facts.known_allergies == []
     assert manager.state.truth_state.model_dump() == truth_before
-    assert "diabetes" not in manager.state.known_facts.known_history
+    assert all(
+        history.item != "diabetes"
+        for history in manager.state.known_facts.known_history
+    )
+
+
+def test_apply_fact_extraction_result_creates_structured_symptom() -> None:
+    manager = StateManager()
+
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            symptoms=[
+                KnownSymptom(
+                    name="shortness of breath",
+                    status="present",
+                    source_texts=["I feel short of breath."],
+                )
+            ]
+        )
+    )
+
+    assert manager.state.known_facts.known_symptoms == [
+        KnownSymptom(
+            name="shortness of breath",
+            status="present",
+            source_texts=["I feel short of breath."],
+        )
+    ]
+
+
+def test_apply_fact_extraction_result_merges_symptom_onset_and_severity() -> None:
+    manager = StateManager()
+
+    manager.apply_fact_extraction_result(
+        {
+            "symptoms": [
+                {
+                    "name": "Shortness   of Breath",
+                    "status": "uncertain",
+                    "source_texts": ["I am short of breath."],
+                }
+            ]
+        }
+    )
+    manager.apply_fact_extraction_result(
+        {
+            "symptoms": [
+                {
+                    "name": "shortness-of-breath",
+                    "status": "present",
+                    "onset": "a few hours ago",
+                    "severity": "severe",
+                    "source_texts": [
+                        "I am short of breath.",
+                        "It started a few hours ago.",
+                    ],
+                }
+            ]
+        }
+    )
+
+    symptoms = manager.state.known_facts.known_symptoms
+    assert len(symptoms) == 1
+    assert symptoms[0].name == "Shortness   of Breath"
+    assert symptoms[0].status == "present"
+    assert symptoms[0].onset == "a few hours ago"
+    assert symptoms[0].severity == "severe"
+    assert symptoms[0].source_texts == [
+        "I am short of breath.",
+        "It started a few hours ago.",
+    ]
+
+
+def test_apply_fact_extraction_result_does_not_use_synonym_matching() -> None:
+    manager = StateManager()
+
+    manager.apply_fact_extraction_result(
+        {
+            "symptoms": [
+                {
+                    "name": "SOB",
+                    "status": "present",
+                    "source_texts": ["I have SOB."],
+                },
+                {
+                    "name": "shortness of breath",
+                    "status": "present",
+                    "source_texts": ["I am short of breath."],
+                },
+            ]
+        }
+    )
+
+    assert [symptom.name for symptom in manager.state.known_facts.known_symptoms] == [
+        "SOB",
+        "shortness of breath",
+    ]
+
+
+def test_apply_fact_extraction_result_preserves_conflicting_symptom_status() -> None:
+    manager = StateManager()
+
+    manager.apply_fact_extraction_result(
+        {
+            "symptoms": [
+                {
+                    "name": "chest pain",
+                    "status": "present",
+                    "source_texts": ["I have chest pain."],
+                }
+            ]
+        }
+    )
+    manager.apply_fact_extraction_result(
+        {
+            "symptoms": [
+                {
+                    "name": "chest pain",
+                    "status": "absent",
+                    "source_texts": ["I do not have chest pain now."],
+                }
+            ]
+        }
+    )
+
+    symptoms = manager.state.known_facts.known_symptoms
+    assert len(symptoms) == 1
+    assert symptoms[0].status == "present"
+    assert symptoms[0].source_texts == [
+        "I have chest pain.",
+        "I do not have chest pain now.",
+    ]
+
+
+def test_apply_fact_extraction_result_appends_non_symptom_structured_facts() -> None:
+    manager = StateManager()
+
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            history=[
+                KnownHistory(
+                    item="asthma",
+                    status="present",
+                    source_texts=["He has asthma."],
+                )
+            ],
+            allergies=[
+                KnownAllergy(
+                    substance="penicillin",
+                    status="present",
+                    reaction="hives",
+                    source_texts=["Penicillin gives her hives."],
+                )
+            ],
+            medications=[
+                KnownMedication(
+                    name="albuterol",
+                    status="current",
+                    source_texts=["She uses albuterol."],
+                )
+            ],
+        )
+    )
+
+    assert manager.state.known_facts.known_history[0].item == "asthma"
+    assert manager.state.known_facts.known_allergies[0].reaction == "hives"
+    assert manager.state.known_facts.known_medications[0].name == "albuterol"
+
+
+def test_history_repeated_disclosure_merges_source_texts() -> None:
+    manager = StateManager()
+
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            history=[
+                KnownHistory(
+                    item="asthma",
+                    status="present",
+                    source_texts=["He has asthma."],
+                )
+            ]
+        )
+    )
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            history=[
+                KnownHistory(
+                    item="asthma",
+                    status="present",
+                    source_texts=["Yeah, asthma since childhood."],
+                )
+            ]
+        )
+    )
+
+    assert manager.state.known_facts.known_history == [
+        KnownHistory(
+            item="asthma",
+            status="present",
+            source_texts=[
+                "He has asthma.",
+                "Yeah, asthma since childhood.",
+            ],
+        )
+    ]
+
+
+def test_allergy_repeated_disclosure_merges_source_texts() -> None:
+    manager = StateManager()
+
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            allergies=[
+                KnownAllergy(
+                    substance="penicillin",
+                    status="present",
+                    source_texts=["Penicillin gives her hives."],
+                )
+            ]
+        )
+    )
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            allergies=[
+                KnownAllergy(
+                    substance="penicillin",
+                    status="present",
+                    source_texts=["She is allergic to penicillin."],
+                )
+            ]
+        )
+    )
+
+    assert len(manager.state.known_facts.known_allergies) == 1
+    assert manager.state.known_facts.known_allergies[0].source_texts == [
+        "Penicillin gives her hives.",
+        "She is allergic to penicillin.",
+    ]
+
+
+def test_medication_repeated_disclosure_merges_source_texts() -> None:
+    manager = StateManager()
+
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            medications=[
+                KnownMedication(
+                    name="albuterol",
+                    status="current",
+                    source_texts=["She uses albuterol."],
+                )
+            ]
+        )
+    )
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            medications=[
+                KnownMedication(
+                    name="albuterol",
+                    status="current",
+                    source_texts=["Yes, albuterol at home."],
+                )
+            ]
+        )
+    )
+
+    assert manager.state.known_facts.known_medications == [
+        KnownMedication(
+            name="albuterol",
+            status="current",
+            source_texts=["She uses albuterol.", "Yes, albuterol at home."],
+        )
+    ]
+
+
+def test_non_symptom_facts_with_different_status_remain_separate() -> None:
+    manager = StateManager()
+
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            history=[
+                KnownHistory(
+                    item="asthma",
+                    status="present",
+                    source_texts=["He has asthma."],
+                ),
+                KnownHistory(
+                    item="asthma",
+                    status="uncertain",
+                    source_texts=["I am not sure about asthma."],
+                ),
+            ],
+            medications=[
+                KnownMedication(
+                    name="metformin",
+                    status="current",
+                    source_texts=["She takes metformin."],
+                ),
+                KnownMedication(
+                    name="metformin",
+                    status="not_taking",
+                    source_texts=["She stopped metformin."],
+                ),
+            ],
+        )
+    )
+
+    assert len(manager.state.known_facts.known_history) == 2
+    assert len(manager.state.known_facts.known_medications) == 2
+
+
+def test_allergies_with_different_reactions_remain_separate() -> None:
+    manager = StateManager()
+
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            allergies=[
+                KnownAllergy(
+                    substance="penicillin",
+                    status="present",
+                    reaction="hives",
+                    source_texts=["Penicillin gives her hives."],
+                ),
+                KnownAllergy(
+                    substance="penicillin",
+                    status="present",
+                    reaction="anaphylaxis",
+                    source_texts=["Penicillin caused anaphylaxis."],
+                ),
+            ]
+        )
+    )
+
+    assert len(manager.state.known_facts.known_allergies) == 2
+
+
+def test_allergy_reaction_normalization_merges_matching_reactions() -> None:
+    manager = StateManager()
+
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            allergies=[
+                KnownAllergy(
+                    substance="penicillin",
+                    status="present",
+                    reaction="severe   hives",
+                    source_texts=["Penicillin caused severe hives."],
+                ),
+                KnownAllergy(
+                    substance="PENICILLIN",
+                    status="present",
+                    reaction=" severe hives ",
+                    source_texts=["Yes, severe hives from penicillin."],
+                ),
+            ]
+        )
+    )
+
+    assert len(manager.state.known_facts.known_allergies) == 1
+    assert manager.state.known_facts.known_allergies[0].source_texts == [
+        "Penicillin caused severe hives.",
+        "Yes, severe hives from penicillin.",
+    ]
+
+
+def test_non_symptom_source_text_exact_duplicates_are_not_duplicated() -> None:
+    manager = StateManager()
+
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            history=[
+                KnownHistory(
+                    item="asthma",
+                    status="present",
+                    source_texts=["He has asthma."],
+                ),
+                KnownHistory(
+                    item="ASTHMA",
+                    status="present",
+                    source_texts=["He has asthma."],
+                ),
+            ]
+        )
+    )
+
+    assert manager.state.known_facts.known_history == [
+        KnownHistory(
+            item="asthma",
+            status="present",
+            source_texts=["He has asthma."],
+        )
+    ]
+
+
+def test_apply_fact_extraction_result_does_not_copy_hidden_truth() -> None:
+    state = GlobalState(
+        truth_state={
+            "patient_internal_state": {
+                "symptoms": ["hidden fever"],
+                "hidden_history": ["hidden diabetes"],
+            }
+        }
+    )
+    manager = StateManager(state)
+
+    manager.apply_fact_extraction_result(
+        FactExtractionResult(
+            symptoms=[
+                KnownSymptom(
+                    name="dizziness",
+                    status="present",
+                    source_texts=["I feel dizzy."],
+                )
+            ]
+        )
+    )
+
+    dumped = manager.state.known_facts.model_dump()
+    assert "hidden fever" not in str(dumped)
+    assert "hidden diabetes" not in str(dumped)
 
 
 def test_create_pending_diagnostic_result_creates_pending_for_existing_test() -> None:
@@ -443,7 +897,15 @@ def test_resolve_pending_questions_can_skip_same_turn_questions() -> None:
 def test_apply_physiology_update_updates_patient_state_only() -> None:
     state = GlobalState(
         truth_state={"scenario_description": "Hidden scenario"},
-        known_facts={"known_history": ["hypertension"]},
+        known_facts={
+            "known_history": [
+                {
+                    "item": "hypertension",
+                    "status": "present",
+                    "source_texts": ["I have hypertension."],
+                }
+            ]
+        },
         psych_state={"patient_emotion": {"label": "anxious", "intensity": "medium"}},
         runtime_state={
             "messages": [{"speaker": "patient", "content": "Help."}],
@@ -594,7 +1056,15 @@ def test_update_patient_emotion_updates_patient_emotion_only() -> None:
     state = GlobalState(
         truth_state={"scenario_description": "Hidden scenario"},
         patient_state={"vitals": {"HR": 90}},
-        known_facts={"known_history": ["hypertension"]},
+        known_facts={
+            "known_history": [
+                {
+                    "item": "hypertension",
+                    "status": "present",
+                    "source_texts": ["I have hypertension."],
+                }
+            ]
+        },
         runtime_state={
             "messages": [{"speaker": "patient", "content": "Help."}],
             "last_turn_events": [{"type": "physiology_update"}],
@@ -606,14 +1076,11 @@ def test_update_patient_emotion_updates_patient_emotion_only() -> None:
     known_before = state.known_facts.model_dump()
     runtime_before = state.runtime_state.model_dump()
 
-    manager.update_patient_emotion(
-        PatientEmotion(label="fearful", intensity="high", notes="Escalating distress")
-    )
+    manager.update_patient_emotion(PatientEmotion(label="fearful", intensity="high"))
 
     assert manager.state.psych_state.patient_emotion == PatientEmotion(
         label="fearful",
         intensity="high",
-        notes="Escalating distress",
     )
     assert manager.state.truth_state.model_dump() == truth_before
     assert manager.state.patient_state.model_dump() == patient_before
@@ -657,7 +1124,6 @@ def test_partial_update_patient_emotion_preserves_prior_fields() -> None:
                 "patient_emotion": {
                     "label": "fearful",
                     "intensity": "high",
-                    "notes": "Asks for help repeatedly.",
                 }
             }
         )
@@ -668,7 +1134,6 @@ def test_partial_update_patient_emotion_preserves_prior_fields() -> None:
     assert emotion == PatientEmotion(
         label="calm",
         intensity="high",
-        notes="Asks for help repeatedly.",
     )
 
 

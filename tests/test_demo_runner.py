@@ -60,6 +60,44 @@ class InvalidRealLLMClient(SpyRealLLMClient):
         return "not json"
 
 
+class SpyFactLLMClient:
+    instances: list["SpyFactLLMClient"] = []
+
+    provider = "fake"
+    model = "mock-fact-extractor-model"
+    last_api_error = None
+
+    def __init__(self) -> None:
+        self.prompts: list[str] = []
+        SpyFactLLMClient.instances.append(self)
+
+    def generate(self, prompt: str) -> str:
+        self.prompts.append(prompt)
+        return json.dumps(
+            {
+                "symptoms": [
+                    {
+                        "name": "shortness of breath",
+                        "status": "present",
+                        "onset": None,
+                        "severity": None,
+                        "source_texts": [
+                            "I feel short of breath and uncomfortable."
+                        ],
+                    }
+                ],
+                "ignored": False,
+                "reason": None,
+            }
+        )
+
+    def complete(self, prompt: str) -> str:
+        return self.generate(prompt)
+
+    def __call__(self, prompt: str) -> str:
+        return self.generate(prompt)
+
+
 def _fixture_copy(tmp_path: Path) -> Path:
     path = tmp_path / "demo_scenario.json"
     path.write_text(FIXTURE_PATH.read_text(encoding="utf-8"), encoding="utf-8")
@@ -105,8 +143,61 @@ def test_demo_default_modes_are_fake_agent_and_fake_physiology(
     result = demo.run_demo_scenario(_fixture_copy(tmp_path), turns=1)
 
     assert result.turns[0].active_agents == ["clinician"]
+    assert result.fact_extractor_mode == demo.FACT_EXTRACTOR_MODE_NONE
     assert result.turns[0].physiology_action_kind_hint == "no_action"
     assert result.turns[0].parser_errors == []
+
+
+def test_demo_default_fact_extractor_none_leaves_verbal_known_facts_unchanged(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+
+    result = demo.run_demo_scenario(_fixture_copy(tmp_path), turns=2)
+
+    assert result.fact_extractor_mode == demo.FACT_EXTRACTOR_MODE_NONE
+    assert result.final_known_facts["known_symptoms"] == []
+
+
+def test_llm_fact_extractor_mode_constructs_extractor_with_fake_client(
+    tmp_path: Path,
+) -> None:
+    SpyFactLLMClient.instances = []
+
+    result = demo.run_demo_scenario(
+        _fixture_copy(tmp_path),
+        turns=2,
+        fact_extractor_mode=demo.FACT_EXTRACTOR_MODE_LLM,
+        fact_llm_client_factory=SpyFactLLMClient,
+    )
+
+    assert result.fact_extractor_mode == demo.FACT_EXTRACTOR_MODE_LLM
+    assert len(SpyFactLLMClient.instances) == 1
+    assert SpyFactLLMClient.instances[0].prompts
+    assert result.final_known_facts["known_symptoms"] == [
+        {
+            "name": "shortness of breath",
+            "status": "present",
+            "onset": None,
+            "severity": None,
+            "source_texts": ["I feel short of breath and uncomfortable."],
+        }
+    ]
+
+
+def test_llm_fact_extractor_mode_requires_api_key_before_run(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+
+    with pytest.raises(RuntimeError, match="OPENAI_API_KEY"):
+        demo.run_demo_scenario(
+            _fixture_copy(tmp_path),
+            turns=2,
+            fact_extractor_mode=demo.FACT_EXTRACTOR_MODE_LLM,
+        )
 
 
 def test_real_agent_mode_constructs_real_client_without_calling_api(
@@ -235,6 +326,7 @@ def test_json_output_is_valid_and_contains_expected_sections(tmp_path: Path) -> 
     payload = json.loads(demo.render_demo_json(result))
 
     assert payload["scenario_identifier"] == "demo_scenario"
+    assert payload["fact_extractor_mode"] == "none"
     assert len(payload["turns"]) == 4
     assert payload["messages"]
     assert payload["events"]
@@ -400,6 +492,8 @@ def test_cli_entrypoint_prints_readable_and_json(tmp_path: Path, capsys) -> None
                 "fake",
                 "--physiology-mode",
                 "fake",
+                "--fact-extractor",
+                "fake",
             ]
         )
         == 0
@@ -446,6 +540,7 @@ def test_cli_output_dir_writes_json_files_in_fake_mode_without_api(
     assert trajectory["scenario_identifier"] == "demo_scenario"
     assert trajectory["agent_mode"] == "fake"
     assert trajectory["physiology_mode"] == "fake"
+    assert trajectory["fact_extractor_mode"] == "none"
     assert trajectory["turn_count"] == 2
     assert trajectory["turns"][0]["state_before"]["patient_state"]["vitals"]
     assert trajectory["turns"][0]["state_after"]["patient_state"]["vitals"]
