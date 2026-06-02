@@ -1,0 +1,107 @@
+{
+  "by_kind_hint": {
+    "airway_management": {
+      "count": 1,
+      "direction_accuracy_mean": 0.75,
+      "normalized_l2_mean": 2.9883105594967874,
+      "normalized_l2_median": 2.9883105594967874,
+      "num_api_errors": 0,
+      "num_parse_errors": 0
+    },
+    "anticoagulation": {
+      "count": 1,
+      "direction_accuracy_mean": 0.0,
+      "normalized_l2_mean": 32.71146587971869,
+      "normalized_l2_median": 32.71146587971869,
+      "num_api_errors": 0,
+      "num_parse_errors": 0
+    },
+    "no_action": {
+      "count": 2,
+      "direction_accuracy_mean": 0.8333333333333333,
+      "normalized_l2_mean": 1.6035668847618199,
+      "normalized_l2_median": 1.6035668847618199,
+      "num_api_errors": 0,
+      "num_parse_errors": 0
+    },
+    "oxygen_support": {
+      "count": 3,
+      "direction_accuracy_mean": 1.0,
+      "normalized_l2_mean": 0.26666666666666666,
+      "normalized_l2_median": 0.4,
+      "num_api_errors": 0,
+      "num_parse_errors": 0
+    },
+    "rate_control": {
+      "count": 1,
+      "direction_accuracy_mean": 0.6666666666666666,
+      "normalized_l2_mean": 2.2825424421026654,
+      "normalized_l2_median": 2.2825424421026654,
+      "num_api_errors": 0,
+      "num_parse_errors": 0
+    },
+    "vasodilator": {
+      "count": 2,
+      "direction_accuracy_mean": 0.5833333333333333,
+      "normalized_l2_mean": 3.3904880209225823,
+      "normalized_l2_median": 3.3904880209225823,
+      "num_api_errors": 0,
+      "num_parse_errors": 0
+    }
+  },
+  "by_pair_type": {
+    "physiology_response": {
+      "count": 8,
+      "direction_accuracy_mean": 0.6979166666666666,
+      "normalized_l2_mean": 5.695411865395413,
+      "normalized_l2_median": 2.3074616000203925
+    },
+    "time_progression": {
+      "count": 2,
+      "direction_accuracy_mean": 0.8333333333333333,
+      "normalized_l2_mean": 1.6035668847618199,
+      "normalized_l2_median": 1.6035668847618199
+    }
+  },
+  "by_target_vital": {
+    "BP_dia": {
+      "count": 5,
+      "direction_accuracy_mean_for_that_vital": 0.4,
+      "normalized_abs_error_mean_for_that_vital": 2.62
+    },
+    "BP_sys": {
+      "count": 5,
+      "direction_accuracy_mean_for_that_vital": 0.6,
+      "normalized_abs_error_mean_for_that_vital": 6.1
+    },
+    "HR": {
+      "count": 5,
+      "direction_accuracy_mean_for_that_vital": 0.6,
+      "normalized_abs_error_mean_for_that_vital": 3.18
+    },
+    "O2Sat": {
+      "count": 7,
+      "direction_accuracy_mean_for_that_vital": 0.8571428571428571,
+      "normalized_abs_error_mean_for_that_vital": 3.0285714285714285
+    },
+    "RR": {
+      "count": 2,
+      "direction_accuracy_mean_for_that_vital": 0.0,
+      "normalized_abs_error_mean_for_that_vital": 3.4
+    },
+    "T": {
+      "count": 0,
+      "direction_accuracy_mean_for_that_vital": null,
+      "normalized_abs_error_mean_for_that_vital": null
+    }
+  },
+  "overall": {
+    "direction_accuracy_mean": 0.725,
+    "normalized_l2_mean": 4.877042869268694,
+    "normalized_l2_median": 2.3074616000203925,
+    "num_api_errors": 0,
+    "num_evaluated_pairs": 10,
+    "num_pairs": 10,
+    "num_parse_errors": 0
+  }
+}

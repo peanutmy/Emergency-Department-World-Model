@@ -1,0 +1,75 @@
+{
+  "by_kind_hint": {
+    "no_action": {
+      "count": 2,
+      "direction_accuracy_mean": 0.8333333333333333,
+      "normalized_l2_mean": 1.6035668847618199,
+      "normalized_l2_median": 1.6035668847618199,
+      "num_api_errors": 0,
+      "num_parse_errors": 0
+    },
+    "oxygen_support": {
+      "count": 3,
+      "direction_accuracy_mean": 1.0,
+      "normalized_l2_mean": 0.5333333333333333,
+      "normalized_l2_median": 0.2,
+      "num_api_errors": 0,
+      "num_parse_errors": 0
+    }
+  },
+  "by_pair_type": {
+    "physiology_response": {
+      "count": 3,
+      "direction_accuracy_mean": 1.0,
+      "normalized_l2_mean": 0.5333333333333333,
+      "normalized_l2_median": 0.2
+    },
+    "time_progression": {
+      "count": 2,
+      "direction_accuracy_mean": 0.8333333333333333,
+      "normalized_l2_mean": 1.6035668847618199,
+      "normalized_l2_median": 1.6035668847618199
+    }
+  },
+  "by_target_vital": {
+    "BP_dia": {
+      "count": 0,
+      "direction_accuracy_mean_for_that_vital": null,
+      "normalized_abs_error_mean_for_that_vital": null
+    },
+    "BP_sys": {
+      "count": 0,
+      "direction_accuracy_mean_for_that_vital": null,
+      "normalized_abs_error_mean_for_that_vital": null
+    },
+    "HR": {
+      "count": 1,
+      "direction_accuracy_mean_for_that_vital": 1.0,
+      "normalized_abs_error_mean_for_that_vital": 0.0
+    },
+    "O2Sat": {
+      "count": 5,
+      "direction_accuracy_mean_for_that_vital": 1.0,
+      "normalized_abs_error_mean_for_that_vital": 0.44000000000000006
+    },
+    "RR": {
+      "count": 1,
+      "direction_accuracy_mean_for_that_vital": 0.0,
+      "normalized_abs_error_mean_for_that_vital": 2.8
+    },
+    "T": {
+      "count": 0,
+      "direction_accuracy_mean_for_that_vital": null,
+      "normalized_abs_error_mean_for_that_vital": null
+    }
+  },
+  "overall": {
+    "direction_accuracy_mean": 0.9333333333333333,
+    "normalized_l2_mean": 0.961426753904728,
+    "normalized_l2_median": 0.4,
+    "num_api_errors": 0,
+    "num_evaluated_pairs": 5,
+    "num_pairs": 5,
+    "num_parse_errors": 0
+  }
+}

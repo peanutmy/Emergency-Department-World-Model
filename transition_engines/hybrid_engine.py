@@ -40,11 +40,14 @@ class HybridEngine:
         self,
         engine_input: dict[str, Any],
         target_vital_names: Iterable[str] | None = None,
+        examples: list[dict[str, Any]] | None = None,
     ) -> EngineOutput:
         """Predict post-action vitals and deterministic non-vital features.
 
         target_vital_names=None allows adjustments for all canonical vitals.
         target_vital_names=[] allows no adjustments.
+        examples=None (the runtime default) produces the zero-shot prompt; a
+        non-empty list injects few-shot demonstrations ahead of the live case.
         """
 
         rule_output = self.rule_engine.predict(engine_input)
@@ -58,6 +61,7 @@ class HybridEngine:
             engine_input=engine_input,
             rule_prediction_vitals=rule_vitals,
             target_vital_names=requested_vitals,
+            examples=examples,
         )
         try:
             llm_text = _complete(self.llm_client, prompt)
@@ -112,8 +116,14 @@ def build_llm_prompt(
     engine_input: dict[str, Any],
     rule_prediction_vitals: dict[str, Any],
     target_vital_names: list[str],
+    examples: list[dict[str, Any]] | None = None,
 ) -> str:
-    """Build a leak-resistant prompt from explicitly allowed input fields."""
+    """Build a leak-resistant prompt from explicitly allowed input fields.
+
+    examples=None preserves the exact zero-shot prompt used at runtime. A
+    non-empty list is rendered as a few-shot block immediately before the
+    live ``Case:`` section.
+    """
 
     before = _mapping(engine_input.get("before"))
     action = _mapping(engine_input.get("action"))
@@ -185,7 +195,7 @@ Action-specific guidance:
   Do not assume immediate improvement.
   If the provided scenario context suggests anticoagulation is inappropriate or harmful, adjust accordingly based only on the provided context.
 
-Case:
+{_render_examples_block(examples)}Case:
 {_json(case_context_block)}
 
 Before vitals:
@@ -422,6 +432,28 @@ def _client_attr(llm_client: Any, name: str) -> Any:
 
 def _json(value: Any) -> str:
     return json.dumps(value, ensure_ascii=True, sort_keys=True)
+
+
+def _render_examples_block(examples: list[dict[str, Any]] | None) -> str:
+    """Render few-shot demonstrations, or '' for the zero-shot default."""
+
+    if not examples:
+        return ""
+    public = [
+        {
+            key: value
+            for key, value in example.items()
+            if not str(key).startswith("_")
+        }
+        if isinstance(example, dict)
+        else example
+        for example in examples
+    ]
+    return (
+        "Few-shot examples (illustrative, drawn from other cases; each shows "
+        "the expected output for that input):\n"
+        f"{_json(public)}\n\n"
+    )
 
 
 def _is_number(value: Any) -> bool:

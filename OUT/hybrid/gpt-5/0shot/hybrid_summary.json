@@ -1,0 +1,255 @@
+{
+  "by_kind_hint": {
+    "airway_management": {
+      "count": 35,
+      "direction_accuracy_mean": 0.579047619047619,
+      "normalized_l2_mean": 5.197807424292302,
+      "normalized_l2_median": 2.9748949561287032
+    },
+    "airway_medication": {
+      "count": 8,
+      "direction_accuracy_mean": 0.9375,
+      "normalized_l2_mean": 0.7633273289403828,
+      "normalized_l2_median": 0.8535533905932737
+    },
+    "analgesia": {
+      "count": 1,
+      "direction_accuracy_mean": 1.0,
+      "normalized_l2_mean": 0.0,
+      "normalized_l2_median": 0.0
+    },
+    "anaphylaxis_treatment": {
+      "count": 2,
+      "direction_accuracy_mean": 0.75,
+      "normalized_l2_mean": 1.132455532033676,
+      "normalized_l2_median": 1.132455532033676
+    },
+    "antiarrhythmic": {
+      "count": 1,
+      "direction_accuracy_mean": 0.5,
+      "normalized_l2_mean": 11.0131739294356,
+      "normalized_l2_median": 11.0131739294356
+    },
+    "anticoagulation": {
+      "count": 1,
+      "direction_accuracy_mean": 0.0,
+      "normalized_l2_mean": 32.71146587971869,
+      "normalized_l2_median": 32.71146587971869
+    },
+    "anticonvulsant": {
+      "count": 1,
+      "direction_accuracy_mean": 0.75,
+      "normalized_l2_mean": 5.2335456432518095,
+      "normalized_l2_median": 5.2335456432518095
+    },
+    "antidote": {
+      "count": 6,
+      "direction_accuracy_mean": 0.6916666666666668,
+      "normalized_l2_mean": 6.8332009422102145,
+      "normalized_l2_median": 2.3075889865800385
+    },
+    "blood_transfusion": {
+      "count": 7,
+      "direction_accuracy_mean": 0.8333333333333333,
+      "normalized_l2_mean": 2.2765928559699273,
+      "normalized_l2_median": 1.4247806848775009
+    },
+    "bronchodilator": {
+      "count": 4,
+      "direction_accuracy_mean": 0.7916666666666666,
+      "normalized_l2_mean": 1.5206739781973289,
+      "normalized_l2_median": 0.9872983346207417
+    },
+    "chronotropic_agent": {
+      "count": 1,
+      "direction_accuracy_mean": 0.5,
+      "normalized_l2_mean": 4.539823785126467,
+      "normalized_l2_median": 4.539823785126467
+    },
+    "corticosteroid": {
+      "count": 1,
+      "direction_accuracy_mean": 0.5,
+      "normalized_l2_mean": 1.788854381999832,
+      "normalized_l2_median": 1.788854381999832
+    },
+    "electrolyte_correction": {
+      "count": 1,
+      "direction_accuracy_mean": 0.4,
+      "normalized_l2_mean": 6.620422947214173,
+      "normalized_l2_median": 6.620422947214173
+    },
+    "fluid_bolus": {
+      "count": 35,
+      "direction_accuracy_mean": 0.4476190476190476,
+      "normalized_l2_mean": 1.050154866695189,
+      "normalized_l2_median": 1.0
+    },
+    "hyperkalemia_shift": {
+      "count": 1,
+      "direction_accuracy_mean": 1.0,
+      "normalized_l2_mean": 0.5,
+      "normalized_l2_median": 0.5
+    },
+    "inotrope": {
+      "count": 1,
+      "direction_accuracy_mean": 0.4,
+      "normalized_l2_mean": 5.894913061275798,
+      "normalized_l2_median": 5.894913061275798
+    },
+    "membrane_stabilization": {
+      "count": 4,
+      "direction_accuracy_mean": 0.41666666666666663,
+      "normalized_l2_mean": 1.147570716954833,
+      "normalized_l2_median": 1.1915880433163923
+    },
+    "needle_decompression": {
+      "count": 1,
+      "direction_accuracy_mean": 1.0,
+      "normalized_l2_mean": 0.2,
+      "normalized_l2_median": 0.2
+    },
+    "no_action": {
+      "count": 59,
+      "direction_accuracy_mean": 0.47429378531073446,
+      "normalized_l2_mean": 4.812137647631046,
+      "normalized_l2_median": 3.1937438845342627
+    },
+    "obstetric_delivery": {
+      "count": 1,
+      "direction_accuracy_mean": 0.6,
+      "normalized_l2_mean": 5.045790324617146,
+      "normalized_l2_median": 5.045790324617146
+    },
+    "oral_airway": {
+      "count": 1,
+      "direction_accuracy_mean": 1.0,
+      "normalized_l2_mean": 1.4,
+      "normalized_l2_median": 1.4
+    },
+    "osmotherapy": {
+      "count": 1,
+      "direction_accuracy_mean": 0.6666666666666666,
+      "normalized_l2_mean": 1.8138357147217055,
+      "normalized_l2_median": 1.8138357147217055
+    },
+    "oxygen_support": {
+      "count": 31,
+      "direction_accuracy_mean": 0.7741935483870968,
+      "normalized_l2_mean": 0.6516129032258065,
+      "normalized_l2_median": 0.4
+    },
+    "prostaglandin_infusion": {
+      "count": 1,
+      "direction_accuracy_mean": 0.8,
+      "normalized_l2_mean": 3.269556544854363,
+      "normalized_l2_median": 3.269556544854363
+    },
+    "rate_control": {
+      "count": 3,
+      "direction_accuracy_mean": 0.5555555555555555,
+      "normalized_l2_mean": 2.9765774408159396,
+      "normalized_l2_median": 3.082207001484488
+    },
+    "sedation": {
+      "count": 2,
+      "direction_accuracy_mean": 1.0,
+      "normalized_l2_mean": 0.5590169943749475,
+      "normalized_l2_median": 0.5590169943749475
+    },
+    "surgical_airway": {
+      "count": 2,
+      "direction_accuracy_mean": 0.9,
+      "normalized_l2_mean": 1.0077747210701755,
+      "normalized_l2_median": 1.0077747210701755
+    },
+    "synchronized_cardioversion": {
+      "count": 1,
+      "direction_accuracy_mean": 1.0,
+      "normalized_l2_mean": 1.2806248474865698,
+      "normalized_l2_median": 1.2806248474865698
+    },
+    "transcutaneous_pacing": {
+      "count": 1,
+      "direction_accuracy_mean": 0.5,
+      "normalized_l2_mean": 1.8027756377319946,
+      "normalized_l2_median": 1.8027756377319946
+    },
+    "tube_thoracostomy": {
+      "count": 2,
+      "direction_accuracy_mean": 0.875,
+      "normalized_l2_mean": 1.7201851746019652,
+      "normalized_l2_median": 1.7201851746019652
+    },
+    "uterine_exploration": {
+      "count": 1,
+      "direction_accuracy_mean": 0.6,
+      "normalized_l2_mean": 3.2264531609803355,
+      "normalized_l2_median": 3.2264531609803355
+    },
+    "vasodilator": {
+      "count": 7,
+      "direction_accuracy_mean": 0.6952380952380952,
+      "normalized_l2_mean": 2.468568141005236,
+      "normalized_l2_median": 1.2165525060596438
+    },
+    "vasopressor": {
+      "count": 11,
+      "direction_accuracy_mean": 0.7651515151515151,
+      "normalized_l2_mean": 1.2342174177758312,
+      "normalized_l2_median": 1.044030650891055
+    }
+  },
+  "by_pair_type": {
+    "physiology_response": {
+      "count": 176,
+      "direction_accuracy_mean": 0.6560606060606061,
+      "normalized_l2_mean": 2.5429536070985184,
+      "normalized_l2_median": 1.2124285517095506
+    },
+    "time_progression": {
+      "count": 59,
+      "direction_accuracy_mean": 0.47429378531073446,
+      "normalized_l2_mean": 4.812137647631046,
+      "normalized_l2_median": 3.1937438845342627
+    }
+  },
+  "by_target_vital": {
+    "BP_dia": {
+      "count": 157,
+      "direction_accuracy_mean_for_that_vital": 0.5031847133757962,
+      "normalized_abs_error_mean_for_that_vital": 1.3121794871794872
+    },
+    "BP_sys": {
+      "count": 162,
+      "direction_accuracy_mean_for_that_vital": 0.5987654320987654,
+      "normalized_abs_error_mean_for_that_vital": 2.0
+    },
+    "HR": {
+      "count": 144,
+      "direction_accuracy_mean_for_that_vital": 0.4375,
+      "normalized_abs_error_mean_for_that_vital": 1.911111111111111
+    },
+    "O2Sat": {
+      "count": 129,
+      "direction_accuracy_mean_for_that_vital": 0.7131782945736435,
+      "normalized_abs_error_mean_for_that_vital": 1.7829457364341086
+    },
+    "RR": {
+      "count": 52,
+      "direction_accuracy_mean_for_that_vital": 0.4230769230769231,
+      "normalized_abs_error_mean_for_that_vital": 2.048
+    },
+    "T": {
+      "count": 13,
+      "direction_accuracy_mean_for_that_vital": 1.0,
+      "normalized_abs_error_mean_for_that_vital": 0.030769230769231208
+    }
+  },
+  "overall": {
+    "direction_accuracy_mean": 0.6104255319148936,
+    "normalized_l2_mean": 3.112663642806685,
+    "normalized_l2_median": 1.5,
+    "num_evaluated_pairs": 235,
+    "num_pairs": 235
+  }
+}

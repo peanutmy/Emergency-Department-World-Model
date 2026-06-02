@@ -1,0 +1,8 @@
+engine,model,shots,strategy,setting,direction_accuracy_mean,normalized_l2_mean,normalized_l2_median,num_api_errors,num_parse_errors,num_pairs,output_dir
+rule_based,rule_based,0,-,-,0.4533333333333333,3.4460309872574633,1.8027756377319946,,,235,OUT_fix5/rule_based
+pure_llm,gpt-5,0,-,0shot,0.77,4.9196519332859125,1.7796725559483177,0,0,10,OUT_fix5/pure_llm/gpt-5/0shot
+pure_llm,gpt-5,3,static,3shot-static,0.7783333333333333,5.076276114673816,2.117940324925641,0,0,10,OUT_fix5/pure_llm/gpt-5/3shot-static
+pure_llm,gpt-5,3,kind_hint_matched,3shot-kind_hint_matched,0.8483333333333333,4.827619271730193,1.7673215917344047,0,0,10,OUT_fix5/pure_llm/gpt-5/3shot-kind_hint_matched
+pure_llm,gpt-5.5,0,-,0shot,0.725,4.721514164153557,2.3345225235238525,0,0,10,OUT_fix5/pure_llm/gpt-5.5/0shot
+pure_llm,gpt-5.5,3,static,3shot-static,0.725,4.877042869268694,2.3074616000203925,0,0,10,OUT_fix5/pure_llm/gpt-5.5/3shot-static
+pure_llm,gpt-5.5,3,kind_hint_matched,3shot-kind_hint_matched,0.725,4.9149198327576595,2.04265903991733,0,0,10,OUT_fix5/pure_llm/gpt-5.5/3shot-kind_hint_matched

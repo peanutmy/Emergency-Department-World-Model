@@ -1,0 +1,39 @@
+case_id,source_file,pair_id,pair_type,kind_hint,target_vitals,direction_accuracy,normalized_l2,num_target_vitals,num_missing_predictions,missing_predictions,direction_match,before_vitals,target_vitals_values,predicted_vitals,rule_prediction_vitals,llm_adjustments,llm_reasoning,llm_raw_response,llm_parse_error,llm_api_error,model
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p1,physiology_response,oxygen_support,"[""O2Sat""]",1.0,1.0,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 80, ""RR"": 34, ""T"": 36.9}","{""O2Sat"": 88}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 93, ""RR"": 32, ""T"": 36.9}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 88, ""RR"": 32, ""T"": 36.9}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": 5, ""RR"": null, ""T"": null}","{""O2Sat"": ""The rule-based prediction of 88% is plausible but slightly underestimates the expected improvement with NRB (FiO2 0.8) in a patient with acute hypoxemia; a residual adjustment of +5 brings the final O2Sat to 93%, reflecting a more physiologically appropriate response to high-flow oxygen.""}","{
+  ""adjustments"": {""O2Sat"": 5},
+  ""reasoning"": {
+    ""O2Sat"": ""The rule-based prediction of 88% is plausible but slightly underestimates the expected improvement with NRB (FiO2 0.8) in a patient with acute hypoxemia; a residual adjustment of +5 brings the final O2Sat to 93%, reflecting a more physiologically appropriate response to high-flow oxygen.""
+  }
+}",,,gpt-4o
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p2,time_progression,no_action,"[""HR"", ""RR"", ""O2Sat""]",0.3333333333333333,1.7804493814764857,3,0,"{""HR"": false, ""O2Sat"": false, ""RR"": false}","{""HR"": false, ""O2Sat"": true, ""RR"": false}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 88, ""RR"": 34, ""T"": 36.9}","{""HR"": 120, ""O2Sat"": 85, ""RR"": 24}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 115, ""O2Sat"": 82, ""RR"": 32, ""T"": 36.9}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 85, ""RR"": 30, ""T"": 36.9}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 5, ""O2Sat"": -3, ""RR"": 2, ""T"": null}","{""HR"": ""The rule-based prediction of 110 bpm is implausible as worsening hypoxemia and respiratory distress over 5 minutes without intervention would likely cause a compensatory increase in heart rate; adjusted by +5 to 115 bpm."", ""O2Sat"": ""The rule-based prediction of 85% is implausible as the lack of intervention and ongoing pulmonary edema would likely worsen oxygenation; adjusted by -3 to 82%."", ""RR"": ""The rule-based prediction of 30 is implausible as worsening respiratory distress without intervention would likely increase respiratory effort; adjusted by +2 to 36.""}","{
+  ""adjustments"": {
+    ""HR"": 5,
+    ""O2Sat"": -3,
+    ""RR"": 2
+  },
+  ""reasoning"": {
+    ""HR"": ""The rule-based prediction of 110 bpm is implausible as worsening hypoxemia and respiratory distress over 5 minutes without intervention would likely cause a compensatory increase in heart rate; adjusted by +5 to 115 bpm."",
+    ""O2Sat"": ""The rule-based prediction of 85% is implausible as the lack of intervention and ongoing pulmonary edema would likely worsen oxygenation; adjusted by -3 to 82%."",
+    ""RR"": ""The rule-based prediction of 30 is implausible as worsening respiratory distress without intervention would likely increase respiratory effort; adjusted by +2 to 36.""
+  }
+}",,,gpt-4o
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p3,time_progression,no_action,"[""O2Sat""]",1.0,0.8,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 82}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 78, ""RR"": 24, ""T"": null}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 81, ""RR"": 24, ""T"": null}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": -3, ""RR"": null, ""T"": null}","{""O2Sat"": ""The rule-based prediction of 81% is implausible given the lack of intervention (no_action) and the patient's significant respiratory distress with pulmonary edema physiology; a further decline to 78% is more consistent with worsening hypoxemia over 8 minutes without treatment.""}","{
+  ""adjustments"": {
+    ""O2Sat"": -3
+  },
+  ""reasoning"": {
+    ""O2Sat"": ""The rule-based prediction of 81% is implausible given the lack of intervention (no_action) and the patient's significant respiratory distress with pulmonary edema physiology; a further decline to 78% is more consistent with worsening hypoxemia over 8 minutes without treatment.""
+  }
+}",,,gpt-4o
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p4,physiology_response,oxygen_support,"[""O2Sat""]",1.0,0.4,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 89}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 91, ""RR"": 24, ""T"": null}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 91, ""RR"": 24, ""T"": null}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": 0, ""RR"": null, ""T"": null}","{""O2Sat"": ""The rule-based prediction of O2Sat increasing to 91 is plausible given the use of BVM assistance with FiO2 1, which is expected to improve oxygenation in a patient with respiratory distress.""}","{
+  ""adjustments"": {""O2Sat"": 0},
+  ""reasoning"": {""O2Sat"": ""The rule-based prediction of O2Sat increasing to 91 is plausible given the use of BVM assistance with FiO2 1, which is expected to improve oxygenation in a patient with respiratory distress.""}
+}",,,gpt-4o
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p5,physiology_response,oxygen_support,"[""O2Sat""]",1.0,0.4,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 92}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 90, ""RR"": 24, ""T"": null}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 93, ""RR"": 24, ""T"": null}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": -3, ""RR"": null, ""T"": null}","{""O2Sat"": ""The rule-based prediction of 93% is implausible given the patient's severe pulmonary edema and drowsy state; despite BVM with PEEP, oxygenation is unlikely to improve to this extent, so a correction to 90% is more physiologically plausible.""}","{
+  ""adjustments"": {
+    ""O2Sat"": -3
+  },
+  ""reasoning"": {
+    ""O2Sat"": ""The rule-based prediction of 93% is implausible given the patient's severe pulmonary edema and drowsy state; despite BVM with PEEP, oxygenation is unlikely to improve to this extent, so a correction to 90% is more physiologically plausible.""
+  }
+}",,,gpt-4o

@@ -1,0 +1,32 @@
+case_id,source_file,pair_id,pair_type,kind_hint,target_vitals,direction_accuracy,normalized_l2,num_target_vitals,num_missing_predictions,missing_predictions,direction_match,before_vitals,target_vitals_values,predicted_vitals,llm_reasoning,llm_raw_response,llm_parse_error,llm_api_error,model
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p1,physiology_response,oxygen_support,"[""O2Sat""]",1.0,1.4,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 80, ""RR"": 34, ""T"": 36.9}","{""O2Sat"": 88}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 95, ""RR"": 34, ""T"": 36.9}","{""O2Sat"": ""The patient's O2Sat is expected to improve significantly from 80% to 95% due to the application of an NRB mask delivering high FiO2 (0.8), which addresses the severe hypoxemia in the context of respiratory distress.""}","{""reasoning"": {""O2Sat"": ""The patient's O2Sat is expected to improve significantly from 80% to 95% due to the application of an NRB mask delivering high FiO2 (0.8), which addresses the severe hypoxemia in the context of respiratory distress.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": 95, ""RR"": null, ""T"": null}}",,,gpt-4o
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p2,time_progression,no_action,"[""HR"", ""RR"", ""O2Sat""]",0.3333333333333333,2.4515301344262523,3,0,"{""HR"": false, ""O2Sat"": false, ""RR"": false}","{""HR"": false, ""O2Sat"": true, ""RR"": false}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 88, ""RR"": 34, ""T"": 36.9}","{""HR"": 120, ""O2Sat"": 85, ""RR"": 24}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 115, ""O2Sat"": 85, ""RR"": 36, ""T"": 36.9}","{""HR"": ""The HR is expected to increase slightly from 110 to 115 due to ongoing respiratory distress and lack of intervention, as the patient remains hypoxemic and tachypneic."", ""O2Sat"": ""The O2Sat is expected to decrease from 88 to 85 due to the lack of intervention and worsening pulmonary edema physiology, as suggested by the scenario context."", ""RR"": ""The RR is expected to increase slightly from 34 to 36 due to worsening respiratory distress and hypoxemia over the 5-minute period without intervention.""}","{
+  ""reasoning"": {
+    ""HR"": ""The HR is expected to increase slightly from 110 to 115 due to ongoing respiratory distress and lack of intervention, as the patient remains hypoxemic and tachypneic."",
+    ""O2Sat"": ""The O2Sat is expected to decrease from 88 to 85 due to the lack of intervention and worsening pulmonary edema physiology, as suggested by the scenario context."",
+    ""RR"": ""The RR is expected to increase slightly from 34 to 36 due to worsening respiratory distress and hypoxemia over the 5-minute period without intervention.""
+  },
+  ""vitals"": {
+    ""BP_dia"": 95,
+    ""BP_sys"": 150,
+    ""HR"": 115,
+    ""O2Sat"": 85,
+    ""RR"": 36,
+    ""T"": 36.9
+  }
+}",,,gpt-4o
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p3,time_progression,no_action,"[""O2Sat""]",1.0,0.4,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 82}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 80, ""RR"": 24, ""T"": null}","{""O2Sat"": ""The patient's O2Sat is predicted to decrease from 85 to 80 due to the lack of intervention in the context of significant respiratory distress and pulmonary edema physiology.""}","{""reasoning"": {""O2Sat"": ""The patient's O2Sat is predicted to decrease from 85 to 80 due to the lack of intervention in the context of significant respiratory distress and pulmonary edema physiology.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": 80, ""RR"": null, ""T"": null}}",,,gpt-4o
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p4,physiology_response,oxygen_support,"[""O2Sat""]",1.0,0.6,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 89}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 92, ""RR"": 24, ""T"": null}","{""O2Sat"": ""The patient's O2Sat is predicted to improve from 85 to 92 due to the use of BVM assistance with FiO2 1, which provides higher oxygen delivery and supports ventilation in respiratory distress.""}","{""reasoning"": {""O2Sat"": ""The patient's O2Sat is predicted to improve from 85 to 92 due to the use of BVM assistance with FiO2 1, which provides higher oxygen delivery and supports ventilation in respiratory distress.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": 92, ""RR"": null, ""T"": null}}",,,gpt-4o
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p5,physiology_response,oxygen_support,"[""O2Sat""]",1.0,0.0,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 92}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 92, ""RR"": 24, ""T"": null}","{""O2Sat"": ""The pre-action O2Sat was 85, and the use of BVM with PEEP at FiO2 1 and PEEP 5 cmH2O is expected to improve oxygenation in the setting of pulmonary edema physiology, predicting an increase to 92.""}","{
+  ""reasoning"": {
+    ""O2Sat"": ""The pre-action O2Sat was 85, and the use of BVM with PEEP at FiO2 1 and PEEP 5 cmH2O is expected to improve oxygenation in the setting of pulmonary edema physiology, predicting an increase to 92.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": null,
+    ""O2Sat"": 92,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4o

@@ -19,6 +19,7 @@ from transition_engines.common import (
     evaluate_pair,
     iter_engine_inputs,
 )
+from transition_engines.few_shot import ExampleBank, ExampleSelector
 from transition_engines.hybrid_engine import HybridEngine, LLMClient
 from transition_engines.openai_llm_client import OpenAILLMClient
 from transition_engines.rule_based import RuleBasedEngine
@@ -86,9 +87,15 @@ def run_hybrid_eval(
     max_output_tokens: int = 300,
     limit_pairs: int | None = None,
     llm_client: LLMClient | None = None,
+    example_selector: Any | None = None,
     emit_console_summary: bool = True,
 ) -> dict[str, Any]:
-    """Evaluate HybridEngine and write pair-level CSV plus aggregate JSON."""
+    """Evaluate HybridEngine and write pair-level CSV plus aggregate JSON.
+
+    example_selector=None (default) runs zero-shot, identical to prior behavior.
+    A selector injects few-shot demonstrations per pair via the engine's
+    additive examples parameter; the runtime engine path is unaffected.
+    """
 
     input_path = Path(input_path)
     output_dir = Path(output_dir)
@@ -105,7 +112,12 @@ def run_hybrid_eval(
             max_output_tokens=max_output_tokens,
         )
     )
-    records = _evaluate_files(source_files, client, limit_pairs=limit_pairs)
+    records = _evaluate_files(
+        source_files,
+        client,
+        limit_pairs=limit_pairs,
+        example_selector=example_selector,
+    )
     summary = build_summary(records)
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -142,6 +154,7 @@ def _evaluate_files(
     llm_client: LLMClient,
     *,
     limit_pairs: int | None = None,
+    example_selector: Any | None = None,
 ) -> list[dict[str, Any]]:
     engine = HybridEngine(RuleBasedEngine(), llm_client)
     records: list[dict[str, Any]] = []
@@ -154,10 +167,19 @@ def _evaluate_files(
                 return records
             engine_input = build_engine_input(case_doc, pair)
             target_vital_names = pair["label"]["evaluation"]["target_vitals"]
-            engine_output = engine.predict(
-                engine_input,
-                target_vital_names=target_vital_names,
-            )
+            # Zero-shot keeps the original predict() call signature exactly; only
+            # supply the additive examples kwarg when a selector is configured.
+            if example_selector is None:
+                engine_output = engine.predict(
+                    engine_input,
+                    target_vital_names=target_vital_names,
+                )
+            else:
+                engine_output = engine.predict(
+                    engine_input,
+                    target_vital_names=target_vital_names,
+                    examples=example_selector.select(engine_input),
+                )
             eval_result = evaluate_pair(pair, engine_output)
             records.append(
                 _record_from_result(
@@ -319,11 +341,65 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         type=int,
         help="Evaluate at most this many pairs; useful for real-mode smoke tests.",
     )
+    parser.add_argument(
+        "--shots",
+        type=int,
+        choices=(0, 3),
+        default=0,
+        help="Few-shot demonstrations per pair (0 = zero-shot).",
+    )
+    parser.add_argument(
+        "--example-strategy",
+        choices=("static", "kind_hint_matched"),
+        default="static",
+        help="Few-shot example selection strategy (used when --shots > 0).",
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=0,
+        help="Seed for deterministic few-shot example selection.",
+    )
+    parser.add_argument(
+        "--example-source",
+        type=Path,
+        default=None,
+        help="Dataset path for the few-shot example bank (defaults to input_path).",
+    )
     return parser.parse_args(argv)
+
+
+def build_example_selector(
+    *,
+    shots: int,
+    strategy: str,
+    seed: int,
+    example_source: Path,
+    engine_kind: str = "hybrid",
+) -> ExampleSelector | None:
+    """Build a leave-one-case-out selector, or None for zero-shot."""
+
+    if shots <= 0:
+        return None
+    bank = ExampleBank.from_dataset(example_source, recursive=True)
+    return ExampleSelector(
+        bank,
+        k=shots,
+        strategy=strategy,
+        seed=seed,
+        engine_kind=engine_kind,
+    )
 
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
+    selector = build_example_selector(
+        shots=args.shots,
+        strategy=args.example_strategy,
+        seed=args.seed,
+        example_source=args.example_source or args.input_path,
+        engine_kind="hybrid",
+    )
     run_hybrid_eval(
         args.input_path,
         args.output_dir,
@@ -333,6 +409,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         temperature=args.temperature,
         max_output_tokens=args.max_output_tokens,
         limit_pairs=args.limit_pairs,
+        example_selector=selector,
     )
     return 0
 
