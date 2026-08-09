@@ -1,0 +1,382 @@
+{
+  "schema_version": "educational_transition_pair_v16",
+  "case_id": "pe_with_bleeding",
+  "category": "Shock / Respiratory Failure",
+  "source_pdf": "PE with Bleeding.pdf",
+  "scenario_description": "A 63-year-old female in the Emergency Department has CT-confirmed pulmonary embolism and suddenly develops severe shortness of breath. The scenario progresses through PEA arrest requiring thrombolysis, ROSC with post-intubation care, and recurrent hypotension from bleeding after thrombolysis.",
+  "case_context": {
+    "demographics": {
+      "age": 63,
+      "sex": "F",
+      "weight_kg": 55
+    },
+    "history": [
+      "Recent hysterectomy for AUB",
+      "DM 2",
+      "Breast Cx (sx + chemo 3 yrs ago)",
+      "DVT (3 yrs ago)"
+    ],
+    "home_medications": [
+      "Januvia",
+      "Given 15mg rivaroxaban in ED after diagnosis"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "baseline_features": {
+      "rhythm": "sinus",
+      "oxygen_device": null,
+      "FiO2": 0.21,
+      "intubated": false,
+      "vent": false,
+      "PEEP_cmH2O": null,
+      "neuro_status": "GCS 15 (E4 V5 M6)",
+      "glucose_mmol_l": 12
+    },
+    "supporting_findings": [
+      {
+        "test_code": "CTA",
+        "test_name": "CT pulmonary angiography",
+        "test_category": "imaging",
+        "result_summary": "CT-confirmed pulmonary embolism."
+      },
+      {
+        "test_code": "BMP",
+        "test_name": "Basic metabolic panel",
+        "test_category": "lab",
+        "result_summary": "Na 140, K 4, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 5.5."
+      },
+      {
+        "test_code": "TROP",
+        "test_name": "Troponin",
+        "test_category": "cardiac_test",
+        "result_summary": "Troponin I 70."
+      },
+      {
+        "test_code": "D_DIMER",
+        "test_name": "D-dimer",
+        "test_category": "coagulation",
+        "result_summary": "D-dimer >4,000."
+      },
+      {
+        "test_code": "VBG",
+        "test_name": "Venous blood gas",
+        "test_category": "blood_gas",
+        "result_summary": "pH 7.38, PCO2 40, PO2 78, HCO3 25, lactate 1.8."
+      },
+      {
+        "test_code": "CBC",
+        "test_name": "Complete blood count",
+        "test_category": "hematology",
+        "result_summary": "WBC 12, Hg 125, Hct 0.4, Plt 300."
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Chest X-ray - initial",
+        "test_category": "imaging",
+        "result_summary": "Normal."
+      },
+      {
+        "test_code": "CXR",
+        "test_name": "Chest X-ray - post intubation",
+        "test_category": "imaging",
+        "result_summary": "Post-intubation chest X-ray."
+      },
+      {
+        "test_code": "ECG",
+        "test_name": "ECG",
+        "test_category": "ecg",
+        "result_summary": "RBBB, R-axis deviation, TWI V1-V4."
+      },
+      {
+        "test_code": "BED_US",
+        "test_name": "Initial bedside ultrasound",
+        "test_category": "ultrasound",
+        "result_summary": "No PCE, dilated RV, + McConnel's sign; normal lungs."
+      },
+      {
+        "test_code": "BED_US",
+        "test_name": "Repeat bedside ultrasound",
+        "test_category": "ultrasound",
+        "result_summary": "Pericardial unchanged; abdominal free fluid; normal lungs."
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "id": "p1",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "NRB → O2 97%"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 144,
+            "BP_sys": 131,
+            "BP_dia": 73,
+            "RR": 26,
+            "O2Sat": 88,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 12
+          }
+        },
+        "action": {
+          "raw_text": "NRB",
+          "kind_hint": "oxygen_support",
+          "params": {
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "PEEP_used": false,
+            "PEEP_cmH2O": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "O2Sat": 97
+          },
+          "features": {
+            "oxygen_device": "NRB",
+            "FiO2": 0.8
+          }
+        },
+        "evaluation": {
+          "target_vitals": [
+            "O2Sat"
+          ],
+          "target_features": [
+            "oxygen_device",
+            "FiO2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p2",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "1L NS bolus → HR 125"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 144,
+            "BP_sys": 131,
+            "BP_dia": 73,
+            "RR": 26,
+            "O2Sat": 88,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 12
+          }
+        },
+        "action": {
+          "raw_text": "1L NS bolus",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": "normal_saline",
+            "volume_ml": 1000
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 125
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p4",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "Vasopressor started (at any dose) → BP to 96/55"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 110,
+            "BP_sys": 75,
+            "BP_dia": 35,
+            "RR": 12,
+            "O2Sat": 95,
+            "T": null
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": null,
+            "neuro_status": "non-responsive",
+            "glucose_mmol_l": 12
+          }
+        },
+        "action": {
+          "raw_text": "Vasopressor started (at any dose)",
+          "kind_hint": "vasopressor",
+          "params": {
+            "drug_name": null,
+            "dose": null,
+            "unit": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "BP_sys": 96,
+            "BP_dia": 55
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p5",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "2L NS or 2uPRBC → BP 80/45, HR 100"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 70,
+            "BP_dia": 40,
+            "RR": 12,
+            "O2Sat": 93,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "vent",
+            "FiO2": 1,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": null,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 12
+          }
+        },
+        "action": {
+          "raw_text": "2L NS",
+          "kind_hint": "fluid_bolus",
+          "params": {
+            "fluid_type": "normal_saline",
+            "volume_ml": 2000
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 100,
+            "BP_sys": 80,
+            "BP_dia": 45
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    },
+    {
+      "id": "p6",
+      "pair_type": "physiology_response",
+      "source": {
+        "modifier_text": "2uPRBC → BP 80/45, HR 100"
+      },
+      "input": {
+        "before": {
+          "vitals": {
+            "HR": 120,
+            "BP_sys": 70,
+            "BP_dia": 40,
+            "RR": 12,
+            "O2Sat": 93,
+            "T": null
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "vent",
+            "FiO2": 1,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": null,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 12
+          }
+        },
+        "action": {
+          "raw_text": "2uPRBC",
+          "kind_hint": "blood_transfusion",
+          "params": {
+            "blood_product": "pRBC",
+            "units": 2,
+            "strategy": null
+          }
+        }
+      },
+      "label": {
+        "target": {
+          "vitals": {
+            "HR": 100,
+            "BP_sys": 80,
+            "BP_dia": 45
+          },
+          "features": {}
+        },
+        "evaluation": {
+          "target_vitals": [
+            "HR",
+            "BP_sys",
+            "BP_dia"
+          ],
+          "target_features": []
+        }
+      }
+    }
+  ]
+}

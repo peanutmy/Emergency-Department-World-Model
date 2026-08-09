@@ -1,0 +1,515 @@
+case_id,source_file,pair_id,pair_type,kind_hint,target_vitals,direction_accuracy,normalized_l2,num_target_vitals,num_missing_predictions,missing_predictions,direction_match,before_vitals,target_vitals_values,predicted_vitals,llm_reasoning,llm_raw_response,llm_parse_error,llm_api_error,model
+acute_respiratory_distress_pulmonary_edema,transitions_reviewed/Cardiology/Acute Respiratory Distress.json,p1,physiology_response,oxygen_support,"[""RR"", ""O2Sat""]",0.5,0.8,2,0,"{""O2Sat"": false, ""RR"": false}","{""O2Sat"": true, ""RR"": false}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 80, ""RR"": 34, ""T"": 36.9}","{""O2Sat"": 88, ""RR"": 34}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 88, ""RR"": 30, ""T"": 36.9}","{""O2Sat"": ""O2Sat was 80% before and is predicted to rise to 88% after NRB application due to increased FiO2, but severe pulmonary edema limits full normalization."", ""RR"": ""RR was 34 before and is predicted to decrease slightly to 30 as improved oxygenation reduces respiratory drive, though ongoing distress persists.""}","{
+  ""reasoning"": {
+    ""O2Sat"": ""O2Sat was 80% before and is predicted to rise to 88% after NRB application due to increased FiO2, but severe pulmonary edema limits full normalization."",
+    ""RR"": ""RR was 34 before and is predicted to decrease slightly to 30 as improved oxygenation reduces respiratory drive, though ongoing distress persists.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": null,
+    ""O2Sat"": 88,
+    ""RR"": 30,
+    ""T"": null
+  }
+}",,,gpt-4.1
+acute_respiratory_distress_pulmonary_edema,transitions_reviewed/Cardiology/Acute Respiratory Distress.json,p2,time_progression,no_action,"[""RR"", ""O2Sat""]",0.5,2.8635642126552705,2,0,"{""O2Sat"": false, ""RR"": false}","{""O2Sat"": true, ""RR"": false}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 88, ""RR"": 34, ""T"": 36.9}","{""O2Sat"": 85, ""RR"": 24}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 82, ""RR"": 38, ""T"": 36.9}","{""O2Sat"": ""O2Sat drops from 88 to 82 due to ongoing severe pulmonary edema and lack of further intervention over 5 minutes."", ""RR"": ""RR increases from 34 to 38 as the patient becomes more distressed and hypoxemic without additional support.""}","{""reasoning"": {""O2Sat"": ""O2Sat drops from 88 to 82 due to ongoing severe pulmonary edema and lack of further intervention over 5 minutes."", ""RR"": ""RR increases from 34 to 38 as the patient becomes more distressed and hypoxemic without additional support.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": 82, ""RR"": 38, ""T"": null}}",,,gpt-4.1
+acute_respiratory_distress_pulmonary_edema,transitions_reviewed/Cardiology/Acute Respiratory Distress.json,p3,time_progression,no_action,"[""RR"", ""O2Sat""]",0.5,1.4422205101855958,2,0,"{""O2Sat"": false, ""RR"": false}","{""O2Sat"": true, ""RR"": false}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 82, ""RR"": 24}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 78, ""RR"": 18, ""T"": null}","{""O2Sat"": ""O2Sat was 85% on NRB with FiO2 0.8 and no further intervention for 8 minutes, so it is predicted to fall to 78% due to ongoing severe pulmonary edema and respiratory fatigue."", ""RR"": ""RR was 24 and is predicted to decrease to 18 as the patient becomes more fatigued and drowsy without escalation of care.""}","{
+  ""reasoning"": {
+    ""O2Sat"": ""O2Sat was 85% on NRB with FiO2 0.8 and no further intervention for 8 minutes, so it is predicted to fall to 78% due to ongoing severe pulmonary edema and respiratory fatigue."",
+    ""RR"": ""RR was 24 and is predicted to decrease to 18 as the patient becomes more fatigued and drowsy without escalation of care.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": null,
+    ""O2Sat"": 78,
+    ""RR"": 18,
+    ""T"": null
+  }
+}",,,gpt-4.1
+acute_respiratory_distress_pulmonary_edema,transitions_reviewed/Cardiology/Acute Respiratory Distress.json,p4,physiology_response,oxygen_support,"[""RR"", ""O2Sat""]",0.5,0.8246211251235323,2,0,"{""O2Sat"": false, ""RR"": false}","{""O2Sat"": true, ""RR"": false}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 89, ""RR"": 24}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 90, ""RR"": 20, ""T"": null}","{""O2Sat"": ""O2Sat was 85% on NRB (FiO2 0.8); with BVM at FiO2 1.0, O2Sat is likely to improve moderately to 90% due to increased oxygen delivery, though severe pulmonary edema may limit full normalization."", ""RR"": ""RR was 24 before; with BVM assistance, RR may decrease slightly to 20 as work of breathing is partially relieved, but underlying distress persists.""}","{
+  ""reasoning"": {
+    ""O2Sat"": ""O2Sat was 85% on NRB (FiO2 0.8); with BVM at FiO2 1.0, O2Sat is likely to improve moderately to 90% due to increased oxygen delivery, though severe pulmonary edema may limit full normalization."",
+    ""RR"": ""RR was 24 before; with BVM assistance, RR may decrease slightly to 20 as work of breathing is partially relieved, but underlying distress persists.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": null,
+    ""O2Sat"": 90,
+    ""RR"": 20,
+    ""T"": null
+  }
+}",,,gpt-4.1
+acute_respiratory_distress_pulmonary_edema,transitions_reviewed/Cardiology/Acute Respiratory Distress.json,p5,physiology_response,oxygen_support,"[""RR"", ""O2Sat""]",0.5,0.8,2,0,"{""O2Sat"": false, ""RR"": false}","{""O2Sat"": true, ""RR"": false}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 92, ""RR"": 24}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 92, ""RR"": 20, ""T"": null}","{""O2Sat"": ""Before O2Sat was 85% on NRB (FiO2 0.8); with BVM at FiO2 1.0 and PEEP 5, O2Sat is expected to improve to 92% due to increased oxygen delivery and alveolar recruitment, though severe pulmonary edema may limit full normalization."", ""RR"": ""Before RR was 24; with BVM and PEEP, RR may decrease slightly to 20 as work of breathing is reduced by positive pressure support.""}","{
+  ""reasoning"": {
+    ""O2Sat"": ""Before O2Sat was 85% on NRB (FiO2 0.8); with BVM at FiO2 1.0 and PEEP 5, O2Sat is expected to improve to 92% due to increased oxygen delivery and alveolar recruitment, though severe pulmonary edema may limit full normalization."",
+    ""RR"": ""Before RR was 24; with BVM and PEEP, RR may decrease slightly to 20 as work of breathing is reduced by positive pressure support.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": null,
+    ""O2Sat"": 92,
+    ""RR"": 20,
+    ""T"": null
+  }
+}",,,gpt-4.1
+acute_respiratory_distress_pulmonary_edema,transitions_reviewed/Cardiology/Acute Respiratory Distress.json,p6,physiology_response,airway_management,"[""RR"", ""O2Sat""]",1.0,0.8246211251235323,2,0,"{""O2Sat"": false, ""RR"": false}","{""O2Sat"": true, ""RR"": true}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 94, ""RR"": 12}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 120, ""O2Sat"": 95, ""RR"": 16, ""T"": null}","{""O2Sat"": ""Before O2Sat was 85; after completed intubation, O2Sat is predicted to improve to 95 due to definitive airway and high FiO2, though underlying pulmonary edema may limit full normalization."", ""RR"": ""Before RR was 24; after intubation, RR is predicted to decrease to 16, reflecting controlled mechanical ventilation.""}","{""reasoning"": {""O2Sat"": ""Before O2Sat was 85; after completed intubation, O2Sat is predicted to improve to 95 due to definitive airway and high FiO2, though underlying pulmonary edema may limit full normalization."", ""RR"": ""Before RR was 24; after intubation, RR is predicted to decrease to 16, reflecting controlled mechanical ventilation.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": 95, ""RR"": 16, ""T"": null}}",,,gpt-4.1
+aortic_dissection,transitions_reviewed/Cardiology/Aortic Dissection.json,p1,physiology_response,rate_control,"[""HR"", ""BP_sys"", ""BP_dia""]",0.6666666666666666,3.1,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": false, ""BP_sys"": true, ""HR"": true}","{""BP_dia"": 100, ""BP_sys"": 210, ""HR"": 110, ""O2Sat"": 99, ""RR"": 20, ""T"": 36.5}","{""BP_dia"": 96, ""BP_sys"": 150, ""HR"": 85}","{""BP_dia"": 90, ""BP_sys"": 180, ""HR"": 90, ""O2Sat"": 99, ""RR"": 20, ""T"": 36.5}","{""BP_dia"": ""BP_dia before was 100; after negative inotrope, BP_dia is predicted to decrease to 90 due to the antihypertensive effect of rate control medications."", ""BP_sys"": ""BP_sys before was 210; after negative inotrope, BP_sys is predicted to decrease to 180 as these agents lower both heart rate and systolic blood pressure."", ""HR"": ""HR before was 110; after negative inotrope for rate control, HR is predicted to decrease to 90 due to the expected effect of rate-lowering agents.""}","{
+  ""reasoning"": {
+    ""HR"": ""HR before was 110; after negative inotrope for rate control, HR is predicted to decrease to 90 due to the expected effect of rate-lowering agents."",
+    ""BP_sys"": ""BP_sys before was 210; after negative inotrope, BP_sys is predicted to decrease to 180 as these agents lower both heart rate and systolic blood pressure."",
+    ""BP_dia"": ""BP_dia before was 100; after negative inotrope, BP_dia is predicted to decrease to 90 due to the antihypertensive effect of rate control medications.""
+  },
+  ""vitals"": {
+    ""HR"": 90,
+    ""BP_sys"": 180,
+    ""BP_dia"": 90,
+    ""O2Sat"": null,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4.1
+aortic_dissection,transitions_reviewed/Cardiology/Aortic Dissection.json,p2,physiology_response,anticoagulation,"[""HR"", ""BP_sys"", ""BP_dia"", ""RR"", ""O2Sat""]",0.0,32.71146587971869,5,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false, ""RR"": false}","{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false, ""RR"": false}","{""BP_dia"": 100, ""BP_sys"": 210, ""HR"": 110, ""O2Sat"": 99, ""RR"": 20, ""T"": 36.5}","{""BP_dia"": 0, ""BP_sys"": 0, ""HR"": 0, ""O2Sat"": 0, ""RR"": 0}","{""BP_dia"": 100, ""BP_sys"": 210, ""HR"": 110, ""O2Sat"": 99, ""RR"": 20, ""T"": 36.5}","{""BP_dia"": ""Before BP_dia was 100; after heparin, BP_dia is predicted to remain at 100 as anticoagulation does not acutely affect diastolic blood pressure."", ""BP_sys"": ""Before BP_sys was 210; after heparin, BP_sys is predicted to remain at 210 since anticoagulation does not immediately alter systolic blood pressure and may be harmful in dissection but no acute change is expected."", ""HR"": ""Before HR was 110; after heparin administration in aortic dissection, HR is predicted to remain at 110 as anticoagulation does not acutely affect heart rate."", ""O2Sat"": ""Before O2Sat was 99; after heparin, O2Sat is predicted to remain at 99 as anticoagulation does not acutely affect oxygen saturation."", ""RR"": ""Before RR was 20; after heparin, RR is predicted to remain at 20 because anticoagulation does not directly impact respiratory rate.""}","{""reasoning"": {""HR"": ""Before HR was 110; after heparin administration in aortic dissection, HR is predicted to remain at 110 as anticoagulation does not acutely affect heart rate."", ""BP_sys"": ""Before BP_sys was 210; after heparin, BP_sys is predicted to remain at 210 since anticoagulation does not immediately alter systolic blood pressure and may be harmful in dissection but no acute change is expected."", ""BP_dia"": ""Before BP_dia was 100; after heparin, BP_dia is predicted to remain at 100 as anticoagulation does not acutely affect diastolic blood pressure."", ""RR"": ""Before RR was 20; after heparin, RR is predicted to remain at 20 because anticoagulation does not directly impact respiratory rate."", ""O2Sat"": ""Before O2Sat was 99; after heparin, O2Sat is predicted to remain at 99 as anticoagulation does not acutely affect oxygen saturation.""}, ""vitals"": {""HR"": 110, ""BP_sys"": 210, ""BP_dia"": 100, ""RR"": 20, ""O2Sat"": 99}}",,,gpt-4.1
+aortic_dissection,transitions_reviewed/Cardiology/Aortic Dissection.json,p3,time_progression,no_action,"[""HR"", ""BP_sys"", ""BP_dia""]",1.0,10.04987562112089,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": true}","{""BP_dia"": 100, ""BP_sys"": 210, ""HR"": 110, ""O2Sat"": 99, ""RR"": 20, ""T"": 36.5}","{""BP_dia"": 60, ""BP_sys"": 90, ""HR"": 50}","{""BP_dia"": 80, ""BP_sys"": 180, ""HR"": 90, ""O2Sat"": 99, ""RR"": 20, ""T"": 36.5}","{""BP_dia"": ""BP_dia decreases from 100 to 80 due to natural progression of aortic dissection with delayed intervention causing worsening hypotension."", ""BP_sys"": ""BP_sys drops from 210 to 180 as ongoing aortic dissection and delayed care lead to progressive hypotension."", ""HR"": ""HR decreases from 110 to 90 due to progression from initial tachycardia toward bradycardia as described in the scenario, reflecting worsening aortic dissection.""}","{""vitals"": {""HR"": 90, ""BP_sys"": 180, ""BP_dia"": 80, ""O2Sat"": 99, ""RR"": 20, ""T"": 36.5}, ""reasoning"": {""HR"": ""HR decreases from 110 to 90 due to progression from initial tachycardia toward bradycardia as described in the scenario, reflecting worsening aortic dissection."", ""BP_sys"": ""BP_sys drops from 210 to 180 as ongoing aortic dissection and delayed care lead to progressive hypotension."", ""BP_dia"": ""BP_dia decreases from 100 to 80 due to natural progression of aortic dissection with delayed intervention causing worsening hypotension.""}}",,,gpt-4.1
+aortic_dissection,transitions_reviewed/Cardiology/Aortic Dissection.json,p4,physiology_response,fluid_bolus,"[""HR"", ""BP_sys"", ""BP_dia""]",1.0,0.5,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": true}","{""BP_dia"": 60, ""BP_sys"": 90, ""HR"": 50, ""O2Sat"": null, ""RR"": null, ""T"": null}","{""BP_dia"": 65, ""BP_sys"": 100, ""HR"": 50}","{""BP_dia"": 65, ""BP_sys"": 100, ""HR"": 55, ""O2Sat"": null, ""RR"": null, ""T"": null}","{""BP_dia"": ""BP_dia before was 60 and may increase slightly (e.g., to 65) after fluids, reflecting mild improvement in perfusion."", ""BP_sys"": ""BP_sys before was 90 and may rise modestly (e.g., to 100) after fluids due to increased intravascular volume, but excessive rise is unlikely given underlying pathology."", ""HR"": ""HR before was 50 and may increase slightly (e.g., to 55) after fluids due to improved preload, but bradycardia may persist in aortic dissection.""}","{
+  ""reasoning"": {
+    ""HR"": ""HR before was 50 and may increase slightly (e.g., to 55) after fluids due to improved preload, but bradycardia may persist in aortic dissection."",
+    ""BP_sys"": ""BP_sys before was 90 and may rise modestly (e.g., to 100) after fluids due to increased intravascular volume, but excessive rise is unlikely given underlying pathology."",
+    ""BP_dia"": ""BP_dia before was 60 and may increase slightly (e.g., to 65) after fluids, reflecting mild improvement in perfusion.""
+  },
+  ""vitals"": {
+    ""HR"": 55,
+    ""BP_sys"": 100,
+    ""BP_dia"": 65,
+    ""O2Sat"": null,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4.1
+aortic_dissection,transitions_reviewed/Cardiology/Aortic Dissection.json,p5,time_progression,no_action,"[""HR"", ""BP_sys"", ""BP_dia"", ""RR""]",0.75,2.749545416973504,4,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""RR"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": true, ""RR"": false}","{""BP_dia"": 60, ""BP_sys"": 90, ""HR"": 50, ""O2Sat"": null, ""RR"": 20, ""T"": null}","{""BP_dia"": 30, ""BP_sys"": 70, ""HR"": 40, ""RR"": 12}","{""BP_dia"": 50, ""BP_sys"": 80, ""HR"": 40, ""O2Sat"": null, ""RR"": 20, ""T"": null}","{""BP_dia"": ""Before BP_dia was 60; predicted BP_dia is 50, decreasing due to progressive hypotension and lack of treatment."", ""BP_sys"": ""Before BP_sys was 90; predicted BP_sys is 80, decreasing as hypotension worsens without intervention in aortic dissection."", ""HR"": ""Before HR was 50; predicted HR is 40, decreasing due to ongoing bradycardia and delayed care in the context of aortic dissection."", ""RR"": ""Before RR was 20; predicted RR is 20, unchanged as respiratory rate is not expected to change in the absence of intervention or worsening respiratory status.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR was 50; predicted HR is 40, decreasing due to ongoing bradycardia and delayed care in the context of aortic dissection."",
+    ""BP_sys"": ""Before BP_sys was 90; predicted BP_sys is 80, decreasing as hypotension worsens without intervention in aortic dissection."",
+    ""BP_dia"": ""Before BP_dia was 60; predicted BP_dia is 50, decreasing due to progressive hypotension and lack of treatment."",
+    ""RR"": ""Before RR was 20; predicted RR is 20, unchanged as respiratory rate is not expected to change in the absence of intervention or worsening respiratory status.""
+  },
+  ""vitals"": {
+    ""BP_dia"": 50,
+    ""BP_sys"": 80,
+    ""HR"": 40,
+    ""O2Sat"": null,
+    ""RR"": 20,
+    ""T"": null
+  }
+}",,,gpt-4.1
+aortic_dissection,transitions_reviewed/Cardiology/Aortic Dissection.json,p6,physiology_response,transcutaneous_pacing,"[""HR"", ""BP_sys"", ""BP_dia""]",1.0,0.0,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": true}","{""BP_dia"": 30, ""BP_sys"": 70, ""HR"": 40, ""O2Sat"": null, ""RR"": 12, ""T"": null}","{""BP_dia"": 50, ""BP_sys"": 90, ""HR"": 80}","{""BP_dia"": 50, ""BP_sys"": 90, ""HR"": 80, ""O2Sat"": null, ""RR"": 12, ""T"": null}","{""BP_dia"": ""Before BP_dia was 30; improved perfusion from pacing should increase BP_dia to 50."", ""BP_sys"": ""Before BP_sys was 70 (severely hypotensive); improved cardiac output from pacing should raise BP_sys to 90."", ""HR"": ""Before HR was 40 (bradycardic); transcutaneous pacing should increase HR to a paced rate (predicted 80) due to electrical capture.""}","{
+  ""vitals"": {
+    ""HR"": 80,
+    ""BP_sys"": 90,
+    ""BP_dia"": 50,
+    ""O2Sat"": null,
+    ""RR"": 12,
+    ""T"": null
+  },
+  ""reasoning"": {
+    ""HR"": ""Before HR was 40 (bradycardic); transcutaneous pacing should increase HR to a paced rate (predicted 80) due to electrical capture."",
+    ""BP_sys"": ""Before BP_sys was 70 (severely hypotensive); improved cardiac output from pacing should raise BP_sys to 90."",
+    ""BP_dia"": ""Before BP_dia was 30; improved perfusion from pacing should increase BP_dia to 50.""
+  }
+}",,,gpt-4.1
+subarachnoid_hemorrhage,transitions_reviewed/Communication/Critical Care 1 – Subarachnoid Hemorrhage.json,p1,time_progression,no_action,"[""HR"", ""BP_sys"", ""BP_dia""]",0.6666666666666666,8.958236433584458,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": false}","{""BP_dia"": 95, ""BP_sys"": 170, ""HR"": 110, ""O2Sat"": 92, ""RR"": 12, ""T"": 37.4}","{""BP_dia"": 50, ""BP_sys"": 80, ""HR"": 100}","{""BP_dia"": 85, ""BP_sys"": 160, ""HR"": 120, ""O2Sat"": 92, ""RR"": 12, ""T"": 37.4}","{""BP_dia"": ""BP_dia decreases from 95 to 85 reflecting progressive instability and possible loss of autoregulation with no action."", ""BP_sys"": ""BP_sys decreases from 170 to 160 as untreated neurologic injury and hypoxemia may worsen hemodynamics over 5 minutes."", ""HR"": ""HR increases from 110 to 120 due to ongoing neurologic deterioration and hypoxemia without intervention.""}","{
+  ""vitals"": {
+    ""HR"": 120,
+    ""BP_sys"": 160,
+    ""BP_dia"": 85,
+    ""O2Sat"": null,
+    ""RR"": null,
+    ""T"": null
+  },
+  ""reasoning"": {
+    ""HR"": ""HR increases from 110 to 120 due to ongoing neurologic deterioration and hypoxemia without intervention."",
+    ""BP_sys"": ""BP_sys decreases from 170 to 160 as untreated neurologic injury and hypoxemia may worsen hemodynamics over 5 minutes."",
+    ""BP_dia"": ""BP_dia decreases from 95 to 85 reflecting progressive instability and possible loss of autoregulation with no action.""
+  }
+}",,,gpt-4.1
+subarachnoid_hemorrhage,transitions_reviewed/Communication/Critical Care 1 – Subarachnoid Hemorrhage.json,p2,physiology_response,fluid_bolus,"[""BP_sys""]",1.0,0.0,1,0,"{""BP_sys"": false}","{""BP_sys"": true}","{""BP_dia"": 50, ""BP_sys"": 80, ""HR"": 100, ""O2Sat"": 92, ""RR"": 12, ""T"": 37.4}","{""BP_sys"": 90}","{""BP_dia"": 50, ""BP_sys"": 90, ""HR"": 100, ""O2Sat"": 92, ""RR"": 12, ""T"": 37.4}","{""BP_sys"": ""Before BP_sys was 80; after a fluid bolus, BP_sys is predicted to rise to 90 due to improved preload and support for hypotension in the context of subarachnoid hemorrhage.""}","{""reasoning"": {""BP_sys"": ""Before BP_sys was 80; after a fluid bolus, BP_sys is predicted to rise to 90 due to improved preload and support for hypotension in the context of subarachnoid hemorrhage.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": 90, ""HR"": null, ""O2Sat"": null, ""RR"": null, ""T"": null}}",,,gpt-4.1
+subarachnoid_hemorrhage,transitions_reviewed/Communication/Critical Care 1 – Subarachnoid Hemorrhage.json,p3,physiology_response,vasopressor,"[""BP_sys""]",1.0,2.0,1,0,"{""BP_sys"": false}","{""BP_sys"": true}","{""BP_dia"": 50, ""BP_sys"": 80, ""HR"": 100, ""O2Sat"": 92, ""RR"": 12, ""T"": 37.4}","{""BP_sys"": 90}","{""BP_dia"": 50, ""BP_sys"": 110, ""HR"": 100, ""O2Sat"": 92, ""RR"": 12, ""T"": 37.4}","{""BP_sys"": ""Before BP_sys was 80; after phenylephrine, BP_sys is predicted to rise to 110 due to vasopressor effect increasing systemic vascular resistance and improving hypotension.""}","{""reasoning"": {""BP_sys"": ""Before BP_sys was 80; after phenylephrine, BP_sys is predicted to rise to 110 due to vasopressor effect increasing systemic vascular resistance and improving hypotension.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": 110, ""HR"": null, ""O2Sat"": null, ""RR"": null, ""T"": null}}",,,gpt-4.1
+subarachnoid_hemorrhage,transitions_reviewed/Communication/Critical Care 1 – Subarachnoid Hemorrhage.json,p4,physiology_response,oxygen_support,"[""O2Sat""]",0.0,1.4,1,0,"{""O2Sat"": false}","{""O2Sat"": false}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 110, ""O2Sat"": 87, ""RR"": 12, ""T"": 37.4}","{""O2Sat"": 88}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 110, ""O2Sat"": 95, ""RR"": 12, ""T"": 37.4}","{""O2Sat"": ""Before O2Sat was 87%; applying NRB or increasing FiO2 should improve O2Sat to around 95% due to higher inspired oxygen, unless severe shunt physiology is present, which is not indicated here.""}","{
+  ""reasoning"": {
+    ""O2Sat"": ""Before O2Sat was 87%; applying NRB or increasing FiO2 should improve O2Sat to around 95% due to higher inspired oxygen, unless severe shunt physiology is present, which is not indicated here.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": null,
+    ""O2Sat"": 95,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4.1
+subarachnoid_hemorrhage,transitions_reviewed/Communication/Critical Care 1 – Subarachnoid Hemorrhage.json,p5,physiology_response,oxygen_support,"[""O2Sat""]",1.0,1.0,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 110, ""O2Sat"": 87, ""RR"": 12, ""T"": 37.4}","{""O2Sat"": 92}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 110, ""O2Sat"": 97, ""RR"": 12, ""T"": 37.4}","{""O2Sat"": ""Before O2Sat was 87% on nasal cannula (FiO2 0.28); after switching to BVM with FiO2 1.0, O2Sat is predicted to improve to 97% due to much higher inspired oxygen and effective bag-mask ventilation.""}","{""reasoning"": {""O2Sat"": ""Before O2Sat was 87% on nasal cannula (FiO2 0.28); after switching to BVM with FiO2 1.0, O2Sat is predicted to improve to 97% due to much higher inspired oxygen and effective bag-mask ventilation.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": 97, ""RR"": null, ""T"": null}}",,,gpt-4.1
+subarachnoid_hemorrhage,transitions_reviewed/Communication/Critical Care 1 – Subarachnoid Hemorrhage.json,p6,physiology_response,oral_airway,"[""O2Sat""]",0.0,2.0,1,0,"{""O2Sat"": false}","{""O2Sat"": false}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 110, ""O2Sat"": 87, ""RR"": 12, ""T"": 37.4}","{""O2Sat"": 97}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 110, ""O2Sat"": 87, ""RR"": 12, ""T"": 37.4}","{""O2Sat"": ""O2Sat was 87% before; after oral airway placement, O2Sat is predicted to remain 87% because an oral airway alone does not provide oxygenation or ventilation and the patient remains hypoxemic on nasal cannula.""}","{""reasoning"": {""O2Sat"": ""O2Sat was 87% before; after oral airway placement, O2Sat is predicted to remain 87% because an oral airway alone does not provide oxygenation or ventilation and the patient remains hypoxemic on nasal cannula.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": 87, ""RR"": null, ""T"": null}}",,,gpt-4.1
+subarachnoid_hemorrhage,transitions_reviewed/Communication/Critical Care 1 – Subarachnoid Hemorrhage.json,p7,physiology_response,airway_management,"[""HR"", ""BP_sys"", ""BP_dia"", ""RR"", ""O2Sat""]",0.4,9.302687783646187,5,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false, ""RR"": false}","{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": true, ""RR"": true}","{""BP_dia"": 50, ""BP_sys"": 90, ""HR"": 110, ""O2Sat"": 87, ""RR"": 12, ""T"": 37.4}","{""BP_dia"": 90, ""BP_sys"": 165, ""HR"": 120, ""O2Sat"": 98, ""RR"": 16}","{""BP_dia"": 45, ""BP_sys"": 85, ""HR"": 105, ""O2Sat"": 97, ""RR"": 16, ""T"": 37.4}","{""BP_dia"": ""Before intubation BP_dia was 50; after intubation, BP_dia is predicted at 45, slightly decreased for the same reason as systolic BP."", ""BP_sys"": ""Before intubation BP_sys was 90; after intubation, BP_sys is predicted at 85, slightly decreased due to possible peri-intubation hypotension in a neurologically injured, already hypotensive patient."", ""HR"": ""Before intubation HR was 110; after successful intubation, HR is predicted at 105, slightly decreased due to improved oxygenation and reduced work of breathing."", ""O2Sat"": ""Before intubation O2Sat was 87; after intubation, O2Sat is predicted at 97, improved due to definitive airway and likely higher FiO2."", ""RR"": ""Before intubation RR was 12; after intubation, RR is predicted at 16, reflecting a controlled ventilator rate post-intubation.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before intubation HR was 110; after successful intubation, HR is predicted at 105, slightly decreased due to improved oxygenation and reduced work of breathing."",
+    ""BP_sys"": ""Before intubation BP_sys was 90; after intubation, BP_sys is predicted at 85, slightly decreased due to possible peri-intubation hypotension in a neurologically injured, already hypotensive patient."",
+    ""BP_dia"": ""Before intubation BP_dia was 50; after intubation, BP_dia is predicted at 45, slightly decreased for the same reason as systolic BP."",
+    ""RR"": ""Before intubation RR was 12; after intubation, RR is predicted at 16, reflecting a controlled ventilator rate post-intubation."",
+    ""O2Sat"": ""Before intubation O2Sat was 87; after intubation, O2Sat is predicted at 97, improved due to definitive airway and likely higher FiO2.""
+  },
+  ""vitals"": {
+    ""HR"": 105,
+    ""BP_sys"": 85,
+    ""BP_dia"": 45,
+    ""RR"": 16,
+    ""O2Sat"": 97
+  }
+}",,,gpt-4.1
+adrenal_crisis,transitions_reviewed/Endocrine/Adrenal Crisis.json,p1,physiology_response,fluid_bolus,"[""HR"", ""BP_sys"", ""BP_dia""]",0.6666666666666666,0.8660254037844386,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": false}","{""BP_dia"": 40, ""BP_sys"": 80, ""HR"": 125, ""O2Sat"": 98, ""RR"": 18, ""T"": 35}","{""BP_dia"": 40, ""BP_sys"": 80, ""HR"": 115}","{""BP_dia"": 45, ""BP_sys"": 85, ""HR"": 120, ""O2Sat"": 98, ""RR"": 18, ""T"": 35}","{""BP_dia"": ""BP_dia before was 40 and may rise slightly to 45 after fluids, but will remain low due to persistent adrenal insufficiency."", ""BP_sys"": ""BP_sys before was 80 and may increase modestly to 85 after a 2L fluid bolus, but will remain low because the shock is not fluid responsive in adrenal crisis."", ""HR"": ""HR before was 125 and may decrease slightly to 120 after a 2L fluid bolus, but will likely remain elevated due to ongoing adrenal crisis and non-fluid responsive shock.""}","{
+  ""reasoning"": {
+    ""HR"": ""HR before was 125 and may decrease slightly to 120 after a 2L fluid bolus, but will likely remain elevated due to ongoing adrenal crisis and non-fluid responsive shock."",
+    ""BP_sys"": ""BP_sys before was 80 and may increase modestly to 85 after a 2L fluid bolus, but will remain low because the shock is not fluid responsive in adrenal crisis."",
+    ""BP_dia"": ""BP_dia before was 40 and may rise slightly to 45 after fluids, but will remain low due to persistent adrenal insufficiency.""
+  },
+  ""vitals"": {
+    ""HR"": 120,
+    ""BP_sys"": 85,
+    ""BP_dia"": 45,
+    ""O2Sat"": null,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4.1
+adrenal_crisis,transitions_reviewed/Endocrine/Adrenal Crisis.json,p2,physiology_response,fluid_bolus,"[""HR"", ""BP_sys"", ""BP_dia""]",0.6666666666666666,1.224744871391589,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": false}","{""BP_dia"": 40, ""BP_sys"": 80, ""HR"": 125, ""O2Sat"": 98, ""RR"": 18, ""T"": 35}","{""BP_dia"": 40, ""BP_sys"": 80, ""HR"": 110}","{""BP_dia"": 45, ""BP_sys"": 85, ""HR"": 120, ""O2Sat"": 98, ""RR"": 18, ""T"": 35}","{""BP_dia"": ""BP_dia before was 40 and may rise slightly to 45 after fluids, but will remain low given persistent adrenal insufficiency."", ""BP_sys"": ""BP_sys before was 80 and may increase modestly to 85 after 4L fluid bolus, but will not normalize due to non-fluid responsive shock in adrenal crisis."", ""HR"": ""HR before was 125 and may decrease slightly to 120 after a large fluid bolus, but will likely remain elevated due to ongoing adrenal insufficiency and shock.""}","{
+  ""reasoning"": {
+    ""HR"": ""HR before was 125 and may decrease slightly to 120 after a large fluid bolus, but will likely remain elevated due to ongoing adrenal insufficiency and shock."",
+    ""BP_sys"": ""BP_sys before was 80 and may increase modestly to 85 after 4L fluid bolus, but will not normalize due to non-fluid responsive shock in adrenal crisis."",
+    ""BP_dia"": ""BP_dia before was 40 and may rise slightly to 45 after fluids, but will remain low given persistent adrenal insufficiency.""
+  },
+  ""vitals"": {
+    ""HR"": 120,
+    ""BP_sys"": 85,
+    ""BP_dia"": 45,
+    ""O2Sat"": null,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4.1
+adrenal_crisis,transitions_reviewed/Endocrine/Adrenal Crisis.json,p3,time_progression,no_action,"[""HR"", ""BP_sys"", ""BP_dia"", ""RR"", ""O2Sat""]",0.2,3.2511536414017717,5,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false, ""RR"": false}","{""BP_dia"": true, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false, ""RR"": false}","{""BP_dia"": 40, ""BP_sys"": 80, ""HR"": 125, ""O2Sat"": 98, ""RR"": 18, ""T"": 35}","{""BP_dia"": 40, ""BP_sys"": 80, ""HR"": 140, ""O2Sat"": 90, ""RR"": 10}","{""BP_dia"": 35, ""BP_sys"": 70, ""HR"": 130, ""O2Sat"": 98, ""RR"": 22, ""T"": 35}","{""BP_dia"": ""BP_dia decreases from 40 to 35 due to ongoing hypotension and lack of steroid or glucose replacement."", ""BP_sys"": ""BP_sys decreases from 80 to 70 as shock progresses without treatment, reflecting worsening adrenal insufficiency."", ""HR"": ""HR increases from 125 to 130 due to ongoing adrenal crisis and shock without intervention, leading to worsening compensatory tachycardia."", ""O2Sat"": ""O2Sat remains at 98 as there is no evidence of hypoxemia or respiratory failure in the scenario."", ""RR"": ""RR increases from 18 to 22 as the patient compensates for worsening shock and possible metabolic acidosis.""}","{
+  ""reasoning"": {
+    ""HR"": ""HR increases from 125 to 130 due to ongoing adrenal crisis and shock without intervention, leading to worsening compensatory tachycardia."",
+    ""BP_sys"": ""BP_sys decreases from 80 to 70 as shock progresses without treatment, reflecting worsening adrenal insufficiency."",
+    ""BP_dia"": ""BP_dia decreases from 40 to 35 due to ongoing hypotension and lack of steroid or glucose replacement."",
+    ""RR"": ""RR increases from 18 to 22 as the patient compensates for worsening shock and possible metabolic acidosis."",
+    ""O2Sat"": ""O2Sat remains at 98 as there is no evidence of hypoxemia or respiratory failure in the scenario.""
+  },
+  ""vitals"": {
+    ""HR"": 130,
+    ""BP_sys"": 70,
+    ""BP_dia"": 35,
+    ""RR"": 22,
+    ""O2Sat"": 98
+  }
+}",,,gpt-4.1
+adrenal_crisis,transitions_reviewed/Endocrine/Adrenal Crisis.json,p4,physiology_response,corticosteroid,"[""BP_sys"", ""BP_dia""]",1.0,0.5,2,0,"{""BP_dia"": false, ""BP_sys"": false}","{""BP_dia"": true, ""BP_sys"": true}","{""BP_dia"": 40, ""BP_sys"": 85, ""HR"": 110, ""O2Sat"": null, ""RR"": null, ""T"": null}","{""BP_dia"": 60, ""BP_sys"": 100}","{""BP_dia"": 55, ""BP_sys"": 100, ""HR"": 110, ""O2Sat"": null, ""RR"": null, ""T"": null}","{""BP_dia"": ""Before BP_dia is 40; after hydrocortisone, BP_dia is predicted to rise to 55 for the same reason as systolic improvement."", ""BP_sys"": ""Before BP_sys is 85; after hydrocortisone for adrenal crisis, BP_sys is predicted to rise to 100 due to improved vascular tone and response to catecholamines.""}","{""reasoning"": {""BP_sys"": ""Before BP_sys is 85; after hydrocortisone for adrenal crisis, BP_sys is predicted to rise to 100 due to improved vascular tone and response to catecholamines."", ""BP_dia"": ""Before BP_dia is 40; after hydrocortisone, BP_dia is predicted to rise to 55 for the same reason as systolic improvement.""}, ""vitals"": {""BP_sys"": 100, ""BP_dia"": 55, ""HR"": null, ""O2Sat"": null, ""RR"": null, ""T"": null}}",,,gpt-4.1
+adrenal_crisis,transitions_reviewed/Endocrine/Adrenal Crisis.json,p5,time_progression,no_action,"[""HR"", ""RR""]",0.5,6.293647591023825,2,0,"{""HR"": false, ""RR"": false}","{""HR"": true, ""RR"": false}","{""BP_dia"": 40, ""BP_sys"": 80, ""HR"": 125, ""O2Sat"": 98, ""RR"": 18, ""T"": null}","{""HR"": 180, ""RR"": 0}","{""BP_dia"": 40, ""BP_sys"": 80, ""HR"": 135, ""O2Sat"": 98, ""RR"": 22, ""T"": null}","{""HR"": ""HR increases from 125 to 135 due to ongoing untreated adrenal crisis and worsening shock."", ""RR"": ""RR increases from 18 to 22 as the patient compensates for shock and metabolic derangements without intervention.""}","{""reasoning"": {""HR"": ""HR increases from 125 to 135 due to ongoing untreated adrenal crisis and worsening shock."", ""RR"": ""RR increases from 18 to 22 as the patient compensates for shock and metabolic derangements without intervention.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": 135, ""O2Sat"": null, ""RR"": 22, ""T"": null}}",,,gpt-4.1
+massive_upper_gi_bleed,transitions_reviewed/GI/Massive Upper GI Bleed.json,p1,time_progression,no_action,"[""HR"", ""BP_sys"", ""BP_dia""]",1.0,1.8027756377319946,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": true}","{""BP_dia"": 60, ""BP_sys"": 105, ""HR"": 115, ""O2Sat"": 96, ""RR"": 24, ""T"": 37.8}","{""BP_dia"": 50, ""BP_sys"": 85, ""HR"": 140}","{""BP_dia"": 50, ""BP_sys"": 95, ""HR"": 125, ""O2Sat"": 96, ""RR"": 24, ""T"": 37.8}","{""BP_dia"": ""BP_dia decreases from 60 to 50 due to ongoing volume loss and shock progression."", ""BP_sys"": ""BP_sys decreases from 105 to 95 as continued bleeding without intervention leads to worsening hypotension."", ""HR"": ""HR increases from 115 to 125 due to ongoing hemorrhagic shock and lack of intervention over 2 minutes.""}","{""reasoning"": {""HR"": ""HR increases from 115 to 125 due to ongoing hemorrhagic shock and lack of intervention over 2 minutes."", ""BP_sys"": ""BP_sys decreases from 105 to 95 as continued bleeding without intervention leads to worsening hypotension."", ""BP_dia"": ""BP_dia decreases from 60 to 50 due to ongoing volume loss and shock progression.""}, ""vitals"": {""HR"": 125, ""BP_sys"": 95, ""BP_dia"": 50, ""O2Sat"": 96, ""RR"": 24, ""T"": 37.8}}",,,gpt-4.1
+massive_upper_gi_bleed,transitions_reviewed/GI/Massive Upper GI Bleed.json,p2,physiology_response,blood_transfusion,"[""HR"", ""BP_sys"", ""BP_dia"", ""T""]",0.75,0.7810249675906611,4,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""T"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": true, ""T"": false}","{""BP_dia"": 50, ""BP_sys"": 85, ""HR"": 140, ""O2Sat"": null, ""RR"": null, ""T"": 37.8}","{""BP_dia"": 60, ""BP_sys"": 95, ""HR"": 120, ""T"": 37.8}","{""BP_dia"": 60, ""BP_sys"": 100, ""HR"": 120, ""O2Sat"": null, ""RR"": null, ""T"": 37.5}","{""BP_dia"": ""Before BP_dia was 50; after transfusion, BP_dia is predicted to increase to 60 due to improved vascular filling."", ""BP_sys"": ""Before BP_sys was 85; after transfusion, BP_sys is predicted to increase to 100 as volume resuscitation improves perfusion."", ""HR"": ""Before HR was 140; after MTP initiation and transfusion, HR is predicted to decrease to 120 due to improved intravascular volume and partial reversal of shock."", ""T"": ""Before T was 37.8; after transfusion, T is predicted to decrease slightly to 37.5 due to possible mild hypothermia from transfused blood products.""}","{""reasoning"": {""HR"": ""Before HR was 140; after MTP initiation and transfusion, HR is predicted to decrease to 120 due to improved intravascular volume and partial reversal of shock."", ""BP_sys"": ""Before BP_sys was 85; after transfusion, BP_sys is predicted to increase to 100 as volume resuscitation improves perfusion."", ""BP_dia"": ""Before BP_dia was 50; after transfusion, BP_dia is predicted to increase to 60 due to improved vascular filling."", ""T"": ""Before T was 37.8; after transfusion, T is predicted to decrease slightly to 37.5 due to possible mild hypothermia from transfused blood products.""}, ""vitals"": {""HR"": 120, ""BP_sys"": 100, ""BP_dia"": 60, ""T"": 37.5}}",,,gpt-4.1
+massive_upper_gi_bleed,transitions_reviewed/GI/Massive Upper GI Bleed.json,p3,physiology_response,fluid_bolus,"[""HR"", ""BP_sys"", ""BP_dia""]",0.3333333333333333,0.8660254037844386,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": false, ""BP_sys"": false, ""HR"": true}","{""BP_dia"": 50, ""BP_sys"": 85, ""HR"": 140, ""O2Sat"": null, ""RR"": null, ""T"": null}","{""BP_dia"": 55, ""BP_sys"": 90, ""HR"": 125}","{""BP_dia"": 60, ""BP_sys"": 95, ""HR"": 130, ""O2Sat"": null, ""RR"": null, ""T"": null}","{""BP_dia"": ""Before BP_dia is 50; after IV NS bolus without blood, BP_dia may increase to 60 for similar reasons as systolic BP, with only partial improvement."", ""BP_sys"": ""Before BP_sys is 85; after IV NS bolus without blood, BP_sys may rise slightly to 95 due to transient intravascular volume expansion, but ongoing bleeding prevents normalization."", ""HR"": ""Before HR is 140; after IV NS bolus without blood, HR may decrease modestly to 130 due to partial volume resuscitation, but ongoing hemorrhage limits improvement.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR is 140; after IV NS bolus without blood, HR may decrease modestly to 130 due to partial volume resuscitation, but ongoing hemorrhage limits improvement."",
+    ""BP_sys"": ""Before BP_sys is 85; after IV NS bolus without blood, BP_sys may rise slightly to 95 due to transient intravascular volume expansion, but ongoing bleeding prevents normalization."",
+    ""BP_dia"": ""Before BP_dia is 50; after IV NS bolus without blood, BP_dia may increase to 60 for similar reasons as systolic BP, with only partial improvement.""
+  },
+  ""vitals"": {
+    ""HR"": 130,
+    ""BP_sys"": 95,
+    ""BP_dia"": 60,
+    ""O2Sat"": null,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4.1
+massive_upper_gi_bleed,transitions_reviewed/GI/Massive Upper GI Bleed.json,p4,time_progression,no_action,"[""BP_sys"", ""BP_dia""]",1.0,8.06225774829855,2,0,"{""BP_dia"": false, ""BP_sys"": false}","{""BP_dia"": true, ""BP_sys"": true}","{""BP_dia"": 50, ""BP_sys"": 85, ""HR"": 140, ""O2Sat"": null, ""RR"": null, ""T"": null}","{""BP_dia"": 0, ""BP_sys"": 0}","{""BP_dia"": 40, ""BP_sys"": 70, ""HR"": 140, ""O2Sat"": null, ""RR"": null, ""T"": null}","{""BP_dia"": ""Before BP_dia was 50; after 5 minutes without intervention, BP_dia is predicted to decrease to 40 as shock worsens from ongoing blood loss."", ""BP_sys"": ""Before BP_sys was 85; after 5 minutes without intervention in ongoing massive GI bleeding and shock, BP_sys is predicted to decrease to 70 due to continued hemorrhage and lack of resuscitation.""}","{""reasoning"": {""BP_sys"": ""Before BP_sys was 85; after 5 minutes without intervention in ongoing massive GI bleeding and shock, BP_sys is predicted to decrease to 70 due to continued hemorrhage and lack of resuscitation."", ""BP_dia"": ""Before BP_dia was 50; after 5 minutes without intervention, BP_dia is predicted to decrease to 40 as shock worsens from ongoing blood loss.""}, ""vitals"": {""BP_sys"": 70, ""BP_dia"": 40, ""HR"": null, ""O2Sat"": null, ""RR"": null, ""T"": null}}",,,gpt-4.1
+altered_loc,transitions_reviewed/Neurology/Altered LOC.json,p1,physiology_response,fluid_bolus,"[""HR"", ""BP_sys"", ""BP_dia"", ""T""]",0.75,1.118033988749895,4,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""T"": false}","{""BP_dia"": true, ""BP_sys"": false, ""HR"": true, ""T"": true}","{""BP_dia"": 52, ""BP_sys"": 90, ""HR"": 130, ""O2Sat"": 92, ""RR"": 22, ""T"": 35.7}","{""BP_dia"": 65, ""BP_sys"": 95, ""HR"": 115, ""T"": 35.7}","{""BP_dia"": 60, ""BP_sys"": 105, ""HR"": 115, ""O2Sat"": 92, ""RR"": 22, ""T"": 35.7}","{""BP_dia"": ""Before BP_dia is 52; after 1L fluid bolus, BP_dia is predicted to increase to 60 due to improved preload and cardiac output."", ""BP_sys"": ""Before BP_sys is 90; after 1L fluid bolus, BP_sys is predicted to increase to 105 as intravascular volume expands and hypotension improves."", ""HR"": ""Before HR is 130; after 1L fluid bolus, HR is predicted to decrease to 115 due to partial correction of hypovolemia and improved perfusion."", ""T"": ""Before T is 35.7; temperature is not expected to change acutely after fluid bolus, so T remains 35.7.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR is 130; after 1L fluid bolus, HR is predicted to decrease to 115 due to partial correction of hypovolemia and improved perfusion."",
+    ""BP_sys"": ""Before BP_sys is 90; after 1L fluid bolus, BP_sys is predicted to increase to 105 as intravascular volume expands and hypotension improves."",
+    ""BP_dia"": ""Before BP_dia is 52; after 1L fluid bolus, BP_dia is predicted to increase to 60 due to improved preload and cardiac output."",
+    ""T"": ""Before T is 35.7; temperature is not expected to change acutely after fluid bolus, so T remains 35.7.""
+  },
+  ""vitals"": {
+    ""HR"": 115,
+    ""BP_sys"": 105,
+    ""BP_dia"": 60,
+    ""T"": 35.7
+  }
+}",,,gpt-4.1
+altered_loc,transitions_reviewed/Neurology/Altered LOC.json,p2,physiology_response,oxygen_support,"[""O2Sat""]",0.0,1.0,1,0,"{""O2Sat"": false}","{""O2Sat"": false}","{""BP_dia"": 52, ""BP_sys"": 90, ""HR"": 130, ""O2Sat"": 92, ""RR"": 22, ""T"": 35.7}","{""O2Sat"": 97}","{""BP_dia"": 52, ""BP_sys"": 90, ""HR"": 130, ""O2Sat"": 92, ""RR"": 22, ""T"": 35.7}","{""O2Sat"": ""O2Sat before was 92% and, although oxygen was placed, the device and FiO2 are unspecified, so no reliable improvement can be predicted without more detail.""}","{""reasoning"": {""O2Sat"": ""O2Sat before was 92% and, although oxygen was placed, the device and FiO2 are unspecified, so no reliable improvement can be predicted without more detail.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": 92, ""RR"": null, ""T"": null}}",,,gpt-4.1
+altered_loc,transitions_reviewed/Neurology/Altered LOC.json,p3,time_progression,no_action,"[""RR""]",0.0,,1,0,"{""RR"": false}","{""RR"": false}","{""BP_dia"": 52, ""BP_sys"": 90, ""HR"": 130, ""O2Sat"": 92, ""RR"": 22, ""T"": 35.7}",{},"{""BP_dia"": 52, ""BP_sys"": 90, ""HR"": 130, ""O2Sat"": 92, ""RR"": 26, ""T"": 35.7}","{""RR"": ""RR was 22 before and is predicted to rise to 26 due to ongoing hypoxemia, possible infection, and lack of intervention over 5 minutes.""}","{""reasoning"": {""RR"": ""RR was 22 before and is predicted to rise to 26 due to ongoing hypoxemia, possible infection, and lack of intervention over 5 minutes.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": null, ""RR"": 26, ""T"": null}}",,,gpt-4.1
+altered_loc,transitions_reviewed/Neurology/Altered LOC.json,p4,physiology_response,airway_medication,"[""HR"", ""BP_sys"", ""BP_dia"", ""O2Sat""]",0.75,2.692582403567252,4,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": false, ""O2Sat"": true}","{""BP_dia"": 65, ""BP_sys"": 105, ""HR"": 110, ""O2Sat"": 97}","{""BP_dia"": 40, ""BP_sys"": 80, ""HR"": 120, ""O2Sat"": 97}","{""BP_dia"": 55, ""BP_sys"": 90, ""HR"": 100, ""O2Sat"": 97, ""RR"": null, ""T"": null}","{""BP_dia"": ""Before BP_dia was 65; propofol may lower BP_dia to 55 due to vasodilation."", ""BP_sys"": ""Before BP_sys was 105; propofol can cause hypotension, so BP_sys may decrease to 90."", ""HR"": ""Before HR was 110; after propofol administration, HR may decrease slightly to 100 due to sedative effects and potential reduction in sympathetic tone."", ""O2Sat"": ""Before O2Sat was 97; propofol does not directly affect oxygenation, so O2Sat remains at 97.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR was 110; after propofol administration, HR may decrease slightly to 100 due to sedative effects and potential reduction in sympathetic tone."",
+    ""BP_sys"": ""Before BP_sys was 105; propofol can cause hypotension, so BP_sys may decrease to 90."",
+    ""BP_dia"": ""Before BP_dia was 65; propofol may lower BP_dia to 55 due to vasodilation."",
+    ""O2Sat"": ""Before O2Sat was 97; propofol does not directly affect oxygenation, so O2Sat remains at 97.""
+  },
+  ""vitals"": {
+    ""HR"": 100,
+    ""BP_sys"": 90,
+    ""BP_dia"": 55,
+    ""O2Sat"": 97,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4.1
+altered_loc,transitions_reviewed/Neurology/Altered LOC.json,p5,physiology_response,airway_management,"[""O2Sat""]",1.0,0.4,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": 75, ""BP_sys"": 130, ""HR"": 120, ""O2Sat"": 86, ""RR"": 24}","{""O2Sat"": 98}","{""BP_dia"": 75, ""BP_sys"": 130, ""HR"": 120, ""O2Sat"": 96, ""RR"": 24, ""T"": null}","{""O2Sat"": ""Before intubation, O2Sat was 86% on NRB (FiO2 0.8); after completed intubation, O2Sat is predicted to improve to 96% due to definitive airway and likely mechanical ventilation with high FiO2.""}","{
+  ""reasoning"": {
+    ""O2Sat"": ""Before intubation, O2Sat was 86% on NRB (FiO2 0.8); after completed intubation, O2Sat is predicted to improve to 96% due to definitive airway and likely mechanical ventilation with high FiO2.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": null,
+    ""O2Sat"": 96,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4.1
+elderly_psychosis_agitation,transitions_reviewed/Neurology/Elderly Psychosis and Agitation.json,p1,physiology_response,fluid_bolus,"[""HR"", ""BP_sys"", ""BP_dia""]",0.6666666666666666,1.5,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": false}","{""BP_dia"": 70, ""BP_sys"": 110, ""HR"": 105, ""O2Sat"": 90, ""RR"": 12, ""T"": 36.3}","{""BP_dia"": 70, ""BP_sys"": 110, ""HR"": 90}","{""BP_dia"": 70, ""BP_sys"": 110, ""HR"": 105, ""O2Sat"": 90, ""RR"": 12, ""T"": 36.3}","{""BP_dia"": ""Before BP_dia was 70; with unspecified IV fluids and volume, minimal or no change is expected unless hypotension is severe, so BP_dia remains 70."", ""BP_sys"": ""Before BP_sys was 110; with unclear fluid volume/type and only mild hypotension, BP_sys remains 110."", ""HR"": ""Before HR was 105; without significant fluid bolus or evidence of shock, HR remains 105.""}","{""reasoning"": {""BP_dia"": ""Before BP_dia was 70; with unspecified IV fluids and volume, minimal or no change is expected unless hypotension is severe, so BP_dia remains 70."", ""BP_sys"": ""Before BP_sys was 110; with unclear fluid volume/type and only mild hypotension, BP_sys remains 110."", ""HR"": ""Before HR was 105; without significant fluid bolus or evidence of shock, HR remains 105.""}, ""vitals"": {""BP_dia"": 70, ""BP_sys"": 110, ""HR"": 105, ""O2Sat"": 90, ""RR"": 12, ""T"": 36.3}}",,,gpt-4.1
+elderly_psychosis_agitation,transitions_reviewed/Neurology/Elderly Psychosis and Agitation.json,p2,physiology_response,oxygen_support,"[""RR"", ""O2Sat""]",0.5,1.2,2,0,"{""O2Sat"": false, ""RR"": false}","{""O2Sat"": false, ""RR"": true}","{""BP_dia"": 70, ""BP_sys"": 110, ""HR"": 105, ""O2Sat"": 90, ""RR"": 12, ""T"": 36.3}","{""O2Sat"": 96, ""RR"": 12}","{""BP_dia"": 70, ""BP_sys"": 110, ""HR"": 105, ""O2Sat"": 90, ""RR"": 12, ""T"": 36.3}","{""O2Sat"": ""The before O2Sat is 90% and although oxygen was given, the lack of details about device or FiO2 prevents prediction of a specific improvement, so O2Sat is left as null."", ""RR"": ""The before RR is 12 and there is no information suggesting a change with unspecified oxygen support, so RR is left as null.""}","{""reasoning"": {""O2Sat"": ""The before O2Sat is 90% and although oxygen was given, the lack of details about device or FiO2 prevents prediction of a specific improvement, so O2Sat is left as null."", ""RR"": ""The before RR is 12 and there is no information suggesting a change with unspecified oxygen support, so RR is left as null.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": null, ""RR"": null, ""T"": null}}",,,gpt-4.1
+elderly_psychosis_agitation,transitions_reviewed/Neurology/Elderly Psychosis and Agitation.json,p3,physiology_response,airway_management,"[""BP_sys"", ""BP_dia"", ""RR"", ""O2Sat""]",0.5,1.5874507866387544,4,0,"{""BP_dia"": false, ""BP_sys"": false, ""O2Sat"": false, ""RR"": false}","{""BP_dia"": false, ""BP_sys"": false, ""O2Sat"": true, ""RR"": true}","{""BP_dia"": 55, ""BP_sys"": 95, ""HR"": 90, ""O2Sat"": 80, ""RR"": 6, ""T"": 36.3}","{""BP_dia"": 65, ""BP_sys"": 105, ""O2Sat"": 99, ""RR"": 12}","{""BP_dia"": 55, ""BP_sys"": 95, ""HR"": 90, ""O2Sat"": 96, ""RR"": 14, ""T"": 36.3}","{""BP_dia"": ""Before: 55; After: 55; No significant change expected for diastolic BP immediately post-intubation without additional medications or complications."", ""BP_sys"": ""Before: 95; After: 95; No significant change expected as intubation alone without sedative/pressor effect is unlikely to acutely alter BP in this context."", ""O2Sat"": ""Before: 80; After: 96; O2Sat improves substantially after intubation due to effective oxygenation and ventilation."", ""RR"": ""Before: 6; After: 14; RR increases to a typical ventilator rate after successful intubation, correcting hypoventilation.""}","{
+  ""vitals"": {
+    ""BP_sys"": 95,
+    ""BP_dia"": 55,
+    ""RR"": 14,
+    ""O2Sat"": 96
+  },
+  ""reasoning"": {
+    ""BP_sys"": ""Before: 95; After: 95; No significant change expected as intubation alone without sedative/pressor effect is unlikely to acutely alter BP in this context."",
+    ""BP_dia"": ""Before: 55; After: 55; No significant change expected for diastolic BP immediately post-intubation without additional medications or complications."",
+    ""RR"": ""Before: 6; After: 14; RR increases to a typical ventilator rate after successful intubation, correcting hypoventilation."",
+    ""O2Sat"": ""Before: 80; After: 96; O2Sat improves substantially after intubation due to effective oxygenation and ventilation.""
+  }
+}",,,gpt-4.1
+severe_pediatric_asthma_exacerbation,transitions_reviewed/Pediatrics/Pediatric Asthma Exacerbation.json,p1,physiology_response,fluid_bolus,"[""HR"", ""BP_sys"", ""BP_dia""]",0.6666666666666666,1.118033988749895,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": true, ""BP_sys"": false, ""HR"": true}","{""BP_dia"": 50, ""BP_sys"": 80, ""HR"": 160, ""O2Sat"": 99, ""RR"": 40, ""T"": 37.8}","{""BP_dia"": 55, ""BP_sys"": 85, ""HR"": 130}","{""BP_dia"": 55, ""BP_sys"": 90, ""HR"": 140, ""O2Sat"": 99, ""RR"": 40, ""T"": 37.8}","{""BP_dia"": ""Before BP_dia is 50; after fluid bolus, BP_dia is expected to increase to 55 as intravascular volume improves."", ""BP_sys"": ""Before BP_sys is 80; after a normal saline bolus in a hypotensive pediatric asthma patient, BP_sys is expected to rise to 90 due to improved preload."", ""HR"": ""Before HR is 160; after fluid bolus, HR is expected to decrease to 140 as perfusion improves and compensatory tachycardia lessens.""}","{""reasoning"": {""BP_sys"": ""Before BP_sys is 80; after a normal saline bolus in a hypotensive pediatric asthma patient, BP_sys is expected to rise to 90 due to improved preload."", ""BP_dia"": ""Before BP_dia is 50; after fluid bolus, BP_dia is expected to increase to 55 as intravascular volume improves."", ""HR"": ""Before HR is 160; after fluid bolus, HR is expected to decrease to 140 as perfusion improves and compensatory tachycardia lessens.""}, ""vitals"": {""BP_sys"": 90, ""BP_dia"": 55, ""HR"": 140, ""O2Sat"": null, ""RR"": null, ""T"": null}}",,,gpt-4.1
+severe_pediatric_asthma_exacerbation,transitions_reviewed/Pediatrics/Pediatric Asthma Exacerbation.json,p2,time_progression,no_action,"[""HR"", ""BP_sys"", ""BP_dia"", ""RR"", ""O2Sat""]",0.4,3.8013155617496426,5,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false, ""RR"": false}","{""BP_dia"": false, ""BP_sys"": false, ""HR"": true, ""O2Sat"": true, ""RR"": false}","{""BP_dia"": 50, ""BP_sys"": 80, ""HR"": 160, ""O2Sat"": 99, ""RR"": 40, ""T"": 37.8}","{""BP_dia"": 50, ""BP_sys"": 80, ""HR"": 140, ""O2Sat"": 96, ""RR"": 45}","{""BP_dia"": 40, ""BP_sys"": 70, ""HR"": 145, ""O2Sat"": 92, ""RR"": 28, ""T"": 37.8}","{""BP_dia"": ""Before BP_dia was 50; as perfusion worsens with no action, BP_dia is predicted to decrease to 40."", ""BP_sys"": ""Before BP_sys was 80; with ongoing severe asthma and no intervention, hypoxia and fatigue may cause BP_sys to fall to 70 due to worsening perfusion."", ""HR"": ""Before HR was 160; after 5 minutes without intervention in severe asthma, fatigue and hypoxemia may worsen, so HR is predicted to decrease to 145 due to impending respiratory failure and exhaustion."", ""O2Sat"": ""Before O2Sat was 99; with no action in severe asthma, O2Sat is predicted to fall to 92 due to worsening ventilation and oxygenation."", ""RR"": ""Before RR was 40; as fatigue progresses without intervention, RR is predicted to decrease to 28 due to impending respiratory failure.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR was 160; after 5 minutes without intervention in severe asthma, fatigue and hypoxemia may worsen, so HR is predicted to decrease to 145 due to impending respiratory failure and exhaustion."",
+    ""BP_sys"": ""Before BP_sys was 80; with ongoing severe asthma and no intervention, hypoxia and fatigue may cause BP_sys to fall to 70 due to worsening perfusion."",
+    ""BP_dia"": ""Before BP_dia was 50; as perfusion worsens with no action, BP_dia is predicted to decrease to 40."",
+    ""RR"": ""Before RR was 40; as fatigue progresses without intervention, RR is predicted to decrease to 28 due to impending respiratory failure."",
+    ""O2Sat"": ""Before O2Sat was 99; with no action in severe asthma, O2Sat is predicted to fall to 92 due to worsening ventilation and oxygenation.""
+  },
+  ""vitals"": {
+    ""HR"": 145,
+    ""BP_sys"": 70,
+    ""BP_dia"": 40,
+    ""RR"": 28,
+    ""O2Sat"": 92
+  }
+}",,,gpt-4.1
+severe_pediatric_asthma_exacerbation,transitions_reviewed/Pediatrics/Pediatric Asthma Exacerbation.json,p3,physiology_response,vasopressor,"[""HR"", ""BP_sys"", ""BP_dia"", ""O2Sat""]",1.0,1.0,4,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": true, ""O2Sat"": true}","{""BP_dia"": 50, ""BP_sys"": 80, ""HR"": 140, ""O2Sat"": 96, ""RR"": 45, ""T"": null}","{""BP_dia"": 60, ""BP_sys"": 90, ""HR"": 160, ""O2Sat"": 96}","{""BP_dia"": 60, ""BP_sys"": 90, ""HR"": 150, ""O2Sat"": 96, ""RR"": 45, ""T"": null}","{""BP_dia"": ""BP_dia increases from 50 to 60 with improved perfusion from vasopressor effect."", ""BP_sys"": ""BP_sys rises from 80 to 90 as epinephrine increases systemic vascular resistance and cardiac output."", ""HR"": ""HR increases from 140 to 150 due to epinephrine's beta-adrenergic effect causing tachycardia."", ""O2Sat"": ""O2Sat remains at 96 as epinephrine does not directly affect oxygenation in this context.""}","{
+  ""vitals"": {
+    ""HR"": 150,
+    ""BP_sys"": 90,
+    ""BP_dia"": 60,
+    ""O2Sat"": 96
+  },
+  ""reasoning"": {
+    ""HR"": ""HR increases from 140 to 150 due to epinephrine's beta-adrenergic effect causing tachycardia."",
+    ""BP_sys"": ""BP_sys rises from 80 to 90 as epinephrine increases systemic vascular resistance and cardiac output."",
+    ""BP_dia"": ""BP_dia increases from 50 to 60 with improved perfusion from vasopressor effect."",
+    ""O2Sat"": ""O2Sat remains at 96 as epinephrine does not directly affect oxygenation in this context.""
+  }
+}",,,gpt-4.1
+severe_pediatric_asthma_exacerbation,transitions_reviewed/Pediatrics/Pediatric Asthma Exacerbation.json,p4,time_progression,no_action,"[""HR"", ""BP_sys"", ""BP_dia"", ""RR"", ""O2Sat""]",0.6,3.8026306683663087,5,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false, ""RR"": false}","{""BP_dia"": false, ""BP_sys"": false, ""HR"": true, ""O2Sat"": true, ""RR"": true}","{""BP_dia"": 50, ""BP_sys"": 80, ""HR"": 140, ""O2Sat"": 96, ""RR"": 45, ""T"": null}","{""BP_dia"": 50, ""BP_sys"": 75, ""HR"": 150, ""O2Sat"": 88, ""RR"": 12}","{""BP_dia"": 40, ""BP_sys"": 70, ""HR"": 155, ""O2Sat"": 88, ""RR"": 30, ""T"": null}","{""BP_dia"": ""Before BP_dia was 50 and is predicted to fall to 40 due to progressive shock and fatigue from severe asthma."", ""BP_sys"": ""Before BP_sys was 80 and is predicted to fall to 70 as the child tires and perfusion worsens without treatment."", ""HR"": ""Before HR was 140 and is predicted to rise to 155 due to ongoing severe asthma, fatigue, and lack of intervention causing worsening hypoxemia and distress."", ""O2Sat"": ""Before O2Sat was 96 and is predicted to fall to 88 as hypoxemia worsens without intervention in severe asthma."", ""RR"": ""Before RR was 45 and is predicted to decrease to 30 as the child becomes fatigued and begins to tire out.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR was 140 and is predicted to rise to 155 due to ongoing severe asthma, fatigue, and lack of intervention causing worsening hypoxemia and distress."",
+    ""BP_sys"": ""Before BP_sys was 80 and is predicted to fall to 70 as the child tires and perfusion worsens without treatment."",
+    ""BP_dia"": ""Before BP_dia was 50 and is predicted to fall to 40 due to progressive shock and fatigue from severe asthma."",
+    ""RR"": ""Before RR was 45 and is predicted to decrease to 30 as the child becomes fatigued and begins to tire out."",
+    ""O2Sat"": ""Before O2Sat was 96 and is predicted to fall to 88 as hypoxemia worsens without intervention in severe asthma.""
+  },
+  ""vitals"": {
+    ""HR"": 155,
+    ""BP_sys"": 70,
+    ""BP_dia"": 40,
+    ""RR"": 30,
+    ""O2Sat"": 88
+  }
+}",,,gpt-4.1
+severe_pediatric_asthma_exacerbation,transitions_reviewed/Pediatrics/Pediatric Asthma Exacerbation.json,p5,physiology_response,airway_management,"[""HR"", ""BP_sys"", ""BP_dia"", ""O2Sat""]",0.25,2.1,4,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false}","{""BP_dia"": false, ""BP_sys"": false, ""HR"": true, ""O2Sat"": false}","{""BP_dia"": 50, ""BP_sys"": 75, ""HR"": 150, ""O2Sat"": 88, ""RR"": 12, ""T"": null}","{""BP_dia"": 30, ""BP_sys"": 60, ""HR"": 130, ""O2Sat"": 90}","{""BP_dia"": 45, ""BP_sys"": 70, ""HR"": 140, ""O2Sat"": 92, ""RR"": 12, ""T"": null}","{""BP_dia"": ""BP_dia decreases from 50 to 45 for the same reasons as systolic BP, reflecting mild post-intubation hypotension."", ""BP_sys"": ""BP_sys decreases slightly from 75 to 70, as intubation in severe asthma can cause transient hypotension due to sedation and positive pressure ventilation."", ""HR"": ""HR decreases from 150 to 140 due to improved oxygenation after successful intubation, but remains elevated from ongoing respiratory distress."", ""O2Sat"": ""O2Sat improves from 88 to 92 after intubation, as airway control and ventilation increase oxygenation, but does not fully normalize due to underlying severe asthma.""}","{
+  ""vitals"": {
+    ""HR"": 140,
+    ""BP_sys"": 70,
+    ""BP_dia"": 45,
+    ""O2Sat"": 92
+  },
+  ""reasoning"": {
+    ""HR"": ""HR decreases from 150 to 140 due to improved oxygenation after successful intubation, but remains elevated from ongoing respiratory distress."",
+    ""BP_sys"": ""BP_sys decreases slightly from 75 to 70, as intubation in severe asthma can cause transient hypotension due to sedation and positive pressure ventilation."",
+    ""BP_dia"": ""BP_dia decreases from 50 to 45 for the same reasons as systolic BP, reflecting mild post-intubation hypotension."",
+    ""O2Sat"": ""O2Sat improves from 88 to 92 after intubation, as airway control and ventilation increase oxygenation, but does not fully normalize due to underlying severe asthma.""
+  }
+}",,,gpt-4.1
+severe_pediatric_asthma_exacerbation,transitions_reviewed/Pediatrics/Pediatric Asthma Exacerbation.json,p6,time_progression,no_action,"[""HR"", ""O2Sat""]",1.0,8.69540108333135,2,0,"{""HR"": false, ""O2Sat"": false}","{""HR"": true, ""O2Sat"": true}","{""BP_dia"": 30, ""BP_sys"": 60, ""HR"": 130, ""O2Sat"": 90, ""RR"": null, ""T"": null}","{""HR"": 35, ""O2Sat"": 60}","{""BP_dia"": 30, ""BP_sys"": 60, ""HR"": 110, ""O2Sat"": 82, ""RR"": null, ""T"": null}","{""HR"": ""Before HR was 130; with delayed care in severe asthma post-intubation, HR is likely to decrease due to worsening hypoxia and fatigue, so predicted HR is 110."", ""O2Sat"": ""Before O2Sat was 90; with no action and ongoing severe asthma, O2Sat is expected to drop further due to inadequate ventilation, so predicted O2Sat is 82.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR was 130; with delayed care in severe asthma post-intubation, HR is likely to decrease due to worsening hypoxia and fatigue, so predicted HR is 110."",
+    ""O2Sat"": ""Before O2Sat was 90; with no action and ongoing severe asthma, O2Sat is expected to drop further due to inadequate ventilation, so predicted O2Sat is 82.""
+  },
+  ""vitals"": {
+    ""BP_dia"": 30,
+    ""BP_sys"": 60,
+    ""HR"": 110,
+    ""O2Sat"": 82,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4.1
+pe_with_bleeding,transitions_reviewed/Respiratory/PE with Bleeding.json,p1,physiology_response,oxygen_support,"[""O2Sat""]",1.0,0.6,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": 73, ""BP_sys"": 131, ""HR"": 144, ""O2Sat"": 88, ""RR"": 26, ""T"": 37.1}","{""O2Sat"": 97}","{""BP_dia"": 73, ""BP_sys"": 131, ""HR"": 144, ""O2Sat"": 94, ""RR"": 26, ""T"": 37.1}","{""O2Sat"": ""O2Sat before was 88%; after initiation of NRB with FiO2 0.8, O2Sat is predicted to rise to 94% due to improved oxygen delivery, though underlying PE may limit full normalization.""}","{""reasoning"": {""O2Sat"": ""O2Sat before was 88%; after initiation of NRB with FiO2 0.8, O2Sat is predicted to rise to 94% due to improved oxygen delivery, though underlying PE may limit full normalization.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": 94, ""RR"": null, ""T"": null}}",,,gpt-4.1
+pe_with_bleeding,transitions_reviewed/Respiratory/PE with Bleeding.json,p2,physiology_response,fluid_bolus,"[""HR""]",1.0,0.7,1,0,"{""HR"": false}","{""HR"": true}","{""BP_dia"": 73, ""BP_sys"": 131, ""HR"": 144, ""O2Sat"": 88, ""RR"": 26, ""T"": 37.1}","{""HR"": 125}","{""BP_dia"": 73, ""BP_sys"": 131, ""HR"": 132, ""O2Sat"": 88, ""RR"": 26, ""T"": 37.1}","{""HR"": ""The pre-action HR is 144, and after a 1L NS bolus in a patient with shock from bleeding, HR is expected to decrease modestly to 132 due to improved preload and partial correction of hypovolemia.""}","{""reasoning"": {""HR"": ""The pre-action HR is 144, and after a 1L NS bolus in a patient with shock from bleeding, HR is expected to decrease modestly to 132 due to improved preload and partial correction of hypovolemia.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": 132, ""O2Sat"": null, ""RR"": null, ""T"": null}}",,,gpt-4.1
+pe_with_bleeding,transitions_reviewed/Respiratory/PE with Bleeding.json,p4,physiology_response,vasopressor,"[""BP_sys"", ""BP_dia""]",1.0,0.5099019513592785,2,0,"{""BP_dia"": false, ""BP_sys"": false}","{""BP_dia"": true, ""BP_sys"": true}","{""BP_dia"": 35, ""BP_sys"": 75, ""HR"": 110, ""O2Sat"": 95, ""RR"": 12, ""T"": null}","{""BP_dia"": 55, ""BP_sys"": 96}","{""BP_dia"": 50, ""BP_sys"": 95, ""HR"": 110, ""O2Sat"": 95, ""RR"": 12, ""T"": null}","{""BP_dia"": ""Before BP_dia was 35; after vasopressor initiation, BP_dia is predicted to increase to 50 as vasopressors elevate diastolic pressure through increased vascular tone."", ""BP_sys"": ""Before BP_sys was 75; after starting vasopressors, BP_sys is predicted to rise to 95 due to vasopressor-mediated vasoconstriction and improved perfusion in shock.""}","{""reasoning"": {""BP_sys"": ""Before BP_sys was 75; after starting vasopressors, BP_sys is predicted to rise to 95 due to vasopressor-mediated vasoconstriction and improved perfusion in shock."", ""BP_dia"": ""Before BP_dia was 35; after vasopressor initiation, BP_dia is predicted to increase to 50 as vasopressors elevate diastolic pressure through increased vascular tone.""}, ""vitals"": {""BP_sys"": 95, ""BP_dia"": 50, ""HR"": 110, ""O2Sat"": 95, ""RR"": 12, ""T"": null}}",,,gpt-4.1
+pe_with_bleeding,transitions_reviewed/Respiratory/PE with Bleeding.json,p5,physiology_response,fluid_bolus,"[""HR"", ""BP_sys"", ""BP_dia""]",0.6666666666666666,1.7320508075688772,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": false, ""BP_sys"": true, ""HR"": true}","{""BP_dia"": 40, ""BP_sys"": 70, ""HR"": 120, ""O2Sat"": 93, ""RR"": 12, ""T"": null}","{""BP_dia"": 45, ""BP_sys"": 80, ""HR"": 100}","{""BP_dia"": 55, ""BP_sys"": 90, ""HR"": 110, ""O2Sat"": 93, ""RR"": 12, ""T"": null}","{""BP_dia"": ""Before BP_dia is 40; after 2L NS bolus, BP_dia is predicted to increase to 55 due to improved preload and partial reversal of shock."", ""BP_sys"": ""Before BP_sys is 70; after 2L NS bolus, BP_sys is predicted to increase to 90 as volume resuscitation partially corrects hypotension from bleeding."", ""HR"": ""Before HR is 120; after 2L NS bolus, HR is predicted to decrease to 110 due to partial improvement in hypovolemia and shock.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR is 120; after 2L NS bolus, HR is predicted to decrease to 110 due to partial improvement in hypovolemia and shock."",
+    ""BP_sys"": ""Before BP_sys is 70; after 2L NS bolus, BP_sys is predicted to increase to 90 as volume resuscitation partially corrects hypotension from bleeding."",
+    ""BP_dia"": ""Before BP_dia is 40; after 2L NS bolus, BP_dia is predicted to increase to 55 due to improved preload and partial reversal of shock.""
+  },
+  ""vitals"": {
+    ""BP_dia"": 55,
+    ""BP_sys"": 90,
+    ""HR"": 110,
+    ""O2Sat"": 93,
+    ""RR"": 12,
+    ""T"": null
+  }
+}",,,gpt-4.1
+pe_with_bleeding,transitions_reviewed/Respiratory/PE with Bleeding.json,p6,physiology_response,blood_transfusion,"[""HR"", ""BP_sys"", ""BP_dia""]",0.6666666666666666,1.4142135623730951,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": false, ""BP_sys"": true, ""HR"": true}","{""BP_dia"": 40, ""BP_sys"": 70, ""HR"": 120, ""O2Sat"": 93, ""RR"": 12, ""T"": null}","{""BP_dia"": 45, ""BP_sys"": 80, ""HR"": 100}","{""BP_dia"": 55, ""BP_sys"": 90, ""HR"": 100, ""O2Sat"": 93, ""RR"": 12, ""T"": null}","{""BP_dia"": ""Before BP_dia is 40; after transfusion, BP_dia is expected to increase to 55 due to improved preload and cardiac output."", ""BP_sys"": ""Before BP_sys is 70; after transfusion, BP_sys is expected to rise to 90 as volume resuscitation partially corrects hypotension from bleeding."", ""HR"": ""Before HR is 120; after 2 units PRBC transfusion for hemorrhagic shock, HR is expected to decrease to 100 due to improved intravascular volume and reduced compensatory tachycardia.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR is 120; after 2 units PRBC transfusion for hemorrhagic shock, HR is expected to decrease to 100 due to improved intravascular volume and reduced compensatory tachycardia."",
+    ""BP_sys"": ""Before BP_sys is 70; after transfusion, BP_sys is expected to rise to 90 as volume resuscitation partially corrects hypotension from bleeding."",
+    ""BP_dia"": ""Before BP_dia is 40; after transfusion, BP_dia is expected to increase to 55 due to improved preload and cardiac output.""
+  },
+  ""vitals"": {
+    ""HR"": 100,
+    ""BP_sys"": 90,
+    ""BP_dia"": 55,
+    ""O2Sat"": 93,
+    ""RR"": 12,
+    ""T"": null
+  }
+}",,,gpt-4.1
+opioid_overdose_with_ards,transitions_reviewed/Resuscitation/Opioid Overdose with ARDS.json,p1,physiology_response,oxygen_support,"[""O2Sat""]",1.0,0.2,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": 65, ""BP_sys"": 100, ""HR"": 55, ""O2Sat"": 79, ""RR"": 4, ""T"": 34.5}","{""O2Sat"": 84}","{""BP_dia"": 65, ""BP_sys"": 100, ""HR"": 55, ""O2Sat"": 85, ""RR"": 4, ""T"": 34.5}","{""O2Sat"": ""O2Sat before was 79% and with increased FiO2 to 0.4 via simple mask, O2Sat is expected to improve moderately to 85% due to increased oxygen delivery, though severe ARDS may limit full normalization.""}","{""reasoning"": {""O2Sat"": ""O2Sat before was 79% and with increased FiO2 to 0.4 via simple mask, O2Sat is expected to improve moderately to 85% due to increased oxygen delivery, though severe ARDS may limit full normalization.""}, ""vitals"": {""BP_dia"": null, ""BP_sys"": null, ""HR"": null, ""O2Sat"": 85, ""RR"": null, ""T"": null}}",,,gpt-4.1
+opioid_overdose_with_ards,transitions_reviewed/Resuscitation/Opioid Overdose with ARDS.json,p2,physiology_response,oxygen_support,"[""HR"", ""BP_sys"", ""BP_dia"", ""RR"", ""O2Sat""]",0.8,1.6763054614240211,5,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false, ""RR"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": true, ""O2Sat"": true, ""RR"": false}","{""BP_dia"": 65, ""BP_sys"": 100, ""HR"": 55, ""O2Sat"": 79, ""RR"": 4}","{""BP_dia"": 65, ""BP_sys"": 100, ""HR"": 55, ""O2Sat"": 88, ""RR"": 12}","{""BP_dia"": 65, ""BP_sys"": 100, ""HR"": 60, ""O2Sat"": 88, ""RR"": 4, ""T"": null}","{""BP_dia"": ""Before BP_dia was 65; after BVM, BP_dia remains 65 as there is no direct effect from oxygen support alone."", ""BP_sys"": ""Before BP_sys was 100; after BVM, BP_sys remains 100 as oxygenation may improve but no direct hemodynamic intervention is provided."", ""HR"": ""Before HR was 55; after BVM with 100% FiO2, HR may rise slightly to 60 due to improved oxygenation but ongoing hypoventilation and opioid effect limit improvement."", ""O2Sat"": ""Before O2Sat was 79; after BVM with 100% FiO2, O2Sat improves to 88 due to increased oxygen delivery, but underlying ARDS and hypoventilation limit full normalization."", ""RR"": ""Before RR was 4; after BVM, RR remains 4 as the patient is still hypoventilating from opioid toxicity and BVM does not stimulate spontaneous breathing.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR was 55; after BVM with 100% FiO2, HR may rise slightly to 60 due to improved oxygenation but ongoing hypoventilation and opioid effect limit improvement."",
+    ""BP_sys"": ""Before BP_sys was 100; after BVM, BP_sys remains 100 as oxygenation may improve but no direct hemodynamic intervention is provided."",
+    ""BP_dia"": ""Before BP_dia was 65; after BVM, BP_dia remains 65 as there is no direct effect from oxygen support alone."",
+    ""RR"": ""Before RR was 4; after BVM, RR remains 4 as the patient is still hypoventilating from opioid toxicity and BVM does not stimulate spontaneous breathing."",
+    ""O2Sat"": ""Before O2Sat was 79; after BVM with 100% FiO2, O2Sat improves to 88 due to increased oxygen delivery, but underlying ARDS and hypoventilation limit full normalization.""
+  },
+  ""vitals"": {
+    ""HR"": 60,
+    ""BP_sys"": 100,
+    ""BP_dia"": 65,
+    ""RR"": 4,
+    ""O2Sat"": 88
+  }
+}",,,gpt-4.1
+opioid_overdose_with_ards,transitions_reviewed/Resuscitation/Opioid Overdose with ARDS.json,p3,physiology_response,antidote,"[""BP_sys"", ""BP_dia"", ""RR"", ""O2Sat""]",0.75,0.42426406871192857,4,0,"{""BP_dia"": false, ""BP_sys"": false, ""O2Sat"": false, ""RR"": false}","{""BP_dia"": false, ""BP_sys"": true, ""O2Sat"": true, ""RR"": true}","{""BP_dia"": 65, ""BP_sys"": 100, ""HR"": 55, ""O2Sat"": 79, ""RR"": 4, ""T"": 34.5}","{""BP_dia"": 71, ""BP_sys"": 109, ""O2Sat"": 88, ""RR"": 8}","{""BP_dia"": 70, ""BP_sys"": 110, ""HR"": 55, ""O2Sat"": 88, ""RR"": 10, ""T"": 34.5}","{""BP_dia"": ""BP_dia increases from 65 to 70 as improved respiratory drive and arousal modestly improve perfusion."", ""BP_sys"": ""BP_sys increases from 100 to 110 due to reversal of opioid-induced hypotension after naloxone."", ""O2Sat"": ""O2Sat improves from 79 to 88 with increased ventilation after naloxone, but remains hypoxemic due to underlying ARDS."", ""RR"": ""RR rises from 4 to 10 because naloxone reverses opioid-induced hypoventilation, but ARDS limits full normalization.""}","{
+  ""vitals"": {
+    ""BP_sys"": 110,
+    ""BP_dia"": 70,
+    ""RR"": 10,
+    ""O2Sat"": 88
+  },
+  ""reasoning"": {
+    ""BP_sys"": ""BP_sys increases from 100 to 110 due to reversal of opioid-induced hypotension after naloxone."",
+    ""BP_dia"": ""BP_dia increases from 65 to 70 as improved respiratory drive and arousal modestly improve perfusion."",
+    ""RR"": ""RR rises from 4 to 10 because naloxone reverses opioid-induced hypoventilation, but ARDS limits full normalization."",
+    ""O2Sat"": ""O2Sat improves from 79 to 88 with increased ventilation after naloxone, but remains hypoxemic due to underlying ARDS.""
+  }
+}",,,gpt-4.1
+opioid_overdose_with_ards,transitions_reviewed/Resuscitation/Opioid Overdose with ARDS.json,p4,physiology_response,antidote,"[""RR""]",1.0,0.0,1,0,"{""RR"": false}","{""RR"": true}","{""BP_dia"": 71, ""BP_sys"": 109, ""HR"": 60, ""O2Sat"": 88, ""RR"": 8, ""T"": null}","{""RR"": 14}","{""BP_dia"": 71, ""BP_sys"": 109, ""HR"": 60, ""O2Sat"": 88, ""RR"": 14, ""T"": null}","{""RR"": ""The pre-action RR is 8, and after a second dose or drip of naloxone in opioid-induced hypoventilation, RR is expected to increase to 14 due to reversal of opioid respiratory depression.""}","{
+  ""reasoning"": {
+    ""RR"": ""The pre-action RR is 8, and after a second dose or drip of naloxone in opioid-induced hypoventilation, RR is expected to increase to 14 due to reversal of opioid respiratory depression.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": null,
+    ""O2Sat"": null,
+    ""RR"": 14,
+    ""T"": null
+  }
+}",,,gpt-4.1
+opioid_overdose_with_ards,transitions_reviewed/Resuscitation/Opioid Overdose with ARDS.json,p5,physiology_response,oxygen_support,"[""HR"", ""BP_sys"", ""BP_dia"", ""O2Sat""]",0.75,0.9433981132056605,4,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": true, ""O2Sat"": false}","{""BP_dia"": 71, ""BP_sys"": 109, ""HR"": 60, ""O2Sat"": 88, ""RR"": 8, ""T"": null}","{""BP_dia"": 71, ""BP_sys"": 109, ""HR"": 60, ""O2Sat"": 90}","{""BP_dia"": 71, ""BP_sys"": 109, ""HR"": 65, ""O2Sat"": 94, ""RR"": 8, ""T"": null}","{""BP_dia"": ""Before BP_dia was 71; after BVM+PEEP, BP_dia is predicted to remain stable at 71 for similar reasons as systolic pressure."", ""BP_sys"": ""Before BP_sys was 109; after BVM+PEEP, BP_sys is predicted to remain stable at 109 as positive pressure ventilation may slightly decrease preload but improved oxygenation offsets this."", ""HR"": ""Before HR was 60; after assisted ventilation with BVM+PEEP, HR is predicted to rise slightly to 65 due to improved oxygenation and relief of hypoxemia-induced bradycardia."", ""O2Sat"": ""Before O2Sat was 88; after BVM+PEEP with FiO2 1, O2Sat is predicted to improve to 94 due to increased oxygen delivery and PEEP recruitment in ARDS.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR was 60; after assisted ventilation with BVM+PEEP, HR is predicted to rise slightly to 65 due to improved oxygenation and relief of hypoxemia-induced bradycardia."",
+    ""BP_sys"": ""Before BP_sys was 109; after BVM+PEEP, BP_sys is predicted to remain stable at 109 as positive pressure ventilation may slightly decrease preload but improved oxygenation offsets this."",
+    ""BP_dia"": ""Before BP_dia was 71; after BVM+PEEP, BP_dia is predicted to remain stable at 71 for similar reasons as systolic pressure."",
+    ""O2Sat"": ""Before O2Sat was 88; after BVM+PEEP with FiO2 1, O2Sat is predicted to improve to 94 due to increased oxygen delivery and PEEP recruitment in ARDS.""
+  },
+  ""vitals"": {
+    ""HR"": 65,
+    ""BP_sys"": 109,
+    ""BP_dia"": 71,
+    ""O2Sat"": 94,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4.1
+opioid_overdose_with_ards,transitions_reviewed/Resuscitation/Opioid Overdose with ARDS.json,p6,physiology_response,airway_management,"[""HR"", ""RR"", ""O2Sat""]",0.6666666666666666,2.5317977802344327,3,0,"{""HR"": false, ""O2Sat"": false, ""RR"": false}","{""HR"": false, ""O2Sat"": true, ""RR"": true}","{""BP_dia"": 71, ""BP_sys"": 109, ""HR"": 60, ""O2Sat"": 88, ""RR"": 14, ""T"": null}","{""HR"": 90, ""O2Sat"": 92, ""RR"": 16}","{""BP_dia"": 71, ""BP_sys"": 109, ""HR"": 65, ""O2Sat"": 94, ""RR"": 16, ""T"": null}","{""HR"": ""Before HR was 60; after successful intubation in opioid overdose with hypoxemia, HR may rise slightly to 65 due to improved oxygenation and airway but not normalize fully due to ongoing ARDS."", ""O2Sat"": ""Before O2Sat was 88%; after completed intubation, O2Sat is expected to improve to 94% due to definitive airway and likely higher FiO2, though not fully normal given ARDS."", ""RR"": ""Before RR was 14; after intubation, RR will be set by the ventilator and is likely to be 16, reflecting a controlled, slightly increased rate for ARDS management.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR was 60; after successful intubation in opioid overdose with hypoxemia, HR may rise slightly to 65 due to improved oxygenation and airway but not normalize fully due to ongoing ARDS."",
+    ""O2Sat"": ""Before O2Sat was 88%; after completed intubation, O2Sat is expected to improve to 94% due to definitive airway and likely higher FiO2, though not fully normal given ARDS."",
+    ""RR"": ""Before RR was 14; after intubation, RR will be set by the ventilator and is likely to be 16, reflecting a controlled, slightly increased rate for ARDS management.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": 65,
+    ""O2Sat"": 94,
+    ""RR"": 16,
+    ""T"": null
+  }
+}",,,gpt-4.1
+serotonin_syndrome,transitions_reviewed/Toxicology/Serotonin Syndrome.json,p1,physiology_response,fluid_bolus,"[""HR"", ""BP_sys"", ""BP_dia""]",1.0,0.0,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": true}","{""BP_dia"": 80, ""BP_sys"": 120, ""HR"": 110, ""O2Sat"": 99, ""RR"": 18, ""T"": 39.5}","{""BP_dia"": 85, ""BP_sys"": 125, ""HR"": 105}","{""BP_dia"": 85, ""BP_sys"": 125, ""HR"": 105, ""O2Sat"": 99, ""RR"": 18, ""T"": 39.5}","{""BP_dia"": ""BP_dia before was 80 and is predicted to increase slightly to 85 due to improved circulating volume from the fluid bolus."", ""BP_sys"": ""BP_sys before was 120 and is predicted to increase modestly to 125 as a result of increased preload from the fluid bolus."", ""HR"": ""HR before was 110 and is predicted to decrease slightly to 105 due to improved intravascular volume from 1L IV NS, which may reduce compensatory tachycardia.""}","{""reasoning"": {""HR"": ""HR before was 110 and is predicted to decrease slightly to 105 due to improved intravascular volume from 1L IV NS, which may reduce compensatory tachycardia."", ""BP_sys"": ""BP_sys before was 120 and is predicted to increase modestly to 125 as a result of increased preload from the fluid bolus."", ""BP_dia"": ""BP_dia before was 80 and is predicted to increase slightly to 85 due to improved circulating volume from the fluid bolus.""}, ""vitals"": {""HR"": 105, ""BP_sys"": 125, ""BP_dia"": 85, ""O2Sat"": 99, ""RR"": 18, ""T"": 39.5}}",,,gpt-4.1
+serotonin_syndrome,transitions_reviewed/Toxicology/Serotonin Syndrome.json,p2,physiology_response,antiarrhythmic,"[""HR"", ""BP_sys"", ""BP_dia"", ""RR"", ""O2Sat""]",1.0,7.795511529078769,5,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""O2Sat"": false, ""RR"": false}","{""BP_dia"": true, ""BP_sys"": true, ""HR"": true, ""O2Sat"": true, ""RR"": true}","{""BP_dia"": 30, ""BP_sys"": 60, ""HR"": 180, ""O2Sat"": 93, ""RR"": 18, ""T"": 40.5}","{""BP_dia"": 90, ""BP_sys"": 140, ""HR"": 120, ""O2Sat"": 99, ""RR"": 16}","{""BP_dia"": 45, ""BP_sys"": 80, ""HR"": 140, ""O2Sat"": 96, ""RR"": 18, ""T"": 40.5}","{""BP_dia"": ""Before BP_dia was 30; after magnesium sulfate, BP_dia is predicted to increase to 45 due to improved hemodynamics post-arrhythmia."", ""BP_sys"": ""Before BP_sys was 60; after magnesium sulfate, BP_sys is predicted to increase to 80 as arrhythmia resolves and cardiac output improves."", ""HR"": ""Before HR was 180; after magnesium sulfate for torsades, HR is predicted to decrease to 140 due to resolution of arrhythmia and stabilization."", ""O2Sat"": ""Before O2Sat was 93; after magnesium sulfate, O2Sat is predicted to increase to 96 as improved cardiac output and rhythm enhance oxygen delivery."", ""RR"": ""Before RR was 18; after magnesium sulfate, RR is predicted to remain at 18 as magnesium does not directly affect respiratory rate.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR was 180; after magnesium sulfate for torsades, HR is predicted to decrease to 140 due to resolution of arrhythmia and stabilization."",
+    ""BP_sys"": ""Before BP_sys was 60; after magnesium sulfate, BP_sys is predicted to increase to 80 as arrhythmia resolves and cardiac output improves."",
+    ""BP_dia"": ""Before BP_dia was 30; after magnesium sulfate, BP_dia is predicted to increase to 45 due to improved hemodynamics post-arrhythmia."",
+    ""RR"": ""Before RR was 18; after magnesium sulfate, RR is predicted to remain at 18 as magnesium does not directly affect respiratory rate."",
+    ""O2Sat"": ""Before O2Sat was 93; after magnesium sulfate, O2Sat is predicted to increase to 96 as improved cardiac output and rhythm enhance oxygen delivery.""
+  },
+  ""vitals"": {
+    ""HR"": 140,
+    ""BP_sys"": 80,
+    ""BP_dia"": 45,
+    ""RR"": 18,
+    ""O2Sat"": 96,
+    ""T"": null
+  }
+}",,,gpt-4.1
+serotonin_syndrome,transitions_reviewed/Toxicology/Serotonin Syndrome.json,p3,time_progression,no_action,"[""BP_sys"", ""BP_dia"", ""RR""]",0.6666666666666666,6.252199612936234,3,0,"{""BP_dia"": false, ""BP_sys"": false, ""RR"": false}","{""BP_dia"": false, ""BP_sys"": true, ""RR"": true}","{""BP_dia"": 30, ""BP_sys"": 60, ""HR"": 180, ""O2Sat"": 93, ""RR"": 18, ""T"": 40.5}","{""BP_dia"": 0, ""BP_sys"": 0, ""RR"": 0}","{""BP_dia"": 25, ""BP_sys"": 50, ""HR"": 180, ""O2Sat"": 93, ""RR"": 14, ""T"": 40.5}","{""BP_dia"": ""Before BP_dia was 30; predicted to decrease to 25 as untreated torsades and toxicologic instability further compromise perfusion."", ""BP_sys"": ""Before BP_sys was 60; predicted to decrease to 50 due to ongoing instability and lack of magnesium treatment for torsades, leading to worsening hypotension."", ""RR"": ""Before RR was 18; predicted to decrease to 14 as worsening hypotension and altered mental status may cause hypoventilation.""}","{""reasoning"": {""BP_sys"": ""Before BP_sys was 60; predicted to decrease to 50 due to ongoing instability and lack of magnesium treatment for torsades, leading to worsening hypotension."", ""BP_dia"": ""Before BP_dia was 30; predicted to decrease to 25 as untreated torsades and toxicologic instability further compromise perfusion."", ""RR"": ""Before RR was 18; predicted to decrease to 14 as worsening hypotension and altered mental status may cause hypoventilation.""}, ""vitals"": {""BP_sys"": 50, ""BP_dia"": 25, ""HR"": null, ""O2Sat"": null, ""RR"": 14, ""T"": null}}",,,gpt-4.1
+serotonin_syndrome,transitions_reviewed/Toxicology/Serotonin Syndrome.json,p4,physiology_response,sedation,"[""HR"", ""BP_sys"", ""BP_dia"", ""RR""]",0.25,2.2671568097509267,4,0,"{""BP_dia"": false, ""BP_sys"": false, ""HR"": false, ""RR"": false}","{""BP_dia"": false, ""BP_sys"": false, ""HR"": true, ""RR"": false}","{""BP_dia"": 90, ""BP_sys"": 140, ""HR"": 120, ""O2Sat"": 99, ""RR"": 16, ""T"": 40.5}","{""BP_dia"": 70, ""BP_sys"": 120, ""HR"": 110, ""RR"": 10}","{""BP_dia"": 85, ""BP_sys"": 135, ""HR"": 110, ""O2Sat"": 99, ""RR"": 14, ""T"": 40.5}","{""BP_dia"": ""Before BP_dia was 90; after benzodiazepine sedation, BP_dia is predicted to decrease slightly to 85 for the same reason as systolic."", ""BP_sys"": ""Before BP_sys was 140; after benzodiazepine sedation, BP_sys is predicted to decrease slightly to 135 as agitation and catecholamine surge are reduced."", ""HR"": ""Before HR was 120; after initial benzodiazepine sedation, HR is predicted to decrease to 110 due to reduced agitation and sympathetic drive."", ""RR"": ""Before RR was 16; after benzodiazepine sedation, RR is predicted to decrease to 14 due to calming and mild respiratory depressant effect.""}","{
+  ""reasoning"": {
+    ""HR"": ""Before HR was 120; after initial benzodiazepine sedation, HR is predicted to decrease to 110 due to reduced agitation and sympathetic drive."",
+    ""BP_sys"": ""Before BP_sys was 140; after benzodiazepine sedation, BP_sys is predicted to decrease slightly to 135 as agitation and catecholamine surge are reduced."",
+    ""BP_dia"": ""Before BP_dia was 90; after benzodiazepine sedation, BP_dia is predicted to decrease slightly to 85 for the same reason as systolic."",
+    ""RR"": ""Before RR was 16; after benzodiazepine sedation, RR is predicted to decrease to 14 due to calming and mild respiratory depressant effect.""
+  },
+  ""vitals"": {
+    ""BP_dia"": 85,
+    ""BP_sys"": 135,
+    ""HR"": 110,
+    ""O2Sat"": null,
+    ""RR"": 14,
+    ""T"": null
+  }
+}",,,gpt-4.1

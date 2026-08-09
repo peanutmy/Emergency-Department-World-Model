@@ -14,8 +14,10 @@ MISSING_API_KEY_MESSAGE = (
     "OPENAI_API_KEY is not set. Please export it before using --llm-mode real."
 )
 EMPTY_ADJUSTMENTS_RESPONSE = json.dumps({"adjustments": {}}, sort_keys=True)
+EMPTY_DIRECTIONS_RESPONSE = json.dumps({"directions": {}}, sort_keys=True)
+EMPTY_MAGNITUDES_RESPONSE = json.dumps({"magnitudes": {}}, sort_keys=True)
 EMPTY_VITALS_RESPONSE = json.dumps({"vitals": {}}, sort_keys=True)
-RESPONSE_SCHEMA_TYPES = {"adjustments", "vitals"}
+RESPONSE_SCHEMA_TYPES = {"adjustments", "directions", "magnitudes", "vitals"}
 
 
 class OpenAILLMClient:
@@ -69,6 +71,10 @@ class OpenAILLMClient:
 def _response_json_schema(response_schema_type: str) -> dict[str, Any]:
     if response_schema_type == "adjustments":
         return _adjustments_json_schema()
+    if response_schema_type == "directions":
+        return _directions_json_schema()
+    if response_schema_type == "magnitudes":
+        return _magnitudes_json_schema()
     if response_schema_type == "vitals":
         return _vitals_json_schema()
     raise ValueError(f"Unsupported response_schema_type: {response_schema_type!r}")
@@ -137,9 +143,79 @@ def _vitals_json_schema() -> dict[str, Any]:
     }
 
 
+def _directions_json_schema() -> dict[str, Any]:
+    direction_property = {
+        "type": ["string", "null"],
+        "enum": ["increase", "decrease", "stable", None],
+    }
+    return {
+        "type": "json_schema",
+        "name": "direction_first_vital_directions",
+        "strict": False,
+        "schema": {
+            "type": "object",
+            "additionalProperties": False,
+            "properties": {
+                "directions": {
+                    "type": "object",
+                    "additionalProperties": False,
+                    "properties": {
+                        vital: direction_property
+                        for vital in CANONICAL_VITAL_KEYS
+                    },
+                },
+                "reasoning": {
+                    "type": "object",
+                    "additionalProperties": False,
+                    "properties": {
+                        vital: {"type": ["string", "null"]}
+                        for vital in CANONICAL_VITAL_KEYS
+                    },
+                },
+            },
+            "required": ["directions"],
+        },
+    }
+
+
+def _magnitudes_json_schema() -> dict[str, Any]:
+    return {
+        "type": "json_schema",
+        "name": "direction_first_vital_magnitudes",
+        "strict": False,
+        "schema": {
+            "type": "object",
+            "additionalProperties": False,
+            "properties": {
+                "magnitudes": {
+                    "type": "object",
+                    "additionalProperties": False,
+                    "properties": {
+                        vital: {"type": ["number", "null"], "minimum": 0}
+                        for vital in CANONICAL_VITAL_KEYS
+                    },
+                },
+                "reasoning": {
+                    "type": "object",
+                    "additionalProperties": False,
+                    "properties": {
+                        vital: {"type": ["string", "null"]}
+                        for vital in CANONICAL_VITAL_KEYS
+                    },
+                },
+            },
+            "required": ["magnitudes"],
+        },
+    }
+
+
 def _empty_response(response_schema_type: str) -> str:
     if response_schema_type == "adjustments":
         return EMPTY_ADJUSTMENTS_RESPONSE
+    if response_schema_type == "directions":
+        return EMPTY_DIRECTIONS_RESPONSE
+    if response_schema_type == "magnitudes":
+        return EMPTY_MAGNITUDES_RESPONSE
     if response_schema_type == "vitals":
         return EMPTY_VITALS_RESPONSE
     raise ValueError(f"Unsupported response_schema_type: {response_schema_type!r}")
@@ -196,6 +272,8 @@ def _sanitize_api_error(exc: Exception, api_key: str) -> str:
 
 __all__ = [
     "EMPTY_ADJUSTMENTS_RESPONSE",
+    "EMPTY_DIRECTIONS_RESPONSE",
+    "EMPTY_MAGNITUDES_RESPONSE",
     "EMPTY_VITALS_RESPONSE",
     "MISSING_API_KEY_MESSAGE",
     "OpenAILLMClient",

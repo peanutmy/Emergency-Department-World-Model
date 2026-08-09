@@ -1,0 +1,61 @@
+{
+  "by_kind_hint": {
+    "oxygen_support": {
+      "count": 1,
+      "direction_accuracy_mean": 1.0,
+      "normalized_l2_mean": 0.894427190999916,
+      "normalized_l2_median": 0.894427190999916,
+      "num_api_errors": 0,
+      "num_parse_errors": 0
+    }
+  },
+  "by_pair_type": {
+    "physiology_response": {
+      "count": 1,
+      "direction_accuracy_mean": 1.0,
+      "normalized_l2_mean": 0.894427190999916,
+      "normalized_l2_median": 0.894427190999916
+    }
+  },
+  "by_target_vital": {
+    "BP_dia": {
+      "count": 0,
+      "direction_accuracy_mean_for_that_vital": null,
+      "normalized_abs_error_mean_for_that_vital": null
+    },
+    "BP_sys": {
+      "count": 0,
+      "direction_accuracy_mean_for_that_vital": null,
+      "normalized_abs_error_mean_for_that_vital": null
+    },
+    "HR": {
+      "count": 0,
+      "direction_accuracy_mean_for_that_vital": null,
+      "normalized_abs_error_mean_for_that_vital": null
+    },
+    "O2Sat": {
+      "count": 1,
+      "direction_accuracy_mean_for_that_vital": 1.0,
+      "normalized_abs_error_mean_for_that_vital": 0.8
+    },
+    "RR": {
+      "count": 1,
+      "direction_accuracy_mean_for_that_vital": 1.0,
+      "normalized_abs_error_mean_for_that_vital": 0.4
+    },
+    "T": {
+      "count": 0,
+      "direction_accuracy_mean_for_that_vital": null,
+      "normalized_abs_error_mean_for_that_vital": null
+    }
+  },
+  "overall": {
+    "direction_accuracy_mean": 1.0,
+    "normalized_l2_mean": 0.894427190999916,
+    "normalized_l2_median": 0.894427190999916,
+    "num_api_errors": 0,
+    "num_evaluated_pairs": 1,
+    "num_pairs": 1,
+    "num_parse_errors": 0
+  }
+}

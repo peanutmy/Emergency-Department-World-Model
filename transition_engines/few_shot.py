@@ -20,7 +20,11 @@ from copy import deepcopy
 from pathlib import Path
 from typing import Any, Iterable
 
-from .common import CANONICAL_VITAL_KEYS
+from .common import (
+    CANONICAL_VITAL_KEYS,
+    direction,
+    sanitize_case_context,
+)
 from .rule_based import RuleBasedEngine
 
 
@@ -77,6 +81,50 @@ def render_hybrid_example(pair: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def render_direction_first_example(entry: dict[str, Any]) -> dict[str, Any]:
+    """Render both stages of a direction-first hybrid demonstration."""
+
+    pair = _mapping(entry.get("pair"))
+    before = _mapping(_mapping(pair.get("input")).get("before")).get("vitals", {})
+    target = _mapping(_mapping(pair.get("label")).get("target")).get("vitals", {})
+    directions: dict[str, str] = {}
+    magnitudes: dict[str, float | None] = {}
+
+    for vital in _target_vitals(pair):
+        if vital not in CANONICAL_VITAL_KEYS:
+            continue
+        before_value = before.get(vital) if isinstance(before, dict) else None
+        target_value = target.get(vital)
+        if not _is_number(before_value) or not _is_number(target_value):
+            continue
+        label = direction(before_value, target_value, vital)
+        if label is None:
+            continue
+        directions[vital] = {
+            "up": "increase",
+            "down": "decrease",
+            "stable": "stable",
+        }[label]
+        magnitudes[vital] = (
+            abs(float(target_value) - float(before_value))
+            if label != "stable"
+            else None
+        )
+
+    case_context = sanitize_case_context(_mapping(entry.get("case_context")))
+    return {
+        "case": {
+            "category": entry.get("category"),
+            "scenario_description": entry.get("scenario_description"),
+            "case_context": _scrub(deepcopy(case_context)),
+        },
+        **_example_context(pair),
+        "rule_based_prediction": _rule_prediction(pair),
+        "stage_1_expected_output": {"directions": directions},
+        "stage_2_expected_output": {"magnitudes": magnitudes},
+    }
+
+
 _RENDERERS = {"hybrid": render_hybrid_example, "pure_llm": render_pure_example}
 
 
@@ -102,6 +150,12 @@ class ExampleBank:
                 entries.append(
                     {
                         "case_id": case_id,
+                        "pair_id": pair.get("id"),
+                        "category": case_doc.get("category"),
+                        "scenario_description": case_doc.get(
+                            "scenario_description"
+                        ),
+                        "case_context": deepcopy(case_doc.get("case_context", {})),
                         "kind_hint": _mapping(_mapping(pair.get("input")).get("action")).get(
                             "kind_hint"
                         ),
@@ -274,6 +328,7 @@ __all__ = [
     "STRATEGIES",
     "ExampleBank",
     "ExampleSelector",
+    "render_direction_first_example",
     "render_hybrid_example",
     "render_pure_example",
 ]

@@ -15,6 +15,8 @@ from typing import Any
 
 EMPTY_RESPONSES = {
     "adjustments": json.dumps({"adjustments": {}}, sort_keys=True),
+    "directions": json.dumps({"directions": {}}, sort_keys=True),
+    "magnitudes": json.dumps({"magnitudes": {}}, sort_keys=True),
     "vitals": json.dumps({"vitals": {}}, sort_keys=True),
 }
 
