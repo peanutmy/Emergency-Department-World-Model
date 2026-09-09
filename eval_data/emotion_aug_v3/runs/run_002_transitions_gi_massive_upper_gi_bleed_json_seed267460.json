@@ -1,0 +1,1607 @@
+{
+  "scenario": "A 58-year-old male with alcoholism presents with active massive hematemesis from suspected variceal upper GI bleeding, progressing to hemorrhagic shock requiring transfusion strategy, airway management, and Sengstaken-Blakemore tube placement before definitive management.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Optimism": "low",
+    "Trust in Provider": "low",
+    "Patient Activation": "high",
+    "Anger": "high",
+    "Health Literacy": "low"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "What symptoms brought you in today, and when did they start?",
+          "turn_index": 0,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 121.0,
+            "BP_sys": 97.0,
+            "BP_dia": 56.0,
+            "RR": 26.0,
+            "O2Sat": 94.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 0,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "not at all",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "not at all",
+        "shame": "not at all",
+        "notes": "[clinician: What symptoms brought you in today, and when did they start?] This is a routine, neutral intake question with no disclosure of bad news, no complex information load, and no judgment or stigmatizing content. Fear stays 'not at all' - no threat disclosed. Sadness stays 'not at all' - no loss or prognosis mentioned. Overwhelm stays 'not at all' - a single simple open-ended question is not an informational load. Shame stays 'not at all' - no blame or exposure, just standard history-taking, despite the patient's alcoholism this question doesn't confront it."
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I threw up a ton of blood, that's why I'm here! I feel sick to my stomach, my chest feels weird and tight, and my head's all foggy — I can't think straight. I don't know exactly when it started, it just happened.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Before we go further, do you take any blood thinners or medications like aspirin or ibuprofen, and do you drink alcohol regularly or have any history of liver problems?",
+          "turn_index": 1,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 127.0,
+            "BP_sys": 90.0,
+            "BP_dia": 52.0,
+            "RR": 28.0,
+            "O2Sat": 92.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 1,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 1,
+          "payload": {
+            "test_name": "Complete Blood Count",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "low"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "low",
+        "notes": "[clinician: Before we go further, do you take any blood thinners or medications like aspirin or ibuprofen, and do you drink alcohol regularly or have any history of liver problems?] Shame: not at all -> low, because being asked pointedly about regular alcohol use and liver problems (known alcoholism in history, low trust in provider, high anger trait) can feel like an accusatory probe into a stigmatized behavior, even though phrased neutrally. Overwhelm: not at all -> low, because the clinician bundles several distinct questions (blood thinners, aspirin/ibuprofen, alcohol habits, liver history) into one turn while the patient reports a foggy head and can't think straight, adding cognitive load with low health literacy. Fear and sadness stay at 'not at all' since no new bad news, worsening finding, or loss/prognosis is disclosed here - it's a history-taking question, not a threat escalation."
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, I'm not on any blood thinners, aspirin, or ibuprofen. I do drink alcohol regularly, a lot most days. As for liver problems, I'm not sure, no one's ever told me that.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Your blood pressure is low and your heart's racing, so we're starting IV fluids right now to support your circulation. Before we go further, do you have any allergies to medications?",
+          "turn_index": 2,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting the liter of normal saline now, wide open.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 125.0,
+            "BP_sys": 95.0,
+            "BP_dia": 54.0,
+            "RR": 28.0,
+            "O2Sat": 92.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 2,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "low"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "low",
+        "notes": "[clinician: Your blood pressure is low and your heart's racing, so we're starting IV fluids right now to support your circulation. Before we go further, do you have any allergies to medications?] fear: not at all -> high; disclosure of low BP and racing heart is a concrete unstable-vitals finding requiring immediate IV intervention, a serious clinical escalation the patient is symptomatic and unstable for, justifying low->high per the strong escalation rule. overwhelm: low -> high; the patient with low health literacy is hit simultaneously with two abnormal vital findings, an urgent intervention starting immediately, and another question demanding recall (allergies), exceeding easy processing. sadness: unchanged, no loss or irreversible outcome is disclosed. shame: unchanged at low; no judgment or blame in this utterance, just a clinical/logistical question about allergies."
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "CBC's back: Hemoglobin 5.0, hematocrit 22, WBC 12.1, platelets 220. He's got a critical hemoglobin from that GI bleed — he'll need transfusion, and I'd suggest typing and crossmatching now if that's not already ordered.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "No, no allergies that I know of.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's transfuse 2 units of PRBCs now — hemoglobin's 5.0 with ongoing hypotension and tachycardia from this GI bleed.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 131.0,
+            "BP_sys": 87.0,
+            "BP_dia": 50.0,
+            "RR": 30.0,
+            "O2Sat": 90.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 12.1, Hg 50, Hct 22%, Plt 220"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 3,
+          "payload": {
+            "test_name": "Complete Blood Count",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "released_at_turn": 3
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 3,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Unknown action family 'blood_product'.",
+              "Unknown kind_hint 'packed_red_blood_cells'."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "low"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "low",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your hemoglobin is critically low from the bleeding, so we're giving you a blood transfusion right now. With how much you drink daily, I'm worried this bleeding could be coming from your stomach lining or your liver. Have you ever had stomach ulcers before, or vomited blood like this in the past?",
+          "turn_index": 4,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "We're starting your blood transfusion now, two units of red cells. I'll be checking your vitals closely over the next while — tell me right away if you feel chills, itching, back pain, or short of breath.",
+          "turn_index": 4,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "packed_rbc",
+          "units": 2,
+          "strategy": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 128.0,
+            "BP_sys": 92.0,
+            "BP_dia": 53.0,
+            "RR": 30.0,
+            "O2Sat": 90.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 12.1, Hg 50, Hct 22%, Plt 220"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 4,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 4,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "packed_rbc",
+                "units": 2,
+                "strategy": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 4,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "high"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "packed_rbc",
+              "units": 2,
+              "strategy": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "high",
+        "notes": "[clinician: Your hemoglobin is critically low from the bleeding, so we're giving you a blood transfusion right now. With how much you drink daily, I'm worried this bleeding could be coming from your stomach lining or your liver. Have you ever had stomach ulcers before, or vomited blood like this in the past?] Shame: low->high because the clinician explicitly ties the patient's daily drinking to causing the bleeding/liver damage, which reads as judgment about a stigmatized behavior, especially given the patient's low trust in provider and high anger trait. Fear stays high: the hemoglobin/bleeding severity was already disclosed in the prior turn, so this is reiteration rather than new escalating threat. Overwhelm stays high: another technical detail and a history question add load but don't exceed the already-high level (no new intervention or shock to justify extreme). Sadness stays not at all: no loss, prognosis, or irreversible outcome is disclosed here, only a causal question.\n[nurse: We're starting your blood transfusion now, two units of red cells. I'll be checking your vitals closely over the next while — tell me right away if you feel chills, itching, back pain, or short of breath.] No new clinical threat, loss, or judgment is introduced here - this is routine procedural/monitoring language reiterating the transfusion already underway (previously disclosed). Fear stays high: no new bad news, just continuation of an already-known serious intervention. Sadness stays not at all: nothing about loss, prognosis, or irreversible outcome is mentioned. Overwhelm stays high: while a list of symptoms to monitor for adds some informational load, it's a repeat of prior nurse guidance rather than a fresh pile of findings/decisions, so it doesn't push past the current high level. Shame stays high: no blame, judgment, or exposure of stigmatized behavior in this utterance, so it holds at its prior level rather than dropping (acknowledgment/routine care isn't resolution)."
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, no ulcers that anyone's ever told me about. And I've never thrown up blood like this before, not once. So don't act like you already know what's wrong with me.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's get him on nasal cannula oxygen now — sat's 90%.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 134.0,
+            "BP_sys": 86.0,
+            "BP_dia": 50.0,
+            "RR": 32.0,
+            "O2Sat": 88.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 12.1, Hg 50, Hct 22%, Plt 220"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 5,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Unknown kind_hint 'supplemental_oxygen'."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "high"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "high",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start nasal cannula at 4 liters per minute — his sat's 88%.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 136.0,
+            "BP_sys": 84.0,
+            "BP_dia": 49.0,
+            "RR": 32.5,
+            "O2Sat": 87.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 12.1, Hg 50, Hct 22%, Plt 220"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "validation_drop",
+          "turn_index": 6,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Unknown kind_hint 'nasal_cannula'."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "high"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "high",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Switch him to a non-rebreather mask now — sat's dropped to 87%, RR 32.5, he's not keeping up on room air.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Patient's on a non-rebreather mask now.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "NRB",
+          "FiO2": null,
+          "PEEP_used": null,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 136.0,
+            "BP_sys": 84.0,
+            "BP_dia": 49.0,
+            "RR": 31.5,
+            "O2Sat": 92.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 12.1, Hg 50, Hct 22%, Plt 220"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "NRB",
+                "FiO2": null,
+                "PEEP_used": null,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "high"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "NRB",
+              "FiO2": null,
+              "PEEP_used": null,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "high",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Sat's still 92% on the non-rebreather, he's not oxygenating well enough. Let's also send coagulation studies given the ongoing GI bleed and transfusion.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 140.0,
+            "BP_sys": 78.0,
+            "BP_dia": 46.0,
+            "RR": 32.0,
+            "O2Sat": 91.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 12.1, Hg 50, Hct 22%, Plt 220"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 8,
+          "payload": {
+            "test_name": "Coagulation Studies",
+            "ordered_at_turn": 8,
+            "ready_at_turn": 10,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "high"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "high",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Let's give him 2 more units of PRBCs — still hypotensive at 78/46 with HR 140 despite the last unit and fluids.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 146.0,
+            "BP_sys": 70.0,
+            "BP_dia": 42.0,
+            "RR": 34.0,
+            "O2Sat": 89.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 12.1, Hg 50, Hct 22%, Plt 220"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "validation_drop",
+          "turn_index": 9,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "medical_treatment_order.family is required.",
+              "Unknown params for 'blood_transfusion': ['drug_name']."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "high"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "high",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Coags are back: INR 1.8, PTT 51. Also, the order for the next 2 units of PRBCs didn't go through — it got flagged and dropped, so he hasn't received them. Repeat vitals: BP 70/42, HR 146, sat 89% on the NRB — he's trending down, not up. Needs that transfusion order re-entered.",
+          "turn_index": 10,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Your clotting labs came back abnormal, so we're giving you plasma now to help slow the bleeding. Are you taking any blood-thinning medications, like aspirin or warfarin?",
+          "turn_index": 10,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 150.0,
+            "BP_sys": 66.0,
+            "BP_dia": 40.0,
+            "RR": 35.0,
+            "O2Sat": 87.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 12.1, Hg 50, Hct 22%, Plt 220"
+            },
+            {
+              "name": "Coagulation Studies",
+              "result": "INR 1.8, PTT 51"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 10,
+          "payload": {
+            "test_name": "Coagulation Studies",
+            "ordered_at_turn": 8,
+            "ready_at_turn": 10,
+            "released_at_turn": 10
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 10,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Unknown action family 'blood_product'."
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 10,
+          "payload": {
+            "question_id": "q5",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "high"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "high",
+        "notes": "[clinician: Your clotting labs came back abnormal, so we're giving you plasma now to help slow the bleeding. Are you taking any blood-thinning medications, like aspirin or warfarin?] Fear: stays high — this is bad news (abnormal clotting labs, ongoing bleeding) which would normally raise fear, but it's already at high and the rule caps automatic escalation there without a catastrophic cue for extreme. Overwhelm: stays high — another new lab finding plus a new intervention (plasma) plus a direct question to answer is more informational load, consistent with sustaining high overwhelm, but no explicit collapse/panic cue to justify extreme. Sadness: stays not at all — no mention of loss, permanent damage, or hopelessness. Shame: stays high — the medication question (aspirin/warfarin) is neutral clinical inquiry with no blame or judgment attached, so it doesn't add to or resolve the existing shame from earlier alcoholism-related context; nothing here addresses/resolves it either."
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, I already told you, I'm not on any blood thinners, aspirin, or warfarin.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Your oxygen level is still low even with the mask on, and you're breathing very fast and working hard to do it. We need to place a breathing tube now to protect your airway and breathe for you.",
+          "turn_index": 11,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 153.0,
+            "BP_sys": 63.0,
+            "BP_dia": 39.0,
+            "RR": 35.0,
+            "O2Sat": 85.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 12.1, Hg 50, Hct 22%, Plt 220"
+            },
+            {
+              "name": "Coagulation Studies",
+              "result": "INR 1.8, PTT 51"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q5"
+            ]
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 11,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Unknown action family 'airway_management'.",
+              "Unknown kind_hint 'intubation'."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "high"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "high",
+        "notes": "[clinician: Your oxygen level is still low even with the mask on, and you're breathing very fast and working hard to do it. We need to place a breathing tube now to protect your airway and breathe for you.] Fear: stays high — this is a serious escalation (impending intubation for respiratory failure), which is bad news and would normally push fear up, but it is already at high and the utterance (though urgent) is a standard clinical explanation, not the kind of sudden catastrophic-collapse cue needed to justify the terminal 'extreme' level. Overwhelm: stays high — being told oxygen remains low, breathing is labored, AND an emergency airway procedure is needed is a lot to process at once and would normally add another notch, but overwhelm is already high and 'extreme' is reserved for a genuine breakdown/panic cue that isn't present here, so it holds at the ceiling of the normal working range. Sadness: unchanged at not at all — no mention of loss, irreversible damage, or hopelessness, just an active intervention to help him. Shame: unchanged at high — this utterance is purely clinical/urgent airway management with no judgment, blame, or exposure of stigmatized behavior, so nothing here raises or lowers it from its prior level."
+      }
+    }
+  ],
+  "scenario_path": "transitions/GI/Massive Upper GI Bleed.json"
+}

@@ -1,0 +1,1907 @@
+{
+  "scenario": "A 26-year-old healthy G2P1 at term arrives in active labor with vaginal bleeding and delivers shortly after arrival. The neonate is flat and requires neonatal resuscitation while the mother later develops severe postpartum hemorrhage requiring fluids, blood transfusion, and uterine exploration.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Trust in Provider": "low"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your heart's running fast right now. What brought you in today, and when did this start?",
+          "turn_index": 0,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 122.0,
+            "BP_sys": 138.0,
+            "BP_dia": 80.0,
+            "RR": 22.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 0,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Your heart's running fast right now. What brought you in today, and when did this start?] Fear: stays absent - noting a fast heart rate is a mild observation paired with routine intake questions, not a disclosure of a serious abnormality or worsening condition. Sadness: stays absent - no loss addressed. Overwhelm: stays absent - a single simple observation plus open questions is not information overload. Shame: stays absent - questions are neutral and nonjudgmental."
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I'm in labor—the contractions are coming about a minute apart now. I'm bleeding, and I've got this severe pain in my belly with really bad cramping. I can barely catch my breath, it hurts so much.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Get two large-bore IVs in and run a liter of normal saline wide open. She's in active labor with vaginal bleeding and a heart rate of 122 — I'm worried about obstetric hemorrhage.",
+          "turn_index": 1,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 116.0,
+            "BP_sys": 142.0,
+            "BP_dia": 82.0,
+            "RR": 22.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 1,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 1,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "How many weeks pregnant are you, and has this pregnancy had any bleeding or problems before today?",
+          "turn_index": 2,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 116.0,
+            "BP_sys": 142.0,
+            "BP_dia": 82.0,
+            "RR": 22.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 2,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: How many weeks pregnant are you, and has this pregnancy had any bleeding or problems before today?] The utterance is a neutral history-taking question directed at the patient. It does not disclose any new abnormality, worsening condition, or need to escalate care, so fear stays absent. No mention of loss, so sadness stays absent. It is a single simple question, not an overload of information, so overwhelm stays absent. It carries no blame, judgment, or exposure, so shame stays absent."
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I'm not sure exactly how many weeks—I don't know the exact number. But no, nothing like this has happened before today. No bleeding or problems until now.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "The bleeding right now—how heavy is it? Are you soaking through pads or passing clots?",
+          "turn_index": 3,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 116.0,
+            "BP_sys": 142.0,
+            "BP_dia": 82.0,
+            "RR": 22.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 3,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: The bleeding right now—how heavy is it? Are you soaking through pads or passing clots?] fear absent->present: the clinician's focus on quantifying blood loss (soaking pads, passing clots) signals a serious bleeding concern and asks the symptomatic patient to recount distressing content, sustaining/raising awareness of threat; a question about severe bleeding is not soothing and heightens the patient's sense of danger. sadness stays absent: no actual or anticipated devastating loss named yet. overwhelm stays absent: a single focused question, not a pile of findings or urgent steps. shame stays absent: neutral clinical inquiry with no blame or exposure judgment."
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I don't know exactly how much—I can't really tell. I'm bleeding, and the pain and cramping are so bad, the contractions are right on top of each other, about a minute apart. Is something wrong?",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Type and crossmatch, and get 2 units of packed red cells ready. Activate the massive transfusion protocol — this is an obstetric hemorrhage.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Massive transfusion protocol activated. Type and crossmatch sent, first 2 units packed cells hanging now. Blood bank notified for continued product.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "packed_rbc",
+          "units": 2,
+          "strategy": "activate massive transfusion protocol, type and crossmatch"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 109.0,
+            "BP_sys": 142.0,
+            "BP_dia": 82.0,
+            "RR": 22.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 4,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "packed_rbc",
+                "units": 2,
+                "strategy": "activate massive transfusion protocol, type and crossmatch"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 4,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "packed_rbc",
+              "units": 2,
+              "strategy": "activate massive transfusion protocol, type and crossmatch"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "You're in active labor and I'm going to deliver your baby right here, right now. The bleeding is serious — that's why we've given you fluids and blood. I need you to listen to me and only push when I tell you to. Not before. Follow my voice.",
+          "turn_index": 5,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "obstetric_delivery",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "obstetric_delivery",
+        "params": {
+          "site": null,
+          "side": null,
+          "device": null,
+          "energy_J": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 115.0,
+            "BP_sys": 136.0,
+            "BP_dia": 78.0,
+            "RR": 23.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "obstetric_delivery",
+              "params": {
+                "site": null,
+                "side": null,
+                "device": null,
+                "energy_J": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "obstetric_delivery",
+            "raw_text": null,
+            "params": {
+              "site": null,
+              "side": null,
+              "device": null,
+              "energy_J": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: You're in active labor and I'm going to deliver your baby right here, right now. The bleeding is serious — that's why we've given you fluids and blood. I need you to listen to me and only push when I tell you to. Not before. Follow my voice.] fear: stays present - serious bad news and urgent emergency delivery sustains fear but a concrete protective plan and directive voice buffers escalation to extreme; patient can still listen and cooperate. overwhelm: absent->present - multiple simultaneous urgent demands (immediate delivery, serious bleeding explanation, follow directions, only push on command) piled on at once exceed processing capacity. sadness: stays absent - no explicit loss framing; focus is on active intervention. shame: stays absent - no blame, judgment, or humiliation, purely directive care."
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay—okay, I'll listen, I won't push until you tell me. But it hurts so bad, the contractions are right on top of each other, about a minute apart, and I'm still bleeding. I can barely catch my breath. Please help me.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Your baby is delivered, but you're still bleeding, and I have to deal with that right now. I'm going to examine and explore your uterus to find where the bleeding is coming from and stop it. This is going to be uncomfortable, but I need you to stay as still as you can while I do it.",
+          "turn_index": 6,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "uterine_exploration",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "uterine_exploration",
+        "params": {
+          "site": null,
+          "side": null,
+          "device": null,
+          "energy_J": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 125.0,
+            "BP_sys": 124.0,
+            "BP_dia": 70.0,
+            "RR": 25.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 6,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "uterine_exploration",
+              "params": {
+                "site": null,
+                "side": null,
+                "device": null,
+                "energy_J": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 6,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "uterine_exploration",
+            "raw_text": null,
+            "params": {
+              "site": null,
+              "side": null,
+              "device": null,
+              "energy_J": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: Your baby is delivered, but you're still bleeding, and I have to deal with that right now. I'm going to examine and explore your uterus to find where the bleeding is coming from and stop it. This is going to be uncomfortable, but I need you to stay as still as you can while I do it.] sadness absent->present: the utterance mentions the baby is delivered but gives no reassurance about the neonate's condition (baby was flat and needing resuscitation), and centers ongoing serious hemorrhage requiring invasive uterine exploration, making devastating loss feel close; anticipated loss triggers sadness. fear stays present: continued bleeding and invasive procedure sustain threat but the patient can still cooperate, so not extreme. overwhelm stays present: another urgent invasive intervention and instructions to process, but she is still following directions. shame stays absent: no blame, judgment, or humiliation in the utterance."
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay—I'll try to stay still. But it still hurts so bad, the cramping won't stop, and I'm still bleeding. I can barely catch my breath.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start an oxytocin infusion now — the uterus is boggy and atonic, I need it to clamp down and control this hemorrhage.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Hold on—the order reads prostaglandin infusion but the drug drawn is oxytocin. Those aren't interchangeable. Can you confirm the intended drug and dose before I hang anything?",
+          "turn_index": 7,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "prostaglandin_infusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "prostaglandin_infusion",
+        "params": {
+          "drug_name": "oxytocin",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 117.0,
+            "BP_sys": 128.0,
+            "BP_dia": 72.0,
+            "RR": 24.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "prostaglandin_infusion",
+              "params": {
+                "drug_name": "oxytocin",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 7,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "nurse",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "prostaglandin_infusion",
+            "raw_text": null,
+            "params": {
+              "drug_name": "oxytocin",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Confirmed — the drug is oxytocin, not a prostaglandin. Hang it now. The uterus is boggy and atonic and I need it to clamp down to control this hemorrhage.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Hold on—the order reads prostaglandin infusion but the drug drawn is oxytocin. Those aren't the same. Can you confirm the drug and dose before I hang anything?",
+          "turn_index": 8,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "prostaglandin_infusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "prostaglandin_infusion",
+        "params": {
+          "drug_name": "oxytocin",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 132.0,
+            "BP_dia": 74.0,
+            "RR": 23.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 8,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "prostaglandin_infusion",
+              "params": {
+                "drug_name": "oxytocin",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 8,
+          "payload": {
+            "question_id": "q5",
+            "source_agent": "nurse",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "prostaglandin_infusion",
+            "raw_text": null,
+            "params": {
+              "drug_name": "oxytocin",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Confirmed — it's oxytocin, not a prostaglandin. Hang the oxytocin now. The uterus is atonic and I need it to clamp down to control this hemorrhage.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 114.0,
+            "BP_sys": 132.0,
+            "BP_dia": 74.0,
+            "RR": 23.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 9,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q5"
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your baby is delivered, and the medication to help your womb clamp down is now running. That cramping you feel is exactly what we want — it's the uterus contracting to slow the bleeding, and it is coming under control. I need you to keep lying as still as you can while we watch the bleeding closely.",
+          "turn_index": 10,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 116.0,
+            "BP_sys": 132.0,
+            "BP_dia": 74.0,
+            "RR": 23.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: Your baby is delivered, and the medication to help your womb clamp down is now running. That cramping you feel is exactly what we want — it's the uterus contracting to slow the bleeding, and it is coming under control. I need you to keep lying as still as you can while we watch the bleeding closely.] This utterance offers reassurance and reframes the distressing cramping as a positive sign, with the bleeding 'coming under control' — buffering rather than raising fear, but it does not fully resolve the ongoing hemorrhage or symptoms, so fear stays present rather than dropping to absent. Sadness stays present: no resolution of the anticipated-loss trigger (flat neonate, precarious situation) and nothing here devastating enough to escalate. Overwhelm stays present: the clinician gives a simple, calm explanation and one clear instruction, which softens but doesn't remove the ongoing procedural/physiological burden. Shame stays absent: nothing blaming, exposing, or judgmental."
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay, I'll try to stay still. The cramping still won't stop, and I'm breathing so hard—it still hurts.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give her IV fentanyl for the pain — she's in severe distress from the post-delivery cramping.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "analgesia",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "analgesia",
+        "params": {
+          "drug_name": "fentanyl",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 111.0,
+            "BP_sys": 132.0,
+            "BP_dia": 74.0,
+            "RR": 21.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 11,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "analgesia",
+              "params": {
+                "drug_name": "fentanyl",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 11,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "analgesia",
+            "raw_text": null,
+            "params": {
+              "drug_name": "fentanyl",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I've just given you something for the pain. Before I give you anything else—do you have any allergies to medications?",
+          "turn_index": 12,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 114.0,
+            "BP_sys": 132.0,
+            "BP_dia": 74.0,
+            "RR": 21.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 12,
+          "payload": {
+            "question_id": "q6",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: I've just given you something for the pain. Before I give you anything else—do you have any allergies to medications?] No emotion changed. Fear stays present: pain relief is mildly reassuring but the hemorrhage situation is ongoing and unresolved, no full resolution of threat. Sadness stays present: nothing addresses the anticipated loss (flat neonate, baby's status), so it persists unchanged. Overwhelm stays present: a routine allergy question and pain-med statement neither pile on new complexity nor resolve processing burden; the patient can still answer. Shame stays absent: the utterance is neutral, nonjudgmental medical care with no blame or exposure."
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No—no allergies that I know of. None.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "The bleeding is coming under control and your vitals are steadying. Do you have any medical conditions, or any problems during this pregnancy, that I should know about?",
+          "turn_index": 13,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 117.0,
+            "BP_sys": 132.0,
+            "BP_dia": 74.0,
+            "RR": 21.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q6"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 13,
+          "payload": {
+            "question_id": "q7",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: The bleeding is coming under control and your vitals are steadying. Do you have any medical conditions, or any problems during this pregnancy, that I should know about?] fear: reassurance of improvement ('bleeding coming under control', 'vitals steadying') buffers but does not fully resolve the ongoing hemorrhage threat; stays present rather than absent since the situation remains serious. sadness: unchanged—the utterance does not address the flat neonate/loss concern, stays present. overwhelm: the follow-up history question adds a small processing demand but the reassurance offsets it; no concrete resolution of overload, stays present. shame: no blame, exposure, or judgment; remains absent."
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No—no medical conditions that I know of. This pregnancy's been healthy, no problems. I've had one baby before, and they told me my GBS test came back negative.",
+          "turn_index": 14,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "The bleeding is coming under control and your vitals are steadying. We're keeping a close eye on you.",
+          "turn_index": 14,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 119.0,
+            "BP_sys": 132.0,
+            "BP_dia": 74.0,
+            "RR": 21.0,
+            "O2Sat": 100.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q7"
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: The bleeding is coming under control and your vitals are steadying. We're keeping a close eye on you.] This is reassuring/improving news (bleeding controlled, vitals steadying, close monitoring), which buffers but does not fully resolve fear, sadness, or overwhelm. Fear stays present: the threat is easing but not resolved, and the patient's trust is low. Sadness stays present: the utterance addresses maternal bleeding but does not resolve the anticipated loss around the flat neonate. Overwhelm stays present: no new burden but not fully relieved. Shame stays absent: no blame, exposure, or judgment. No emotion is dropped to absent because the underlying triggers remain active."
+      }
+    }
+  ],
+  "scenario_path": "transitions/OB-GYN/Postpartum Hemorrhage and NRP.json"
+}

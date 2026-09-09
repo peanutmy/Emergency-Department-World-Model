@@ -1,0 +1,590 @@
+[
+  {
+    "idx": 1,
+    "item_id": "fear_not_at_all_000_0000",
+    "target_emotion": "fear",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "There's some trapped air pressing on your right lung right now, which is why it's been hard to get a breath in. We're putting a small tube between your ribs here to let that air out and take the pressure off. You'll feel me clean the skin, then a pinch and some pressure from the numbing medicine — just try to hold still for me while I do this.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "evidence": "trapped air pressing on your right lung... putting a small tube between your ribs",
+    "reasoning": "fear absent->present: disclosure of a serious new condition (tension pneumothorax) and need for an invasive procedure (chest tube) is bad news that raises fear, though the calm explanation and clear plan buffer it to present rather than extreme. Overwhelm stays absent: information is delivered clearly and stepwise, not as a flood of simultaneous technical findings. Sadness stays absent: no loss framing. Shame stays absent: no blame or judgment, procedure explained respectfully."
+  },
+  {
+    "idx": 2,
+    "item_id": "fear_not_at_all_001_0001",
+    "target_emotion": "fear",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Good news—your oxygen came right back up and the swelling in your throat has gone down. Your airway is clear, you're breathing well on your own, and you do not need a breathing tube after all.",
+    "predicted_next_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "your airway is clear, you're breathing well on your own, and you do not need a breathing tube after all",
+    "reasoning": "fear present->absent: the specific life-threatening airway/breathing threat that drove fear is now explicitly resolved (oxygen recovered, swelling down, no intubation needed), fully removing the trigger. overwhelm stays present: although this is reassuring, the utterance does not directly unpack or resolve the cognitive/emotional overload from the acute crisis, so it remains active (sticky) though softened. sadness stays absent: no loss cue. shame stays absent: no blame, judgment, or exposure."
+  },
+  {
+    "idx": 3,
+    "item_id": "fear_low_000_0002",
+    "target_emotion": "fear",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The chest X-ray we're getting now will help us see how your lungs and this flare-up are affecting your breathing. Have you ever been diagnosed with asthma or COPD before, or been hospitalized or put on a breathing machine for it in the past?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "chest X-ray... how your lungs and this flare-up are affecting your breathing",
+    "reasoning": "No emotion changed. Fear stays present: this is a routine diagnostic explanation and history question, not new serious bad news, so it neither raises nor resolves fear. Overwhelm stays present: unchanged trigger, and asking history questions sustains but does not clearly escalate. Sadness stays absent: no loss content. Shame stays absent: neutral, nonjudgmental history-taking without blame."
+  },
+  {
+    "idx": 4,
+    "item_id": "fear_low_001_0003",
+    "target_emotion": "fear",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your blood pressure is still a bit low and you're still breathing fast even with everything we've given you so far, so we want to get another look at your heart with an ultrasound to see how well it's pumping — that'll help guide what we do next. Before we do that, can you tell me if you have any allergies to medications?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "blood pressure is still a bit low and you're still breathing fast even with everything we've given you",
+    "reasoning": "fear: stays present - the utterance notes ongoing low blood pressure and fast breathing despite treatment (mild bad news) but also provides a clear plan (ultrasound to guide care), so fear is sustained but not escalated to extreme. overwhelm: stays present - multiple pieces of information plus a follow-up question about allergies sustain the cognitive load. sadness: stays absent - no loss framing. shame: stays absent - no blame or judgment, neutral question about allergies."
+  },
+  {
+    "idx": 5,
+    "item_id": "fear_high_000_0004",
+    "target_emotion": "fear",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your blood pressure isn't coming back up even with the fluids we're running, and that can happen when your body doesn't have enough steroid hormone to cope with being this sick — it's dangerous if we don't get ahead of it fast. Do you take any steroid medication regularly, like for an adrenal or pituitary condition, and have you missed or run out of any doses recently?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "it's dangerous if we don't get ahead of it fast",
+    "reasoning": "fear: already present, worsening BP and explicit 'dangerous' sustains it but patient still engaged and given a plan/question, so stays present (not extreme). overwhelm: already present, technical explanation plus a probing question keeps cognitive load high, stays present. sadness: no loss framing, remains absent. shame: question about missed doses is asked neutrally without blame, so no shame triggered, remains absent."
+  },
+  {
+    "idx": 6,
+    "item_id": "fear_high_001_0005",
+    "target_emotion": "fear",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The epinephrine, fluids, and steroid haven't opened things up enough — you're still working hard to breathe and your throat's still swelling. We need to place a breathing tube right now to keep your airway open. I'm giving you medication this second to put you to sleep safely so we can do this.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "We need to place a breathing tube right now to keep your airway open",
+    "reasoning": "fear: already present, stays present - this is serious escalating bad news (failed treatment, emergency intubation) which sustains fear, but the clinician offers a concrete protective plan and acts calmly, so it does not reach extreme; the patient can still cooperate. overwhelm: already present, stays present - multiple failed interventions plus an urgent decision maintains cognitive/emotional overload but not terminal breakdown. sadness: stays absent - the message is threat/danger with active intervention, not loss or hopelessness. shame: stays absent - no blame, judgment, or exposure."
+  },
+  {
+    "idx": 7,
+    "item_id": "sadness_not_at_all_000_0008",
+    "target_emotion": "sadness",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your blood isn't clotting the way it should right now, so we're pushing plasma to help get that under control while we manage the bleeding. I need to know quickly — are you on any blood thinners, like aspirin or warfarin, or anything else that affects your blood?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "evidence": "Your blood isn't clotting the way it should right now",
+    "reasoning": "fear stays present: serious disclosure (clotting problem, active bleeding) sustains fear but a plan (pushing plasma) is offered, so no escalation. overwhelm stays present: technical finding plus urgent demand for information maintains cognitive load but not to crisis. sadness stays absent: no loss framing. shame stays present: not addressed, so unchanged (asking about blood thinners is neutral, not blaming)."
+  },
+  {
+    "idx": 8,
+    "item_id": "sadness_not_at_all_001_0009",
+    "target_emotion": "sadness",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your oxygen isn't coming up despite the medications, so we have to place the breathing tube right now to keep your airway open. There isn't time to walk you through it step by step - we're giving you medicine first so you're not aware of it, and then the team is moving straight in.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "we have to place the breathing tube right now to keep your airway open",
+    "reasoning": "fear: stays present - this is serious bad news (failing oxygen, emergency intubation) which sustains fear, but the clinician is acting to protect her and giving a concrete plan (sedation then intubation), so it does not reach extreme collapse. overwhelm: stays present - urgent intervention with 'no time to walk you through it step by step' sustains cognitive/emotional overload but she is not shown breaking down. sadness: stays absent - the utterance is about threat/danger and active rescue, not loss or hopelessness. shame: stays absent - no blame, judgment, or exposure."
+  },
+  {
+    "idx": 9,
+    "item_id": "sadness_low_000_0010",
+    "target_emotion": "sadness",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Running out of your inhaler let this asthma get worse than it needed to, and it looks like you'll be staying here with us instead of heading home tonight the way you'd hoped. We're getting a chest X-ray now to look at your lungs. Have you ever been diagnosed with asthma or COPD before, or been hospitalized or put on a breathing machine for this in the past?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "evidence": "Running out of your inhaler let this asthma get worse than it needed to",
+    "reasoning": "shame absent->present: the clinician attributes the worsening to the patient running out of her inhaler, framing it as her fault/non-adherence, which is blame that exposes her as at fault. sadness absent->present: 'staying here instead of heading home tonight the way you'd hoped' conveys a personally felt loss/disappointment of expected discharge. fear stays present: continued hospitalization and X-ray sustain but do not newly escalate the existing threat. overwhelm stays present: added information plus history questions keep processing load high but do not tip to crisis."
+  },
+  {
+    "idx": 10,
+    "item_id": "sadness_low_001_0011",
+    "target_emotion": "sadness",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The medication's starting to work, you'll feel drowsy very soon. We're placing the breathing tube now to protect your airway - once it's in you won't be able to talk, so you won't get the chance to call your family before we start. We'll take care of everything and let them know as soon as we can.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "you won't get the chance to call your family before we start",
+    "reasoning": "sadness absent->present: the framing that she won't be able to talk or call her family before the tube goes in evokes anticipated loss and helplessness - a farewell-like moment being taken away, which is a loss cue distinct from pure danger. fear stays present: intubation is a serious escalation but a concrete protective plan and sedation buffer it, keeping fear from rising further and not resolved enough to drop. overwhelm stays present: multiple simultaneous events (sedation, imminent intubation, family notification) sustain the load but nothing resolves it. shame stays absent: no blame, exposure, or judgment."
+  },
+  {
+    "idx": 11,
+    "item_id": "overwhelm_not_at_all_000_0012",
+    "target_emotion": "overwhelm",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Can you tell me when the vomiting blood first started, and whether you felt any pain or burning before it began?",
+    "predicted_next_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "evidence": "Can you tell me when the vomiting blood first started",
+    "reasoning": "This is a neutral history-taking question. It contains no new clinical threat disclosure, no bad news, no blame, and no loss. Asking about symptom onset does not itself deliver serious news or overload. Fear stays absent (no new threat conveyed), sadness stays absent (no loss), overwhelm stays absent (single simple question, not information overload), shame stays absent (nonjudgmental inquiry)."
+  },
+  {
+    "idx": 12,
+    "item_id": "overwhelm_not_at_all_001_0013",
+    "target_emotion": "overwhelm",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The blood is in and running now — that's the one thing that matters this minute. You don't have to track anything or remember a list of symptoms. I'm staying right here at your bedside watching your vitals the whole time, so if anything changes, I'll catch it before you even have to say a word.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "You don't have to track anything or remember a list of symptoms. I'm staying right here at your bedside",
+    "reasoning": "Reassuring, supportive utterance offering a concrete plan (blood running, nurse monitoring vitals). It reduces cognitive load and provides presence, marginally softening overwhelm and fear but not enough to fully resolve the underlying critical bleeding threat, so both stay present rather than dropping to absent. Sadness and shame were absent and nothing here triggers them."
+  },
+  {
+    "idx": 13,
+    "item_id": "overwhelm_low_000_0014",
+    "target_emotion": "overwhelm",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Good news on your breathing: since the continuous nebulizer treatments and the steroids kicked in, your oxygen number has come up and your breathing is much less labored than it was a little while ago. You do not need a breathing tube right now. Here's the plan — you stay on the oxygen mask, we repeat the breathing treatments every fifteen minutes, and I'm keeping a monitor on you and the baby the whole time so we catch it right away if anything changes.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "evidence": "Good news on your breathing... oxygen number has come up... You do not need a breathing tube right now",
+    "reasoning": "fear: present->present, reassuring good news (improvement, no intubation, clear plan, baby monitored) buffers but doesn't fully resolve fear given still-unstable respiratory status and low trust; stays present rather than dropping to absent. sadness: stays absent, no loss content. overwhelm: stays present, still multiple ongoing steps and monitoring though not sharply increased. shame: stays present, utterance is nonjudgmental and does not address the shame trigger, so it persists unchanged."
+  },
+  {
+    "idx": 14,
+    "item_id": "overwhelm_low_001_0015",
+    "target_emotion": "overwhelm",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I want to ask about something specific — do you take a steroid pill every day, maybe for an adrenal or pituitary problem, and is it possible you've missed a few doses or run out recently?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "do you take a steroid pill every day... missed a few doses or run out recently",
+    "reasoning": "No emotion changed. Fear stays present: this is an information-gathering question, not a new serious disclosure, so it neither raises nor resolves the existing threat. Overwhelm stays present: a focused question does not reduce the cognitive load but adds no major new burden. Shame stays absent: the clinician's phrasing about missed doses is neutral and nonjudgmental ('is it possible'), framed as care rather than blame, so it does not expose or accuse the patient. Sadness stays absent: no loss is conveyed."
+  },
+  {
+    "idx": 15,
+    "item_id": "overwhelm_high_000_0016",
+    "target_emotion": "overwhelm",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "We're hanging your first bag of blood now. I also need you to know what else might happen in the next few minutes: if your pressure keeps dropping, we may need to put in a breathing tube to protect your airway, and if the bleeding doesn't slow down, the doctor will place a balloon tube down your throat to press directly on the bleeding vessel. So right now we're watching four things at once — the transfusion reaction signs like itching, chills, or shortness of breath, your breathing, how alert you are, and how much you're still bleeding. Tell me right away if anything changes.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "we may need to put in a breathing tube... balloon tube down your throat... watching four things at once",
+    "reasoning": "fear: stays present - multiple escalating threats (intubation, balloon tube, ongoing bleeding) sustain fear but speaker is acting to protect and gives a plan, patient can still cooperate, so not extreme. overwhelm: stays present - four things to monitor plus multiple possible interventions is heavy informational load, but patient is still asked to participate and can respond, so not extreme. sadness: stays absent - no actual or anticipated personal loss framed. shame: stays absent - no blame, judgment, or exposure."
+  },
+  {
+    "idx": 16,
+    "item_id": "overwhelm_high_001_0017",
+    "target_emotion": "overwhelm",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Okay, here's where things stand. The blood test for heart strain is high, the ultrasound shows your heart's pumping at about 35%, and one of the valves is severely narrowed, and your blood pressure's been dropping in and out, so we're adjusting your IV medications to try to keep it steady. You're still breathing hard even with the mask, so we're also sending you for a chest x-ray to check your lungs. I know that's a lot at once — has anyone ever told you before today that you had a narrowed heart valve or a murmur?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "that's a lot at once — blood test high, pumping at 35%, valve severely narrowed, blood pressure dropping",
+    "reasoning": "fear stays present: multiple serious findings sustain threat but fear already present and patient can still engage, no extreme collapse. overwhelm stays present: dense cascade of technical findings plus a question sustains overload. sadness stays absent: no framing of loss and high optimism/trust buffer. shame stays absent: neutral, non-blaming disclosure."
+  },
+  {
+    "idx": 17,
+    "item_id": "shame_not_at_all_000_0020",
+    "target_emotion": "shame",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "I want to be clear about something: this flare is not because you did anything wrong. Pregnancy itself makes asthma harder to control, and that's really what's driving how sick you are right now, not a mistake on your part. We're checking a blood gas now to see exactly how well you're breathing and figure out the next step.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "this flare is not because you did anything wrong... not a mistake on your part",
+    "reasoning": "shame present->absent: the clinician directly and explicitly removes self-blame, attributing the flare to pregnancy physiology rather than the patient's fault, resolving the shame trigger. fear stays present: mention of checking a blood gas and figuring out next steps is a calm plan, not new bad news, but underlying illness threat remains. overwhelm stays present: no resolution of cognitive load; still awaiting results and next steps. sadness stays absent: no loss content."
+  },
+  {
+    "idx": 18,
+    "item_id": "shame_not_at_all_001_0021",
+    "target_emotion": "shame",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I want to ask about your medication history — are you on any steroid medicine, like for an adrenal or pituitary problem? And has there been any change recently, like missing doses or running low, even by accident?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "are you on any steroid medicine... any change recently, like missing doses",
+    "reasoning": "No emotion changed. Fear stays present: this is a neutral history-gathering question, not new bad news, so it neither raises nor resolves the existing threat. Overwhelm stays present: a single focused question does not pile on new information or resolve the prior overload. Sadness stays absent: no loss content. Shame stays absent: the phrasing 'even by accident' is explicitly nonjudgmental and does not blame the patient for missed doses."
+  },
+  {
+    "idx": 19,
+    "item_id": "shame_low_000_0022",
+    "target_emotion": "shame",
+    "target_level": "present",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your oxygen is still dangerously low even with the mask giving you everything it can, and it looks like your numbers at home had been slipping for a few days before you got here. We need to put in a breathing tube right now so a machine can breathe for you until we get this turned around.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "oxygen is still dangerously low... need to put in a breathing tube right now",
+    "reasoning": "fear absent->present: serious bad news of dangerously low oxygen and urgent intubation is a concrete clinical threat requiring escalation. overwhelm absent->present: multiple findings (dangerous O2, worsening trend, urgent intubation decision) piled on at once for a low-literacy patient. sadness stays absent: no framing of loss, and a plan to turn things around is offered. shame stays absent: no blame or judgment. Not extreme because clinician offers a concrete protective plan and patient can still process."
+  },
+  {
+    "idx": 20,
+    "item_id": "shame_low_001_0023",
+    "target_emotion": "shame",
+    "target_level": "present",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I need to know when the vomiting blood started — and I have to ask, how much do you usually drink, and when was your last drink? Has this kind of bleeding happened to you before because of your drinking?",
+    "predicted_next_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "present"
+    },
+    "evidence": "how much do you usually drink... because of your drinking?",
+    "reasoning": "shame absent->present: repeated framing of the bleeding as caused by 'your drinking' spotlights a stigmatized behavior and implies personal fault, exposing the patient (low trust, high anger) to judgment. fear stays absent: the utterance asks questions rather than disclosing new serious/worsening findings. sadness stays absent: no loss framed. overwhelm stays absent: several questions but a manageable, single-topic inquiry, not information overload."
+  },
+  {
+    "idx": 21,
+    "item_id": "shame_high_000_0024",
+    "target_emotion": "shame",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your oxygen numbers keep dropping even with the mask on, and you're working so hard to breathe that you're wearing yourself out. Because you're losing blood faster than we can keep up with right now, we need to put a breathing tube in now to protect your airway and breathe for you while we get this bleeding under control.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "evidence": "you're losing blood faster than we can keep up with right now, we need to put a breathing tube in now",
+    "reasoning": "sadness absent->present: 'losing blood faster than we can keep up' makes a personally devastating, life-threatening outcome feel close, evoking helplessness beyond mere threat. fear stays present: serious bad news (worsening oxygen, emergency intubation) sustains fear, but a concrete protective plan prevents escalation to extreme. overwhelm stays present: multiple urgent findings and an imminent intervention maintain cognitive overload without tipping into collapse. shame stays present: utterance is nonjudgmental and does not address the shame trigger, so it holds steady."
+  },
+  {
+    "idx": 22,
+    "item_id": "shame_high_001_0025",
+    "target_emotion": "shame",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your oxygen is still dropping and you're tiring out even with everything we've given you, so we're placing a breathing tube now to protect you and the baby. I know you've been trying to manage this asthma on your own for a while — right now the focus is getting you safely on the ventilator.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "evidence": "we're placing a breathing tube now to protect you and the baby",
+    "reasoning": "fear: already present, this is serious escalation (intubation) so it stays present; not extreme because clinician offers a concrete protective plan and patient can still cooperate. sadness: stays absent - the utterance frames this as a protective threat/danger with a plan, not an incurred or likely irreversible loss. overwhelm: stays present - multiple urgent findings and an imminent major intervention sustain the load. shame: stays present - the mention of 'managing this asthma on your own' lightly touches self-blame but is framed empathetically, so it holds steady rather than rising."
+  },
+  {
+    "idx": 23,
+    "item_id": "fear_extreme_000_0000_a0022",
+    "target_emotion": "fear",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your oxygen is dropping even with everything we've given you, and your heart rate and the baby's heart rate are both falling right now — you're going into respiratory failure. We have to put the breathing tube in this second, because if we don't, you could stop breathing entirely and we could lose you both.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "evidence": "you could stop breathing entirely and we could lose you both",
+    "reasoning": "sadness absent->present: the utterance frames imminent, devastating loss of both the patient and the baby, making a personally catastrophic loss feel close. Fear stays present (already present; a concrete protective plan to intubate immediately buffers it from reaching extreme, and the patient can still cooperate). Overwhelm stays present: multiple simultaneous findings and an urgent decision sustain the overload but do not tip into terminal collapse. Shame unchanged: nothing in the utterance blames or exposes the patient."
+  },
+  {
+    "idx": 24,
+    "item_id": "fear_extreme_001_0001_a0023",
+    "target_emotion": "fear",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your oxygen is dropping fast and the baby's heart rate is falling right along with it — if we don't get this tube in within the next minute, both of your hearts could stop. We're doing it right now.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "evidence": "both of your hearts could stop... we're doing it right now",
+    "reasoning": "sadness absent->present: the imminent, deeply threatened loss of both the patient's life and the baby's makes a devastating outcome feel close, triggering anticipated-loss sadness. fear stays present: this is life-threatening bad news, but the clinician is acting immediately with a concrete plan to protect both, so it does not reach terminal extreme collapse. overwhelm stays present: urgent simultaneous crisis info sustains overload but no cue of total shutdown. shame stays present: unaddressed by this utterance, no judgment or blame."
+  },
+  {
+    "idx": 25,
+    "item_id": "overwhelm_extreme_000_0002_a0024",
+    "target_emotion": "overwhelm",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your pressure is dropping fast and that stiff valve on your heart means it may not tolerate rescue medication the way we'd hope — I need to push something right now to keep your heart from stopping, so tell me quickly: are you allergic to any medications?",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "keep your heart from stopping, so tell me quickly",
+    "reasoning": "fear: present->extreme, this conveys imminent risk of cardiac arrest ('keep your heart from stopping'), pressure dropping fast, and the valve limiting rescue medication effectiveness—a near-catastrophic threat with urgent pressure; escalates fear to crisis level. overwhelm: stays present—urgent info and a rapid demand sustains overload but patient can still answer. sadness: stays absent, no loss framing. shame: stays absent, no blame or exposure."
+  },
+  {
+    "idx": 26,
+    "item_id": "overwhelm_extreme_001_0003_a0025",
+    "target_emotion": "overwhelm",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I have to tell you exactly where things stand right now. Your troponin is climbing, which means your heart muscle itself is under strain, and the ultrasound shows your heart is only pumping at about 35 percent while the aortic valve is severely narrowed, almost closed off. On top of that, your heart rhythm is racing irregularly and your blood pressure just dropped — with a valve this tight, that combination means your heart could lose its ability to keep blood moving at any moment. We're calling the cardiology team in right now to see if you need an emergency procedure on that valve tonight, and we may need to move you to the ICU within minutes. I know that is an enormous amount to take in all at once. Has anyone ever told you before today that you had a narrowed heart valve?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "your heart could lose its ability to keep blood moving at any moment",
+    "reasoning": "sadness absent->present: the disclosure makes a personally devastating outcome (heart failing/death) feel close and likely, introducing anticipated loss and helplessness beyond mere threat. fear stays present: serious life-threatening bad news sustains fear, but the speaker offers a concrete plan (cardiology, possible ICU) and the patient can still engage/answer, so not extreme. overwhelm stays present: massive multi-finding disclosure ('enormous amount to take in all at once') sustains overload but patient can still respond to the closing question, not a full breakdown. shame stays absent: no blame, judgment, or exposure."
+  },
+  {
+    "idx": 27,
+    "item_id": "shame_extreme_000_0004_a0026",
+    "target_emotion": "shame",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your oxygen is dropping and you're vomiting up so much blood you can't protect your own airway anymore - we have to sedate you and put a breathing tube in right now, in front of everyone in this room, or you're going to drown in the blood from the drinking that caused this bleed.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "evidence": "you're going to drown in the blood from the drinking that caused this bleed",
+    "reasoning": "sadness absent->present: the utterance frames imminent, personally devastating loss ('you're going to drown'), making death feel close and likely, which raises anticipated-loss sadness. fear stays present: this is severe life-threatening bad news, but a concrete protective plan (sedate + breathing tube now) keeps it from becoming terminal/extreme; already present, no lower. overwhelm stays present: urgent simultaneous interventions sustain overload but don't push to breakdown. shame stays present: blame ('the drinking that caused this bleed') and public exposure ('in front of everyone in this room') sustain shame but the patient can still process, so it holds rather than escalating to extreme."
+  },
+  {
+    "idx": 28,
+    "item_id": "shame_extreme_001_0005_a0027",
+    "target_emotion": "shame",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your oxygen is still too low with the mask on and you're fighting for every breath - we have to put a breathing tube in right now before you vomit up more blood and choke on it in front of everyone in this room, because the years of drinking have torn open the veins in your throat and this is what it's done to you.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "evidence": "the years of drinking have torn open the veins in your throat and this is what it's done to you",
+    "reasoning": "sadness absent->present: the clinician frames irreversible bodily damage ('torn open the veins... this is what it's done to you') as a personally devastating loss caused by the patient, evoking helplessness/sorrow. fear stays present: intubation and choking on blood are life-threatening escalations, but a concrete life-saving action ('put a breathing tube in right now') is offered and the patient can still participate, so it does not reach extreme. overwhelm stays present: urgent simultaneous threat and intervention sustain overload but do not cause collapse. shame stays present: the blaming language ('years of drinking... this is what it's done to you') and public exposure ('in front of everyone in this room') sustain shame but the utterance's dominant intent is life-saving care, keeping it below extreme."
+  }
+]

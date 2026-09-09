@@ -1,0 +1,1979 @@
+{
+  "scenario": "A female patient presents with vomiting, weakness, hypothermia, hypoglycemia, and hypotension after a recent gastrointestinal illness. The case involves non-fluid responsive shock, hyperkalemia, hyponatremia, hypoglycemia, and treatment of adrenal crisis.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Patient Activation": "low",
+    "Optimism": "high",
+    "Trust in Provider": "low",
+    "Anger": "high"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Push 25 grams of IV dextrose 50% now — glucose is critically low at 2.6. Recheck glucose right after it's in.",
+          "turn_index": 0,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Dextrose 50%, 25 grams IV in now.",
+          "turn_index": 0,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "dextrose 50%",
+          "dose": 25,
+          "unit": "g"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 120.0,
+            "BP_sys": 80.0,
+            "BP_dia": 40.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 0,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "dextrose 50%",
+                "dose": 25,
+                "unit": "g"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 0,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "dextrose 50%",
+              "dose": 25,
+              "unit": "g"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start 1 liter normal saline IV bolus wide open — she's hypotensive at 80/40 with a heart rate of 120.",
+          "turn_index": 1,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 118.0,
+            "BP_sys": 85.0,
+            "BP_dia": 42.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 1,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 1,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your sugar was very low and we've given you some medication for it. Tell me what happened today and when these symptoms started.",
+          "turn_index": 2,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 120.0,
+            "BP_sys": 83.0,
+            "BP_dia": 41.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Your sugar was very low and we've given you some medication for it. Tell me what happened today and when these symptoms started.] fear absent->present: disclosure that her sugar was 'very low' is bad news about a dangerous abnormality in a symptomatic, unstable patient, raising fear to present; the reassurance that medication was given buffers the size but does not cancel it. sadness stays absent: no loss or devastating outcome conveyed. overwhelm stays absent: the utterance is simple, one finding plus a single open question, not a pile of complex information. shame stays absent: the question is neutral and non-judgmental, no blame or exposure."
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I've been throwing up and I can't keep anything down, not food, not even water. I'm exhausted and weak, I've had no appetite and I've lost some weight. I keep feeling chilled. There's only a little bit of stomach pain, but mostly it's the vomiting.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Send a Basic Metabolic Panel now — she's got recurrent vomiting with hypoglycemia and she's hypotensive.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 122.0,
+            "BP_sys": 81.0,
+            "BP_dia": 40.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 3,
+          "payload": {
+            "test_name": "Basic Metabolic Panel",
+            "ordered_at_turn": 3,
+            "ready_at_turn": 5,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Give 100 mg IV hydrocortisone now — this looks like possible adrenal crisis with the hypoglycemia and hypotension.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Hydrocortisone 100 mg IV given.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "corticosteroid",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "corticosteroid",
+        "params": {
+          "drug_name": "hydrocortisone",
+          "dose": 100,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 116.0,
+            "BP_sys": 88.0,
+            "BP_dia": 44.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.2
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 4,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "corticosteroid",
+              "params": {
+                "drug_name": "hydrocortisone",
+                "dose": 100,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 4,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "corticosteroid",
+            "raw_text": null,
+            "params": {
+              "drug_name": "hydrocortisone",
+              "dose": 100,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "BMP back: Na 120, K 7.5, Cl 100, HCO3 17, BUN 10, Cr 35, glucose 1.5. Potassium is critically high at 7.5 and sodium's 120. Still hypotensive at 88/44, HR 116, temp 35.2.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give calcium gluconate 1 gram IV now — potassium's critically high at 7.5, this is for cardiac protection.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "membrane_stabilization",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "membrane_stabilization",
+        "params": {
+          "drug_name": "calcium gluconate",
+          "dose": 1,
+          "unit": "g"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 114.0,
+            "BP_sys": 88.0,
+            "BP_dia": 44.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.2
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 120, K 7.5, Cl 100, HCO3 17, BUN 10, Cr 35, Glu 1.5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "Basic Metabolic Panel",
+            "ordered_at_turn": 3,
+            "ready_at_turn": 5,
+            "released_at_turn": 5
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "membrane_stabilization",
+              "params": {
+                "drug_name": "calcium gluconate",
+                "dose": 1,
+                "unit": "g"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "membrane_stabilization",
+            "raw_text": null,
+            "params": {
+              "drug_name": "calcium gluconate",
+              "dose": 1,
+              "unit": "g"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Push 10 units IV insulin now to shift that potassium down — K's critically high at 7.5. Cover it with dextrose since her sugar is still low.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Giving 10 units regular insulin IV now for the hyperkalemia shift. Confirm dextrose coverage is ordered — I want to run D50 with it to prevent hypoglycemia. I'll recheck glucose and repeat the potassium.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "hyperkalemia_shift",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "hyperkalemia_shift",
+        "params": {
+          "drug_name": "insulin",
+          "dose": 10,
+          "unit": "units"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 118.0,
+            "BP_sys": 88.0,
+            "BP_dia": 44.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.2
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 120, K 7.5, Cl 100, HCO3 17, BUN 10, Cr 35, Glu 1.5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 6,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "hyperkalemia_shift",
+              "params": {
+                "drug_name": "insulin",
+                "dose": 10,
+                "unit": "units"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 6,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "hyperkalemia_shift",
+            "raw_text": null,
+            "params": {
+              "drug_name": "insulin",
+              "dose": 10,
+              "unit": "units"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get me a 12-lead ECG now — I want to see if there are any hyperkalemic changes with that K of 7.5.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 120.0,
+            "BP_sys": 86.0,
+            "BP_dia": 43.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.2
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 120, K 7.5, Cl 100, HCO3 17, BUN 10, Cr 35, Glu 1.5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 7,
+          "payload": {
+            "test_name": "ECG",
+            "ordered_at_turn": 7,
+            "ready_at_turn": 9,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Give another liter of normal saline wide open — she's still hypotensive at 86/43.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Hanging the liter of normal saline wide open now.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 118.0,
+            "BP_sys": 90.0,
+            "BP_dia": 45.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.2
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 120, K 7.5, Cl 100, HCO3 17, BUN 10, Cr 35, Glu 1.5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "12-lead's back — hyperkalemic changes confirmed on the ECG. Latest vitals: 90/45, HR 118, temp still 35.2, sats 98 on room air. Glucose came up to 2.6.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start a norepinephrine infusion now — she's still hypotensive at 90/45 despite two liters of saline.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Norepinephrine is up and running.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "norepinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 118.0,
+            "BP_sys": 95.0,
+            "BP_dia": 48.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.2
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 120, K 7.5, Cl 100, HCO3 17, BUN 10, Cr 35, Glu 1.5"
+            },
+            {
+              "name": "ECG",
+              "result": "Hyperkalemia ECG"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 9,
+          "payload": {
+            "test_name": "ECG",
+            "ordered_at_turn": 7,
+            "ready_at_turn": 9,
+            "released_at_turn": 9
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "norepinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "norepinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I need a quick history from you. When did you start feeling ill, and do you have any medical conditions or take steroids like prednisone or hydrocortisone?",
+          "turn_index": 10,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 120.0,
+            "BP_sys": 93.0,
+            "BP_dia": 47.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 120, K 7.5, Cl 100, HCO3 17, BUN 10, Cr 35, Glu 1.5"
+            },
+            {
+              "name": "ECG",
+              "result": "Hyperkalemia ECG"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 10,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: I need a quick history from you. When did you start feeling ill, and do you have any medical conditions or take steroids like prednisone or hydrocortisone?] No emotion changed. This is a neutral, calm history-taking question, not a new serious disclosure or resolution. Fear stays present (unchanged) since no reassurance or resolution addresses the underlying threat. Sadness, overwhelm, and shame stay absent: the question is nonjudgmental, single and simple (not overloading), and conveys no loss."
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, I don't take steroids, nothing like prednisone or hydrocortisone. I honestly can't tell you exactly when it started, I'm not sure. It's just been the vomiting and not being able to keep anything down, feeling wiped out and cold.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give another 100 mg IV hydrocortisone now. Her sodium, potassium, and glucose picture with pressor-dependent hypotension fits adrenal crisis, so we treat it empirically.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Hydrocortisone 100 mg IV given.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "corticosteroid",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "corticosteroid",
+        "params": {
+          "drug_name": "hydrocortisone",
+          "dose": 100,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 114.0,
+            "BP_sys": 100.0,
+            "BP_dia": 51.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 120, K 7.5, Cl 100, HCO3 17, BUN 10, Cr 35, Glu 1.5"
+            },
+            {
+              "name": "ECG",
+              "result": "Hyperkalemia ECG"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 11,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "corticosteroid",
+              "params": {
+                "drug_name": "hydrocortisone",
+                "dose": 100,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 11,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "corticosteroid",
+            "raw_text": null,
+            "params": {
+              "drug_name": "hydrocortisone",
+              "dose": 100,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Push another 25 g of dextrose 50% IV now — her glucose is still low at 2.6 despite the first dose.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Dextrose 50%, 25 grams IV given.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "dextrose 50%",
+          "dose": 25,
+          "unit": "g"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 100.0,
+            "BP_dia": 51.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 120, K 7.5, Cl 100, HCO3 17, BUN 10, Cr 35, Glu 1.5"
+            },
+            {
+              "name": "ECG",
+              "result": "Hyperkalemia ECG"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 12,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "dextrose 50%",
+                "dose": 25,
+                "unit": "g"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 12,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "dextrose 50%",
+              "dose": 25,
+              "unit": "g"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Send a repeat BMP now so we can reassess her potassium, sodium, and glucose after everything we've given.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 98.0,
+            "BP_dia": 50.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.3
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 120, K 7.5, Cl 100, HCO3 17, BUN 10, Cr 35, Glu 1.5"
+            },
+            {
+              "name": "ECG",
+              "result": "Hyperkalemia ECG"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "validation_drop",
+          "turn_index": 13,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Diagnostic test_name 'Basic Metabolic Panel' already has an available result; duplicate diagnostic_order is not allowed."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "One more question — have you ever been told you have a problem with your adrenal glands, thyroid, or pituitary, or that your cortisol is low, or recently run out of any medication you take regularly?",
+          "turn_index": 14,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 114.0,
+            "BP_sys": 96.0,
+            "BP_dia": 49.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.199999999999996
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "A+Ox3, answering questions",
+            "glucose_mmol_l": 2.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 120, K 7.5, Cl 100, HCO3 17, BUN 10, Cr 35, Glu 1.5"
+            },
+            {
+              "name": "ECG",
+              "result": "Hyperkalemia ECG"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 14,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: One more question — have you ever been told you have a problem with your adrenal glands, thyroid, or pituitary, or that your cortisol is low, or recently run out of any medication you take regularly?] This utterance is a history-gathering question, not a disclosure of new bad news or resolution. Fear stays present (unchanged) - the question sustains but does not clearly escalate or resolve it. Sadness stays absent - no loss content. Overwhelm stays absent - a single question is not cognitively overloading. Shame stays absent - the question is neutral, non-judgmental, and does not assign blame or expose the patient."
+      }
+    }
+  ],
+  "scenario_path": "transitions/Endocrine/Adrenal Crisis.json"
+}

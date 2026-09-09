@@ -1,0 +1,2022 @@
+{
+  "scenario": "A 26-year-old female presents after syncope with dizziness, vomiting, vague abdominal pain, pallor, and hypotension. The scenario focuses on recognition of ruptured ectopic pregnancy with intra-peritoneal bleeding, bedside ultrasound, massive transfusion, and urgent gynecology operative management.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Anger": "high",
+    "Patient Activation": "high",
+    "Optimism": "high",
+    "Health Literacy": "low"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "What brought you in today, and when did it start? Any pain or bleeding?",
+          "turn_index": 0,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 104.0,
+            "BP_sys": 87.0,
+            "BP_dia": 58.0,
+            "RR": 13.0,
+            "O2Sat": 98.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 0,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: What brought you in today, and when did it start? Any pain or bleeding?] This is a neutral intake question asking the patient to recount symptoms. No serious diagnosis, worsening news, or escalation is disclosed, so fear stays absent. No loss is named, so sadness stays absent. It is a single, simple question with no information overload, so overwhelm stays absent. The question is nonjudgmental with no blame or exposure, so shame stays absent."
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I passed out — just fainted. I've been really dizzy and weak, and I've been throwing up. My stomach hurts, kind of all over but nothing sharp. I feel really pale too. Can you just figure out what's wrong with me?",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's get a liter of normal saline in wide open now — she's hypotensive at 87/58 and looks like she's in shock.",
+          "turn_index": 1,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Hanging 1 liter normal saline bolus now.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 100.0,
+            "BP_sys": 94.0,
+            "BP_dia": 62.0,
+            "RR": 13.0,
+            "O2Sat": 98.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 1,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 1,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get me a urine beta-hCG now — she's still borderline at 94/62 with abdominal pain, and I'm worried about a ruptured ectopic.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 103.0,
+            "BP_sys": 92.0,
+            "BP_dia": 61.0,
+            "RR": 14.0,
+            "O2Sat": 98.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 2,
+          "payload": {
+            "test_name": "Urine beta-hCG",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 4,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I need one thing from you right now: when was your last period, and have you had any vaginal bleeding or spotting since?",
+          "turn_index": 3,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 106.0,
+            "BP_sys": 89.0,
+            "BP_dia": 59.0,
+            "RR": 15.0,
+            "O2Sat": 98.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 3,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: I need one thing from you right now: when was your last period, and have you had any vaginal bleeding or spotting since?] fear absent->present: the urgent focused question, combined with the preceding shock/ectopic concern context, signals a serious situation requiring immediate answers, which conveys threat and raises fear from absent to present. sadness stays absent: no loss or devastating outcome is named to the patient. overwhelm stays absent: this is a single, simple, focused question ('one thing'), which reduces rather than increases processing burden. shame stays absent: the question is neutral and nonjudgmental, no blame or exposure implied."
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Urine beta-hCG is back — positive. Latest vitals: BP 89/59, HR 106, sats 98% on room air.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "I honestly can't remember exactly when my last period was — I'm not sure. And no, I haven't had any bleeding or spotting. Why does that matter? Just tell me what's going on.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Here's what's going on: your pregnancy test came back positive, your blood pressure is low at 89/59, and you fainted. That combination makes me worried about internal bleeding from a pregnancy growing outside the womb. I'm doing a quick ultrasound at the bedside right now to look for blood in your belly.",
+          "turn_index": 4,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 111.0,
+            "BP_sys": 84.0,
+            "BP_dia": 56.0,
+            "RR": 16.0,
+            "O2Sat": 98.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Urine beta-hCG",
+              "result": "Urine beta-HCG result given if required; if asked for beta-HCG result, give back positive result."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 4,
+          "payload": {
+            "test_name": "Urine beta-hCG",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 4,
+            "released_at_turn": 4
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 4,
+          "payload": {
+            "test_name": "Focused Assessment with Sonography for Trauma",
+            "ordered_at_turn": 4,
+            "ready_at_turn": 5,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: Here's what's going on: your pregnancy test came back positive, your blood pressure is low at 89/59, and you fainted. That combination makes me worried about internal bleeding from a pregnancy growing outside the womb. I'm doing a quick ultrasound at the bedside right now to look for blood in your belly.] fear: stays present - serious threat (internal bleeding, ectopic) confirmed but patient can still listen and cooperate, not breakdown-level. sadness: absent->present - the disclosure of a pregnancy that is dangerous and non-viable (growing outside the womb) introduces anticipated loss of the pregnancy, a personally devastating outcome now felt as close. overwhelm: absent->present - multiple findings delivered at once (positive test, low BP, fainting, ectopic suspicion, urgent bedside ultrasound) with low health literacy exceeds processing capacity. shame: absent - no blame, judgment, or exposure in this neutral clinical disclosure."
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "FAST is back — free fluid in the RUQ. Current vitals: BP 84/56, HR 111, sats 98% on room air. Her pressure's dropping and she's tachycardic.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "Pregnant? I didn't even know I was pregnant — I just take my prenatal vitamins. Internal bleeding? Am I gonna be okay? I still feel so dizzy and weak.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start two units of packed red cells now and activate the massive transfusion protocol — she's got free fluid on FAST and a ruptured ectopic with hemorrhagic shock, still dropping at 84/56 despite the liter of saline. Get OB and surgery to the bedside now for the OR.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting massive transfusion protocol, 2 units packed RBCs going up now. I'll keep them coming per protocol.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "packed_rbc",
+          "units": 2,
+          "strategy": "massive_transfusion_protocol"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 107.0,
+            "BP_sys": 93.0,
+            "BP_dia": 60.0,
+            "RR": 16.0,
+            "O2Sat": 98.0,
+            "T": 36.3
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Urine beta-hCG",
+              "result": "Urine beta-HCG result given if required; if asked for beta-HCG result, give back positive result."
+            },
+            {
+              "name": "Focused Assessment with Sonography for Trauma",
+              "result": "FF RUQ."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "Focused Assessment with Sonography for Trauma",
+            "ordered_at_turn": 4,
+            "ready_at_turn": 5,
+            "released_at_turn": 5
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "packed_rbc",
+                "units": 2,
+                "strategy": "massive_transfusion_protocol"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "packed_rbc",
+              "units": 2,
+              "strategy": "massive_transfusion_protocol"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Add 2 units of plasma now to keep the ratio balanced in the MTP — she's still in hemorrhagic shock from the ruptured ectopic and needs to get to the OR.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Hanging 2 units of plasma now, running balanced-ratio MTP.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "plasma",
+          "units": 2,
+          "strategy": "massive_transfusion_protocol_balanced_ratio"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 100.0,
+            "BP_dia": 64.0,
+            "RR": 16.0,
+            "O2Sat": 98.0,
+            "T": 36.3
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Urine beta-hCG",
+              "result": "Urine beta-HCG result given if required; if asked for beta-HCG result, give back positive result."
+            },
+            {
+              "name": "Focused Assessment with Sonography for Trauma",
+              "result": "FF RUQ."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 6,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "plasma",
+                "units": 2,
+                "strategy": "massive_transfusion_protocol_balanced_ratio"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 6,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "plasma",
+              "units": 2,
+              "strategy": "massive_transfusion_protocol_balanced_ratio"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Hang the next 2 units of packed red cells and keep the MTP going balanced — she's still tachycardic at 110 with ongoing hemorrhage from the ruptured ectopic. Where are OB and surgery? I need them at the bedside now for the OR.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting massive transfusion protocol, two units packed red cells going up now.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "packed_rbc",
+          "units": 2,
+          "strategy": "massive_transfusion_protocol"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 102.0,
+            "BP_sys": 108.0,
+            "BP_dia": 71.0,
+            "RR": 16.0,
+            "O2Sat": 98.0,
+            "T": 36.099999999999994
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Urine beta-hCG",
+              "result": "Urine beta-HCG result given if required; if asked for beta-HCG result, give back positive result."
+            },
+            {
+              "name": "Focused Assessment with Sonography for Trauma",
+              "result": "FF RUQ."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "packed_rbc",
+                "units": 2,
+                "strategy": "massive_transfusion_protocol"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "packed_rbc",
+              "units": 2,
+              "strategy": "massive_transfusion_protocol"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your blood pressure is coming up with the blood we're giving you — that's why you're feeling a bit steadier. Here's the truth: the bleeding is from a pregnancy that was growing outside your womb, and it has ruptured. That's what's making you bleed inside. You need emergency surgery to stop it, and the surgery and OB teams are on their way. We'll keep the blood running until they can take you to the operating room.",
+          "turn_index": 8,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 107.0,
+            "BP_sys": 103.0,
+            "BP_dia": 68.0,
+            "RR": 17.0,
+            "O2Sat": 98.0,
+            "T": 36.099999999999994
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Urine beta-hCG",
+              "result": "Urine beta-HCG result given if required; if asked for beta-HCG result, give back positive result."
+            },
+            {
+              "name": "Focused Assessment with Sonography for Trauma",
+              "result": "FF RUQ."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: Your blood pressure is coming up with the blood we're giving you — that's why you're feeling a bit steadier. Here's the truth: the bleeding is from a pregnancy that was growing outside your womb, and it has ruptured. That's what's making you bleed inside. You need emergency surgery to stop it, and the surgery and OB teams are on their way. We'll keep the blood running until they can take you to the operating room.] fear: stays present - the disclosure of ruptured ectopic, internal bleeding, and need for emergency surgery is serious bad news, but the partial reassurance (BP improving, feeling steadier, teams on the way, concrete plan) buffers it from rising to extreme; patient can still process and cooperate. sadness: stays present - loss of a pregnancy she didn't know she had is a devastating loss, but nothing new deepens it to extreme. overwhelm: stays present - multiple heavy facts (pregnancy, rupture, surgery) delivered at once sustain the load, but the clear plan prevents escalation. shame: stays absent - the clinician frames the news factually and supportively with no blame, judgment, or exposure."
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Surgery? Oh God, I'm scared. Okay — just do what you have to do. I still feel so dizzy and weak. Wait — I'm allergic to shellfish, does that matter for anything you're giving me?",
+          "turn_index": 9,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "No — your shellfish allergy doesn't affect the blood or the saline we're giving you. We've got it noted and we'll account for it with anything new. The blood is helping, and the surgery team is coming to take you to the operating room.",
+          "turn_index": 9,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 111.0,
+            "BP_sys": 98.0,
+            "BP_dia": 65.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 36.099999999999994
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Urine beta-hCG",
+              "result": "Urine beta-HCG result given if required; if asked for beta-HCG result, give back positive result."
+            },
+            {
+              "name": "Focused Assessment with Sonography for Trauma",
+              "result": "FF RUQ."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 9,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "patient",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: No — your shellfish allergy doesn't affect the blood or the saline we're giving you. We've got it noted and we'll account for it with anything new. The blood is helping, and the surgery team is coming to take you to the operating room.] This utterance resolves the specific worry the patient raised (shellfish allergy) and offers reassurance ('the blood is helping'), but the underlying serious threats (ruptured ectopic, hemorrhage, imminent surgery) remain unaddressed, so fear stays present rather than dropping. Sadness stays present as the anticipated loss (pregnancy loss, threat to survival/future) is unchanged. Overwhelm stays present as the situation remains urgent and complex despite the reassuring answer. Shame stays absent as nothing blaming or exposing was said. No emotion crosses to extreme (patient is cooperative and listening) or drops to absent (broader triggers still active)."
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay — thank you for telling me straight. I still feel so dizzy and weak, but just do what you have to do.",
+          "turn_index": 10,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Hang the next 2 units of packed red cells and keep the MTP running balanced-ratio — she's still tachycardic at 111 with ongoing hemorrhage from the ruptured ectopic. Where are OB and surgery? I need them at the bedside now for the OR.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting massive transfusion protocol, balanced ratio. Hanging two units packed red cells now. I'll keep them coming and monitor for reactions.",
+          "turn_index": 10,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "packed_rbc",
+          "units": 2,
+          "strategy": "massive_transfusion_protocol_balanced_ratio"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 107.0,
+            "BP_sys": 108.0,
+            "BP_dia": 69.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Urine beta-hCG",
+              "result": "Urine beta-HCG result given if required; if asked for beta-HCG result, give back positive result."
+            },
+            {
+              "name": "Focused Assessment with Sonography for Trauma",
+              "result": "FF RUQ."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 10,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 10,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "packed_rbc",
+                "units": 2,
+                "strategy": "massive_transfusion_protocol_balanced_ratio"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 10,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "packed_rbc",
+              "units": 2,
+              "strategy": "massive_transfusion_protocol_balanced_ratio"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get OB and surgery to the bedside now and confirm the OR is ready for immediate transfer — ruptured ectopic with ongoing intra-abdominal bleeding, the MTP is only holding her pressure temporarily. Is the OR ready and is transport lined up?",
+          "turn_index": 11,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 105.0,
+            "BP_dia": 67.0,
+            "RR": 19.0,
+            "O2Sat": 98.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Urine beta-hCG",
+              "result": "Urine beta-HCG result given if required; if asked for beta-HCG result, give back positive result."
+            },
+            {
+              "name": "Focused Assessment with Sonography for Trauma",
+              "result": "FF RUQ."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 11,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "clinician",
+            "target_agent": "nurse"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "OB and surgery both paged STAT and I've called the OR — they're confirming a room is ready and transport is lined up at the bedside for immediate transfer. Latest vitals: BP 105/67, HR 110, sats 98% on room air, temp 35.8. No transfusion reaction so far, MTP still running balanced.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Hang 2 units of plasma now and keep the MTP balanced-ratio — she's still tachycardic at 110 with ongoing intra-abdominal bleeding. As soon as the OR confirms and transport's at the bedside, we move.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Hanging 2 units plasma per MTP, balanced ratio. Will keep you updated on response.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "plasma",
+          "units": 2,
+          "strategy": "massive_transfusion_protocol_balanced_ratio"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 104.0,
+            "BP_sys": 113.0,
+            "BP_dia": 72.0,
+            "RR": 19.0,
+            "O2Sat": 98.0,
+            "T": 36.0
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Urine beta-hCG",
+              "result": "Urine beta-HCG result given if required; if asked for beta-HCG result, give back positive result."
+            },
+            {
+              "name": "Focused Assessment with Sonography for Trauma",
+              "result": "FF RUQ."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 12,
+          "payload": {
+            "agent": "nurse",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 12,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "plasma",
+                "units": 2,
+                "strategy": "massive_transfusion_protocol_balanced_ratio"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 12,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "plasma",
+              "units": 2,
+              "strategy": "massive_transfusion_protocol_balanced_ratio"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "The blood is helping and your pressure is holding for now — 113 over 72. But I won't pretend otherwise: the bleeding won't stop until you're in surgery. The OR and transport are being confirmed right now, and we'll move you the moment they're ready.",
+          "turn_index": 13,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 108.0,
+            "BP_sys": 108.0,
+            "BP_dia": 69.0,
+            "RR": 20.0,
+            "O2Sat": 98.0,
+            "T": 36.0
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Urine beta-hCG",
+              "result": "Urine beta-HCG result given if required; if asked for beta-HCG result, give back positive result."
+            },
+            {
+              "name": "Focused Assessment with Sonography for Trauma",
+              "result": "FF RUQ."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: The blood is helping and your pressure is holding for now — 113 over 72. But I won't pretend otherwise: the bleeding won't stop until you're in surgery. The OR and transport are being confirmed right now, and we'll move you the moment they're ready.] No emotion changes. Fear stays present: the utterance mixes reassurance (pressure holding, plan in motion) with the sobering reality that bleeding won't stop until surgery, buffering but not resolving the threat. Sadness stays present: the anticipated loss/danger remains unresolved, though no new devastating loss is introduced. Overwhelm stays present: the message is fairly clear and paced with a concrete plan, so no additional processing burden, but the situation remains intense. Shame stays absent: nothing blaming or exposing."
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay — just get me to surgery as soon as they're ready. I still feel dizzy and weak.",
+          "turn_index": 14,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Hang the next 2 units of packed cells and keep the MTP balanced-ratio — she's still tachycardic at 108 with ongoing bleeding. Is the OR ready and is transport at the bedside to move now?",
+          "turn_index": 14,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting the first 2 units packed cells now on the massive transfusion protocol, balanced ratio. I'll keep them coming and call out vitals with each unit.",
+          "turn_index": 14,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "packed_rbc",
+          "units": 2,
+          "strategy": "massive_transfusion_protocol_balanced_ratio"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 98.0,
+            "BP_sys": 120.0,
+            "BP_dia": 75.0,
+            "RR": 20.0,
+            "O2Sat": 98.0,
+            "T": 36.0
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.3
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Urine beta-hCG",
+              "result": "Urine beta-HCG result given if required; if asked for beta-HCG result, give back positive result."
+            },
+            {
+              "name": "Focused Assessment with Sonography for Trauma",
+              "result": "FF RUQ."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 14,
+          "payload": {
+            "question_id": "q5",
+            "source_agent": "clinician",
+            "target_agent": "nurse"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 14,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "packed_rbc",
+                "units": 2,
+                "strategy": "massive_transfusion_protocol_balanced_ratio"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 14,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "packed_rbc",
+              "units": 2,
+              "strategy": "massive_transfusion_protocol_balanced_ratio"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    }
+  ],
+  "scenario_path": "transitions/OB-GYN/Ruptured Ectopic.json"
+}

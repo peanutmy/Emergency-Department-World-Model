@@ -1,0 +1,9 @@
+{
+  "tests/test_action_registry.py::test_fluid_bolus_has_fluid_type_options_but_no_volume_options": true,
+  "tests/test_action_registry.py::test_oxygen_support_has_device_options_but_no_fixed_fio2_or_peep_options": true,
+  "tests/test_agent_prompting.py::test_prompt_includes_profile_emotion_observation_recent_messages_and_common_rules": true,
+  "tests/test_agent_prompting.py::test_relative_prompt_has_no_behavior_action_or_emotion_transition": true,
+  "tests/test_patient_agent.py::test_build_prompt_includes_emotion_context_when_provided": true,
+  "tests/test_nurse_agent.py::test_build_prompt_instructs_silent_reasoning_and_profile_traits": true,
+  "tests/test_scenario_loader.py::test_loader_does_not_import_transition_engines": true
+}

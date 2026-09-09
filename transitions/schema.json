@@ -1,0 +1,625 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Educational ED World Model Transition Pair Schema",
+  "schema_version": "educational_transition_pair_v16",
+  "description": "Minimal source-faithful schema for educational emergency medicine transition pairs. Pairs capture treatment-response transitions or explicit time-progression transitions. The dataset stores only information stated in the source scenario; engine defaults, dose imputation, duration/onset assumptions, PK/PD curves, and hidden physiology states are not stored here. Mixed triggers or prompt-only events should be omitted from this file. For medication actions, params include drug_name, dose, unit, route, or dose_range only when a specific medication and parameter are explicitly stated. If the source provides medication options or drug-class options, do not encode those options in params; preserve the original wording in raw_text and use kind_hint as the engine-facing action class. Pair-level before.features uses only the fixed compact feature set: rhythm, oxygen_device, FiO2, intubated, vent, PEEP_cmH2O, neuro_status, glucose_mmol_l. Project-level oxygen device default FiO2 values apply when a device is stated but FiO2 is not explicit; if no oxygen device/support is stated, set oxygen_device to null and FiO2 to 0.21. neuro_status is a string field that can store GCS, AVPU, or qualitative mental status. All oxygen-support actions, including oxygen application, NRB, BVM, BiPAP, BVM with PEEP valve, and PEEP-setting language, use kind_hint='oxygen_support' with fixed params: oxygen_device, FiO2, PEEP_used, PEEP_cmH2O. Do not use a separate ventilation_adjustment kind_hint in this dataset version. Intubation-related airway_management actions may use a fixed compact params convention: procedure='intubation', stage='attempt' or 'completed' or null, rsi_medication_used=true/false/null, bvm_before=true/false/null, and intubated=true/false/null. Use null when the source does not state the item; false only when the source explicitly states absence or when a source action clearly lacks PEEP by contrast with a separate PEEP action. Standalone BVM/NRB/oxygen actions remain oxygen_support actions.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "case_id",
+    "category",
+    "source_pdf",
+    "scenario_description",
+    "case_context",
+    "pairs"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "source_pdf": {
+      "type": "string"
+    },
+    "scenario_description": {
+      "type": "string",
+      "description": "Brief case-level description. May be provided to LLM-based engines; should not include target values from individual transition pairs."
+    },
+    "case_context": {
+      "$ref": "#/definitions/case_context"
+    },
+    "pairs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/pair"
+      }
+    }
+  },
+  "definitions": {
+    "finding_item": {
+      "type": "object",
+      "required": [
+        "test_code",
+        "test_name",
+        "test_category",
+        "result_summary"
+      ],
+      "properties": {
+        "test_code": {
+          "type": "string",
+          "description": "Stable test-bank code, e.g., BMP, VBG, TROP, CXR, ECG, ECHO."
+        },
+        "test_name": {
+          "type": "string",
+          "description": "Human-readable test name."
+        },
+        "test_category": {
+          "type": "string",
+          "description": "Broad test category, e.g., lab, blood_gas, cardiac_test, endocrine_test, hematology, imaging, ecg, ultrasound, echo."
+        },
+        "result_summary": {
+          "type": "string",
+          "description": "Compact source-faithful result summary."
+        }
+      },
+      "additionalProperties": false
+    },
+    "supporting_findings": {
+      "type": "array",
+      "description": "Source-faithful supporting documents represented as a flat test-bank-oriented list. Each item uses a stable test_code, test_name, test_category, and compact result_summary.",
+      "items": {
+        "$ref": "#/definitions/finding_item"
+      }
+    },
+    "case_context": {
+      "type": "object",
+      "description": "Case-level information strictly grounded in scenario text. history should reflect the Patient Profile/PMH rather than inferred diagnosis labels.",
+      "required": [
+        "demographics",
+        "history",
+        "home_medications",
+        "allergies",
+        "baseline_features",
+        "supporting_findings"
+      ],
+      "properties": {
+        "demographics": {
+          "type": "object",
+          "properties": {
+            "age": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "sex": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "weight_kg": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "history": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Strictly use stated past medical history from the scenario."
+        },
+        "home_medications": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allergies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "baseline_features": {
+          "$ref": "#/definitions/features"
+        },
+        "supporting_findings": {
+          "$ref": "#/definitions/supporting_findings"
+        }
+      },
+      "additionalProperties": false
+    },
+    "vitals": {
+      "type": "object",
+      "description": "Sparse or complete vital signs. Missing/unstated values can be null or omitted.",
+      "properties": {
+        "HR": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "BP_sys": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "BP_dia": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "RR": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "O2Sat": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "T": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "features": {
+      "type": "object",
+      "description": "Case-level non-vital features. For pair.input.before.features, use before_features instead. Use neuro_status as a string field for GCS, AVPU, or qualitative mental status.",
+      "additionalProperties": true
+    },
+    "action": {
+      "type": "object",
+      "required": [
+        "raw_text",
+        "kind_hint",
+        "params"
+      ],
+      "properties": {
+        "raw_text": {
+          "type": "string",
+          "description": "Source-faithful action text without the target values after the arrow."
+        },
+        "kind_hint": {
+          "type": "string",
+          "description": "Coarse action class used by lightweight engines and runtime world model. Examples: fluid_bolus, fluid_infusion, vasopressor, vasodilator, rate_control, negative_chronotrope, diuretic, oxygen_support, noninvasive_ventilation, airway_management, synchronized_cardioversion, defibrillation, time_passage, no_action, analgesia, unknown. Additional project action classes may be used when explicitly adopted by the dataset. In this dataset version, oxygen application/NRB/BVM/BiPAP/BVM with PEEP/PEEP-setting actions should be encoded as oxygen_support using fixed oxygen_support params; do not use ventilation_adjustment. For intubation workflow, prefer airway_management with fixed intubation params."
+        },
+        "params": {
+          "type": "object",
+          "description": "Sparse action parameters explicitly stated in the source. For oxygen_support actions, use the fixed compact convention: oxygen_device, FiO2, PEEP_used, PEEP_cmH2O. Use null when device/FiO2/PEEP value is not stated; use PEEP_used=true when the source explicitly states PEEP/PEEP valve/BiPAP; use PEEP_used=false when the action clearly states a non-PEEP oxygen device/action such as NRB or BVM without PEEP. For airway_management/intubation actions, use the fixed compact convention where applicable: procedure='intubation'; stage is 'attempt', 'completed', or null; rsi_medication_used is true/false/null; bvm_before is true/false/null; intubated is true/false/null. Standalone BVM remains oxygen_support with oxygen_device='BVM' and FiO2=1.0. Other examples: amount_ml, fluid_type, drug_name, dose, unit, route, dose_range, energy_j, elapsed_min. Do not impute missing dose, route, onset, duration, or hidden state.",
+          "additionalProperties": true,
+          "properties": {
+            "procedure": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "For intubation workflow, use 'intubation'. Other source-faithful procedure labels may be used for non-intubation airway procedures."
+            },
+            "stage": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "attempt",
+                "completed",
+                null
+              ],
+              "description": "For intubation workflow: attempt = attempted intubation; completed = successful intubation; null = not stated or medication-only trigger."
+            },
+            "rsi_medication_used": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "description": "Whether RSI/intubation medication is explicitly used. true when source states RSI meds/with paralytic/induction; false only when source explicitly says without paralytic/no RSI medication; null when not stated."
+            },
+            "bvm_before": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "description": "Whether BVM was used before intubation. true/false only when explicitly stated; null when not stated."
+            },
+            "intubated": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "description": "Whether the action explicitly results in an intubated state. true for successful/completed intubation; false for failed/attempt-only branches when explicit; null when not stated."
+            },
+            "oxygen_device": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "FiO2": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "PEEP_cmH2O": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "elapsed_min": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "drug_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "dose": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "unit": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "route": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "dose_range": {
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "amount_ml": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "amount_range_ml": {
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "fluid_type": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "energy_j": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "PEEP_used": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "description": "For oxygen_support actions, whether PEEP/PEEP valve/BiPAP is explicitly part of the action. Use true when stated, false when the action clearly lacks PEEP, and null when not stated/ambiguous."
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "pair_input": {
+      "type": "object",
+      "required": [
+        "before",
+        "action"
+      ],
+      "properties": {
+        "before": {
+          "type": "object",
+          "required": [
+            "vitals",
+            "features"
+          ],
+          "properties": {
+            "vitals": {
+              "$ref": "#/definitions/vitals"
+            },
+            "features": {
+              "$ref": "#/definitions/before_features"
+            }
+          },
+          "additionalProperties": false
+        },
+        "action": {
+          "$ref": "#/definitions/action"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pair_label": {
+      "type": "object",
+      "required": [
+        "target",
+        "evaluation"
+      ],
+      "properties": {
+        "target": {
+          "type": "object",
+          "required": [
+            "vitals",
+            "features"
+          ],
+          "properties": {
+            "vitals": {
+              "$ref": "#/definitions/vitals",
+              "description": "Sparse target vitals explicitly stated in the source."
+            },
+            "features": {
+              "$ref": "#/definitions/target_features",
+              "description": "Sparse target non-vital features explicitly stated in the source, such as rhythm or GCS."
+            }
+          },
+          "additionalProperties": false
+        },
+        "evaluation": {
+          "type": "object",
+          "required": [
+            "target_vitals",
+            "target_features"
+          ],
+          "properties": {
+            "target_vitals": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Only these vitals are evaluated for direction and masked normalized L2."
+            },
+            "target_features": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Non-vital features to evaluate categorically or with feature-specific logic."
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "pair": {
+      "type": "object",
+      "required": [
+        "id",
+        "pair_type",
+        "source",
+        "input",
+        "label"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "pair_type": {
+          "type": "string",
+          "enum": [
+            "physiology_response",
+            "time_progression"
+          ],
+          "description": "physiology_response = explicit treatment/action modifier with target response. time_progression = explicit time passage/no-action deterioration pair. Mixed triggers should be omitted from main pairs."
+        },
+        "source": {
+          "type": "object",
+          "required": [
+            "modifier_text"
+          ],
+          "properties": {
+            "modifier_text": {
+              "type": "string",
+              "description": "Original source text for audit. It may include target values and must not be passed to engines."
+            }
+          },
+          "additionalProperties": false
+        },
+        "input": {
+          "$ref": "#/definitions/pair_input"
+        },
+        "label": {
+          "$ref": "#/definitions/pair_label"
+        }
+      },
+      "additionalProperties": false
+    },
+    "before_features": {
+      "type": "object",
+      "description": "Fixed compact observable support/rhythm/neuro/metabolic feature set used in pair.input.before.features. Do not add extra keys. If rhythm, intubated, vent, PEEP_cmH2O, neuro_status, or glucose_mmol_l is not stated or not applicable, use null. For oxygen fields: if an oxygen device is stated, set FiO2 using the project's device default unless the source explicitly gives FiO2 or oxygen percentage. If no oxygen device/support is stated, set oxygen_device to null and FiO2 to 0.21. neuro_status should be stored as a string, e.g., 'GCS 15', 'AVPU: Pain', 'drowsy', 'unresponsive', or null. glucose_mmol_l should be numeric when explicitly stated, otherwise null.",
+      "required": [
+        "rhythm",
+        "oxygen_device",
+        "FiO2",
+        "intubated",
+        "vent",
+        "PEEP_cmH2O",
+        "neuro_status",
+        "glucose_mmol_l"
+      ],
+      "properties": {
+        "rhythm": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "oxygen_device": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "FiO2": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "intubated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "vent": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "PEEP_cmH2O": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "glucose_mmol_l": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "neuro_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "target_features": {
+      "type": "object",
+      "description": "Sparse non-vital target features explicitly stated in the source. Use only when a non-vital feature changes and is an evaluation target. neuro_status should be stored as a string when present.",
+      "properties": {
+        "rhythm": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "consciousness": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "oxygen_device": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "FiO2": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "intubated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "vent": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "PEEP_cmH2O": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "glucose_mmol_l": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "neuro_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "oxygen_device_defaults": {
+      "type": "object",
+      "description": "Project-level default FiO2 values for oxygen devices when source gives device but not FiO2.",
+      "properties": {
+        "room_air": {
+          "type": "number"
+        },
+        "nasal_cannula": {
+          "type": "number"
+        },
+        "simple_mask": {
+          "type": "number"
+        },
+        "NRB": {
+          "type": "number"
+        },
+        "BVM": {
+          "type": "number"
+        },
+        "BiPAP": {
+          "type": "number"
+        },
+        "HFNC": {
+          "type": "number"
+        },
+        "vent": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

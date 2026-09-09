@@ -1,0 +1,2165 @@
+{
+  "scenario": "A 29-year-old pregnant woman presents to the ED with altered mental status, vomiting, diarrhea, hypotension, tachycardia, tachypnea, and suspected iron overdose from prenatal vitamins. The scenario focuses on airway management, hemodynamic support, and chelation therapy for iron toxicity.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Trust in Provider": "high",
+    "Anger": "high"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Let's get a venous blood gas now. Her glucose is 17.5, she's tachypneic and only responsive to GCS 9, so I'm worried about a metabolic acidosis.",
+          "turn_index": 0,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 133.0,
+            "BP_sys": 92.0,
+            "BP_dia": 58.0,
+            "RR": 31.0,
+            "O2Sat": 93.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 0,
+          "payload": {
+            "test_name": "Venous blood gas",
+            "ordered_at_turn": 0,
+            "ready_at_turn": 1,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "VBG is back: pH 7.05, PCO2 38, PO2 80, HCO3 5. Severe metabolic acidosis with poor respiratory compensation. HR 133, BP 92/58, RR 31, sats 93 on room air, glucose 17.5, GCS still 9.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Send a basic metabolic panel now. With that pH of 7.05 and bicarb of 5 alongside glucose 17.5, I need her electrolytes, renal function, and an anion gap.",
+          "turn_index": 1,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 135.0,
+            "BP_sys": 89.0,
+            "BP_dia": 56.0,
+            "RR": 32.0,
+            "O2Sat": 92.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 1,
+          "payload": {
+            "test_name": "Venous blood gas",
+            "ordered_at_turn": 0,
+            "ready_at_turn": 1,
+            "released_at_turn": 1
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 1,
+          "payload": {
+            "test_name": "Basic metabolic panel",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I'm starting IV fluids because your blood pressure is low and your blood is dangerously acidic. What symptoms have you been having, and when did they start?",
+          "turn_index": 2,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 140.0,
+            "BP_sys": 82.0,
+            "BP_dia": 52.0,
+            "RR": 33.0,
+            "O2Sat": 91.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "validation_drop",
+          "turn_index": 2,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Unknown params for 'fluid_bolus': ['drug_name']."
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 2,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: I'm starting IV fluids because your blood pressure is low and your blood is dangerously acidic. What symptoms have you been having, and when did they start?] fear absent->present: direct disclosure of a newly named serious abnormality (low BP, dangerously acidic blood) is bad news delivered to the symptomatic/unstable patient, which raises fear at least to present; the clear plan (starting fluids) buffers the size but does not cancel it, and no terminal breakdown cue is present so not extreme. sadness stays absent: no actual or anticipated devastating loss is conveyed. overwhelm stays absent: a single clear statement plus one straightforward question is not multiple technical findings or excessive processing burden. shame stays absent: no blame, judgment, or exposure."
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "BMP is back: Na 135, K 4, HCO3 5, Cl 100, Cr 130, glucose 17. Anion gap is 30 — high anion gap metabolic acidosis. Current vitals: HR 140, BP 82/52, RR 33, sats 91 on room air, GCS still 9.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "I've been throwing up and having diarrhea... there were some blood streaks in it. I feel so confused and out of it, just completely wiped out and exhausted. And I'm having trouble breathing. I can't even tell you exactly when it started.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start 1 liter normal saline wide open now — she's hypotensive at 82/52 with a severe high anion gap acidosis.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Normal saline 1 liter bolus is running now.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 138.0,
+            "BP_sys": 92.0,
+            "BP_dia": 57.0,
+            "RR": 33.0,
+            "O2Sat": 91.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 135, K 4, HCO3 5, Cl 100, Cr 130, Glucose 17."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 3,
+          "payload": {
+            "test_name": "Basic metabolic panel",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "released_at_turn": 3
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Send a lactate now. That anion gap of 30 needs a cause, and I need to know how much of it is lactic acidosis.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 141.0,
+            "BP_sys": 88.0,
+            "BP_dia": 54.0,
+            "RR": 34.0,
+            "O2Sat": 89.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 135, K 4, HCO3 5, Cl 100, Cr 130, Glucose 17."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 4,
+          "payload": {
+            "test_name": "Lactate",
+            "ordered_at_turn": 4,
+            "ready_at_turn": 6,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I'm sending a toxicology screen to check whether something you took is causing your blood to turn this acidic. I need you to tell me straight: have you taken any medications, pills, alcohol, or other substances recently, accidental or on purpose?",
+          "turn_index": 5,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 145.0,
+            "BP_sys": 83.0,
+            "BP_dia": 51.0,
+            "RR": 35.0,
+            "O2Sat": 87.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 135, K 4, HCO3 5, Cl 100, Cr 130, Glucose 17."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 5,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "Toxicology screen",
+            "ordered_at_turn": 5,
+            "ready_at_turn": 7,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": "[clinician: I'm sending a toxicology screen to check whether something you took is causing your blood to turn this acidic. I need you to tell me straight: have you taken any medications, pills, alcohol, or other substances recently, accidental or on purpose?] shame absent->present: the pointed demand to 'tell me straight' whether she took substances 'accidental or on purpose' carries implied blame and exposure about possible self-harm or misuse, making a pregnant patient feel judged/at fault. fear stays present: the concern about her acidic blood persists but no new escalation. sadness stays absent: no loss framing added. overwhelm stays absent: this is a single question, not a pile of information."
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Lactate is back at 8. Current vitals: HR 145, BP 83/51, RR 35, sats 87 on room air, glucose 17.5, GCS still 9 — sats are dropping and she's still hypotensive.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "I haven't taken anything like that. I only take my fluoxetine and my prenatal vitamins. I haven't had any alcohol or anything else, not that I know of. Why are you asking me like I did something wrong?",
+          "turn_index": 6,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Put her on a non-rebreather now — her sats have dropped to 87% on room air.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Non-rebreather is on and running.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "NRB",
+          "FiO2": null,
+          "PEEP_used": null,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 145.0,
+            "BP_sys": 83.0,
+            "BP_dia": 51.0,
+            "RR": 33.0,
+            "O2Sat": 91.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 135, K 4, HCO3 5, Cl 100, Cr 130, Glucose 17."
+            },
+            {
+              "name": "Lactate",
+              "result": "Lactate 8."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 6,
+          "payload": {
+            "test_name": "Lactate",
+            "ordered_at_turn": 4,
+            "ready_at_turn": 6,
+            "released_at_turn": 6
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 6,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "NRB",
+                "FiO2": null,
+                "PEEP_used": null,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 6,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "NRB",
+              "FiO2": null,
+              "PEEP_used": null,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Tox screen is back: APAP under 10, ASA negative, EtOH negative. On the non-rebreather she's up to 91% now, but HR still 145, BP 83/51, RR 33, GCS 9.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Send a heavy metal and toxic alcohols panel. Her anion gap is around 30 but lactate is only 8 and the tox screen's negative, so there's a big unexplained gap I need to account for.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 149.0,
+            "BP_sys": 78.0,
+            "BP_dia": 48.0,
+            "RR": 34.0,
+            "O2Sat": 90.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 135, K 4, HCO3 5, Cl 100, Cr 130, Glucose 17."
+            },
+            {
+              "name": "Lactate",
+              "result": "Lactate 8."
+            },
+            {
+              "name": "Toxicology screen",
+              "result": "APAP <10, ASA negative, EtOH negative."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 7,
+          "payload": {
+            "test_name": "Toxicology screen",
+            "ordered_at_turn": 5,
+            "ready_at_turn": 7,
+            "released_at_turn": 7
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 7,
+          "payload": {
+            "test_name": "Heavy metal and toxic alcohols",
+            "ordered_at_turn": 7,
+            "ready_at_turn": 9,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start IV sodium bicarbonate now — her pH is 7.05 with a bicarb of 5. That's severe acidemia and she needs buffering while the toxic alcohols panel is pending.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "sodium bicarbonate",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 151.0,
+            "BP_sys": 78.0,
+            "BP_dia": 48.0,
+            "RR": 32.0,
+            "O2Sat": 89.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 135, K 4, HCO3 5, Cl 100, Cr 130, Glucose 17."
+            },
+            {
+              "name": "Lactate",
+              "result": "Lactate 8."
+            },
+            {
+              "name": "Toxicology screen",
+              "result": "APAP <10, ASA negative, EtOH negative."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "sodium bicarbonate",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "sodium bicarbonate",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Sodium bicarb is running. Toxic alcohols panel is still pending. Current vitals: HR 151, BP 78/48, sats 89 on the non-rebreather at 80%, RR 32, GCS still 9 — she's not turning the corner, still hypotensive and hypoxic.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start norepinephrine now — she's still hypotensive at 78/48 after the fluids and bicarb.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Norepinephrine is up and running.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "norepinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 145.0,
+            "BP_sys": 85.0,
+            "BP_dia": 53.0,
+            "RR": 32.0,
+            "O2Sat": 89.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 135, K 4, HCO3 5, Cl 100, Cr 130, Glucose 17."
+            },
+            {
+              "name": "Lactate",
+              "result": "Lactate 8."
+            },
+            {
+              "name": "Toxicology screen",
+              "result": "APAP <10, ASA negative, EtOH negative."
+            },
+            {
+              "name": "Heavy metal and toxic alcohols",
+              "result": "Pending."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 9,
+          "payload": {
+            "test_name": "Heavy metal and toxic alcohols",
+            "ordered_at_turn": 7,
+            "ready_at_turn": 9,
+            "released_at_turn": 9
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "norepinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "norepinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Prep for RSI intubation now — she's GCS 9 and her sats are down to 89% on the non-rebreather, she can't protect her airway. Have the bag-valve mask ready to preoxygenate before the attempt.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "RSI meds drawn up and ready, patient's been pre-oxygenated with BVM. Standing by for intubation on your go.",
+          "turn_index": 10,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "airway_management",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "airway_management",
+        "params": {
+          "stage": "preparation",
+          "rsi_medication_used": true,
+          "bvm_before": true,
+          "intubated": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 153.0,
+            "BP_sys": 73.0,
+            "BP_dia": 45.0,
+            "RR": 32.0,
+            "O2Sat": 84.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": true,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 135, K 4, HCO3 5, Cl 100, Cr 130, Glucose 17."
+            },
+            {
+              "name": "Lactate",
+              "result": "Lactate 8."
+            },
+            {
+              "name": "Toxicology screen",
+              "result": "APAP <10, ASA negative, EtOH negative."
+            },
+            {
+              "name": "Heavy metal and toxic alcohols",
+              "result": "Pending."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 10,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "airway_management",
+              "params": {
+                "stage": "preparation",
+                "rsi_medication_used": true,
+                "bvm_before": true,
+                "intubated": null
+              }
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "features",
+              "status_flags"
+            ]
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 10,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "airway_management",
+            "raw_text": null,
+            "params": {
+              "stage": "preparation",
+              "rsi_medication_used": true,
+              "bvm_before": true,
+              "intubated": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Go ahead and intubate now. Confirm placement with end-tidal CO2 and get a post-intubation chest film ready.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Intubation complete. RSI meds given, BVM'd prior, tube's in. I'll get end-tidal and confirm placement, then set up the vent.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "airway_management",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "airway_management",
+        "params": {
+          "stage": "completed",
+          "rsi_medication_used": true,
+          "bvm_before": true,
+          "intubated": true
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 143.0,
+            "BP_sys": 68.0,
+            "BP_dia": 42.0,
+            "RR": 12.0,
+            "O2Sat": 91.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 135, K 4, HCO3 5, Cl 100, Cr 130, Glucose 17."
+            },
+            {
+              "name": "Lactate",
+              "result": "Lactate 8."
+            },
+            {
+              "name": "Toxicology screen",
+              "result": "APAP <10, ASA negative, EtOH negative."
+            },
+            {
+              "name": "Heavy metal and toxic alcohols",
+              "result": "Pending."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 11,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "airway_management",
+              "params": {
+                "stage": "completed",
+                "rsi_medication_used": true,
+                "bvm_before": true,
+                "intubated": true
+              }
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "features",
+              "status_flags"
+            ]
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 11,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "airway_management",
+            "raw_text": null,
+            "params": {
+              "stage": "completed",
+              "rsi_medication_used": true,
+              "bvm_before": true,
+              "intubated": true
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get the post-intubation chest X-ray now to confirm tube depth and placement.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 147.0,
+            "BP_sys": 63.0,
+            "BP_dia": 39.0,
+            "RR": 12.0,
+            "O2Sat": 90.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 135, K 4, HCO3 5, Cl 100, Cr 130, Glucose 17."
+            },
+            {
+              "name": "Lactate",
+              "result": "Lactate 8."
+            },
+            {
+              "name": "Toxicology screen",
+              "result": "APAP <10, ASA negative, EtOH negative."
+            },
+            {
+              "name": "Heavy metal and toxic alcohols",
+              "result": "Pending."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 12,
+          "payload": {
+            "test_name": "Chest X-ray - post intubation",
+            "ordered_at_turn": 12,
+            "ready_at_turn": 15,
+            "turnaround_turns": 3
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start empiric fomepizole now. Her anion gap is around 30 with a lactate of only 8 and pH 7.05, bicarb 5 — that's a big unexplained gap and I'm treating suspected toxic alcohol ingestion while the panel's still pending.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Fomepizole is up and running.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "antidote",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "antidote",
+        "params": {
+          "drug_name": "fomepizole",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 147.0,
+            "BP_sys": 63.0,
+            "BP_dia": 39.0,
+            "RR": 12.0,
+            "O2Sat": 90.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 135, K 4, HCO3 5, Cl 100, Cr 130, Glucose 17."
+            },
+            {
+              "name": "Lactate",
+              "result": "Lactate 8."
+            },
+            {
+              "name": "Toxicology screen",
+              "result": "APAP <10, ASA negative, EtOH negative."
+            },
+            {
+              "name": "Heavy metal and toxic alcohols",
+              "result": "Pending."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 13,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "antidote",
+              "params": {
+                "drug_name": "fomepizole",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 13,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "antidote",
+            "raw_text": null,
+            "params": {
+              "drug_name": "fomepizole",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Give her another dose of sodium bicarbonate now - this is a repeat. Her pH is still 7.05 with a bicarb of 5, she's not correcting. Fomepizole's already running for the suspected toxic alcohol, but she needs urgent dialysis - get nephrology on the phone now.",
+          "turn_index": 14,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "sodium bicarbonate",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 145.0,
+            "BP_sys": 65.0,
+            "BP_dia": 40.0,
+            "RR": 12.0,
+            "O2Sat": 90.0,
+            "T": 37.0
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 17.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.05, PCO2 38, PO2 80, HCO3 5."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 135, K 4, HCO3 5, Cl 100, Cr 130, Glucose 17."
+            },
+            {
+              "name": "Lactate",
+              "result": "Lactate 8."
+            },
+            {
+              "name": "Toxicology screen",
+              "result": "APAP <10, ASA negative, EtOH negative."
+            },
+            {
+              "name": "Heavy metal and toxic alcohols",
+              "result": "Pending."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 14,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "sodium bicarbonate",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 14,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "sodium bicarbonate",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    }
+  ],
+  "scenario_path": "transitions/Resuscitation/Iron Overdose in a Pregnant Patient.json"
+}

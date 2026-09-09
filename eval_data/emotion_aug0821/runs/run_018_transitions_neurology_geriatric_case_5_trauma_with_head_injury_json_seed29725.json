@@ -1,0 +1,2068 @@
+{
+  "scenario": "An 81-year-old male falls down stairs at home with a head injury and deteriorating level of consciousness in the setting of rivaroxaban use. The scenario focuses on recognition and management of severe traumatic brain injury, raised ICP, NOAC reversal, neuroprotective RSI, post-intubation management, and family discussion.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Trust in Provider": "high",
+    "Anger": "high"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Sir, what brought you in today, and when did it start? Tell me how you're feeling right now.",
+          "turn_index": 0,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 85.0,
+            "BP_sys": 119.0,
+            "BP_dia": 60.0,
+            "RR": 16.0,
+            "O2Sat": 93.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 0,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Sir, what brought you in today, and when did it start? Tell me how you're feeling right now.] The utterance is a neutral open-ended history-taking question with no bad news, no serious disclosure, no blame, and no loss content. Fear stays absent (no clinical threat disclosed). Sadness stays absent (no loss). Overwhelm stays absent (a single simple question, no informational overload). Shame stays absent (nonjudgmental, no exposure or blame)."
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I... fell. The stairs — my head, it hurts. Where... I don't— everything's spinning, I feel sick, gonna be sick. Just let me be, don't— my head...",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's get a 12-lead ECG on him now — he's in atrial fibrillation on the monitor.",
+          "turn_index": 1,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 87.0,
+            "BP_sys": 122.0,
+            "BP_dia": 60.0,
+            "RR": 16.0,
+            "O2Sat": 92.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 1,
+          "payload": {
+            "test_name": "ECG",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "You fell on the stairs and hit your head. I need one thing from you right now: are you taking any blood thinners or other regular medications?",
+          "turn_index": 2,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 87.0,
+            "BP_sys": 126.0,
+            "BP_dia": 60.0,
+            "RR": 16.0,
+            "O2Sat": 91.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 2,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 2,
+          "payload": {
+            "test_name": "Chest X-ray",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 5,
+            "turnaround_turns": 3
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: You fell on the stairs and hit your head. I need one thing from you right now: are you taking any blood thinners or other regular medications?] The utterance restates a known fact (fell and hit head) and asks a focused, calm question about medications. No newly discovered serious abnormality, worsening condition, or need to escalate care is disclosed to the patient, so fear stays absent. No loss/anticipated loss language, so sadness stays absent. It is a single simple question, not an information overload, so overwhelm stays absent. No blame, judgment, or exposure, so shame stays absent."
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "ECG's back — confirms atrial fibrillation. Heads up: sats are down to 91 on room air, GCS 13, and he's reporting head pain with nausea after a fall. Want me to set him up for oxygen?",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "Medications? I... I don't— pills, maybe? I can't— my head hurts too much to think. I don't know, leave me alone, I feel sick...",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Yes, start him on oxygen by nasal cannula — his sats are down to 91 on room air after the head injury.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "nasal_cannula",
+          "FiO2": null,
+          "PEEP_used": null,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 87.0,
+            "BP_sys": 126.0,
+            "BP_dia": 60.0,
+            "RR": 16.0,
+            "O2Sat": 94.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Atrial fibrillation ECG image provided from ECGpedia."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 3,
+          "payload": {
+            "test_name": "ECG",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "released_at_turn": 3
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "nasal_cannula",
+                "FiO2": null,
+                "PEEP_used": null,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "nasal_cannula",
+              "FiO2": null,
+              "PEEP_used": null,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Let's get a portable chest X-ray to screen for thoracic injury after the fall.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 90.0,
+            "BP_sys": 128.0,
+            "BP_dia": 60.0,
+            "RR": 16.0,
+            "O2Sat": 93.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Atrial fibrillation ECG image provided from ECGpedia."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "validation_drop",
+          "turn_index": 4,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Diagnostic test_name 'Chest X-ray' is already pending; duplicate diagnostic_order is not allowed."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Chest X-ray is back. Oxygen's on at nasal cannula, sats up to 93 now, FiO2 0.28. He's still in AF, HR 90, GCS 13.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Get a portable pelvic X-ray next — screening for a pelvic fracture after the fall.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 92.0,
+            "BP_sys": 131.0,
+            "BP_dia": 60.0,
+            "RR": 16.0,
+            "O2Sat": 92.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Atrial fibrillation ECG image provided from ECGpedia."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 6410."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "Chest X-ray",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 5,
+            "released_at_turn": 5
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "Pelvic X-ray",
+            "ordered_at_turn": 5,
+            "ready_at_turn": 8,
+            "turnaround_turns": 3
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Stay with me, this matters. Did you black out at all when you fell?",
+          "turn_index": 6,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 92.0,
+            "BP_sys": 135.0,
+            "BP_dia": 60.0,
+            "RR": 15.0,
+            "O2Sat": 91.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Atrial fibrillation ECG image provided from ECGpedia."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 6410."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 6,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: Stay with me, this matters. Did you black out at all when you fell?] fear absent->present: the urgent 'stay with me, this matters' plus pressing questioning about the head injury conveys threat/urgency to the symptomatic, confused patient, raising alarm. overwhelm absent->present: the patient already reported being unable to think due to head pain and nausea; being pressed to recall and answer distressing questions exceeds his processing capacity. sadness stays absent: no actual or anticipated devastating loss is conveyed. shame stays absent: the utterance is nonjudgmental, no blame or exposure."
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Black out? I... I don't know — I can't remember. It's all a blur, I don't know what happened. My head hurts so much, I feel sick... stop asking me, I can't think straight.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's get that portable pelvic X-ray now to screen for a fracture after the fall.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 92.0,
+            "BP_sys": 138.0,
+            "BP_dia": 60.0,
+            "RR": 15.0,
+            "O2Sat": 90.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Atrial fibrillation ECG image provided from ECGpedia."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 6410."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 7,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Diagnostic test_name 'Pelvic X-ray' is already pending; duplicate diagnostic_order is not allowed."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Pelvic X-ray is back for you to review. Note his sats have dropped to 90 on the nasal cannula, GCS still 13, and diastolic's low at 60. He's getting more distressed and nauseated.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Switch him to a simple face mask — sats have dropped to 90 on the cannula. And keep a close watch on his airway; head injury with GCS 13 and he's nauseated.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "simple_mask",
+          "FiO2": null,
+          "PEEP_used": null,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 92.0,
+            "BP_sys": 138.0,
+            "BP_dia": 60.0,
+            "RR": 15.0,
+            "O2Sat": 94.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "simple_mask",
+            "FiO2": 0.4,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Atrial fibrillation ECG image provided from ECGpedia."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 6410."
+            },
+            {
+              "name": "Pelvic X-ray",
+              "result": "Pelvic X-ray image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 28928."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 8,
+          "payload": {
+            "test_name": "Pelvic X-ray",
+            "ordered_at_turn": 5,
+            "ready_at_turn": 8,
+            "released_at_turn": 8
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "simple_mask",
+                "FiO2": null,
+                "PEEP_used": null,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "simple_mask",
+              "FiO2": null,
+              "PEEP_used": null,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Switch him to a non-rebreather — sats are still only 94 on the simple mask. Keep watching his airway closely; GCS 13 and nauseated with a head injury, he could vomit.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Non-rebreather is on and running.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "NRB",
+          "FiO2": null,
+          "PEEP_used": null,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 92.0,
+            "BP_sys": 138.0,
+            "BP_dia": 60.0,
+            "RR": 15.0,
+            "O2Sat": 97.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Atrial fibrillation ECG image provided from ECGpedia."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 6410."
+            },
+            {
+              "name": "Pelvic X-ray",
+              "result": "Pelvic X-ray image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 28928."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "NRB",
+                "FiO2": null,
+                "PEEP_used": null,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "NRB",
+              "FiO2": null,
+              "PEEP_used": null,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I know your head hurts and you feel sick. Just tell me one thing: is the headache or the nausea getting worse right now?",
+          "turn_index": 10,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 92.0,
+            "BP_sys": 142.0,
+            "BP_dia": 60.0,
+            "RR": 15.0,
+            "O2Sat": 97.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Atrial fibrillation ECG image provided from ECGpedia."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 6410."
+            },
+            {
+              "name": "Pelvic X-ray",
+              "result": "Pelvic X-ray image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 28928."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 10,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: I know your head hurts and you feel sick. Just tell me one thing: is the headache or the nausea getting worse right now?] No emotion changed. Fear stays present: the utterance acknowledges symptoms but asks about worsening, which sustains rather than resolves the threat. Overwhelm stays present: a focused single question is not a new information load, but asking the patient to focus on distressing symptoms does not relieve the existing overload. Sadness stays absent: no loss content. Shame stays absent: empathic, non-judgmental. The empathy is acknowledgment without concrete resolution, so no drop."
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Worse... it's worse. My head — it's pounding, and I feel sick, I'm gonna be sick. Everything's spinning, I can't think straight...",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's prep for RSI now — his headache and nausea are worsening, GCS 13, and he's high risk to vomit and aspirate. Set up the RSI meds and suction, and get the BVM ready so we can protect his airway.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "RSI meds drawn up and ready, patient pre-oxygenated with BVM. Suction and tube are set. Ready for you to intubate on your call.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "airway_management",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "airway_management",
+        "params": {
+          "stage": "preparation",
+          "rsi_medication_used": true,
+          "bvm_before": true,
+          "intubated": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 92.0,
+            "BP_sys": 142.0,
+            "BP_dia": 60.0,
+            "RR": 15.0,
+            "O2Sat": 98.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": true,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E4 V4 M5)",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Atrial fibrillation ECG image provided from ECGpedia."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 6410."
+            },
+            {
+              "name": "Pelvic X-ray",
+              "result": "Pelvic X-ray image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 28928."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 11,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "airway_management",
+              "params": {
+                "stage": "preparation",
+                "rsi_medication_used": true,
+                "bvm_before": true,
+                "intubated": null
+              }
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "features",
+              "status_flags"
+            ]
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 11,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "airway_management",
+            "raw_text": null,
+            "params": {
+              "stage": "preparation",
+              "rsi_medication_used": true,
+              "bvm_before": true,
+              "intubated": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Intubating now for his falling GCS and high aspiration risk. Push the RSI meds and I'll pass the tube. Confirm placement and secure it once we're in.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Intubation complete. RSI meds given, BVM prior to tube, patient intubated. Ready for post-intubation orders.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "airway_management",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "airway_management",
+        "params": {
+          "stage": "completed",
+          "rsi_medication_used": true,
+          "bvm_before": true,
+          "intubated": true
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 92.0,
+            "BP_sys": 142.0,
+            "BP_dia": 60.0,
+            "RR": 12.0,
+            "O2Sat": 98.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Atrial fibrillation ECG image provided from ECGpedia."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 6410."
+            },
+            {
+              "name": "Pelvic X-ray",
+              "result": "Pelvic X-ray image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 28928."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 12,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "airway_management",
+              "params": {
+                "stage": "completed",
+                "rsi_medication_used": true,
+                "bvm_before": true,
+                "intubated": true
+              }
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "features",
+              "status_flags"
+            ]
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 12,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "airway_management",
+            "raw_text": null,
+            "params": {
+              "stage": "completed",
+              "rsi_medication_used": true,
+              "bvm_before": true,
+              "intubated": true
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start a propofol infusion for post-intubation sedation — keep him comfortable and settled on the vent.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "sedation",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "sedation",
+        "params": {
+          "drug_name": "propofol",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 94.0,
+            "BP_sys": 125.0,
+            "BP_dia": 52.0,
+            "RR": 12.0,
+            "O2Sat": 98.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Atrial fibrillation ECG image provided from ECGpedia."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 6410."
+            },
+            {
+              "name": "Pelvic X-ray",
+              "result": "Pelvic X-ray image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 28928."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 13,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "sedation",
+              "params": {
+                "drug_name": "propofol",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "status_flags"
+            ]
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 13,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "sedation",
+            "raw_text": null,
+            "params": {
+              "drug_name": "propofol",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start mannitol now for suspected raised ICP after his head injury. Keep the head of bed elevated and hold his current propofol sedation on the vent.",
+          "turn_index": 14,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Mannitol's hanging now. I'll need a dose and rate to confirm, and I'll keep an eye on urine output and BP.",
+          "turn_index": 14,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "osmotherapy",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "osmotherapy",
+        "params": {
+          "drug_name": "mannitol",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 97.0,
+            "BP_sys": 120.0,
+            "BP_dia": 49.0,
+            "RR": 12.0,
+            "O2Sat": 98.0,
+            "T": 36.1
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Atrial fibrillation ECG image provided from ECGpedia."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CXR image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 6410."
+            },
+            {
+              "name": "Pelvic X-ray",
+              "result": "Pelvic X-ray image provided; case courtesy of Dr Jeremy Jones, Radiopaedia.org, rID 28928."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 14,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "osmotherapy",
+              "params": {
+                "drug_name": "mannitol",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 14,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "osmotherapy",
+            "raw_text": null,
+            "params": {
+              "drug_name": "mannitol",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    }
+  ],
+  "scenario_path": "transitions/Neurology/Geriatric Case 5 Trauma with Head Injury.json"
+}

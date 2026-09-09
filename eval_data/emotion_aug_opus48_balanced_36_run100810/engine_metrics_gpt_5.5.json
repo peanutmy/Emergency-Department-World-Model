@@ -1,0 +1,40 @@
+[
+  {
+    "comparison": "engine_vs_draft_labels",
+    "labels_scored": 140,
+    "exact_accuracy": 0.8142857142857143,
+    "mae": 0.18571428571428572,
+    "quadratic_weighted_kappa": 0.7626499739175796,
+    "change_detection": {
+      "precision": 0.5,
+      "recall": 0.7307692307692307,
+      "f1": 0.5937499999999999,
+      "direction_accuracy": 1.0
+    },
+    "target_dimension_accuracy": 0.7714285714285715,
+    "side_dimension_accuracy": 0.8285714285714286,
+    "per_emotion": {
+      "fear": {
+        "n": 35,
+        "exact_accuracy": 0.8571428571428571,
+        "mae": 0.14285714285714285
+      },
+      "sadness": {
+        "n": 35,
+        "exact_accuracy": 0.8,
+        "mae": 0.2
+      },
+      "overwhelm": {
+        "n": 35,
+        "exact_accuracy": 0.6285714285714286,
+        "mae": 0.37142857142857144
+      },
+      "shame": {
+        "n": 35,
+        "exact_accuracy": 0.9714285714285714,
+        "mae": 0.02857142857142857
+      }
+    },
+    "variant": "_full"
+  }
+]

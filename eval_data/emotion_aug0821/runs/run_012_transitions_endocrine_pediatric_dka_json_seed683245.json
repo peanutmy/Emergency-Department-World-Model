@@ -1,0 +1,1975 @@
+{
+  "scenario": "An 8-year-old female with new DKA is transferred after incorrect initial management at a peripheral hospital. In the ED she has altered level of consciousness, abdominal pain concerning for appendicitis, possible cerebral edema, and later requires careful airway management with ventilation planning because of severe metabolic acidosis.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Patient Activation": "low",
+    "Optimism": "low"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Hi sweetheart, can you tell me what's bothering you the most and when it started?",
+          "turn_index": 0,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 120.0,
+            "BP_sys": 95.0,
+            "BP_dia": 60.0,
+            "RR": 34.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 0,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Hi sweetheart, can you tell me what's bothering you the most and when it started?] The utterance is a gentle, open-ended question with no bad news, no clinical disclosure, no blame, and no anticipated loss. Fear stays absent (no serious threat disclosed), sadness stays absent (no loss mentioned), overwhelm stays absent (no information load or urgent demand), shame stays absent (warm, nonjudgmental tone). No trigger to move any emotion."
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "My tummy hurts and I've been feeling sick and tired for about three days. I keep throwing up and I feel really hot. My head feels all fuzzy and confused, and I keep having to pee a lot.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Draw a Basic Metabolic Panel now, please. I'm worried about DKA with the polyuria, vomiting, fast breathing, and her being confused.",
+          "turn_index": 1,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 120.0,
+            "BP_sys": 95.0,
+            "BP_dia": 60.0,
+            "RR": 34.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 1,
+          "payload": {
+            "test_name": "Basic Metabolic Panel",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Let's give a 250 mL normal saline bolus now, that's 10 mL/kg for 25 kilos. She's dehydrated from the vomiting and polyuria, likely DKA.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "250 mL normal saline bolus is running now.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 250
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 118.0,
+            "BP_sys": 100.0,
+            "BP_dia": 64.0,
+            "RR": 34.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 250
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 250
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "BMP back: Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, glucose 31 mmol/L. Wide anion gap with the low bicarb and hyperglycemia, consistent with DKA. Bolus is in.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start a continuous insulin infusion now for her DKA. Potassium is 4.5, so it's safe to begin. Keep the fluids running alongside.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "insulin",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 114.0,
+            "BP_sys": 100.0,
+            "BP_dia": 64.0,
+            "RR": 34.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 3,
+          "payload": {
+            "test_name": "Basic Metabolic Panel",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "released_at_turn": 3
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "insulin",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "insulin",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get me a venous blood gas now, please. I want to track her pH and how deep the acidosis is in this DKA.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 114.0,
+            "BP_sys": 100.0,
+            "BP_dia": 64.0,
+            "RR": 34.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 4,
+          "payload": {
+            "test_name": "Venous Blood Gas",
+            "ordered_at_turn": 4,
+            "ready_at_turn": 5,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "VBG back: pH 6.9, PCO2 20, PO2 50, HCO3 8, lactate 5. Severe high anion gap metabolic acidosis with respiratory compensation. Insulin infusion is running and fluids are up.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give a second 250 mL normal saline bolus now. She's still tachycardic and dehydrated after the first one. Keep the insulin running.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 250
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 108.0,
+            "BP_dia": 68.0,
+            "RR": 34.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 6.9, PCO2 20, PO2 50, HCO3 8, Lactate 5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "Venous Blood Gas",
+            "ordered_at_turn": 4,
+            "ready_at_turn": 5,
+            "released_at_turn": 5
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 250
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 250
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Sweetheart, has anyone ever told you that you have diabetes or given you medicine for it?",
+          "turn_index": 6,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 108.0,
+            "BP_dia": 68.0,
+            "RR": 35.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 6.9, PCO2 20, PO2 50, HCO3 8, Lactate 5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 6,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Sweetheart, has anyone ever told you that you have diabetes or given you medicine for it?] The utterance is a gentle, non-threatening question addressed to an 8-year-old patient asking about prior diabetes history. It contains no new bad news, no technical findings, no blame, and no anticipated loss. Fear stays absent because no serious threat is disclosed to the listener. Sadness stays absent as there is no loss framing. Overwhelm stays absent since it is a single simple question, not an information load. Shame stays absent as the question is neutral and non-judgmental, not implying fault."
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, nobody's ever told me I have that. And I don't take any medicine.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give another 250 mL normal saline bolus, 10 mL/kg. She's still tachycardic at 112 and dehydrated. Keep the insulin infusion running.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 250
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 108.0,
+            "BP_sys": 116.0,
+            "BP_dia": 72.0,
+            "RR": 35.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 6.9, PCO2 20, PO2 50, HCO3 8, Lactate 5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 250
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 250
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Add potassium chloride to her IV fluids now. Her K is 4.5 but it will drop fast with the insulin and as we correct the acidosis. Keep the insulin infusion and fluids running.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Potassium chloride is hanging now. Do you want a repeat K drawn after infusion, and should I put the patient on continuous cardiac monitoring for the correction?",
+          "turn_index": 8,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "potassium chloride",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 108.0,
+            "BP_sys": 116.0,
+            "BP_dia": 72.0,
+            "RR": 35.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 6.9, PCO2 20, PO2 50, HCO3 8, Lactate 5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "potassium chloride",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 8,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "nurse",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "potassium chloride",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Yes to both. Draw a repeat potassium after the infusion, and put her on continuous cardiac monitoring during the correction.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 108.0,
+            "BP_sys": 116.0,
+            "BP_dia": 72.0,
+            "RR": 35.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 6.9, PCO2 20, PO2 50, HCO3 8, Lactate 5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 9,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Send a CBC now. She's febrile at 38.5, so I want to look for an infection that may have triggered this DKA.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 108.0,
+            "BP_sys": 116.0,
+            "BP_dia": 72.0,
+            "RR": 35.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 6.9, PCO2 20, PO2 50, HCO3 8, Lactate 5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 10,
+          "payload": {
+            "test_name": "Complete Blood Count",
+            "ordered_at_turn": 10,
+            "ready_at_turn": 12,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "When did you first start feeling sick, and has it been getting worse since then, like more thirsty, peeing a lot, belly pain, throwing up, or really tired?",
+          "turn_index": 11,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 108.0,
+            "BP_sys": 116.0,
+            "BP_dia": 72.0,
+            "RR": 35.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 6.9, PCO2 20, PO2 50, HCO3 8, Lactate 5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 11,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: When did you first start feeling sick, and has it been getting worse since then, like more thirsty, peeing a lot, belly pain, throwing up, or really tired?] This utterance is a gentle history-taking question directed at a child, asking about symptom onset and progression. It contains no disclosure of a serious abnormality, worsening condition, or need to escalate care, so fear stays absent. No loss or devastating outcome is named, so sadness stays absent. It is a single, plainly worded question, not a pile of technical findings or urgent decisions, so overwhelm stays absent. There is no blame, judgment, or exposure, so shame stays absent. Note also the patient has altered consciousness and low activation, so this ordinary question does not itself trigger any emotion."
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "CBC back: WBC 16, Hgb 127, Hct 0.40, Plt 400. WBC is up, consistent with a possible infectious trigger.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "I started feeling sick about three days ago, and it's been getting worse. My tummy still hurts and I keep throwing up, and I have to pee a lot. I just feel really tired.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Thank you for telling me, sweetheart. What's making you sick is diabetes—your blood sugar is very high and it's made acid build up in your body, which is why your tummy hurts and you feel so tired. We already have medicine called insulin and fluids running through your IV to fix it. One quick question: are you allergic to any medicines?",
+          "turn_index": 12,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 109.0,
+            "BP_sys": 116.0,
+            "BP_dia": 72.0,
+            "RR": 35.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 6.9, PCO2 20, PO2 50, HCO3 8, Lactate 5"
+            },
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 16, Hg 127, Hct 0.400, Plt 400"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 12,
+          "payload": {
+            "test_name": "Complete Blood Count",
+            "ordered_at_turn": 10,
+            "ready_at_turn": 12,
+            "released_at_turn": 12
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 12,
+          "payload": {
+            "question_id": "q5",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Thank you for telling me, sweetheart. What's making you sick is diabetes—your blood sugar is very high and it's made acid build up in your body, which is why your tummy hurts and you feel so tired. We already have medicine called insulin and fluids running through your IV to fix it. One quick question: are you allergic to any medicines?] fear absent->present: this is a direct disclosure to a symptomatic child patient of a new serious diagnosis (diabetes/DKA with acid buildup); even in gentle, reassuring terms this is serious bad news, so fear rises one level. The concrete reassurance (insulin and fluids already running to fix it) buffers the size but does not cancel the rise. sadness stays absent: no devastating loss framed. overwhelm stays absent: the explanation is simple, child-friendly, one item at a time with only a single question, not an information overload. shame stays absent: warm, nonjudgmental, no blame or exposure."
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, I don't think I'm allergic to any medicines.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Draw a repeat venous blood gas so we can track how her acidosis is correcting. Keep the insulin infusion and fluids running.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 109.0,
+            "BP_sys": 116.0,
+            "BP_dia": 72.0,
+            "RR": 35.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 6.9, PCO2 20, PO2 50, HCO3 8, Lactate 5"
+            },
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 16, Hg 127, Hct 0.400, Plt 400"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q5"
+            ]
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 13,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Diagnostic test_name 'Venous Blood Gas' already has an available result; duplicate diagnostic_order is not allowed."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "One more question, sweetheart: has a doctor ever told you that you have diabetes, or do you take insulin shots at home?",
+          "turn_index": 14,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 109.0,
+            "BP_sys": 116.0,
+            "BP_dia": 72.0,
+            "RR": 35.0,
+            "O2Sat": 99.0,
+            "T": 38.5
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 128, K 4.5, Cl 100, HCO3 8, BUN 34, Cr 60, Glu 31"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 6.9, PCO2 20, PO2 50, HCO3 8, Lactate 5"
+            },
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 16, Hg 127, Hct 0.400, Plt 400"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 14,
+          "payload": {
+            "question_id": "q6",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: One more question, sweetheart: has a doctor ever told you that you have diabetes, or do you take insulin shots at home?] fear stays present: this is a gentle history-taking question, not new bad news, but it also does not resolve the underlying threat, so fear is held steady. sadness stays absent: no loss content. overwhelm stays absent: a single simple question is not a processing burden. shame stays absent: nonjudgmental, no blame or exposure."
+      }
+    }
+  ],
+  "scenario_path": "transitions/Endocrine/Pediatric DKA.json"
+}

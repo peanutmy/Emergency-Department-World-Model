@@ -1,0 +1,92 @@
+{
+  "target_min_per_cell": 3,
+  "total_source_candidates": 40,
+  "total_augmented_drafts": 35,
+  "coverage_by_target": {
+    "fear": {
+      "absent": 3,
+      "present": 3,
+      "extreme": 3
+    },
+    "sadness": {
+      "absent": 3,
+      "present": 3,
+      "extreme": 3
+    },
+    "overwhelm": {
+      "absent": 3,
+      "present": 3,
+      "extreme": 3
+    },
+    "shame": {
+      "absent": 3,
+      "present": 3,
+      "extreme": 2
+    }
+  },
+  "undercovered": [
+    {
+      "emotion": "shame",
+      "level": "extreme",
+      "count": 2,
+      "needed": 1
+    }
+  ],
+  "source_candidate_current_levels": {
+    "fear": {
+      "absent": 13,
+      "present": 27,
+      "extreme": 0
+    },
+    "sadness": {
+      "absent": 28,
+      "present": 12,
+      "extreme": 0
+    },
+    "overwhelm": {
+      "absent": 28,
+      "present": 12,
+      "extreme": 0
+    },
+    "shame": {
+      "absent": 35,
+      "present": 5,
+      "extreme": 0
+    }
+  },
+  "eligible_counts": {
+    "fear/absent": 40,
+    "fear/present": 40,
+    "fear/extreme": 27,
+    "sadness/absent": 40,
+    "sadness/present": 40,
+    "sadness/extreme": 12,
+    "overwhelm/absent": 40,
+    "overwhelm/present": 40,
+    "overwhelm/extreme": 12,
+    "shame/absent": 40,
+    "shame/present": 40,
+    "shame/extreme": 5
+  },
+  "skipped_cells": [],
+  "source_candidates_by_listener": {
+    "patient": 31,
+    "relative": 9
+  },
+  "augmented_drafts_by_listener": {
+    "patient": 28,
+    "relative": 7
+  },
+  "source_candidates_by_scenario": {
+    "transitions/Endocrine/Adrenal Crisis.json": 5,
+    "transitions/OB-GYN/Eclampsia with Apnea Secondary to Magnesium Sulfate Administration.json": 8,
+    "transitions/OB-GYN/Ruptured Ectopic.json": 6,
+    "transitions/Respiratory/COVID-19 Difficult Airway.json": 4,
+    "transitions/Neurology/Status Epilepticus.json": 3,
+    "transitions/Cardiology/Dysrhythmia Secondary to Hyperkalemia.json": 3,
+    "transitions/Resuscitation/Local Anesthetic Systemic Toxicity.json": 4,
+    "transitions/Respiratory/PE with Bleeding.json": 1,
+    "transitions/Cardiology/Aortic Stenosis with A Fib and CHF.json": 4,
+    "transitions/Cardiology/Coarctation of the Aorta.json": 2
+  }
+}

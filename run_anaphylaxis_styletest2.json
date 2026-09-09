@@ -1,0 +1,2121 @@
+{
+  "scenario": "A 45-year-old previously healthy female being treated for pyelonephritis with IV ceftriaxone develops stridor, respiratory distress, angioedema, and a widespread urticarial rash consistent with anaphylaxis. The scenario focuses on anaphylaxis management, difficult airway planning, failed intubation, and surgical cricothyrotomy.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Anger": "high"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "NRB mask on her now — sat's 88% on room air.",
+          "turn_index": 0,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "NRB",
+          "FiO2": 0.85,
+          "PEEP_used": false,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 130.0,
+            "BP_sys": 95.0,
+            "BP_dia": 62.0,
+            "RR": 30.0,
+            "O2Sat": 91.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.85,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 0,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "NRB",
+                "FiO2": 0.85,
+                "PEEP_used": false,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 0,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "not at all",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "NRB",
+              "FiO2": 0.85,
+              "PEEP_used": false,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "not at all",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I'm getting an ECG on you now. Can you tell me what brought you in today?",
+          "turn_index": 1,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 135.0,
+            "BP_sys": 90.0,
+            "BP_dia": 59.0,
+            "RR": 32.0,
+            "O2Sat": 89.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.85,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 1,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 1,
+          "payload": {
+            "test_name": "Initial ECG",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: I'm getting an ECG on you now. Can you tell me what brought you in today?] OVERWHELM not at all→low: The patient is in active respiratory distress (anaphylaxis, sat 88%) and is simultaneously having a new procedure initiated (ECG placement) while being asked to verbally recount her history. Processing a new intervention plus producing a coherent verbal account while struggling to breathe imposes a small but real cognitive-emotional load — enough to establish 'low' overwhelm from zero. The rules note questions recounting distressing content 'may mildly raise' overwhelm, and combined with the concurrent ECG, that threshold is met. FEAR stays not at all: ordering an ECG is routine monitoring, not a disclosure of a new serious finding or worsening status; no bad news is delivered. SADNESS stays not at all: nothing in the utterance signals loss, irreversible harm, or poor prognosis. SHAME stays not at all: the question is a neutral intake inquiry with no judgment or stigmatizing framing."
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I — I can barely breathe. My throat feels tight, my lips and tongue are swollen, and I've got this rash everywhere, it's so itchy. I'm dizzy, I feel like I'm going to pass out. I started with flank pain and a fever, and it hurt to pee — but now I'm — I don't know what's happening to me, I feel awful.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Epi 0.5mg IM 1:1000, lateral thigh now — anaphylaxis, she's crashing.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Epinephrine 0.5 mg IM 1:1000 given to lateral thigh.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "anaphylaxis_treatment",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anaphylaxis_treatment",
+        "params": {
+          "drug_name": "epinephrine",
+          "dose": 0.5,
+          "unit": "mg IM 1:1000 lateral thigh"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 140.0,
+            "BP_sys": 105.0,
+            "BP_dia": 67.0,
+            "RR": 30.0,
+            "O2Sat": 91.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.85,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anaphylaxis_treatment",
+              "params": {
+                "drug_name": "epinephrine",
+                "dose": 0.5,
+                "unit": "mg IM 1:1000 lateral thigh"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "anaphylaxis_treatment",
+            "raw_text": null,
+            "params": {
+              "drug_name": "epinephrine",
+              "dose": 0.5,
+              "unit": "mg IM 1:1000 lateral thigh"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "ECG back — sinus tachycardia. Sats up to 91% on NRB, BP 105/67, HR 140, RR 30. Still tachycardic and hypoxic.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "I need to find out what triggered this reaction. In the few hours before your symptoms started — did you eat anything new, take any medication, get stung by anything, or come into contact with something unusual?",
+          "turn_index": 3,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Running 1000 mL normal saline bolus now.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 140.0,
+            "BP_sys": 112.0,
+            "BP_dia": 71.0,
+            "RR": 32.0,
+            "O2Sat": 90.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.85,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Sinus tachycardia image provided."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 3,
+          "payload": {
+            "test_name": "Initial ECG",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "released_at_turn": 3
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 3,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": "[clinician: I need to find out what triggered this reaction. In the few hours before your symptoms started — did you eat anything new, take any medication, get stung by anything, or come into contact with something unusual?] overwhelm: low->high. The clinician fires off four distinct recall questions simultaneously while the patient is physically struggling — tachycardic, hypoxic, dizzy, barely breathing. Being asked to mentally search through recent history across multiple categories (food, medication, stings, contacts) under acute distress is an informational/cognitive load the patient cannot comfortably process right now, pushing overwhelm up one level. fear: unchanged (not at all) — the question is investigative, not disclosing new bad news or a worsening finding; it does not introduce a new threat. sadness: unchanged (not at all) — no loss or irreversible outcome communicated. shame: unchanged (not at all) — the questions are neutral and non-judgmental; no stigma or blame is implied."
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I — medication. I took nitrofurantoin. For the pain when I pee, and the fever. I didn't eat anything new, no stings, nothing like that. Just the antibiotic.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Methylprednisolone 125mg IV push now — anaphylaxis, angioedema still present.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Methylprednisolone 125 mg administered.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "corticosteroid",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "corticosteroid",
+        "params": {
+          "drug_name": "methylprednisolone",
+          "dose": 125,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 145.0,
+            "BP_sys": 107.0,
+            "BP_dia": 68.0,
+            "RR": 34.0,
+            "O2Sat": 88.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.85,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Sinus tachycardia image provided."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 4,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "corticosteroid",
+              "params": {
+                "drug_name": "methylprednisolone",
+                "dose": 125,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 4,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "corticosteroid",
+            "raw_text": null,
+            "params": {
+              "drug_name": "methylprednisolone",
+              "dose": 125,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Diphenhydramine 50mg IV now — antihistamine not yet given.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Diphenhydramine 50 mg administered.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "anaphylaxis_treatment",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anaphylaxis_treatment",
+        "params": {
+          "drug_name": "diphenhydramine",
+          "dose": 50,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 150.0,
+            "BP_sys": 109.0,
+            "BP_dia": 69.0,
+            "RR": 33.0,
+            "O2Sat": 89.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.85,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Sinus tachycardia image provided."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anaphylaxis_treatment",
+              "params": {
+                "drug_name": "diphenhydramine",
+                "dose": 50,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "anaphylaxis_treatment",
+            "raw_text": null,
+            "params": {
+              "drug_name": "diphenhydramine",
+              "dose": 50,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Albuterol 2.5mg neb now — sats still 89%, RR 33, bronchospasm isn't clearing.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Albuterol 2.5 mg nebulizer is running.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "bronchodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "bronchodilator",
+        "params": {
+          "drug_name": "albuterol",
+          "dose": 2.5,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 155.0,
+            "BP_sys": 104.0,
+            "BP_dia": 66.0,
+            "RR": 32.0,
+            "O2Sat": 90.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.85,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Sinus tachycardia image provided."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 6,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "bronchodilator",
+              "params": {
+                "drug_name": "albuterol",
+                "dose": 2.5,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 6,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "bronchodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "albuterol",
+              "dose": 2.5,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Epinephrine 0.5mg IM now — still tachycardic at 155, sats 90%, not controlled.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Epinephrine 0.5 mg given for anaphylaxis.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "anaphylaxis_treatment",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anaphylaxis_treatment",
+        "params": {
+          "drug_name": "epinephrine",
+          "dose": 0.5,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 160.0,
+            "BP_sys": 119.0,
+            "BP_dia": 74.0,
+            "RR": 30.0,
+            "O2Sat": 93.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.85,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Sinus tachycardia image provided."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anaphylaxis_treatment",
+              "params": {
+                "drug_name": "epinephrine",
+                "dose": 0.5,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "anaphylaxis_treatment",
+            "raw_text": null,
+            "params": {
+              "drug_name": "epinephrine",
+              "dose": 0.5,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Do you have any other medical conditions or take any regular medications besides the nitrofurantoin?",
+          "turn_index": 8,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 165.0,
+            "BP_sys": 113.0,
+            "BP_dia": 71.0,
+            "RR": 32.0,
+            "O2Sat": 91.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.85,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Sinus tachycardia image provided."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 8,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 8,
+          "payload": {
+            "test_name": "Chest X-ray",
+            "ordered_at_turn": 8,
+            "ready_at_turn": 11,
+            "turnaround_turns": 3
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": "[clinician: Do you have any other medical conditions or take any regular medications besides the nitrofurantoin?] No emotion changed. FEAR: this is a routine medical history question, not a clinical threat disclosure — no bad news, no new dangerous finding, no escalation of care; fear stays 'not at all'. SADNESS: no loss, irreversibility, or hopelessness conveyed; stays 'not at all'. OVERWHELM: the patient is already at 'high' and per the QUESTIONS rule, a question sustains rather than resolves overwhelm; however, this is a single focused question, not a pile of new technical information, so there is no clear concrete reason to push it to 'extreme' — it holds at 'high'. SHAME: the mention of nitrofurantoin is neutral and clinical, no judgment or stigmatized framing is applied; stays 'not at all'."
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, I'm generally healthy — no other conditions. And no, just the nitrofurantoin, nothing else regular.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "1 liter normal saline wide open now — BP is borderline and no fluids have gone in yet.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Running 1000 mL normal saline bolus now.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 160.0,
+            "BP_sys": 121.0,
+            "BP_dia": 76.0,
+            "RR": 34.0,
+            "O2Sat": 89.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.85,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Sinus tachycardia image provided."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Methylprednisolone 125mg IV now — steroids haven't been given yet.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Methylprednisolone 125 mg given.",
+          "turn_index": 10,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "corticosteroid",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "corticosteroid",
+        "params": {
+          "drug_name": "methylprednisolone",
+          "dose": 125,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 162.0,
+            "BP_sys": 117.0,
+            "BP_dia": 74.0,
+            "RR": 35.0,
+            "O2Sat": 87.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.85,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Sinus tachycardia image provided."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 10,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "corticosteroid",
+              "params": {
+                "drug_name": "methylprednisolone",
+                "dose": 125,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 10,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "corticosteroid",
+            "raw_text": null,
+            "params": {
+              "drug_name": "methylprednisolone",
+              "dose": 125,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Chest X-ray back — normal.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Switch her to BiPAP — sats are still 87% and the NRB has maxed out.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "BiPAP is on — 100% FiO2, PEEP 5.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "BiPAP",
+          "FiO2": 1.0,
+          "PEEP_used": true,
+          "PEEP_cmH2O": 5
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 162.0,
+            "BP_sys": 110.0,
+            "BP_dia": 70.0,
+            "RR": 35.0,
+            "O2Sat": 89.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Sinus tachycardia image provided."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "Normal chest radiograph image provided."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 11,
+          "payload": {
+            "test_name": "Chest X-ray",
+            "ordered_at_turn": 8,
+            "ready_at_turn": 11,
+            "released_at_turn": 11
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 11,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "BiPAP",
+                "FiO2": 1.0,
+                "PEEP_used": true,
+                "PEEP_cmH2O": 5
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 11,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "BiPAP",
+              "FiO2": 1.0,
+              "PEEP_used": true,
+              "PEEP_cmH2O": 5
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Albuterol 2.5 mg nebulized now — bronchospasm from the anaphylaxis.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Albuterol 2.5 mg nebulizer is running.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "bronchodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "bronchodilator",
+        "params": {
+          "drug_name": "albuterol",
+          "dose": "2.5",
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 166.0,
+            "BP_sys": 110.0,
+            "BP_dia": 70.0,
+            "RR": 34.0,
+            "O2Sat": 90.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Sinus tachycardia image provided."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "Normal chest radiograph image provided."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 12,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "bronchodilator",
+              "params": {
+                "drug_name": "albuterol",
+                "dose": "2.5",
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 12,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "bronchodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "albuterol",
+              "dose": "2.5",
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Epinephrine 0.3 mg IM now — it's first-line and we still haven't given it.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Epinephrine 0.3 mg administered.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "anaphylaxis_treatment",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anaphylaxis_treatment",
+        "params": {
+          "drug_name": "epinephrine",
+          "dose": "0.3",
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 166.0,
+            "BP_sys": 125.0,
+            "BP_dia": 78.0,
+            "RR": 32.0,
+            "O2Sat": 93.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Sinus tachycardia image provided."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "Normal chest radiograph image provided."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 13,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anaphylaxis_treatment",
+              "params": {
+                "drug_name": "epinephrine",
+                "dose": "0.3",
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 13,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "anaphylaxis_treatment",
+            "raw_text": null,
+            "params": {
+              "drug_name": "epinephrine",
+              "dose": "0.3",
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 172.0,
+            "BP_sys": 118.0,
+            "BP_dia": 74.0,
+            "RR": 33.0,
+            "O2Sat": 91.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Sinus tachycardia image provided."
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "Normal chest radiograph image provided."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "validation_drop",
+          "turn_index": 14,
+          "payload": {
+            "agent": "clinician",
+            "item": "agent_proposal",
+            "errors": [
+              "Clinician response must be valid strict JSON.; repair retry failed: Clinician response must be valid strict JSON."
+            ],
+            "phase": "primary_agent_generation",
+            "error_type": "ClinicianParserError",
+            "error_message": "Clinician response must be valid strict JSON.; repair retry failed: Clinician response must be valid strict JSON."
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": null
+      }
+    }
+  ]
+}

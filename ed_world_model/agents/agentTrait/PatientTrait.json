@@ -1,0 +1,78 @@
+{
+  "patient_traits": [
+    {
+      "trait": "Anger",
+      "definition": "This patient has high trait anger: a stable disposition to readily and frequently appraise situations as a demeaning offense against themselves or those they care about — i.e., as unfair, disrespectful, or goal-blocking, with another agent held to blame. Relative to most people, they experience anger more often, more intensely, and for longer, and are quicker to react with confrontation in defense of their self-identity or goals.",
+      "trigger": {
+        "high": [
+          "Perceived injustice, dismissal, or disrespect (being ignored, not believed)",
+          "Blocked goals (long waits, denied requests, lack of information)",
+          "Blame attributable to an external agent (staff, the system, another person)"
+        ]
+      }
+    },
+    {
+      "trait": "Health Literacy",
+      "definition": "Health literacy is the degree to which an individual has the capacity to obtain, process, and understand basic health information and services needed to make appropriate health decisions. It is a stable individual capacity (assessed at a point in time, not a momentary state), spanning reading and numeracy, comprehension of health concepts, and the ability to communicate with providers and navigate the health system.",
+      "trigger": {
+        "low": [
+          "Provider uses medical jargon or complex explanations -> patient asks the provider to repeat or rephrase; signals not understanding",
+          "Information is given or a decision is requested -> patient asks fewer questions; is passive and defers to the provider",
+          "Patient describes their own condition or medications -> avoids medical terminology; does not refer to medications by name; vague",
+          "Discharge / self-management instructions are given -> limited grasp; does not request added services or seek new information"
+        ]
+      }
+    },
+    {
+      "trait": "Patient Activation",
+      "definition": "Patient activation is an individual's knowledge, skill, and confidence for managing their own health and health care. It is a developmental, graded trait progressing through four stages: (1) believing one's own role in care matters, (2) having the confidence and knowledge to take action, (3) actually taking action to maintain/improve health, and (4) sustaining those behaviors even under stress. It captures the patient's agency and willingness to take an active role -- distinct from health literacy, which is the capacity to understand health information.",
+      "trigger": {
+        "high": [
+          "Asks questions, raises concerns/opinions, makes requests",
+          "Collaborates on decisions; weighs options and shares responsibility for the choice",
+          "Reports own monitoring/self-care; asks how to manage at home",
+          "Challenges or pushes back when something is unclear or they disagree; self-advocates"
+        ],
+        "low": [
+          "Passive; mainly answers the provider's questions, rarely initiates",
+          "Defers to the provider (\"whatever you think is best\")",
+          "Does not bring up self-care or seek new information",
+          "Withholds disagreement; does not challenge the provider"
+        ]
+      }
+    },
+    {
+      "trait": "Trust in Provider",
+      "definition": "Trust in the provider is the patient's willingness to be vulnerable to the provider, based on the expectation that the provider will act in the patient's interest, even when the patient cannot monitor or control what the provider does. It is future-oriented and relational -- distinct from satisfaction, which evaluates past experience -- and spans five overlapping domains: fidelity (caring for and advocating the patient's welfare, no conflict of interest), competence, honesty, confidentiality, and global trust.",
+      "trigger": {
+        "high": [
+          "Accepts and follows recommendations without demanding justification; grants the provider decisional authority",
+          "Discloses openly, including sensitive or embarrassing information",
+          "Voices confidence in the provider's competence and good intentions; no wish to switch or seek a second opinion"
+        ],
+        "low": [
+          "Questions or resists recommendations; wants justification before agreeing",
+          "Guarded; withholds information",
+          "Voices suspicion about motives (cost, convenience, hidden agenda) or doubts competence/honesty",
+          "Asks for a second opinion; raises disputes; considers switching providers"
+        ]
+      }
+    },
+    {
+      "trait": "Optimism",
+      "definition": "Dispositional optimism is a personality trait: the generalized, relatively stable tendency to hold positive expectations about one's future and to expect good outcomes across important life domains. It is cognitive in nature and tied to expectancy-value motivation -- optimists view desired goals as attainable, so they confront adversity actively and persist; pessimists doubt good outcomes and tend to disengage.",
+      "trigger": {
+        "high": [
+          "Expresses positive expectations about recovery/treatment (\"I'll get through this\")",
+          "Stays engaged: asks about next steps, what they can do to help",
+          "Frames setbacks as temporary/manageable; cooperative and persistent"
+        ],
+        "low": [
+          "Expresses negative or hopeless expectations (\"nothing will help\", \"this won't work\")",
+          "Anticipates the worst; catastrophizes",
+          "Disengages/withdraws; voices anxiety or despair; gives up on effort"
+        ]
+      }
+    }
+  ]
+}

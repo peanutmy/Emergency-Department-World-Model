@@ -1,0 +1,2118 @@
+{
+  "scenario": "A 47-year-old female inpatient awaiting cholecystectomy for cholecystitis develops new confusion and fever. The scenario focuses on early sepsis recognition, fluids, antibiotics, consultant communication, and source control for suspected cholangitis.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Patient Activation": "high",
+    "Trust in Provider": "high"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Let's get a liter of normal saline running wide open. She's febrile and hypotensive at 92/50, likely septic.",
+          "turn_index": 0,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 117.0,
+            "BP_sys": 103.0,
+            "BP_dia": 56.0,
+            "RR": 22.0,
+            "O2Sat": 92.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 0,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 0,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I'm drawing a blood gas to see how sick you are. Tell me what's been bothering you and when it started.",
+          "turn_index": 1,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 117.0,
+            "BP_sys": 103.0,
+            "BP_dia": 56.0,
+            "RR": 22.0,
+            "O2Sat": 92.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 1,
+          "payload": {
+            "test_name": "Venous blood gas",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 2,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: I'm drawing a blood gas to see how sick you are. Tell me what's been bothering you and when it started.] fear absent->present: the phrase 'to see how sick you are' signals a serious clinical concern about the patient's condition and escalation of testing, a concrete threat cue that raises fear from absent to present; the request to recount symptoms sustains rather than soothes. sadness stays absent: no actual or anticipated devastating loss conveyed. overwhelm stays absent: a single question and one test, not a pile of complex information or urgent simultaneous demands. shame stays absent: no blame, judgment, or exposure."
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "VBG back: pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9. Liter of saline is in. Current vitals BP 103/56, HR 117, RR 22, sat 92% on room air, temp 38.9.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "I've been feeling really confused, and I've had a fever and pain in my belly. Am I going to be okay?",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start piperacillin-tazobactam now for suspected sepsis, likely intra-abdominal source given the fever and belly pain.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Piperacillin-tazobactam is hanging now.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "antidote",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "antidote",
+        "params": {
+          "drug_name": "piperacillin-tazobactam",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 117.0,
+            "BP_sys": 103.0,
+            "BP_dia": 56.0,
+            "RR": 22.0,
+            "O2Sat": 92.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 2,
+          "payload": {
+            "test_name": "Venous blood gas",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 2,
+            "released_at_turn": 2
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "antidote",
+              "params": {
+                "drug_name": "piperacillin-tazobactam",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "antidote",
+            "raw_text": null,
+            "params": {
+              "drug_name": "piperacillin-tazobactam",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "You're seriously ill with an infection, and we've started fluids and antibiotics. I need to know when this belly pain and fever started and whether it's been getting worse. And do you have any drug allergies?",
+          "turn_index": 3,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 117.0,
+            "BP_sys": 103.0,
+            "BP_dia": 56.0,
+            "RR": 22.0,
+            "O2Sat": 92.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 3,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 3,
+          "payload": {
+            "test_name": "Complete blood count",
+            "ordered_at_turn": 3,
+            "ready_at_turn": 5,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: You're seriously ill with an infection, and we've started fluids and antibiotics. I need to know when this belly pain and fever started and whether it's been getting worse. And do you have any drug allergies?] fear: stays present - the utterance restates serious illness (a threat) but pairs it with a concrete plan (fluids, antibiotics started), so it neither escalates to extreme nor resolves; the patient remains able to cooperate. sadness: stays absent - no loss or devastating outcome is conveyed. overwhelm: stays absent - the questions are focused and manageable (onset, worsening, allergies), not a flood of technical findings. shame: stays absent - no blame, judgment, or exposure."
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I don't have any drug allergies that I know of. I still feel confused, feverish, and the pain in my belly is still there. I'm sorry, I can't really remember exactly when it started or whether it's been getting worse.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Send a basic metabolic panel to check her renal function and electrolytes given the sepsis and lactate.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 117.0,
+            "BP_sys": 103.0,
+            "BP_dia": 56.0,
+            "RR": 22.0,
+            "O2Sat": 92.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 4,
+          "payload": {
+            "test_name": "Basic metabolic panel",
+            "ordered_at_turn": 4,
+            "ready_at_turn": 6,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "BMP is sent, will be back in about two turns. CBC just resulted: WBC 17, Hgb 123, Plt 389.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's run a second liter of normal saline. Her HR's still 117 and lactate was 3.9, so she's still underperfused.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Normal saline 1 liter bolus is up and running wide open.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 114.0,
+            "BP_dia": 62.0,
+            "RR": 22.0,
+            "O2Sat": 92.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 17, Hgb 123, Plt 389."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "Complete blood count",
+            "ordered_at_turn": 3,
+            "ready_at_turn": 5,
+            "released_at_turn": 5
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "BMP is back: Na 138, K 3.8, Cl 96, Urea 7, Cr 105, Glucose 6.8. Creatinine's up a bit. Second liter's going in wide open. Current vitals BP 114/62, HR 112, RR 22, sat 92% on room air, temp 38.9, GCS 14.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Send liver function tests too — I want to know if this sepsis is coming from a hepatobiliary source.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 114.0,
+            "BP_dia": 62.0,
+            "RR": 22.0,
+            "O2Sat": 92.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 17, Hgb 123, Plt 389."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 138, K 3.8, Cl 96, Urea 7, Cr 105, Glucose 6.8."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 6,
+          "payload": {
+            "test_name": "Basic metabolic panel",
+            "ordered_at_turn": 4,
+            "ready_at_turn": 6,
+            "released_at_turn": 6
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 6,
+          "payload": {
+            "test_name": "Liver function tests",
+            "ordered_at_turn": 6,
+            "ready_at_turn": 8,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Send a beta-hCG as well — she's of reproductive age with an undifferentiated abdominal source, so I need to rule out pregnancy before we go further.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 114.0,
+            "BP_dia": 62.0,
+            "RR": 22.0,
+            "O2Sat": 92.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 17, Hgb 123, Plt 389."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 138, K 3.8, Cl 96, Urea 7, Cr 105, Glucose 6.8."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 7,
+          "payload": {
+            "test_name": "Beta-hCG",
+            "ordered_at_turn": 7,
+            "ready_at_turn": 9,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "LFTs are back: AST 60, ALT 40, GGT 540, ALP 330, Bili 60, Lipase 24 — cholestatic picture, looks hepatobiliary. Beta-hCG is sent, back in about two turns.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's give her IV morphine for the abdominal pain. Her LFTs confirm a cholestatic, likely biliary source and she's still septic and uncomfortable.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "analgesia",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "analgesia",
+        "params": {
+          "drug_name": "morphine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 106.0,
+            "BP_dia": 57.0,
+            "RR": 17.0,
+            "O2Sat": 90.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 17, Hgb 123, Plt 389."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 138, K 3.8, Cl 96, Urea 7, Cr 105, Glucose 6.8."
+            },
+            {
+              "name": "Liver function tests",
+              "result": "AST 60, ALT 40, GGT 540, ALP 330, Bili 60, Lipase 24."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 8,
+          "payload": {
+            "test_name": "Liver function tests",
+            "ordered_at_turn": 6,
+            "ready_at_turn": 8,
+            "released_at_turn": 8
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "analgesia",
+              "params": {
+                "drug_name": "morphine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "analgesia",
+            "raw_text": null,
+            "params": {
+              "drug_name": "morphine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Morphine's in for the pain. Beta-hCG is back and negative. Latest vitals: BP 106/57, HR 110, RR 17, sat 90% on room air, temp 38.9. Her sat's drifted down to 90 — want me to put her on some oxygen?",
+          "turn_index": 9,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Yes, start her on nasal cannula oxygen and titrate to keep her sat above 94%.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "I'm putting these little prongs in your nose to give you some oxygen. Just breathe normally for me.",
+          "turn_index": 9,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "nasal_cannula",
+          "FiO2": null,
+          "PEEP_used": null,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 106.0,
+            "BP_dia": 57.0,
+            "RR": 17.0,
+            "O2Sat": 94.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 17, Hgb 123, Plt 389."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 138, K 3.8, Cl 96, Urea 7, Cr 105, Glucose 6.8."
+            },
+            {
+              "name": "Liver function tests",
+              "result": "AST 60, ALT 40, GGT 540, ALP 330, Bili 60, Lipase 24."
+            },
+            {
+              "name": "Beta-hCG",
+              "result": "B-HCG negative."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 9,
+          "payload": {
+            "test_name": "Beta-hCG",
+            "ordered_at_turn": 7,
+            "ready_at_turn": 9,
+            "released_at_turn": 9
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 9,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "nurse",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "nasal_cannula",
+                "FiO2": null,
+                "PEEP_used": null,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "nasal_cannula",
+              "FiO2": null,
+              "PEEP_used": null,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[nurse: I'm putting these little prongs in your nose to give you some oxygen. Just breathe normally for me.] Fear stays present: this is routine, calmly delivered supportive care (oxygen via nasal cannula) with a gentle instruction, which buffers but does not resolve the underlying threat, so fear neither rises nor drops to absent. Sadness stays absent: no loss content. Overwhelm stays absent: simple, single, calm instruction with no informational overload. Shame stays absent: no blame, exposure, or judgment."
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay, I feel the prongs in my nose. I'll try to breathe normally. I still feel confused and feverish, and my belly still hurts.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "clinician",
+          "content": "I need one quick thing from you: are you allergic to any medications?",
+          "turn_index": 10,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 106.0,
+            "BP_dia": 57.0,
+            "RR": 17.0,
+            "O2Sat": 94.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 17, Hgb 123, Plt 389."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 138, K 3.8, Cl 96, Urea 7, Cr 105, Glucose 6.8."
+            },
+            {
+              "name": "Liver function tests",
+              "result": "AST 60, ALT 40, GGT 540, ALP 330, Bili 60, Lipase 24."
+            },
+            {
+              "name": "Beta-hCG",
+              "result": "B-HCG negative."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 10,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 10,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: I need one quick thing from you: are you allergic to any medications?] A routine safety question about medication allergies conveys no new bad news, no resolution, and no processing burden. Fear stays present (unchanged, sticky - underlying threat not resolved). Sadness, overwhelm, and shame remain absent as nothing in the utterance introduces loss, overload, or judgment."
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, I don't have any drug allergies that I know of.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "When did this belly pain and fever start, and has the pain been constant or coming in waves?",
+          "turn_index": 11,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 106.0,
+            "BP_dia": 57.0,
+            "RR": 17.0,
+            "O2Sat": 94.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 17, Hgb 123, Plt 389."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 138, K 3.8, Cl 96, Urea 7, Cr 105, Glucose 6.8."
+            },
+            {
+              "name": "Liver function tests",
+              "result": "AST 60, ALT 40, GGT 540, ALP 330, Bili 60, Lipase 24."
+            },
+            {
+              "name": "Beta-hCG",
+              "result": "B-HCG negative."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 11,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: When did this belly pain and fever start, and has the pain been constant or coming in waves?] Fear stays present: this is a routine history-taking question, neither new bad news nor resolution, so fear holds. Sadness stays absent: no loss content. Overwhelm stays absent: a single simple question is not cognitively burdensome. Shame stays absent: no blame, judgment, or exposure."
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I'm sorry, I really can't remember when it started, and I'm not sure if the pain is constant or comes in waves. My belly still hurts, and I still feel feverish and confused.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's get imaging on her belly to look for a biliary source — her cholestatic labs and sepsis point to a hepatobiliary cause and I need to localize it.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 106.0,
+            "BP_dia": 57.0,
+            "RR": 17.0,
+            "O2Sat": 94.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 17, Hgb 123, Plt 389."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 138, K 3.8, Cl 96, Urea 7, Cr 105, Glucose 6.8."
+            },
+            {
+              "name": "Liver function tests",
+              "result": "AST 60, ALT 40, GGT 540, ALP 330, Bili 60, Lipase 24."
+            },
+            {
+              "name": "Beta-hCG",
+              "result": "B-HCG negative."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 12,
+          "payload": {
+            "test_name": "X-rays",
+            "ordered_at_turn": 12,
+            "ready_at_turn": 15,
+            "turnaround_turns": 3
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your bloodwork and fever point to an infection in the bile ducts of your belly. We've already given you fluids, antibiotics, and oxygen, and imaging of your belly is pending to find exactly where it's coming from. We're watching you closely and will keep treating the infection.",
+          "turn_index": 13,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 106.0,
+            "BP_dia": 57.0,
+            "RR": 17.0,
+            "O2Sat": 94.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 17, Hgb 123, Plt 389."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 138, K 3.8, Cl 96, Urea 7, Cr 105, Glucose 6.8."
+            },
+            {
+              "name": "Liver function tests",
+              "result": "AST 60, ALT 40, GGT 540, ALP 330, Bili 60, Lipase 24."
+            },
+            {
+              "name": "Beta-hCG",
+              "result": "B-HCG negative."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Your bloodwork and fever point to an infection in the bile ducts of your belly. We've already given you fluids, antibiotics, and oxygen, and imaging of your belly is pending to find exactly where it's coming from. We're watching you closely and will keep treating the infection.] fear stays present: the utterance names a serious infection but pairs it with a clear treatment plan already underway and close monitoring, which buffers escalation without resolving the threat, so it holds at present rather than rising to extreme. sadness stays absent: no loss or devastating outcome framed. overwhelm stays absent: information is delivered calmly and coherently as a manageable plan, not a flood of urgent findings. shame stays absent: no blame, judgment, or exposure."
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay, thank you for explaining that. I still feel confused and feverish, and my belly still hurts.",
+          "turn_index": 14,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Get abdominal X-rays now — her cholestatic labs and sepsis point to a biliary source and I need to localize it.",
+          "turn_index": 14,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 106.0,
+            "BP_dia": 57.0,
+            "RR": 17.0,
+            "O2Sat": 94.0,
+            "T": 38.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.28, pCO2 28, pO2 68, HCO3 28, lactate 3.9."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 17, Hgb 123, Plt 389."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 138, K 3.8, Cl 96, Urea 7, Cr 105, Glucose 6.8."
+            },
+            {
+              "name": "Liver function tests",
+              "result": "AST 60, ALT 40, GGT 540, ALP 330, Bili 60, Lipase 24."
+            },
+            {
+              "name": "Beta-hCG",
+              "result": "B-HCG negative."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "validation_drop",
+          "turn_index": 14,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Diagnostic test_name 'X-rays' is already pending; duplicate diagnostic_order is not allowed."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    }
+  ],
+  "scenario_path": "transitions/Resuscitation/Nightmares Case 8 SepsisCholangitis.json"
+}

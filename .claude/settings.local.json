@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"from ed_world_model.adapters.emotion_engine_adapter import EmotionEngineAdapter; print\\('import OK'\\)\")",
+      "Bash(python -c \"from ed_world_model.state.global_state import PatientEmotion; print\\(list\\(PatientEmotion.model_fields\\)\\)\")",
+      "Bash(python -c \"import emotion_engine; from ed_world_model.adapters.emotion_engine_adapter import EmotionEngineAdapter; from ed_world_model.state.global_state import AgentEmotion, PsychState; from ed_world_model.orchestration.runner import IntegrationRunner; print\\('imports OK'\\)\")",
+      "Bash(python -m pytest -q)",
+      "Bash(cd *)",
+      "Bash(python -m pytest tests/test_clinician_agent.py -q)",
+      "Bash(python -c ' *)",
+      "Bash(python -m pytest tests/test_turn_loop_stub.py -q -k \"conscious or sedation or suppresses\")",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "Bash(python -c \"import ed_world_model.agents.clinician\")",
+      "Bash(awk 'NR<=700 && /^def /{f=$0; ln=NR} END{}' ed_world_model/agents/clinician.py)",
+      "Bash(awk -F: '$1<700')",
+      "Bash(python -m pytest -q tests/test_orchestrator.py tests/test_turn_loop_stub.py tests/test_clinician_agent.py tests/test_patient_agent.py tests/test_relative_agent.py tests/test_agent_prompting.py tests/test_global_state.py tests/test_state_manager.py tests/test_noop_emotion.py tests/test_observation_builder.py)",
+      "Bash(python generate_utterances.py --help)",
+      "Bash(python -c \"import generate_utterances as g; print\\('script OK'\\); print\\('default anthropic model:', g.DEFAULT_ANTHROPIC_MODEL\\)\")",
+      "Bash(awk '{print \"PID\", $2, \"CPU%\", $3, \"TIME\", $10, \"STATE\", $8}')",
+      "Bash(git ls-tree *)",
+      "Bash(python -m pytest tests/test_clinician_agent.py tests/test_agent_prompting.py -q)",
+      "Bash(python -m pytest tests/test_observation_builder.py tests/test_relative_agent.py -q)",
+      "Bash(python -c \"import emotion_engine\")",
+      "Bash(python -m pytest -q tests/)",
+      "Bash(python merge_scenario_fills.py)",
+      "Bash(python3 *)",
+      "Bash(git -C /Users/ningyuding/Desktop/Emergency-Department-World-Model-light-system_new diff HEAD --stat -- ed_world_model/actions/registry.py tests/test_action_registry.py ed_world_model/scenario_loader.py tests/test_scenario_loader.py)",
+      "Bash(git -C /Users/ningyuding/Desktop/Emergency-Department-World-Model-light-system_new diff ed_world_model/agents/clinician.py)",
+      "Bash(ANTHROPIC_BASE_URL=http://148.113.224.153:3000 python3 generate_utterances.py --provider anthropic --list-models)",
+      "Bash(env -u OPENAI_BASE_URL python3 generate_utterances.py --provider openai --list-models)",
+      "Bash(cp engine_predictions_gpt_5.4_noscenario_notraits.json engine_predictions_gpt_5.4_noscenario_notraits_4to3mapped_baseline.json)",
+      "Bash(cp engine_metrics_gpt_5.4_noscenario_notraits.json engine_metrics_gpt_5.4_noscenario_notraits_4to3mapped_baseline.json)",
+      "Bash(python -m pytest tests/ -q -k \"emotion\")",
+      "Bash(python -m pytest tests/test_emotion_rules_consistency.py -q)",
+      "Bash(python *)"
+    ]
+  }
+}

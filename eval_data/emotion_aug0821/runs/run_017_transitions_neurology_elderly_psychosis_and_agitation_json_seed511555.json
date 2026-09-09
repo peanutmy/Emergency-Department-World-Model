@@ -1,0 +1,1859 @@
+{
+  "scenario": "A 68-year-old woman is brought to the ED after bizarre behavior at a bus stop. She is agitated, paranoid, and responding to visual hallucinations, with no initial vital signs obtainable. The scenario focuses on severe agitation requiring chemical sedation, possible over-sedation, airway management, and work-up of new psychosis in an elderly patient.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Health Literacy": "low",
+    "Patient Activation": "high"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "What's bothering you today, and when did it start?",
+          "turn_index": 0,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 0,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: What's bothering you today, and when did it start?] The utterance is a neutral, open-ended clinical history question. It delivers no bad news, no threat, no loss, no blame, and no processing burden. Fear stays absent (no clinical threat disclosed), sadness stays absent (no loss), overwhelm stays absent (single simple question), shame stays absent (nonjudgmental, no exposure or blame)."
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I feel all worked up and upset, and I can't sit still, I keep needing to move around. I'm seeing things that maybe aren't there, and I feel like people are out to get me.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "When did all this start, and did it come on suddenly or build up over hours? And have you started, stopped, or run out of any medications, or had any alcohol or other substances recently?",
+          "turn_index": 1,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 1,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: When did all this start, and did it come on suddenly or build up over hours? And have you started, stopped, or run out of any medications, or had any alcohol or other substances recently?] The utterance is a neutral history-taking question about onset and substance use. No serious clinical disclosure, so fear stays absent. No loss framing, so sadness stays absent. The questions are simple and not information-dense, so overwhelm stays absent. The substance/medication question is phrased neutrally and non-judgmentally, so shame stays absent."
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I'm not really sure when it started or if it came on all at once or slow. I don't think I stopped or ran out of any of my pills, and I haven't had any drink or anything like that.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's get a 12-lead ECG on her now — acute confusion and agitation, cause still unclear.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 2,
+          "payload": {
+            "test_name": "ECG",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 4,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "What medical conditions do you have and what pills do you take at home, and do you have any allergies?",
+          "turn_index": 3,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 3,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: What medical conditions do you have and what pills do you take at home, and do you have any allergies?] The utterance is a routine history-taking question about medical conditions, medications, and allergies. It contains no bad news, no serious clinical disclosure, no loss content, no blame or judgment, and no processing overload. Fear stays absent (no threat disclosed), sadness stays absent (no loss), overwhelm stays absent (single straightforward question), shame stays absent (neutral, nonjudgmental inquiry)."
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "ECG is back — sinus rhythm, normal QTc.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "I've got high blood pressure and my bones are getting thin, they call it that thinning bone thing. I take a water pill for the blood pressure and another pill for my bones. I don't have any allergies that I know of.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Have you had any fever, cough, or burning when you pass urine recently, or any recent falls or bumps to your head?",
+          "turn_index": 4,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Sinus rhythm, normal QTc"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 4,
+          "payload": {
+            "test_name": "ECG",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 4,
+            "released_at_turn": 4
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 4,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Have you had any fever, cough, or burning when you pass urine recently, or any recent falls or bumps to your head?] The utterance is a routine screening question about symptoms and injury; it conveys no bad news, diagnosis, or serious disclosure, so fear stays absent. No loss content, so sadness stays absent. It is a simple set of questions, not a barrage of complex information, so overwhelm stays absent. It is neutral and nonjudgmental, so shame stays absent."
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, I don't think I've had any fever or cough, and no burning when I go to the bathroom. And I haven't fallen or bumped my head that I know of.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Sinus rhythm, normal QTc"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 5,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Diagnostic test_name 'ECG' already has an available result; duplicate diagnostic_order is not allowed."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Over the last day or two, have you been drinking and eating normally and passing urine as usual?",
+          "turn_index": 6,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Sinus rhythm, normal QTc"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 6,
+          "payload": {
+            "question_id": "q5",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Over the last day or two, have you been drinking and eating normally and passing urine as usual?] This is a neutral history-taking question about eating, drinking, and urination. It conveys no bad news, blame, or loss, and does not overload the patient. Fear stays absent (no serious disclosure), sadness stays absent (no loss), overwhelm stays absent (single simple question), shame stays absent (nonjudgmental)."
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I'm honestly not sure if I've been eating and drinking like I normally do, and I can't really say if I've been going to the bathroom as usual either.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Sinus rhythm, normal QTc"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q5"
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Does your thinking feel different from your usual self right now, and if so, is this something that started just today or over the last several days?",
+          "turn_index": 8,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Sinus rhythm, normal QTc"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 8,
+          "payload": {
+            "question_id": "q6",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Does your thinking feel different from your usual self right now, and if so, is this something that started just today or over the last several days?] This is a neutral history-gathering question about the patient's thinking and timeline. It contains no bad news, no serious disclosure, no blame, and no imminent loss. fear stays absent (no threat disclosed), sadness stays absent (no loss conveyed), overwhelm stays absent (single manageable question, not information overload), shame stays absent (nonjudgmental inquiry)."
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Yeah, I don't feel like my usual self at all, I feel all worked up and my head's not right. But I really can't tell you if it started just today or came on over the last few days, it's all kind of a blur to me.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's start a 500 mL normal saline bolus — she's on a water pill and unclear on her intake, so I'm concerned about dehydration.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 500
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Sinus rhythm, normal QTc"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q6"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 500
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 500
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "What was it that made you or your family decide to come in today — was there a specific thing that seemed different or wrong?",
+          "turn_index": 10,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Sinus rhythm, normal QTc"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 10,
+          "payload": {
+            "question_id": "q7",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: What was it that made you or your family decide to come in today — was there a specific thing that seemed different or wrong?] This is a neutral history-taking question asking why the patient came in. It contains no bad news, no clinical threat disclosure, no blame, and no loss content. Fear stays absent (no serious abnormality disclosed). Sadness stays absent (no loss framed). Overwhelm stays absent (single, simple question, not information overload). Shame stays absent (nonjudgmental, no blame or exposure). Questions are not soothing but this one does not pile on distressing content, so no rise."
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I think it was because I was seeing things that weren't there and I got real frightened, like folks were out to get me. I was pacing around and yelling. I couldn't settle down and I just wasn't myself. I can't tell you exactly when it all started though, it's a blur.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "In the last few days, did you start, stop, or run out of any of your pills, or take any new medication, or drink any alcohol?",
+          "turn_index": 11,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Sinus rhythm, normal QTc"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q7"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 11,
+          "payload": {
+            "question_id": "q8",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: In the last few days, did you start, stop, or run out of any of your pills, or take any new medication, or drink any alcohol?] This is a neutral history-gathering question about medications and alcohol. It contains no serious clinical disclosure, no bad news, and no judgmental framing (the question is factual, not accusatory), so fear stays absent, sadness stays absent, and overwhelm stays absent. The mention of alcohol/pills is a neutral, nonjudgmental medical inquiry and does not carry blame, so shame stays absent."
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I honestly can't say for sure if I started, stopped, or ran out of any of my pills recently, it's all a blur to me. I don't remember taking anything new, and I don't think I had any alcohol.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Do you know if you've ever been told you have diabetes, thyroid trouble, or kidney problems?",
+          "turn_index": 12,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Sinus rhythm, normal QTc"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q8"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 12,
+          "payload": {
+            "question_id": "q9",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Do you know if you've ever been told you have diabetes, thyroid trouble, or kidney problems?] This is a neutral history-gathering question about past medical conditions, with no disclosure of new abnormal findings, no bad news, and no blame or exposure. Fear stays absent (no serious clinical threat disclosed). Sadness stays absent (no loss framed). Overwhelm stays absent (single, simple question, not an information pile-up). Shame stays absent (nonjudgmental, no blame or humiliation)."
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, I don't think anyone's ever told me I have sugar trouble, thyroid, or kidney problems. But my head's so foggy right now, I can't be real sure of the details.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Have you had any fever, burning when you pee, a cough, or new pain anywhere in your body?",
+          "turn_index": 13,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Sinus rhythm, normal QTc"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q9"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 13,
+          "payload": {
+            "question_id": "q10",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Have you had any fever, burning when you pee, a cough, or new pain anywhere in your body?] The utterance is a routine screening question about infection symptoms (fever, dysuria, cough, pain). It discloses no serious abnormality or bad news, so fear stays absent. No loss content, so sadness stays absent. It is a simple, single question—not an information overload—so overwhelm stays absent. It is neutral and nonjudgmental, no blame or exposure, so shame stays absent."
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, I don't recall having a fever, or any burning when I pee, or a cough, or any new pain anywhere. But my head's so foggy right now I can't be fully sure of it.",
+          "turn_index": 14,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "What pills do you take at home — the water pill and any others you can name?",
+          "turn_index": 14,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": null,
+            "BP_sys": null,
+            "BP_dia": null,
+            "RR": null,
+            "O2Sat": null,
+            "T": null
+          },
+          "features": {
+            "rhythm": null,
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E4 V4 M6)",
+            "glucose_mmol_l": null
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "ECG",
+              "result": "Sinus rhythm, normal QTc"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q10"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 14,
+          "payload": {
+            "question_id": "q11",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: What pills do you take at home — the water pill and any others you can name?] This is a neutral information-gathering question about home medications with no bad news, blame, or complexity. Fear stays absent - no serious clinical disclosure. Sadness stays absent - no loss conveyed. Overwhelm stays absent - a single simple question, not overload. Shame stays absent - the question is nonjudgmental and does not blame or expose the patient."
+      }
+    }
+  ],
+  "scenario_path": "transitions/Neurology/Elderly Psychosis and Agitation.json"
+}

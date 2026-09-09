@@ -1,0 +1,1911 @@
+{
+  "scenario": "A 5-year-old male with asthma presents with worsening cough, wheeze, and shortness of breath. The case involves severe pediatric asthma that fails initial therapy, progresses to fatigue, requires intubation, and may develop post-intubation hypotension, hypoxia, and bradycardia if respiratory mechanics are not addressed.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Health Literacy": "low",
+    "Optimism": "high"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Hey buddy, I'm the doctor. Can you tell me what's hurting and when it started?",
+          "turn_index": 0,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 162.0,
+            "BP_sys": 78.0,
+            "BP_dia": 49.0,
+            "RR": 42.0,
+            "O2Sat": 97.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 0,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Hey buddy, I'm the doctor. Can you tell me what's hurting and when it started?] A friendly introduction and open question with no bad news. No emotion changed: fear stays absent (no threat disclosed), sadness stays absent (no loss), overwhelm stays absent (simple single question, low burden), shame stays absent (no blame or exposure)."
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "It's hard to breathe and I keep coughing. My chest feels all tight and my nose is runny. I'm kinda scared.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's start a nebulized salbutamol treatment now — he's wheezy and tight, working hard to breathe.",
+          "turn_index": 1,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "I'm starting your salbutamol nebuliser now. Breathe steadily through the mask and try to stay with it.",
+          "turn_index": 1,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "bronchodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "bronchodilator",
+        "params": {
+          "drug_name": "salbutamol",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 170.0,
+            "BP_sys": 78.0,
+            "BP_dia": 49.0,
+            "RR": 39.0,
+            "O2Sat": 97.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 1,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "bronchodilator",
+              "params": {
+                "drug_name": "salbutamol",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 1,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "bronchodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "salbutamol",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[nurse: I'm starting your salbutamol nebuliser now. Breathe steadily through the mask and try to stay with it.] This utterance is routine care with calm, supportive coaching ('breathe steadily', 'try to stay with it') and no new serious disclosure, so fear stays absent. Sadness stays absent (no loss content). Overwhelm stays absent (simple, single instruction, not overloading). Shame stays absent (no blame, judgment, or exposure)."
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay, I'll try to breathe in the mask. It still feels hard and my chest is tight. I'm scared.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's give him dexamethasone now for his asthma flare — he's still tight and working hard after the first neb.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Dexamethasone given.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "corticosteroid",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "corticosteroid",
+        "params": {
+          "drug_name": "dexamethasone",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 170.0,
+            "BP_sys": 78.0,
+            "BP_dia": 49.0,
+            "RR": 39.0,
+            "O2Sat": 97.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "corticosteroid",
+              "params": {
+                "drug_name": "dexamethasone",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "corticosteroid",
+            "raw_text": null,
+            "params": {
+              "drug_name": "dexamethasone",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Add ipratropium to his nebuliser now — he's still tight and working hard after the first neb and steroid.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "bronchodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "bronchodilator",
+        "params": {
+          "drug_name": "ipratropium",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 173.0,
+            "BP_sys": 78.0,
+            "BP_dia": 49.0,
+            "RR": 34.0,
+            "O2Sat": 97.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "bronchodilator",
+              "params": {
+                "drug_name": "ipratropium",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "bronchodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "ipratropium",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "You're doing great, buddy. Quick question: have you ever had this hard-to-breathe feeling before, or do you use any puffers or inhalers at home?",
+          "turn_index": 4,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 175.0,
+            "BP_sys": 76.0,
+            "BP_dia": 48.0,
+            "RR": 36.0,
+            "O2Sat": 96.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 4,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: You're doing great, buddy. Quick question: have you ever had this hard-to-breathe feeling before, or do you use any puffers or inhalers at home?] No emotion changed. The utterance is encouraging ('You're doing great') and asks a simple, non-threatening history question about prior episodes and inhalers. It contains no new serious clinical disclosure, no worsening news, so fear stays absent. No loss content, so sadness stays absent. The question is simple and singular, not a pile of information, so overwhelm stays absent. It carries no blame or judgment (a neutral history question), so shame stays absent. The prior 'scared' state was patient-expressed but current tracked state was absent; nothing here raises it."
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Yeah, I use puffers at home. And it felt hard to breathe like this before. My chest still feels all tight and I'm scared.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give IV magnesium sulfate now — he's still tight and working hard despite the nebs and steroid.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Hanging the magnesium sulfate now.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "magnesium sulfate",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 172.0,
+            "BP_sys": 72.0,
+            "BP_dia": 46.0,
+            "RR": 34.0,
+            "O2Sat": 97.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "magnesium sulfate",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "magnesium sulfate",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start continuous salbutamol nebs now — he's still tight and working hard despite the nebs, steroid, and magnesium.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 174.0,
+            "BP_sys": 70.0,
+            "BP_dia": 45.0,
+            "RR": 36.0,
+            "O2Sat": 95.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "validation_drop",
+          "turn_index": 6,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "family/kind_hint mismatch: 'bronchodilator' belongs to 'respiratory_support', not 'medication_toxicology_metabolic'."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start continuous salbutamol nebs now — he's still tight and working hard despite the nebs, steroid, and magnesium.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Salbutamol nebulizer is running now.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "bronchodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "bronchodilator",
+        "params": {
+          "drug_name": "salbutamol",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 180.0,
+            "BP_sys": 70.0,
+            "BP_dia": 45.0,
+            "RR": 33.0,
+            "O2Sat": 97.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "bronchodilator",
+              "params": {
+                "drug_name": "salbutamol",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "bronchodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "salbutamol",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get me a venous blood gas now — I want to see his CO2 and how much he's tiring out after maximal therapy.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 182.0,
+            "BP_sys": 68.0,
+            "BP_dia": 44.0,
+            "RR": 36.0,
+            "O2Sat": 95.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 8,
+          "payload": {
+            "test_name": "Venous Blood Gas",
+            "ordered_at_turn": 8,
+            "ready_at_turn": 9,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Venous gas back: pH 7.21, pCO2 75, pO2 55, HCO3 20, lactate 3.7. He's tiring — CO2's high and he's acidotic. Still HR 182, RR 36, BP 68/44, sat 95 on NRB at 0.8.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "He's failing maximal therapy — gas shows pCO2 75 and pH 7.21, and he's tiring. Prepare for RSI and intubation now: set up for BVM preoxygenation and draw up induction and paralytic.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "RSI meds drawn up and ready, BVM in place with good pre-oxygenation. Suction and tube confirmed at bedside, ready for intubation on your go.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "airway_management",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "airway_management",
+        "params": {
+          "stage": "preparation",
+          "rsi_medication_used": true,
+          "bvm_before": true,
+          "intubated": true
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 167.0,
+            "BP_sys": 55.0,
+            "BP_dia": 36.0,
+            "RR": 12.0,
+            "O2Sat": 92.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.21, pCO2 75, pO2 55, HCO3 20, lactate 3.7"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 9,
+          "payload": {
+            "test_name": "Venous Blood Gas",
+            "ordered_at_turn": 8,
+            "ready_at_turn": 9,
+            "released_at_turn": 9
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "airway_management",
+              "params": {
+                "stage": "preparation",
+                "rsi_medication_used": true,
+                "bvm_before": true,
+                "intubated": true
+              }
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "features",
+              "status_flags"
+            ]
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "airway_management",
+            "raw_text": null,
+            "params": {
+              "stage": "preparation",
+              "rsi_medication_used": true,
+              "bvm_before": true,
+              "intubated": true
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "He's dropped to 55/36 after intubation — positive-pressure is cutting his preload. Push a 250 mL normal saline bolus now, that's 10 mL/kg for 25 kg.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 250
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 162.0,
+            "BP_sys": 67.0,
+            "BP_dia": 42.0,
+            "RR": 12.0,
+            "O2Sat": 92.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.21, pCO2 75, pO2 55, HCO3 20, lactate 3.7"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 10,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 250
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 10,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 250
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get a post-intubation chest X-ray now — I need to confirm the tube position and rule out a pneumothorax given his BP is still 67/42 on the vent.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 168.0,
+            "BP_sys": 60.0,
+            "BP_dia": 38.0,
+            "RR": 12.0,
+            "O2Sat": 89.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.21, pCO2 75, pO2 55, HCO3 20, lactate 3.7"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 11,
+          "payload": {
+            "test_name": "Post-intubation Chest X-ray",
+            "ordered_at_turn": 11,
+            "ready_at_turn": 14,
+            "turnaround_turns": 3
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Give a second 250 mL normal saline bolus now — another 10 mL/kg. He's still hypotensive at 60/38 and satting only 89% on the vent. And disconnect him briefly to let him fully exhale — watch for breath-stacking and auto-PEEP with his asthma.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 250
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 163.0,
+            "BP_sys": 72.0,
+            "BP_dia": 44.0,
+            "RR": 12.0,
+            "O2Sat": 89.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.21, pCO2 75, pO2 55, HCO3 20, lactate 3.7"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 12,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 250
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 12,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 250
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start an epinephrine infusion now — he's still hypotensive after two saline boluses, this is fluid-refractory. Titrate to perfusion.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "epinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 171.0,
+            "BP_sys": 93.0,
+            "BP_dia": 55.0,
+            "RR": 12.0,
+            "O2Sat": 91.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.21, pCO2 75, pO2 55, HCO3 20, lactate 3.7"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 13,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "epinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 13,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "epinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Epi infusion running and titrating. BP's come up to 93/55, HR 171, sat 91% on the vent. Post-intubation chest X-ray is back — tube position normal, no pneumothorax.",
+          "turn_index": 14,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Repeat the venous blood gas now — I need to see if his CO2 and acidosis are improving post-intubation so I can adjust the vent settings.",
+          "turn_index": 14,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 165.0,
+            "BP_sys": 85.0,
+            "BP_dia": 51.0,
+            "RR": 12.0,
+            "O2Sat": 88.0,
+            "T": 37.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.21, pCO2 75, pO2 55, HCO3 20, lactate 3.7"
+            },
+            {
+              "name": "Post-intubation Chest X-ray",
+              "result": "Post-intubation normal"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 14,
+          "payload": {
+            "test_name": "Post-intubation Chest X-ray",
+            "ordered_at_turn": 11,
+            "ready_at_turn": 14,
+            "released_at_turn": 14
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 14,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Diagnostic test_name 'Venous Blood Gas' already has an available result; duplicate diagnostic_order is not allowed."
+            ]
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    }
+  ],
+  "scenario_path": "transitions/Pediatrics/Pediatric Asthma Exacerbation.json"
+}

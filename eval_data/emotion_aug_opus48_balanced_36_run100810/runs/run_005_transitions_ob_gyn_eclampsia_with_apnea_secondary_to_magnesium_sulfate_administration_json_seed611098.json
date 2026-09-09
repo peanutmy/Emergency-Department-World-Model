@@ -1,0 +1,1883 @@
+{
+  "scenario": "A 30-year-old G1P0 female at 32 weeks gestation presents with headache, blurred vision, nausea, vomiting, and severe hypertension. She develops eclampsia requiring magnesium sulfate, then apnea requiring ventilatory support and intubation, followed by post-intubation management and antihypertensive therapy.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Patient Activation": "high",
+    "Health Literacy": "low"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "What brought you in today, and when did it start?",
+          "turn_index": 0,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 180.0,
+            "BP_dia": 118.0,
+            "RR": 20.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 0,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: What brought you in today, and when did it start?] No emotion changed. This is a neutral open-ended intake question with no bad news, blame, loss, or informational overload. Fear stays absent (no threat disclosed), sadness stays absent (no loss), overwhelm stays absent (single simple question), shame stays absent (no judgment or exposure)."
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I've got this really bad headache. It's all around my whole head and it's pounding. My vision's gone blurry too, and I feel sick to my stomach. I've thrown up. And it hurts up here on the right side of my belly.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "When exactly did the headache and blurry vision start, and could you be pregnant or have you recently given birth?",
+          "turn_index": 1,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 114.0,
+            "BP_sys": 184.0,
+            "BP_dia": 120.0,
+            "RR": 20.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 1,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: When exactly did the headache and blurry vision start, and could you be pregnant or have you recently given birth?] No emotion changed. This is a neutral history-gathering question with no disclosure of serious findings, no blame, and no mention of loss. Fear stays absent because no bad news or threat is communicated. Sadness stays absent because no loss is raised. Overwhelm stays absent because it is a simple, focused question, not an information overload. Shame stays absent because the question is nonjudgmental."
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Yes, I'm pregnant, about 32 weeks. This is my first baby. I'm not really sure exactly when the headache and blurry vision started though.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start IV magnesium sulfate now for seizure prophylaxis. This is severe preeclampsia at 32 weeks with BP 184/120, headache, visual changes, and right upper quadrant pain.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Magnesium sulfate is up and running.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "anticonvulsant",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anticonvulsant",
+        "params": {
+          "drug_name": "magnesium sulfate",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 176.0,
+            "BP_dia": 115.0,
+            "RR": 19.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anticonvulsant",
+              "params": {
+                "drug_name": "magnesium sulfate",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "anticonvulsant",
+            "raw_text": null,
+            "params": {
+              "drug_name": "magnesium sulfate",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start IV labetalol now. Her BP is 176/115, severe range with the preeclampsia, and we need to bring it down to prevent a stroke.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Labetalol is in and going now.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "vasodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasodilator",
+        "params": {
+          "drug_name": "labetalol",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 102.0,
+            "BP_sys": 150.0,
+            "BP_dia": 99.0,
+            "RR": 19.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasodilator",
+              "params": {
+                "drug_name": "labetalol",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "vasodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "labetalol",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Do you have any allergies to medications?",
+          "turn_index": 4,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 104.0,
+            "BP_sys": 155.0,
+            "BP_dia": 102.0,
+            "RR": 19.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 4,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Do you have any allergies to medications?] No emotion changed. This is a routine, neutral safety question that carries no bad news, no complexity burden, no blame, and no anticipated loss. Fear stays absent (no new serious disclosure in this utterance), sadness stays absent, overwhelm stays absent (single simple question), shame stays absent (nonjudgmental)."
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, I don't have any allergies to medicines that I know of.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Have you felt the baby moving normally, and do you have any vaginal bleeding or contractions?",
+          "turn_index": 5,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 105.0,
+            "BP_sys": 158.0,
+            "BP_dia": 104.0,
+            "RR": 19.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 5,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Have you felt the baby moving normally, and do you have any vaginal bleeding or contractions?] fear absent->present: for a first-time mother, questions probing whether the baby is moving normally and about bleeding/contractions implicitly raise the possibility of harm to the baby, cueing worry about the baby's safety in an already unstable situation; this mild threat awareness moves fear to present. Sadness stays absent: no actual or clearly anticipated loss is stated. Overwhelm stays absent: a simple two-part question is not an information/processing overload. Shame stays absent: no blame, exposure, or judgment."
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I'm not really sure if the baby's been moving like normal, I haven't been watching that close. I haven't noticed any bleeding down there, and I don't think I've had any contractions. Is the baby going to be okay?",
+          "turn_index": 6,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "I won't make you a promise I can't keep, but here's where we are. The magnesium and the blood pressure medication are working and your numbers are coming down. The best thing we can do for both you and the baby right now is control your blood pressure and prevent seizures, which we're doing. We're going to put you on continuous fetal monitoring and get the obstetric team in to check on the baby directly. I need you to understand: at 32 weeks with severe preeclampsia like this, if things don't stay stable, delivering early may become necessary. We'll watch you both very closely.",
+          "turn_index": 6,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 106.0,
+            "BP_sys": 162.0,
+            "BP_dia": 106.0,
+            "RR": 19.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 6,
+          "payload": {
+            "question_id": "q5",
+            "source_agent": "patient",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: I won't make you a promise I can't keep, but here's where we are. The magnesium and the blood pressure medication are working and your numbers are coming down. The best thing we can do for both you and the baby right now is control your blood pressure and prevent seizures, which we're doing. We're going to put you on continuous fetal monitoring and get the obstetric team in to check on the baby directly. I need you to understand: at 32 weeks with severe preeclampsia like this, if things don't stay stable, delivering early may become necessary. We'll watch you both very closely.] sadness: absent->present because the mention of possibly delivering the baby early at 32 weeks makes an anticipated devastating loss (threat to the baby) feel close and personally significant, and the clinician refuses to promise the baby will be okay. fear: stays present - the news carries both reassurance (numbers coming down, plan in place) and continued threat (early delivery may be necessary), so the trigger persists but is buffered rather than escalated. overwhelm: stays absent - the message is delivered clearly with a concrete plan, not an overload of technical findings the patient must process. shame: stays absent - no blame, judgment, or exposure."
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay, I understand what you're saying. I'm just really scared for the baby, and I don't want it to come too early. My head is still pounding really bad all over, my vision's still blurry, I feel sick to my stomach, and it still hurts up here on the right side of my belly.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give her acetaminophen for the headache. She's still symptomatic with the pounding headache and right upper quadrant pain.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "analgesia",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "analgesia",
+        "params": {
+          "drug_name": "acetaminophen",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 106.0,
+            "BP_sys": 162.0,
+            "BP_dia": 106.0,
+            "RR": 19.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 7,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q5"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "analgesia",
+              "params": {
+                "drug_name": "acetaminophen",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "analgesia",
+            "raw_text": null,
+            "params": {
+              "drug_name": "acetaminophen",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I need to fill in some history. Before today, had anyone told you your blood pressure was high, either during this pregnancy or before it? And have you been going to your prenatal appointments and taking any medications they prescribed?",
+          "turn_index": 8,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 107.0,
+            "BP_sys": 166.0,
+            "BP_dia": 108.0,
+            "RR": 19.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 8,
+          "payload": {
+            "question_id": "q6",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": "[clinician: I need to fill in some history. Before today, had anyone told you your blood pressure was high, either during this pregnancy or before it? And have you been going to your prenatal appointments and taking any medications they prescribed?] shame absent->present: the question about whether she attended prenatal appointments and took prescribed medications implies possible non-adherence and can make the patient feel judged or blamed for her role in the current crisis, especially with low health literacy. fear stays present: no new threat or reassurance, trigger for baby/health unchanged. sadness stays present: anticipated loss of the baby still looms, not addressed. overwhelm stays absent: this is a simple history question, not an information overload."
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, I don't think anyone ever told me my blood pressure was high, not before and not during the pregnancy. And I'm not taking any medicines that anyone prescribed for me.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give another dose of labetalol. Her pressure is still severe at 166/108 and she's still symptomatic with the headache and blurry vision.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "vasodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasodilator",
+        "params": {
+          "drug_name": "labetalol",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 102.0,
+            "BP_sys": 145.0,
+            "BP_dia": 96.0,
+            "RR": 19.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q6"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasodilator",
+              "params": {
+                "drug_name": "labetalol",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "vasodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "labetalol",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "When did the headache and blurry vision first start, and have they been getting worse, staying the same, or improving since then?",
+          "turn_index": 10,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 103.0,
+            "BP_sys": 149.0,
+            "BP_dia": 98.0,
+            "RR": 19.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 10,
+          "payload": {
+            "question_id": "q7",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": "[clinician: When did the headache and blurry vision first start, and have they been getting worse, staying the same, or improving since then?] This is a neutral history-taking question. No emotion changed. Fear stays present (ongoing scary symptoms/threat to baby, but not raised). Sadness stays present (anticipated loss of baby unaddressed). Overwhelm stays absent (single, focused question, low burden). Shame stays present (prior questions about missed prenatal care linger, this utterance doesn't address it)."
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I'm really not sure exactly when it all started. But it hasn't gotten any better since then. My head's still pounding all over and my vision's still blurry.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Here's where you stand. Your blood pressure is coming down, it's 149 over 98 now, but that's still high, and the fact that your head is still pounding and your vision is still blurry tells me the preeclampsia is still active. Because you had no prenatal care, this went undetected and reached a severe stage before we caught it. I'll be straight with you: if your symptoms and your pressure don't settle, delivering the baby early may be the only way to keep you both safe. The obstetric team is staying closely involved.",
+          "turn_index": 11,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 105.0,
+            "BP_sys": 155.0,
+            "BP_dia": 101.0,
+            "RR": 20.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q7"
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "present",
+        "notes": "[clinician: Here's where you stand. Your blood pressure is coming down, it's 149 over 98 now, but that's still high, and the fact that your head is still pounding and your vision is still blurry tells me the preeclampsia is still active. Because you had no prenatal care, this went undetected and reached a severe stage before we caught it. I'll be straight with you: if your symptoms and your pressure don't settle, delivering the baby early may be the only way to keep you both safe. The obstetric team is staying closely involved.] overwhelm: absent->present - the utterance piles on multiple findings at once (BP numbers, persisting symptoms, still-active preeclampsia, cause of missed detection, possibility of early delivery, team involvement) for a low-health-literacy patient, exceeding processing capacity. fear stays present - serious ongoing threat and possible early delivery sustain it but patient can still cooperate, so not extreme. sadness stays present - anticipated loss of carrying the baby to term (early delivery) keeps it active but does not tip to catastrophic collapse. shame stays present - the 'because you had no prenatal care' framing reinforces self-blame but is not new humiliation escalating to extreme."
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay, I think I understand. I'm just so scared for the baby, I really don't want it to come too early. My head is still pounding all over, my vision's still blurry, I still feel sick to my stomach, and it still hurts up here on the right side of my belly.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give another dose of labetalol. Her pressure is still severe at 155/101 and she's still symptomatic with the headache and blurry vision.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "vasodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasodilator",
+        "params": {
+          "drug_name": "labetalol",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 97.0,
+            "BP_sys": 135.0,
+            "BP_dia": 90.0,
+            "RR": 20.0,
+            "O2Sat": 96.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 12,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasodilator",
+              "params": {
+                "drug_name": "labetalol",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 12,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "vasodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "labetalol",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Continue the magnesium sulfate for seizure prophylaxis. She's still symptomatic with the pounding headache, blurry vision and right upper quadrant pain despite the pressure coming down.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Magnesium sulfate is going in now. I'll monitor reflexes, respiratory rate, and urine output and let you know if anything changes.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "anticonvulsant",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anticonvulsant",
+        "params": {
+          "drug_name": "magnesium sulfate",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 95.0,
+            "BP_sys": 130.0,
+            "BP_dia": 87.0,
+            "RR": 19.0,
+            "O2Sat": 95.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 13,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anticonvulsant",
+              "params": {
+                "drug_name": "magnesium sulfate",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 13,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "anticonvulsant",
+            "raw_text": null,
+            "params": {
+              "drug_name": "magnesium sulfate",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I need to know how far along you are. How many weeks pregnant are you, or when is your due date?",
+          "turn_index": 14,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 98.0,
+            "BP_sys": 145.0,
+            "BP_dia": 95.0,
+            "RR": 19.0,
+            "O2Sat": 95.0,
+            "T": 36.5
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 14,
+          "payload": {
+            "question_id": "q8",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "present",
+        "notes": "[clinician: I need to know how far along you are. How many weeks pregnant are you, or when is your due date?] This is a neutral informational question gathering gestational age; it delivers no new bad news, no relief, no blame, and no processing overload. Fear stays present (ongoing threat unchanged), sadness stays present (anticipated loss of baby unchanged), overwhelm stays present (no burden removed or added), and shame stays present (no judgment or dignity change). A question about facts neither escalates nor resolves any trigger, so all remain unchanged."
+      }
+    }
+  ],
+  "scenario_path": "transitions/OB-GYN/Eclampsia with Apnea Secondary to Magnesium Sulfate Administration.json"
+}

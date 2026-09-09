@@ -1,0 +1,2049 @@
+{
+  "scenario": "A 52-year-old male with diabetes, hypertension, hypothyroidism, dyslipidemia, and end-stage renal disease on hemodialysis presents with weakness and dizziness after missing dialysis. He has an idioventricular rhythm with ECG findings concerning for hyperkalemia, and deterioration occurs if calcium is not given promptly.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Health Literacy": "low",
+    "Patient Activation": "low"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get me a 12-lead ECG now. He's bradycardic at 50 with an idioventricular rhythm and I need it characterized.",
+          "turn_index": 0,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 46.0,
+            "BP_sys": 87.0,
+            "BP_dia": 62.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "idioventricular",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 0,
+          "payload": {
+            "test_name": "Initial ECG",
+            "ordered_at_turn": 0,
+            "ready_at_turn": 2,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Give atropine 0.5 mg IV now. He's symptomatic bradycardic in the 40s with an idioventricular rhythm and a pressure of 87/62.",
+          "turn_index": 1,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Atropine 0.5 mg IV in.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "chronotropic_agent",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "chronotropic_agent",
+        "params": {
+          "drug_name": "atropine",
+          "dose": 0.5,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 48.0,
+            "BP_sys": 87.0,
+            "BP_dia": 62.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "idioventricular",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 1,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "chronotropic_agent",
+              "params": {
+                "drug_name": "atropine",
+                "dose": 0.5,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 1,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "chronotropic_agent",
+            "raw_text": null,
+            "params": {
+              "drug_name": "atropine",
+              "dose": 0.5,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "ECG's back — reads hyperkalemia STEMI mimic, idioventricular rhythm. HR still 48, BP 87/62, no response to the atropine. Glucose 12.7.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Calcium gluconate IV now. This is hyperkalemia — idioventricular rhythm, no response to atropine. I need cardiac membrane stabilization.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Calcium gluconate is going in now.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "membrane_stabilization",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "membrane_stabilization",
+        "params": {
+          "drug_name": "calcium gluconate",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 62.0,
+            "BP_sys": 93.0,
+            "BP_dia": 66.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 2,
+          "payload": {
+            "test_name": "Initial ECG",
+            "ordered_at_turn": 0,
+            "ready_at_turn": 2,
+            "released_at_turn": 2
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "membrane_stabilization",
+              "params": {
+                "drug_name": "calcium gluconate",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "membrane_stabilization",
+            "raw_text": null,
+            "params": {
+              "drug_name": "calcium gluconate",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Insulin with dextrose IV now to shift the potassium. The calcium stabilized the membrane but it doesn't lower his potassium.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Insulin and dextrose are in for the hyperkalemia. I'll keep monitoring glucose and the cardiac tracing.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "hyperkalemia_shift",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "hyperkalemia_shift",
+        "params": {
+          "drug_name": "insulin and dextrose",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 66.0,
+            "BP_sys": 93.0,
+            "BP_dia": 66.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "hyperkalemia_shift",
+              "params": {
+                "drug_name": "insulin and dextrose",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "hyperkalemia_shift",
+            "raw_text": null,
+            "params": {
+              "drug_name": "insulin and dextrose",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Repeat 12-lead ECG now. He's back in sinus at 66 with a better pressure — I want to confirm the hyperkalemic changes are resolving after the calcium and insulin/dextrose.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 63.0,
+            "BP_sys": 90.0,
+            "BP_dia": 64.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 4,
+          "payload": {
+            "test_name": "Repeat ECG",
+            "ordered_at_turn": 4,
+            "ready_at_turn": 6,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get me a venous blood gas now — I need to confirm the potassium is actually coming down after the calcium and insulin/dextrose.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 60.0,
+            "BP_sys": 86.0,
+            "BP_dia": 62.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "Critical Venous Blood Gas",
+            "ordered_at_turn": 5,
+            "ready_at_turn": 6,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Both back. Repeat ECG is NSR, no ST changes. But the gas still shows K 8.6 — potassium hasn't come down. pH 7.27, HCO3 20, lactate 2.5, glucose 12.7, Na 142. He needs definitive potassium removal.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Potassium's still 8.6 despite the calcium and insulin/dextrose — shifting isn't cutting it. Start sodium zirconium cyclosilicate for definitive removal, and get nephrology on the phone now for urgent dialysis.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "sodium zirconium cyclosilicate",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 57.0,
+            "BP_sys": 86.0,
+            "BP_dia": 62.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            },
+            {
+              "name": "Repeat ECG",
+              "result": "NSR with no ST changes"
+            },
+            {
+              "name": "Critical Venous Blood Gas",
+              "result": "pH 7.27, PCO2 35, PO2 45, HCO3 20, lactate 2.5, Na 142, K 8.6, Cl 105"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 6,
+          "payload": {
+            "test_name": "Repeat ECG",
+            "ordered_at_turn": 4,
+            "ready_at_turn": 6,
+            "released_at_turn": 6
+          }
+        },
+        {
+          "type": "diagnostic_release",
+          "turn_index": 6,
+          "payload": {
+            "test_name": "Critical Venous Blood Gas",
+            "ordered_at_turn": 5,
+            "ready_at_turn": 6,
+            "released_at_turn": 6
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 6,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "sodium zirconium cyclosilicate",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 6,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "sodium zirconium cyclosilicate",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your potassium is dangerously high and I need to know why. What medical problems do you have and what medications are you on — any kidney disease or dialysis you've missed?",
+          "turn_index": 7,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 56.0,
+            "BP_sys": 84.0,
+            "BP_dia": 61.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            },
+            {
+              "name": "Repeat ECG",
+              "result": "NSR with no ST changes"
+            },
+            {
+              "name": "Critical Venous Blood Gas",
+              "result": "pH 7.27, PCO2 35, PO2 45, HCO3 20, lactate 2.5, Na 142, K 8.6, Cl 105"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 7,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "present",
+        "notes": "[clinician: Your potassium is dangerously high and I need to know why. What medical problems do you have and what medications are you on — any kidney disease or dialysis you've missed?] fear absent->present: direct disclosure that potassium is 'dangerously high' is serious bad news delivered to a symptomatic, unstable patient, raising fear to present (buffered from extreme since he can still cooperate). overwhelm absent->present: the patient (low health literacy, low activation) is asked urgent, multi-part questions about medical problems and medications while unstable, exceeding processing capacity. shame absent->present: the phrasing 'any dialysis you've missed' implies personal fault/non-adherence, exposing him to blame for the missed dialysis that caused this crisis. sadness stays absent: no actual or anticipated devastating loss is named in this utterance."
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I'm scared... I feel really weak and dizzy, lightheaded, no energy, and sick to my stomach. I have diabetes, high blood pressure, an underactive thyroid, and high cholesterol. I take ramipril, levothyroxine, insulin, and Crestor. I don't know about any kidney disease or dialysis. I haven't passed any water. No chest pain and I'm not having trouble breathing.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "High-dose nebulized salbutamol now — another shifting agent while we wait, because his potassium is still 8.6 and not budging. And confirm nephrology is en route for urgent dialysis.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Salbutamol nebulizer for the hyperkalemia is running now.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "hyperkalemia_shift",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "hyperkalemia_shift",
+        "params": {
+          "drug_name": "salbutamol",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 74.0,
+            "BP_sys": 84.0,
+            "BP_dia": 61.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            },
+            {
+              "name": "Repeat ECG",
+              "result": "NSR with no ST changes"
+            },
+            {
+              "name": "Critical Venous Blood Gas",
+              "result": "pH 7.27, PCO2 35, PO2 45, HCO3 20, lactate 2.5, Na 142, K 8.6, Cl 105"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "hyperkalemia_shift",
+              "params": {
+                "drug_name": "salbutamol",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "hyperkalemia_shift",
+            "raw_text": null,
+            "params": {
+              "drug_name": "salbutamol",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Hang a liter of normal saline wide open — his pressure's down at 84/61, and he's anuric so the shifting agents alone won't clear this potassium. Confirm nephrology is en route for urgent dialysis.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Normal saline 1 liter bolus running wide open now.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 74.0,
+            "BP_sys": 90.0,
+            "BP_dia": 65.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            },
+            {
+              "name": "Repeat ECG",
+              "result": "NSR with no ST changes"
+            },
+            {
+              "name": "Critical Venous Blood Gas",
+              "result": "pH 7.27, PCO2 35, PO2 45, HCO3 20, lactate 2.5, Na 142, K 8.6, Cl 105"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I need to be straight with you. Your potassium is still 8.6 - dangerously high - despite everything we've given. Those medications only shift it around temporarily; they don't actually remove it. The fact that you haven't passed any urine, combined with your ramipril, tells me your kidneys are failing. The only thing that will truly clear this is dialysis, and the kidney specialists are on their way now for that.",
+          "turn_index": 10,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 70.0,
+            "BP_sys": 85.0,
+            "BP_dia": 62.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            },
+            {
+              "name": "Repeat ECG",
+              "result": "NSR with no ST changes"
+            },
+            {
+              "name": "Critical Venous Blood Gas",
+              "result": "pH 7.27, PCO2 35, PO2 45, HCO3 20, lactate 2.5, Na 142, K 8.6, Cl 105"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "present",
+        "notes": "[clinician: I need to be straight with you. Your potassium is still 8.6 - dangerously high - despite everything we've given. Those medications only shift it around temporarily; they don't actually remove it. The fact that you haven't passed any urine, combined with your ramipril, tells me your kidneys are failing. The only thing that will truly clear this is dialysis, and the kidney specialists are on their way now for that.] sadness absent->present: the disclosure that his kidneys are failing conveys a new, personally devastating loss of organ function and lifelong dependence on dialysis, anticipated permanent loss which raises sadness. fear stays present: still dangerously high potassium and organ failure sustain fear, but a concrete plan (dialysis, specialists en route) buffers it from becoming extreme; patient can still cooperate. overwhelm stays present: multiple serious findings and explanations delivered at once maintain load without tipping to breakdown. shame stays present: no new blame or relief, so it holds at its current level."
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "My kidneys are failing? That's really frightening... I still feel so weak and dizzy, and I'm sick to my stomach. Please, do whatever you need to do.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give another dose of calcium gluconate now for cardiac membrane protection - his potassium's still 8.6 and shifting has failed, so he stays at high arrhythmia risk. And confirm nephrology has arrived for urgent dialysis.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Calcium gluconate is in, going up now. Cardiac monitor's on—will call out any QRS or rhythm changes.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "membrane_stabilization",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "membrane_stabilization",
+        "params": {
+          "drug_name": "calcium gluconate",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 70.0,
+            "BP_sys": 90.0,
+            "BP_dia": 65.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            },
+            {
+              "name": "Repeat ECG",
+              "result": "NSR with no ST changes"
+            },
+            {
+              "name": "Critical Venous Blood Gas",
+              "result": "pH 7.27, PCO2 35, PO2 45, HCO3 20, lactate 2.5, Na 142, K 8.6, Cl 105"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 11,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "membrane_stabilization",
+              "params": {
+                "drug_name": "calcium gluconate",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 11,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "membrane_stabilization",
+            "raw_text": null,
+            "params": {
+              "drug_name": "calcium gluconate",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Send a repeat venous blood gas now so we can recheck his potassium after all the shifting agents and the repeat calcium. And confirm nephrology has arrived for urgent dialysis.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 65.0,
+            "BP_sys": 85.0,
+            "BP_dia": 62.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            },
+            {
+              "name": "Repeat ECG",
+              "result": "NSR with no ST changes"
+            },
+            {
+              "name": "Critical Venous Blood Gas",
+              "result": "pH 7.27, PCO2 35, PO2 45, HCO3 20, lactate 2.5, Na 142, K 8.6, Cl 105"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "validation_drop",
+          "turn_index": 12,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Diagnostic test_name 'Critical Venous Blood Gas' already has an available result; duplicate diagnostic_order is not allowed."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "We've sent a repeat gas to recheck your potassium, and dialysis is still the definitive fix - the kidney team is coming. But I want to be plain with you: your kidneys aren't clearing this potassium, and your ramipril was making it worse by holding it in. Have you been taking your ramipril and insulin as usual recently?",
+          "turn_index": 13,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 62.0,
+            "BP_sys": 78.0,
+            "BP_dia": 58.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            },
+            {
+              "name": "Repeat ECG",
+              "result": "NSR with no ST changes"
+            },
+            {
+              "name": "Critical Venous Blood Gas",
+              "result": "pH 7.27, PCO2 35, PO2 45, HCO3 20, lactate 2.5, Na 142, K 8.6, Cl 105"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 13,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "present",
+        "notes": "[clinician: We've sent a repeat gas to recheck your potassium, and dialysis is still the definitive fix - the kidney team is coming. But I want to be plain with you: your kidneys aren't clearing this potassium, and your ramipril was making it worse by holding it in. Have you been taking your ramipril and insulin as usual recently?] shame stays present: the question about medication adherence, following the framing that ramipril 'was making it worse,' carries an implicit probe into non-adherence that could feel like blame, sustaining the already-present shame but not escalating it (tone remains factual with a plan). fear stays present: reiterates the serious threat (kidneys not clearing potassium) but pairs it with the definitive fix (dialysis, kidney team coming), buffering escalation. sadness stays present: continued acknowledgment of failing kidneys/loss but nothing newly devastating. overwhelm stays present: multiple pieces (repeat gas, dialysis, ramipril mechanism, a question) sustain the load but do not exceed prior level. No emotion has a clear resolving trigger, so all remain unchanged."
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Yes, I've been taking my ramipril and insulin like I always do. I don't think I missed any or changed anything. I still feel so weak and dizzy, and I'm sick to my stomach.",
+          "turn_index": 14,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start a norepinephrine infusion now — he's still hypotensive at 78/58 after the full liter, and he's anuric so I don't want to keep pushing fluids. This is to hold his perfusion until dialysis.",
+          "turn_index": 14,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Norepinephrine is up and running.",
+          "turn_index": 14,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "norepinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 62.0,
+            "BP_sys": 80.0,
+            "BP_dia": 60.0,
+            "RR": 16.0,
+            "O2Sat": 97.0,
+            "T": 36.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 13 (E3 V4 M6)",
+            "glucose_mmol_l": 12.7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "Hyperkalemia STEMI mimic"
+            },
+            {
+              "name": "Repeat ECG",
+              "result": "NSR with no ST changes"
+            },
+            {
+              "name": "Critical Venous Blood Gas",
+              "result": "pH 7.27, PCO2 35, PO2 45, HCO3 20, lactate 2.5, Na 142, K 8.6, Cl 105"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 14,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "norepinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 14,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "norepinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "present",
+        "notes": null
+      }
+    }
+  ],
+  "scenario_path": "transitions/Cardiology/Dysrhythmia Secondary to Hyperkalemia.json"
+}

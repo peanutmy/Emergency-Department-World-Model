@@ -1,0 +1,590 @@
+[
+  {
+    "idx": 1,
+    "item_id": "fear_not_at_all_000_0000",
+    "target_emotion": "fear",
+    "target_level": "not at all",
+    "current_state": {
+      "fear": "not at all",
+      "sadness": "not at all",
+      "overwhelm": "not at all",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "There's some trapped air pressing on your right lung right now, which is why it's been hard to get a breath in. We're putting a small tube between your ribs here to let that air out and take the pressure off. You'll feel me clean the skin, then a pinch and some pressure from the numbing medicine — just try to hold still for me while I do this.",
+    "predicted_next_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "not at all"
+    },
+    "evidence": "\"some trapped air pressing on your right lung\" and \"putting a small tube between your ribs\"",
+    "reasoning": "Fear: not at all->low because the nurse discloses a new serious problem affecting breathing and the need for an urgent procedure, which is bad news and should raise fear at least one level. Overwhelm: not at all->low because the patient with low health literacy is given a technical explanation plus immediate procedural steps to process at once. Sadness stayed not at all because this is an acute treatable problem, not news of loss or poor prognosis. Shame stayed not at all because there is no blame, judgment, or embarrassing exposure in the utterance."
+  },
+  {
+    "idx": 2,
+    "item_id": "fear_not_at_all_001_0001",
+    "target_emotion": "fear",
+    "target_level": "not at all",
+    "current_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "Good news—your oxygen came right back up and the swelling in your throat has gone down. Your airway is clear, you're breathing well on your own, and you do not need a breathing tube after all.",
+    "predicted_next_state": {
+      "fear": "not at all",
+      "sadness": "not at all",
+      "overwhelm": "not at all",
+      "shame": "not at all"
+    },
+    "evidence": "\"Good news—your oxygen came right back up... you do not need a breathing tube after all.\"",
+    "reasoning": "fear: low->not at all because the utterance gives concrete resolution of the immediate threat (oxygen recovered, throat swelling decreased, airway clear, no breathing tube needed), removing the trigger for fear. overwhelm: low->not at all because the message simplifies and resolves the crisis rather than adding complexity, with clear reassuring outcomes. sadness stayed not at all because there is no loss or bad prognosis. shame stayed not at all because there is no blame, judgment, or embarrassing exposure."
+  },
+  {
+    "idx": 3,
+    "item_id": "fear_low_000_0002",
+    "target_emotion": "fear",
+    "target_level": "low",
+    "current_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "The chest X-ray we're getting now will help us see how your lungs and this flare-up are affecting your breathing. Have you ever been diagnosed with asthma or COPD before, or been hospitalized or put on a breathing machine for it in the past?",
+    "predicted_next_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "not at all"
+    },
+    "evidence": "The chest X-ray we're getting now... Have you ever been diagnosed with asthma or COPD before, or been hospitalized or put on a breathing machine",
+    "reasoning": "No emotion clearly changes. Fear stays low: this mentions evaluation of breathing and asks about past severe lung illness, which can sustain concern, but it does not disclose a new dangerous finding or escalation of care. Sadness stays not at all: there is no loss, bad outcome, or hopeless prognosis. Overwhelm stays low: there is some medical questioning and mention of an X-ray, but not enough new technical or urgent information to increase load beyond the current level. Shame stays not at all: the questions about prior diagnosis/hospitalization are neutral and not blaming or stigmatizing."
+  },
+  {
+    "idx": 4,
+    "item_id": "fear_low_001_0003",
+    "target_emotion": "fear",
+    "target_level": "low",
+    "current_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "Your blood pressure is still a bit low and you're still breathing fast even with everything we've given you so far, so we want to get another look at your heart with an ultrasound to see how well it's pumping — that'll help guide what we do next. Before we do that, can you tell me if you have any allergies to medications?",
+    "predicted_next_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "extreme",
+      "shame": "not at all"
+    },
+    "evidence": "\"blood pressure is still a bit low and you're still breathing fast even with everything we've given you so far\" and \"get another look at your heart with an ultrasound to see how well it's pumping\"",
+    "reasoning": "Fear low->high: the clinician discloses persistent instability despite treatment (low blood pressure, continued rapid breathing), which is concrete bad news in an already unstable patient and requires escalation/evaluation of heart function. Overwhelm high->extreme: for a low-health-literacy patient already highly overwhelmed, this adds ongoing treatment failure plus more technical cardiac evaluation and uncertainty about next steps all at once. Sadness stayed not at all because there is no clear loss, prognosis of permanent damage, or hopelessness disclosed. Shame stayed not at all because the clinician is not blaming or exposing the patient; the allergy question is routine and nonjudgmental."
+  },
+  {
+    "idx": 5,
+    "item_id": "fear_high_000_0004",
+    "target_emotion": "fear",
+    "target_level": "high",
+    "current_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "Your blood pressure isn't coming back up even with the fluids we're running, and that can happen when your body doesn't have enough steroid hormone to cope with being this sick — it's dangerous if we don't get ahead of it fast. Do you take any steroid medication regularly, like for an adrenal or pituitary condition, and have you missed or run out of any doses recently?",
+    "predicted_next_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "low"
+    },
+    "evidence": "\"Your blood pressure isn't coming back up even with the fluids... it's dangerous if we don't get ahead of it fast\" and asking if she \"missed or run out of any doses recently\"",
+    "reasoning": "Fear low->high: the clinician discloses serious bad news in an unstable patient—blood pressure not improving despite fluids and that it is dangerous—so fear must rise one level. Overwhelm low->high: the utterance adds a complex new explanation (possible steroid hormone/adrenal or pituitary issue), urgent risk, and medication-history questions all at once, which is a lot to process for a low-health-literacy patient. Shame not at all->low: asking whether she missed or ran out of regular steroid doses can make her feel potentially at fault or exposed around nonadherence, but it is neutral/clinical rather than blaming, so only a low rise. Sadness stays not at all: this is threat and urgency, not news of loss, irreversible damage, or hopeless outcome."
+  },
+  {
+    "idx": 6,
+    "item_id": "fear_high_001_0005",
+    "target_emotion": "fear",
+    "target_level": "high",
+    "current_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "The epinephrine, fluids, and steroid haven't opened things up enough — you're still working hard to breathe and your throat's still swelling. We need to place a breathing tube right now to keep your airway open. I'm giving you medication this second to put you to sleep safely so we can do this.",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "not at all",
+      "overwhelm": "extreme",
+      "shame": "not at all"
+    },
+    "evidence": "you're still working hard to breathe and your throat's still swelling. We need to place a breathing tube right now",
+    "reasoning": "fear: high->extreme because this is urgent bad news about ongoing airway compromise despite treatment, with immediate need for intubation; in this unstable symptomatic patient that is a catastrophic threat. overwhelm: high->extreme because the utterance piles on treatment failure, persistent swelling, respiratory distress, urgent intubation, and immediate sedation all at once. sadness stayed not at all because this is about acute threat and intervention, not loss or irreversible outcome. shame stayed not at all because there is no blame, judgment, or embarrassing exposure."
+  },
+  {
+    "idx": 7,
+    "item_id": "sadness_not_at_all_000_0008",
+    "target_emotion": "sadness",
+    "target_level": "not at all",
+    "current_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "high"
+    },
+    "augmented_utterance": "Your blood isn't clotting the way it should right now, so we're pushing plasma to help get that under control while we manage the bleeding. I need to know quickly — are you on any blood thinners, like aspirin or warfarin, or anything else that affects your blood?",
+    "predicted_next_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "extreme",
+      "shame": "high"
+    },
+    "evidence": "\"Your blood isn't clotting the way it should right now\" and \"I need to know quickly — are you on any blood thinners\"",
+    "reasoning": "overwhelm: high->extreme because the clinician delivers a new serious abnormality (impaired clotting), an active intervention (pushing plasma), and an urgent medication-history question all at once, which is a heavy processing load for an unstable patient with low health literacy. Fear stayed high because this is serious bad news, but fear was already high and only moves one level; the treatment plan provides some containment so it does not escalate to extreme. Sadness stayed not at all because this is about immediate threat/management, not loss or irreversible outcome. Shame stayed high because asking about blood thinners is neutral and not blaming; no new judgment or stigmatizing disclosure was added."
+  },
+  {
+    "idx": 8,
+    "item_id": "sadness_not_at_all_001_0009",
+    "target_emotion": "sadness",
+    "target_level": "not at all",
+    "current_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "Your oxygen isn't coming up despite the medications, so we have to place the breathing tube right now to keep your airway open. There isn't time to walk you through it step by step - we're giving you medicine first so you're not aware of it, and then the team is moving straight in.",
+    "predicted_next_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "not at all"
+    },
+    "evidence": "\"Your oxygen isn't coming up despite the medications, so we have to place the breathing tube right now\" and \"There isn't time to walk you through it step by step\"",
+    "reasoning": "fear: low->high because this is direct bad news about worsening respiratory failure and an urgent need for intubation to keep the airway open. overwhelm: low->high because the patient is given multiple urgent technical actions at once (oxygen not improving, medications failed, immediate breathing tube, sedation, team moving straight in) and explicitly told there is no time for step-by-step explanation, which increases processing burden. sadness stayed not at all because this is about immediate threat and treatment, not loss or irreversible outcome. shame stayed not at all because there is no blame, judgment, or embarrassing exposure."
+  },
+  {
+    "idx": 9,
+    "item_id": "sadness_low_000_0010",
+    "target_emotion": "sadness",
+    "target_level": "low",
+    "current_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "Running out of your inhaler let this asthma get worse than it needed to, and it looks like you'll be staying here with us instead of heading home tonight the way you'd hoped. We're getting a chest X-ray now to look at your lungs. Have you ever been diagnosed with asthma or COPD before, or been hospitalized or put on a breathing machine for this in the past?",
+    "predicted_next_state": {
+      "fear": "high",
+      "sadness": "low",
+      "overwhelm": "high",
+      "shame": "low"
+    },
+    "evidence": "\"Running out of your inhaler let this asthma get worse\"; \"you'll be staying here with us instead of heading home tonight\"; \"We're getting a chest X-ray now\"; questions about prior hospitalization or a breathing machine",
+    "reasoning": "fear low->high because the clinician delivers bad news about worsening illness and need for admission rather than going home, plus asks about severe past episodes including a breathing machine, which signals meaningful clinical threat. sadness not at all->low because being told she will not be going home as hoped is a concrete immediate loss/disappointment. overwhelm low->high because the patient with low health literacy is given several things to process at once: blame-linked worsening, unexpected admission, chest X-ray, and questions about prior serious respiratory history. shame not at all->low because \"running out of your inhaler let this asthma get worse\" can feel blaming/judging about adherence. No emotion drops because nothing in the utterance resolves the underlying threat."
+  },
+  {
+    "idx": 10,
+    "item_id": "sadness_low_001_0011",
+    "target_emotion": "sadness",
+    "target_level": "low",
+    "current_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "The medication's starting to work, you'll feel drowsy very soon. We're placing the breathing tube now to protect your airway - once it's in you won't be able to talk, so you won't get the chance to call your family before we start. We'll take care of everything and let them know as soon as we can.",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "low",
+      "overwhelm": "extreme",
+      "shame": "not at all"
+    },
+    "evidence": "\"We're placing the breathing tube now to protect your airway\" and \"you won't get the chance to call your family before we start\"",
+    "reasoning": "fear high->extreme: urgent disclosure of immediate intubation to protect the airway in an unstable anaphylaxis crisis, plus loss of ability to speak and inability to call family before the procedure, is a sudden severe shock. sadness not at all->low: being told she cannot call her family before losing the ability to talk introduces an acute sense of separation/loss. overwhelm high->extreme: multiple urgent facts and interventions at once (medication causing drowsiness, breathing tube now, inability to talk, no chance to call family) create maximal immediate processing burden. shame stayed not at all: no blaming, judgment, or stigmatizing content."
+  },
+  {
+    "idx": 11,
+    "item_id": "overwhelm_not_at_all_000_0012",
+    "target_emotion": "overwhelm",
+    "target_level": "not at all",
+    "current_state": {
+      "fear": "not at all",
+      "sadness": "not at all",
+      "overwhelm": "not at all",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "Can you tell me when the vomiting blood first started, and whether you felt any pain or burning before it began?",
+    "predicted_next_state": {
+      "fear": "not at all",
+      "sadness": "not at all",
+      "overwhelm": "not at all",
+      "shame": "not at all"
+    },
+    "evidence": "\"when the vomiting blood first started\" and asking about pain/burning before it began",
+    "reasoning": "No emotions changed. Fear stays not at all: this is an information-gathering question, not a new disclosure of worsening condition or escalation of care. Sadness stays not at all: there is no loss, prognosis, or hopeless news. Overwhelm stays not at all: the question is straightforward and limited, not a heavy technical or multi-step explanation. Shame stays not at all: the clinician asks neutrally about symptoms without blame or judgment."
+  },
+  {
+    "idx": 12,
+    "item_id": "overwhelm_not_at_all_001_0013",
+    "target_emotion": "overwhelm",
+    "target_level": "not at all",
+    "current_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "The blood is in and running now — that's the one thing that matters this minute. You don't have to track anything or remember a list of symptoms. I'm staying right here at your bedside watching your vitals the whole time, so if anything changes, I'll catch it before you even have to say a word.",
+    "predicted_next_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "not at all",
+      "shame": "not at all"
+    },
+    "evidence": "\"You don't have to track anything or remember a list of symptoms... I'm staying right here at your bedside watching your vitals the whole time\"",
+    "reasoning": "Overwhelm low->not at all because the nurse reduces the patient's cognitive burden and gives a concrete monitoring plan: he does not have to keep track of symptoms, and the nurse will stay and watch for changes. Fear stays low because although the situation is serious, this utterance is reassuring and emphasizes active treatment and close bedside monitoring rather than new bad news. Sadness stays not at all because there is no loss, prognosis, or irreversible outcome discussed. Shame stays not at all because there is no blame, judgment, or stigmatizing content."
+  },
+  {
+    "idx": 13,
+    "item_id": "overwhelm_low_000_0014",
+    "target_emotion": "overwhelm",
+    "target_level": "low",
+    "current_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "high"
+    },
+    "augmented_utterance": "Good news on your breathing: since the continuous nebulizer treatments and the steroids kicked in, your oxygen number has come up and your breathing is much less labored than it was a little while ago. You do not need a breathing tube right now. Here's the plan — you stay on the oxygen mask, we repeat the breathing treatments every fifteen minutes, and I'm keeping a monitor on you and the baby the whole time so we catch it right away if anything changes.",
+    "predicted_next_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "high"
+    },
+    "evidence": "\"Good news on your breathing... your oxygen number has come up... You do not need a breathing tube right now.\"",
+    "reasoning": "Fear changed low->low? No change in label because it was already low, but the utterance is reassuring and addresses the respiratory threat with improvement and a concrete plan, so it does not rise despite mention of monitoring and possible change. Sadness stayed not at all because there is no loss, poor prognosis, or irreversible harm disclosed. Overwhelm stayed high: although the clinician gives a plan, it still includes multiple ongoing interventions and fetal monitoring, so there is no clear enough resolution to lower an already high overwhelmed state. Shame stayed high because nothing in the utterance addresses or relieves the patient's existing shame, and there is no new judgment or blame."
+  },
+  {
+    "idx": 14,
+    "item_id": "overwhelm_low_001_0015",
+    "target_emotion": "overwhelm",
+    "target_level": "low",
+    "current_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "I want to ask about something specific — do you take a steroid pill every day, maybe for an adrenal or pituitary problem, and is it possible you've missed a few doses or run out recently?",
+    "predicted_next_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "low"
+    },
+    "evidence": "do you take a steroid pill every day... and is it possible you've missed a few doses or run out recently?",
+    "reasoning": "Shame: not at all->low because the clinician is asking about possible missed doses/run-out, which can make the patient feel exposed or at fault for non-adherence, even though it is phrased gently. Fear stayed low because this is a diagnostic question rather than a direct disclosure of new serious bad news. Sadness stayed not at all because there is no loss, prognosis, or irreversible outcome discussed. Overwhelm stayed low because the question is fairly focused and does not add a large new technical or intervention burden."
+  },
+  {
+    "idx": 15,
+    "item_id": "overwhelm_high_000_0016",
+    "target_emotion": "overwhelm",
+    "target_level": "high",
+    "current_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "We're hanging your first bag of blood now. I also need you to know what else might happen in the next few minutes: if your pressure keeps dropping, we may need to put in a breathing tube to protect your airway, and if the bleeding doesn't slow down, the doctor will place a balloon tube down your throat to press directly on the bleeding vessel. So right now we're watching four things at once — the transfusion reaction signs like itching, chills, or shortness of breath, your breathing, how alert you are, and how much you're still bleeding. Tell me right away if anything changes.",
+    "predicted_next_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "not at all"
+    },
+    "evidence": "\"if your pressure keeps dropping, we may need to put in a breathing tube... if the bleeding doesn't slow down... place a balloon tube down your throat\" and \"we're watching four things at once\"",
+    "reasoning": "Fear: low->high because the nurse discloses serious possible deterioration and escalation to major interventions (breathing tube, balloon tube) in the next few minutes, which is concrete bad news in an unstable bleeding patient. Overwhelm: low->high because the utterance gives multiple urgent contingencies and technical monitoring points at once (transfusion reaction signs, breathing, alertness, bleeding), which is a lot to process for a low-health-literacy patient. Sadness stayed not at all because there is no news of loss, permanent damage, or hopeless prognosis. Shame stayed not at all because there is no blaming, judgment, or stigmatizing language."
+  },
+  {
+    "idx": 16,
+    "item_id": "overwhelm_high_001_0017",
+    "target_emotion": "overwhelm",
+    "target_level": "high",
+    "current_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "Okay, here's where things stand. The blood test for heart strain is high, the ultrasound shows your heart's pumping at about 35%, and one of the valves is severely narrowed, and your blood pressure's been dropping in and out, so we're adjusting your IV medications to try to keep it steady. You're still breathing hard even with the mask, so we're also sending you for a chest x-ray to check your lungs. I know that's a lot at once — has anyone ever told you before today that you had a narrowed heart valve or a murmur?",
+    "predicted_next_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "extreme",
+      "shame": "not at all"
+    },
+    "evidence": "heart strain is high... pumping at about 35%... valve is severely narrowed... blood pressure's been dropping... adjusting your IV medications... still breathing hard... sending you for a chest x-ray",
+    "reasoning": "fear stayed high because this is serious bad news and escalating care, but fear was already high so it does not increase further. overwhelm changed high->extreme because the clinician delivers multiple serious technical findings and urgent management steps all at once to a low-health-literacy patient, explicitly acknowledging 'that's a lot at once.' sadness stayed not at all because this is framed as acute threat and workup/treatment, not loss, prognosis, or irreversible outcome. shame stayed not at all because the question about prior knowledge of a murmur/valve problem is neutral and not blaming."
+  },
+  {
+    "idx": 17,
+    "item_id": "shame_not_at_all_000_0020",
+    "target_emotion": "shame",
+    "target_level": "not at all",
+    "current_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "low"
+    },
+    "augmented_utterance": "I want to be clear about something: this flare is not because you did anything wrong. Pregnancy itself makes asthma harder to control, and that's really what's driving how sick you are right now, not a mistake on your part. We're checking a blood gas now to see exactly how well you're breathing and figure out the next step.",
+    "predicted_next_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "not at all"
+    },
+    "evidence": "\"this flare is not because you did anything wrong\"; \"Pregnancy itself makes asthma harder to control\"; \"We're checking a blood gas now... and figure out the next step\"",
+    "reasoning": "Shame low->not at all because the clinician explicitly removes blame and says this is not due to any mistake by the patient, resolving the judged-at-fault trigger. Fear stays low: the patient is already quite ill, but this utterance does not newly escalate the threat; it gives a concrete explanatory reassurance and a plan, though mentioning a blood gas and next step is not enough to lower fear further because the danger is not resolved. Overwhelm stays high because the patient remains in a severe exacerbation and the utterance adds some technical evaluation/next-step language, but not enough new complexity to increase beyond high. Sadness stays not at all because there is no loss, hopeless prognosis, or irreversible harm disclosed."
+  },
+  {
+    "idx": 18,
+    "item_id": "shame_not_at_all_001_0021",
+    "target_emotion": "shame",
+    "target_level": "not at all",
+    "current_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "I want to ask about your medication history — are you on any steroid medicine, like for an adrenal or pituitary problem? And has there been any change recently, like missing doses or running low, even by accident?",
+    "predicted_next_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "low"
+    },
+    "evidence": "\"missing doses or running low, even by accident\" and asking about \"steroid medicine... for an adrenal or pituitary problem\"",
+    "reasoning": "Shame: not at all->low because the clinician asks whether she may have missed doses or run low on medication, which can make the patient feel exposed or at fault even though it is phrased nonjudgmentally. Fear stayed low because this is diagnostic questioning, not a direct disclosure of new serious bad news or deterioration. Overwhelm stayed low because the question is focused and not a heavy load of technical findings or urgent decisions. Sadness stayed not at all because there is no loss, hopelessness, or bad-outcome disclosure."
+  },
+  {
+    "idx": 19,
+    "item_id": "shame_low_000_0022",
+    "target_emotion": "shame",
+    "target_level": "low",
+    "current_state": {
+      "fear": "not at all",
+      "sadness": "not at all",
+      "overwhelm": "not at all",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "Your oxygen is still dangerously low even with the mask giving you everything it can, and it looks like your numbers at home had been slipping for a few days before you got here. We need to put in a breathing tube right now so a machine can breathe for you until we get this turned around.",
+    "predicted_next_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "not at all"
+    },
+    "evidence": "Your oxygen is still dangerously low... We need to put in a breathing tube right now",
+    "reasoning": "Fear: not at all->low because the clinician discloses serious worsening respiratory failure and urgent intubation, which is concrete bad news and escalation of care. Overwhelm: not at all->low because the patient with low health literacy is given multiple technical/urgent pieces at once (dangerously low oxygen, declining numbers over days, immediate breathing tube, machine breathing). Sadness stayed not at all because this is threat and urgent treatment, not loss or irreversible outcome. Shame stayed not at all because mentioning home numbers slipping is neutral clinical history, not blame or judgment."
+  },
+  {
+    "idx": 20,
+    "item_id": "shame_low_001_0023",
+    "target_emotion": "shame",
+    "target_level": "low",
+    "current_state": {
+      "fear": "not at all",
+      "sadness": "not at all",
+      "overwhelm": "not at all",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "I need to know when the vomiting blood started — and I have to ask, how much do you usually drink, and when was your last drink? Has this kind of bleeding happened to you before because of your drinking?",
+    "predicted_next_state": {
+      "fear": "low",
+      "sadness": "not at all",
+      "overwhelm": "low",
+      "shame": "low"
+    },
+    "evidence": "\"how much do you usually drink... Has this kind of bleeding happened to you before because of your drinking?\"",
+    "reasoning": "fear: not at all->low because the clinician's urgent questioning centers on active vomiting blood and prior bleeding, signaling a serious problem even without explicit bad-news disclosure. overwhelm: not at all->low because several rapid medical/substance-use questions are being asked at once, which can be hard to process for a low-health-literacy, low-activation patient. shame: not at all->low because the patient is directly asked about alcohol use and whether the bleeding is because of his drinking, which can feel blaming or stigmatizing. sadness stayed not at all because there is no news of loss, irreversible harm, or hopeless prognosis."
+  },
+  {
+    "idx": 21,
+    "item_id": "shame_high_000_0024",
+    "target_emotion": "shame",
+    "target_level": "high",
+    "current_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "high"
+    },
+    "augmented_utterance": "Your oxygen numbers keep dropping even with the mask on, and you're working so hard to breathe that you're wearing yourself out. Because you're losing blood faster than we can keep up with right now, we need to put a breathing tube in now to protect your airway and breathe for you while we get this bleeding under control.",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "not at all",
+      "overwhelm": "extreme",
+      "shame": "high"
+    },
+    "evidence": "\"oxygen numbers keep dropping\"; \"losing blood faster than we can keep up\"; \"we need to put a breathing tube in now\"",
+    "reasoning": "fear high->extreme because the clinician delivers severe worsening news and urgent escalation: dropping oxygen, exhausting breathing effort, uncontrolled blood loss, and immediate intubation. overwhelm high->extreme because multiple critical problems and interventions are presented at once in urgent language, creating a heavy processing load for a low-health-literacy patient. sadness stayed not at all because this is threat and urgent treatment, not loss or irreversible outcome already incurred. shame stayed high because there is no blaming or stigmatizing language in this utterance, but the existing shame is not resolved."
+  },
+  {
+    "idx": 22,
+    "item_id": "shame_high_001_0025",
+    "target_emotion": "shame",
+    "target_level": "high",
+    "current_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "high"
+    },
+    "augmented_utterance": "Your oxygen is still dropping and you're tiring out even with everything we've given you, so we're placing a breathing tube now to protect you and the baby. I know you've been trying to manage this asthma on your own for a while — right now the focus is getting you safely on the ventilator.",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "not at all",
+      "overwhelm": "extreme",
+      "shame": "extreme"
+    },
+    "evidence": "“oxygen is still dropping,” “tiring out,” “placing a breathing tube now,” and “trying to manage this asthma on your own for a while”",
+    "reasoning": "Fear high->extreme because this is severe worsening news with immediate escalation to intubation to protect both patient and baby, signaling acute danger. Overwhelm high->extreme because the patient is being told multiple serious facts at once and an urgent major intervention is happening now, which is especially hard to process with low health literacy. Shame high->extreme because the remark about having “been trying to manage this asthma on your own for a while” can land as blame/nonadherence criticism during a crisis. Sadness stayed not at all because the utterance is about immediate threat and urgent treatment, not loss, irreversible outcome, or hopeless prognosis."
+  },
+  {
+    "idx": 23,
+    "item_id": "fear_extreme_000_0000_a0022",
+    "target_emotion": "fear",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "high"
+    },
+    "augmented_utterance": "Your oxygen is dropping even with everything we've given you, and your heart rate and the baby's heart rate are both falling right now — you're going into respiratory failure. We have to put the breathing tube in this second, because if we don't, you could stop breathing entirely and we could lose you both.",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "low",
+      "overwhelm": "extreme",
+      "shame": "high"
+    },
+    "evidence": "\"your oxygen is dropping... you're going into respiratory failure... We have to put the breathing tube in this second... you could stop breathing entirely and we could lose you both\"",
+    "reasoning": "fear: high->extreme because this is explicit catastrophic bad news with immediate threat to her life and the baby's life, plus urgent intubation now. sadness: not at all->low because \"we could lose you both\" introduces potential loss of self and baby, adding grief-laden content, though it is still framed as threat rather than confirmed loss. overwhelm: high->extreme because multiple severe findings and urgent interventions are presented at once (dropping oxygen, maternal and fetal heart rates falling, respiratory failure, immediate breathing tube) under extreme time pressure, which is especially overloading with low health literacy. shame stayed high because there is no new judging or blaming content, but nothing resolves existing shame."
+  },
+  {
+    "idx": 24,
+    "item_id": "fear_extreme_001_0001_a0023",
+    "target_emotion": "fear",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "high"
+    },
+    "augmented_utterance": "Your oxygen is dropping fast and the baby's heart rate is falling right along with it — if we don't get this tube in within the next minute, both of your hearts could stop. We're doing it right now.",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "not at all",
+      "overwhelm": "extreme",
+      "shame": "high"
+    },
+    "evidence": "\"Your oxygen is dropping fast... the baby's heart rate is falling... if we don't get this tube in within the next minute, both of your hearts could stop. We're doing it right now.\"",
+    "reasoning": "fear: high->extreme because this is explicit catastrophic bad news with imminent threat of death to both patient and baby and an urgent intubation need. overwhelm: high->extreme because the patient is given multiple severe findings and a need for immediate action within a minute, creating maximal processing load, especially with low health literacy. sadness stayed not at all because this is an acute threat ahead, not a confirmed loss or irreversible outcome. shame stayed high because there is no blaming, judgment, or stigmatizing content, so no concrete reason to change it."
+  },
+  {
+    "idx": 25,
+    "item_id": "overwhelm_extreme_000_0002_a0024",
+    "target_emotion": "overwhelm",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "Your pressure is dropping fast and that stiff valve on your heart means it may not tolerate rescue medication the way we'd hope — I need to push something right now to keep your heart from stopping, so tell me quickly: are you allergic to any medications?",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "not at all",
+      "overwhelm": "extreme",
+      "shame": "not at all"
+    },
+    "evidence": "\"pressure is dropping fast\"; \"keep your heart from stopping\"; urgent medication question",
+    "reasoning": "fear: high->extreme because the clinician delivers acute, life-threatening bad news (rapidly dropping blood pressure, risk of the heart stopping) and immediate need for rescue treatment. overwhelm: high->extreme because the patient must process several serious technical findings at once (dropping pressure, stiff valve limiting medication tolerance, immediate intervention) while answering an urgent question quickly. sadness stayed not at all because this is imminent threat rather than loss already incurred or prognosis/loss disclosure. shame stayed not at all because there is no blame, judgment, or stigmatizing exposure."
+  },
+  {
+    "idx": 26,
+    "item_id": "overwhelm_extreme_001_0003_a0025",
+    "target_emotion": "overwhelm",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "not at all"
+    },
+    "augmented_utterance": "I have to tell you exactly where things stand right now. Your troponin is climbing, which means your heart muscle itself is under strain, and the ultrasound shows your heart is only pumping at about 35 percent while the aortic valve is severely narrowed, almost closed off. On top of that, your heart rhythm is racing irregularly and your blood pressure just dropped — with a valve this tight, that combination means your heart could lose its ability to keep blood moving at any moment. We're calling the cardiology team in right now to see if you need an emergency procedure on that valve tonight, and we may need to move you to the ICU within minutes. I know that is an enormous amount to take in all at once. Has anyone ever told you before today that you had a narrowed heart valve?",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "low",
+      "overwhelm": "extreme",
+      "shame": "not at all"
+    },
+    "evidence": "\"your heart could lose its ability to keep blood moving at any moment\"; \"need an emergency procedure on that valve tonight\"; \"move you to the ICU within minutes\"",
+    "reasoning": "Fear: high->extreme because the clinician delivers acute life-threatening worsening news with explicit imminent danger, possible emergency valve procedure tonight, and ICU transfer within minutes. Overwhelm: high->extreme because multiple severe technical findings and urgent escalations are presented all at once to a low-health-literacy patient, and the clinician explicitly says it is an enormous amount to take in. Sadness: not at all->low because the disclosure includes serious loss-of-function information about the heart and valve, which can introduce some grief about how severe the condition is, though the focus is still more threat than loss. Shame stayed not at all because there is no blame, judgment, or stigmatizing exposure."
+  },
+  {
+    "idx": 27,
+    "item_id": "shame_extreme_000_0004_a0026",
+    "target_emotion": "shame",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "high"
+    },
+    "augmented_utterance": "Your oxygen is dropping and you're vomiting up so much blood you can't protect your own airway anymore - we have to sedate you and put a breathing tube in right now, in front of everyone in this room, or you're going to drown in the blood from the drinking that caused this bleed.",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "not at all",
+      "overwhelm": "extreme",
+      "shame": "extreme"
+    },
+    "evidence": "\"your oxygen is dropping\"; \"we have to sedate you and put a breathing tube in right now\"; \"in front of everyone in this room\"; \"from the drinking that caused this bleed\"",
+    "reasoning": "fear: high->extreme because the clinician delivers immediate life-threatening bad news (dropping oxygen, cannot protect airway, risk of drowning in blood) plus urgent intubation right now, which is a catastrophic cue. overwhelm: high->extreme because the patient is hit with multiple severe facts and urgent interventions at once—oxygen dropping, massive bleeding, loss of airway protection, sedation, breathing tube now—creating an acute overload, especially with low health literacy. shame: high->extreme because the statement explicitly exposes him \"in front of everyone in this room\" and directly blames stigmatized alcohol use (\"the drinking that caused this bleed\"), intensifying humiliation and judgment. sadness stayed not at all because this is framed as immediate threat and emergency action, not loss, irreversible outcome, or hopeless prognosis already incurred."
+  },
+  {
+    "idx": 28,
+    "item_id": "shame_extreme_001_0005_a0027",
+    "target_emotion": "shame",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "high",
+      "sadness": "not at all",
+      "overwhelm": "high",
+      "shame": "high"
+    },
+    "augmented_utterance": "Your oxygen is still too low with the mask on and you're fighting for every breath - we have to put a breathing tube in right now before you vomit up more blood and choke on it in front of everyone in this room, because the years of drinking have torn open the veins in your throat and this is what it's done to you.",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "not at all",
+      "overwhelm": "extreme",
+      "shame": "extreme"
+    },
+    "evidence": "\"we have to put a breathing tube in right now before you vomit up more blood and choke on it in front of everyone... because the years of drinking have torn open the veins\"",
+    "reasoning": "Fear high->extreme: explicit immediate life threat, oxygen still too low, urgent intubation now, choking on blood. Overwhelm high->extreme: multiple severe findings and urgent interventions delivered at once in highly technical, crisis language. Shame high->extreme: clinician explicitly blames and exposes his alcohol use (\"the years of drinking... this is what it's done to you\") and adds public humiliation (\"in front of everyone in this room\"). Sadness stayed not at all: this is framed as acute danger and blame, not loss, irreversible outcome, or hopeless prognosis."
+  }
+]

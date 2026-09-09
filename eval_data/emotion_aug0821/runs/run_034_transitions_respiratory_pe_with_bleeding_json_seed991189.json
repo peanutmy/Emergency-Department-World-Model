@@ -1,0 +1,2015 @@
+{
+  "scenario": "A 63-year-old female in the Emergency Department has CT-confirmed pulmonary embolism and suddenly develops severe shortness of breath. The scenario progresses through PEA arrest requiring thrombolysis, ROSC with post-intubation care, and recurrent hypotension from bleeding after thrombolysis.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Optimism": "high",
+    "Anger": "high",
+    "Health Literacy": "low",
+    "Patient Activation": "high",
+    "Trust in Provider": "low"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Sat's 88% on room air. Put her on a non-rebreather now.",
+          "turn_index": 0,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Non-rebreather is on and running.",
+          "turn_index": 0,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "NRB",
+          "FiO2": null,
+          "PEEP_used": null,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 144.0,
+            "BP_sys": 131.0,
+            "BP_dia": 73.0,
+            "RR": 24.0,
+            "O2Sat": 91.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 0,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "NRB",
+                "FiO2": null,
+                "PEEP_used": null,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 0,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "NRB",
+              "FiO2": null,
+              "PEEP_used": null,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I need you to tell me what you're feeling right now and exactly when it started — did it come on all at once or build up gradually?",
+          "turn_index": 1,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 147.0,
+            "BP_sys": 126.0,
+            "BP_dia": 71.0,
+            "RR": 26.0,
+            "O2Sat": 88.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 1,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: I need you to tell me what you're feeling right now and exactly when it started — did it come on all at once or build up gradually?] fear absent->present: the urgent questioning while the patient is symptomatic (low O2 sat, non-rebreather) signals a serious, evolving situation and heightens the patient's awareness of the threat, raising fear; sadness stays absent as no loss is conveyed; overwhelm stays absent as this is a single focused question, not information overload; shame stays absent as there is no blame, judgment, or exposure."
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Can't breathe... two days. Worse... walking. Now... sudden.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Get her to CT for a pulmonary angiogram now — sudden dyspnea, sat's 88 on the non-rebreather, HR 147. I'm worried about a PE.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 150.0,
+            "BP_sys": 119.0,
+            "BP_dia": 68.0,
+            "RR": 28.0,
+            "O2Sat": 84.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 2,
+          "payload": {
+            "test_name": "CT pulmonary angiography",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 5,
+            "turnaround_turns": 3
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get me the bedside ultrasound now — I want to look for RV strain to support a PE while we're waiting on the CT.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 153.0,
+            "BP_sys": 112.0,
+            "BP_dia": 65.0,
+            "RR": 30.0,
+            "O2Sat": 79.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 3,
+          "payload": {
+            "test_name": "Initial bedside ultrasound",
+            "ordered_at_turn": 3,
+            "ready_at_turn": 4,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Bedside ultrasound back: no pericardial effusion, dilated RV with positive McConnell's sign, lungs clear. That's RV strain supporting your PE. Heads up though — she's dropped to 79% on the non-rebreather now, HR 153, RR 30. She's not tolerating the sat.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start IV heparin now — the RV strain on ultrasound with the refractory hypoxia is enough for me to treat empirically for a massive PE while the CT's pending.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Heparin's up and running.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "anticoagulation",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anticoagulation",
+        "params": {
+          "drug_name": "heparin",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 153.0,
+            "BP_sys": 112.0,
+            "BP_dia": 65.0,
+            "RR": 30.0,
+            "O2Sat": 79.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial bedside ultrasound",
+              "result": "No PCE, dilated RV, + McConnel's sign; normal lungs."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 4,
+          "payload": {
+            "test_name": "Initial bedside ultrasound",
+            "ordered_at_turn": 3,
+            "ready_at_turn": 4,
+            "released_at_turn": 4
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 4,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anticoagulation",
+              "params": {
+                "drug_name": "heparin",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 4,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "anticoagulation",
+            "raw_text": null,
+            "params": {
+              "drug_name": "heparin",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "CT PA back: confirmed pulmonary embolism. Heparin's running, but she's still 79% on the non-rebreather, HR 153, RR 30 — refractory hypoxia isn't budging. Do you want to escalate?",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Yes, escalate. Give systemic alteplase now — this is high-risk PE, refractory at 79% on the non-rebreather with RV strain despite heparin. This is the escalation you asked about.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "anticoagulation",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anticoagulation",
+        "params": {
+          "drug_name": "alteplase",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 155.0,
+            "BP_sys": 107.0,
+            "BP_dia": 62.0,
+            "RR": 28.0,
+            "O2Sat": 85.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial bedside ultrasound",
+              "result": "No PCE, dilated RV, + McConnel's sign; normal lungs."
+            },
+            {
+              "name": "CT pulmonary angiography",
+              "result": "CT-confirmed pulmonary embolism."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "CT pulmonary angiography",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 5,
+            "released_at_turn": 5
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 5,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "nurse",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anticoagulation",
+              "params": {
+                "drug_name": "alteplase",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "anticoagulation",
+            "raw_text": null,
+            "params": {
+              "drug_name": "alteplase",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Prep for RSI intubation now — she's refractory at 85% on the non-rebreather despite max oxygen. Get the BVM ready to pre-oxygenate and draw up the RSI meds.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "RSI meds drawn up and ready, BVM ventilation in progress with good chest rise. Suction on and working, tube and blade at bedside. Ready for you to intubate on your call.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "airway_management",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "airway_management",
+        "params": {
+          "stage": "preparation",
+          "rsi_medication_used": true,
+          "bvm_before": true,
+          "intubated": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 163.0,
+            "BP_sys": 95.0,
+            "BP_dia": 55.0,
+            "RR": 32.0,
+            "O2Sat": 80.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": true,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial bedside ultrasound",
+              "result": "No PCE, dilated RV, + McConnel's sign; normal lungs."
+            },
+            {
+              "name": "CT pulmonary angiography",
+              "result": "CT-confirmed pulmonary embolism."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 6,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 6,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "airway_management",
+              "params": {
+                "stage": "preparation",
+                "rsi_medication_used": true,
+                "bvm_before": true,
+                "intubated": null
+              }
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "features",
+              "status_flags"
+            ]
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 6,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "airway_management",
+            "raw_text": null,
+            "params": {
+              "stage": "preparation",
+              "rsi_medication_used": true,
+              "bvm_before": true,
+              "intubated": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Intubating now with the RSI meds already drawn up — she's refractory at 80% on the non-rebreather despite max oxygen and alteplase. Once the tube's in, confirm placement and get the post-intubation chest X-ray.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Intubation complete. RSI meds given, BVM pre-oxygenation was done prior. Airway secured, patient now on the tube. Ready for post-intubation confirmation and settings.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "airway_management",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "airway_management",
+        "params": {
+          "stage": "completed",
+          "rsi_medication_used": true,
+          "bvm_before": true,
+          "intubated": true
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 153.0,
+            "BP_sys": 80.0,
+            "BP_dia": 47.0,
+            "RR": 12.0,
+            "O2Sat": 87.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial bedside ultrasound",
+              "result": "No PCE, dilated RV, + McConnel's sign; normal lungs."
+            },
+            {
+              "name": "CT pulmonary angiography",
+              "result": "CT-confirmed pulmonary embolism."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "airway_management",
+              "params": {
+                "stage": "completed",
+                "rsi_medication_used": true,
+                "bvm_before": true,
+                "intubated": true
+              }
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "features",
+              "status_flags"
+            ]
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "airway_management",
+            "raw_text": null,
+            "params": {
+              "stage": "completed",
+              "rsi_medication_used": true,
+              "bvm_before": true,
+              "intubated": true
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start a norepinephrine infusion now — she's in obstructive shock from the massive PE, BP 80/47.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "norepinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 150.0,
+            "BP_sys": 90.0,
+            "BP_dia": 52.0,
+            "RR": 12.0,
+            "O2Sat": 87.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial bedside ultrasound",
+              "result": "No PCE, dilated RV, + McConnel's sign; normal lungs."
+            },
+            {
+              "name": "CT pulmonary angiography",
+              "result": "CT-confirmed pulmonary embolism."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "norepinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "norepinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get the post-intubation chest X-ray now to confirm tube placement. She's still 87% and hypotensive on the norepinephrine despite the alteplase.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 153.0,
+            "BP_sys": 84.0,
+            "BP_dia": 49.0,
+            "RR": 12.0,
+            "O2Sat": 86.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial bedside ultrasound",
+              "result": "No PCE, dilated RV, + McConnel's sign; normal lungs."
+            },
+            {
+              "name": "CT pulmonary angiography",
+              "result": "CT-confirmed pulmonary embolism."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 9,
+          "payload": {
+            "test_name": "Chest X-ray - post intubation",
+            "ordered_at_turn": 9,
+            "ready_at_turn": 12,
+            "turnaround_turns": 3
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Give a small 250 mL normal saline bolus, and keep the norepinephrine running. Small and cautious only — her RV is already strained from the PE, so I don't want to over-fill her.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 250
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 150.0,
+            "BP_sys": 90.0,
+            "BP_dia": 52.0,
+            "RR": 12.0,
+            "O2Sat": 86.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial bedside ultrasound",
+              "result": "No PCE, dilated RV, + McConnel's sign; normal lungs."
+            },
+            {
+              "name": "CT pulmonary angiography",
+              "result": "CT-confirmed pulmonary embolism."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 10,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 250
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 10,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 250
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Titrate up the norepinephrine now — she's still 90/52 and tachy at 150 despite the bolus. Keep uptitrating to support that failing RV.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Norepinephrine is up and running.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "norepinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 145.0,
+            "BP_sys": 110.0,
+            "BP_dia": 60.0,
+            "RR": 12.0,
+            "O2Sat": 86.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial bedside ultrasound",
+              "result": "No PCE, dilated RV, + McConnel's sign; normal lungs."
+            },
+            {
+              "name": "CT pulmonary angiography",
+              "result": "CT-confirmed pulmonary embolism."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 11,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "norepinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 11,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "norepinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Post-intubation chest X-ray is back. Norepinephrine titrated up. Current vitals: BP 110/60, HR 145, O2 sat 86% on the vent at FiO2 100%, PEEP 5. Pressure's responding but she's still hypoxic and tachycardic.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's get a repeat bedside ultrasound now to reassess RV function after the alteplase. She's still hypoxic at 86% and tachy at 145, so I want to see how the right heart is responding.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 150.0,
+            "BP_sys": 94.0,
+            "BP_dia": 52.0,
+            "RR": 12.0,
+            "O2Sat": 87.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial bedside ultrasound",
+              "result": "No PCE, dilated RV, + McConnel's sign; normal lungs."
+            },
+            {
+              "name": "CT pulmonary angiography",
+              "result": "CT-confirmed pulmonary embolism."
+            },
+            {
+              "name": "Chest X-ray - post intubation",
+              "result": "Post-intubation chest X-ray."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 12,
+          "payload": {
+            "test_name": "Chest X-ray - post intubation",
+            "ordered_at_turn": 9,
+            "ready_at_turn": 12,
+            "released_at_turn": 12
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 12,
+          "payload": {
+            "test_name": "Repeat bedside ultrasound",
+            "ordered_at_turn": 12,
+            "ready_at_turn": 13,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Repeat bedside ultrasound is back: pericardial effusion unchanged, but there's new free fluid in the abdomen. Lungs look normal. She's still 87% on the vent.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Get a stat CBC now — that new abdominal free fluid after the alteplase makes me worried she's bleeding. She's still hypoxic at 87% and tachy at 150, so I want to catch a drop early.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 155.0,
+            "BP_sys": 85.0,
+            "BP_dia": 48.0,
+            "RR": 12.0,
+            "O2Sat": 87.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial bedside ultrasound",
+              "result": "No PCE, dilated RV, + McConnel's sign; normal lungs."
+            },
+            {
+              "name": "CT pulmonary angiography",
+              "result": "CT-confirmed pulmonary embolism."
+            },
+            {
+              "name": "Chest X-ray - post intubation",
+              "result": "Post-intubation chest X-ray."
+            },
+            {
+              "name": "Repeat bedside ultrasound",
+              "result": "Pericardial unchanged; abdominal free fluid; normal lungs."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 13,
+          "payload": {
+            "test_name": "Repeat bedside ultrasound",
+            "ordered_at_turn": 12,
+            "ready_at_turn": 13,
+            "released_at_turn": 13
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 13,
+          "payload": {
+            "test_name": "Complete blood count",
+            "ordered_at_turn": 13,
+            "ready_at_turn": 15,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Activate the massive transfusion protocol and start 2 units of packed red cells now. That new abdominal free fluid after the alteplase with her still tachy at 155 and pressure 85/48 has me worried she's bleeding from the thrombolytic, so I want blood in, not more crystalloid into that strained RV.",
+          "turn_index": 14,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Massive transfusion protocol activated, two units packed cells going in now. I'll get the blood bank cooler coming and keep the rapid infuser primed.",
+          "turn_index": 14,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "packed_rbc",
+          "units": 2,
+          "strategy": "massive transfusion, activate protocol"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 151.0,
+            "BP_sys": 92.0,
+            "BP_dia": 52.0,
+            "RR": 12.0,
+            "O2Sat": 87.0,
+            "T": 37.1
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 12
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial bedside ultrasound",
+              "result": "No PCE, dilated RV, + McConnel's sign; normal lungs."
+            },
+            {
+              "name": "CT pulmonary angiography",
+              "result": "CT-confirmed pulmonary embolism."
+            },
+            {
+              "name": "Chest X-ray - post intubation",
+              "result": "Post-intubation chest X-ray."
+            },
+            {
+              "name": "Repeat bedside ultrasound",
+              "result": "Pericardial unchanged; abdominal free fluid; normal lungs."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 14,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "packed_rbc",
+                "units": 2,
+                "strategy": "massive transfusion, activate protocol"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 14,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "packed_rbc",
+              "units": 2,
+              "strategy": "massive transfusion, activate protocol"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    }
+  ],
+  "scenario_path": "transitions/Respiratory/PE with Bleeding.json"
+}

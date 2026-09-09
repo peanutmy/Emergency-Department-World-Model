@@ -1,0 +1,1980 @@
+{
+  "scenario": "A 59-year-old male presents to the ED with anaphylaxis after taking levofloxacin, with wheezing, hypotension, angioedema, hives, and increased work of breathing after one prehospital IM epinephrine dose. The scenario focuses on repeated epinephrine dosing, epinephrine infusion, adjunct medications, medication-error prevention, and preparation for a potentially difficult airway.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Patient Activation": "high"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Let's get him on nasal cannula oxygen, his sat's 91% on room air.",
+          "turn_index": 0,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "I'm putting these little prongs in your nose to give you some oxygen. Breathe normally for me.",
+          "turn_index": 0,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "nasal_cannula",
+          "FiO2": null,
+          "PEEP_used": null,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 105.0,
+            "BP_sys": 90.0,
+            "BP_dia": 50.0,
+            "RR": 24.0,
+            "O2Sat": 94.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 0,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "nasal_cannula",
+                "FiO2": null,
+                "PEEP_used": null,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 0,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "nasal_cannula",
+              "FiO2": null,
+              "PEEP_used": null,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[nurse: I'm putting these little prongs in your nose to give you some oxygen. Breathe normally for me.] This is routine care delivered in a calm, reassuring manner ('little prongs', 'breathe normally'). It does not disclose new bad news or worsening condition, so fear stays absent. No loss content, so sadness stays absent. It is a simple, single instruction with no informational overload, so overwhelm stays absent. No blame, judgment, or exposure, so shame stays absent."
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay, I feel the prongs. But I'm still having a hard time breathing, it's wheezy and I can't catch my breath. My lips and throat feel swollen, and I've got this itchy rash all over.",
+          "turn_index": 1,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "clinician",
+          "content": "This is anaphylaxis — airway swelling, wheeze, and he's hypotensive at 90/50. Give 0.5 mg IM epinephrine now.",
+          "turn_index": 1,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Epinephrine 0.5 mg IM given.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "anaphylaxis_treatment",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anaphylaxis_treatment",
+        "params": {
+          "drug_name": "epinephrine",
+          "dose": 0.5,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 115.0,
+            "BP_sys": 105.0,
+            "BP_dia": 58.0,
+            "RR": 20.0,
+            "O2Sat": 96.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 1,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anaphylaxis_treatment",
+              "params": {
+                "drug_name": "epinephrine",
+                "dose": 0.5,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 1,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "anaphylaxis_treatment",
+            "raw_text": null,
+            "params": {
+              "drug_name": "epinephrine",
+              "dose": 0.5,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "He's still hypotensive at 105/58 after the epi. Start 1 liter normal saline IV, wide open.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 116.0,
+            "BP_dia": 64.0,
+            "RR": 20.0,
+            "O2Sat": 96.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Give 125 mg IV methylprednisolone now. He's improving but still has airway swelling and wheeze.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Methylprednisolone 125 mg IV given.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "corticosteroid",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "corticosteroid",
+        "params": {
+          "drug_name": "methylprednisolone",
+          "dose": 125,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 116.0,
+            "BP_dia": 64.0,
+            "RR": 20.0,
+            "O2Sat": 96.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "corticosteroid",
+              "params": {
+                "drug_name": "methylprednisolone",
+                "dose": 125,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "corticosteroid",
+            "raw_text": null,
+            "params": {
+              "drug_name": "methylprednisolone",
+              "dose": 125,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Let's get him a nebulized albuterol 5 mg treatment now — he's still wheezing with airway swelling despite the epi.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "I'm starting a nebulizer treatment now — albuterol. Breathe in through the mask, nice and steady. I'm going to stay right here and watch how you do.",
+          "turn_index": 4,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "bronchodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "bronchodilator",
+        "params": {
+          "drug_name": "albuterol",
+          "dose": 5,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 118.0,
+            "BP_sys": 116.0,
+            "BP_dia": 64.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 4,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "bronchodilator",
+              "params": {
+                "drug_name": "albuterol",
+                "dose": 5,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 4,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "bronchodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "albuterol",
+              "dose": 5,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[nurse: I'm starting a nebulizer treatment now — albuterol. Breathe in through the mask, nice and steady. I'm going to stay right here and watch how you do.] No emotion changed. The utterance is routine, reassuring care with a calm plan and presence ('stay right here'), which is supportive rather than bad news, so it does not raise fear or overwhelm. There is no loss/anticipated loss (sadness stays absent) and no blame, judgment, or exposure (shame stays absent). All emotions were already absent and nothing here triggers escalation."
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay, I've got the mask on and I'm breathing through it. But I'm still short of breath and wheezy, my lips and throat still feel swollen, and that rash is still really itchy.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "clinician",
+          "content": "He's still got airway swelling and wheeze despite the first dose — this is refractory. Give another 0.5 mg epinephrine IM now.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Epinephrine 0.5 mg IM given. I'll watch for response and let you know how the airway and pressure trend.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "anaphylaxis_treatment",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anaphylaxis_treatment",
+        "params": {
+          "drug_name": "epinephrine",
+          "dose": 0.5,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 130.0,
+            "BP_sys": 131.0,
+            "BP_dia": 72.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anaphylaxis_treatment",
+              "params": {
+                "drug_name": "epinephrine",
+                "dose": 0.5,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "anaphylaxis_treatment",
+            "raw_text": null,
+            "params": {
+              "drug_name": "epinephrine",
+              "dose": 0.5,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your pressure and oxygen are looking better now. I need to know what set this off — what did you eat, take, or come into contact with right before this started?",
+          "turn_index": 6,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 135.0,
+            "BP_sys": 120.0,
+            "BP_dia": 66.0,
+            "RR": 21.0,
+            "O2Sat": 96.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 6,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Your pressure and oxygen are looking better now. I need to know what set this off — what did you eat, take, or come into contact with right before this started?] No emotion changed. Fear stays absent: the utterance delivers reassuring good news (pressure and oxygen improving) and asks a neutral history question, providing no new threat. Sadness stays absent: no loss framing. Overwhelm stays absent: a single straightforward question is not cognitively overloading. Shame stays absent: the question about triggers is neutral and non-blaming."
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Honestly, I'm not sure what caused it — I can't think of anything different. But I'm still short of breath and wheezy, my lips and throat still feel swollen, and this rash is still really itchy.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "He's refractory — still got airway swelling and wheeze after two IM epi doses. Start an epinephrine IV infusion and titrate to airway and pressure. Watch that airway closely, it's still swelling.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Epinephrine given IM. Monitoring airway and vitals now.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "anaphylaxis_treatment",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anaphylaxis_treatment",
+        "params": {
+          "drug_name": "epinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 143.0,
+            "BP_sys": 135.0,
+            "BP_dia": 74.0,
+            "RR": 17.0,
+            "O2Sat": 98.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anaphylaxis_treatment",
+              "params": {
+                "drug_name": "epinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "anaphylaxis_treatment",
+            "raw_text": null,
+            "params": {
+              "drug_name": "epinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Give IV diphenhydramine now as an adjunct for the persistent hives and itching. Keep the intubation equipment ready at the bedside — that airway is still swelling.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "antidote",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "antidote",
+        "params": {
+          "drug_name": "diphenhydramine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 141.0,
+            "BP_sys": 135.0,
+            "BP_dia": 74.0,
+            "RR": 17.0,
+            "O2Sat": 98.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "antidote",
+              "params": {
+                "drug_name": "diphenhydramine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "antidote",
+            "raw_text": null,
+            "params": {
+              "drug_name": "diphenhydramine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your breathing and pressure are improving. Do you have any known allergies, or have you ever had a reaction like this before?",
+          "turn_index": 9,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 145.0,
+            "BP_sys": 124.0,
+            "BP_dia": 68.0,
+            "RR": 20.0,
+            "O2Sat": 96.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 9,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Your breathing and pressure are improving. Do you have any known allergies, or have you ever had a reaction like this before?] No emotion changed. The utterance is reassuring good news (improvement in breathing and pressure) plus a routine history question; it contains no serious bad news to raise fear, no loss to raise sadness, no overload of information to raise overwhelm, and no blame/judgment to raise shame. All emotions were already absent and there is no concrete trigger to move any of them."
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, I don't have any known allergies, and I've never had a reaction like this before. But I'm still short of breath and wheezy, my lips and throat still feel swollen, and this rash is still really itchy.",
+          "turn_index": 10,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "He's still refractory after two IM doses — start an epinephrine IV infusion and titrate to airway and pressure. Keep the intubation equipment ready at the bedside, that airway is still swelling.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Epinephrine is up and running. Do you have a dose and rate you want me to titrate to?",
+          "turn_index": 10,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "epinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 153.0,
+            "BP_sys": 138.0,
+            "BP_dia": 74.0,
+            "RR": 18.0,
+            "O2Sat": 98.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 10,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "epinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 10,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "nurse",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 10,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "epinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start it at 0.05 mcg/kg/min and titrate to the airway swelling and pressure, not the heart rate. Keep the intubation kit at the bedside.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Epinephrine drip started at 0.05 mcg/kg/min.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "epinephrine",
+          "dose": 0.05,
+          "unit": "mcg/kg/min"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 161.0,
+            "BP_sys": 150.0,
+            "BP_dia": 80.0,
+            "RR": 17.0,
+            "O2Sat": 99.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 11,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 11,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "epinephrine",
+                "dose": 0.05,
+                "unit": "mcg/kg/min"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 11,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "epinephrine",
+              "dose": 0.05,
+              "unit": "mcg/kg/min"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your oxygen and blood pressure are holding, and we've got the epinephrine drip running to keep that swelling down. Are you on any regular medications at home, especially a heart or blood pressure pill like a beta-blocker?",
+          "turn_index": 12,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 161.0,
+            "BP_sys": 149.0,
+            "BP_dia": 80.0,
+            "RR": 19.0,
+            "O2Sat": 98.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 12,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Your oxygen and blood pressure are holding, and we've got the epinephrine drip running to keep that swelling down. Are you on any regular medications at home, especially a heart or blood pressure pill like a beta-blocker?] No emotion changed. The utterance is reassuring (oxygen and BP holding, drip controlling swelling) plus a routine medication-history question — good/improving news, no new serious threat, so fear stays absent. No loss content for sadness. The question is simple and not overloading, so overwhelm stays absent. No blame or exposure, so shame stays absent."
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No beta-blocker. I take a water pill, hydrochlorothiazide 12.5, a baby aspirin, 81, and atorvastatin 40, all once a day. That's it. But I'm still short of breath and wheezy, my lips and throat still feel swollen, and this rash is still really itchy.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give 50 mg IV ranitidine now as an H2-blocker adjunct for the persistent hives and airway involvement. Keep the intubation kit at the bedside — that airway is still swelling.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "antidote",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "antidote",
+        "params": {
+          "drug_name": "ranitidine",
+          "dose": 50,
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 159.0,
+            "BP_sys": 149.0,
+            "BP_dia": 80.0,
+            "RR": 19.0,
+            "O2Sat": 98.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 13,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "antidote",
+              "params": {
+                "drug_name": "ranitidine",
+                "dose": 50,
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 13,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "antidote",
+            "raw_text": null,
+            "params": {
+              "drug_name": "ranitidine",
+              "dose": 50,
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your oxygen and blood pressure are holding well on the current treatment. Your heart is beating fast right now, but that's expected from the epinephrine and we're keeping an eye on it. The swelling in your throat and lips is still our main worry, so we're watching your airway very closely. If your throat starts feeling tighter or your breathing gets harder, tell us right away.",
+          "turn_index": 14,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 159.0,
+            "BP_sys": 148.0,
+            "BP_dia": 80.0,
+            "RR": 21.0,
+            "O2Sat": 96.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 6.4
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Your oxygen and blood pressure are holding well on the current treatment. Your heart is beating fast right now, but that's expected from the epinephrine and we're keeping an eye on it. The swelling in your throat and lips is still our main worry, so we're watching your airway very closely. If your throat starts feeling tighter or your breathing gets harder, tell us right away.] fear absent->present: while reassurance is offered about oxygen and blood pressure holding, the clinician explicitly names the ongoing throat/lip swelling as the 'main worry' and warns of possible worsening breathing/tightness — a persisting serious airway threat that concretely raises fear from absent. It stays present, not extreme, because the patient can still listen and cooperate and there is a protective plan. sadness stays absent: no loss or anticipated devastating loss is conveyed. overwhelm stays absent: the message is clear, structured, and reassuring rather than piling on complex urgent burden. shame stays absent: no blame, judgment, or exposure."
+      }
+    }
+  ],
+  "scenario_path": "transitions/Resuscitation/Anaphylaxis and Medication Error.json"
+}

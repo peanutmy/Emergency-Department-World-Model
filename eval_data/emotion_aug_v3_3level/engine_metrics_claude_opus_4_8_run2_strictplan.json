@@ -1,0 +1,78 @@
+[
+  {
+    "comparison": "engine_vs_human_gold",
+    "labels_scored": 112,
+    "exact_accuracy": 0.8035714285714286,
+    "mae": 0.19642857142857142,
+    "quadratic_weighted_kappa": 0.6817359855334539,
+    "change_detection": {
+      "precision": 0.75,
+      "recall": 0.4,
+      "f1": 0.5217391304347827,
+      "direction_accuracy": 1.0
+    },
+    "target_dimension_accuracy": 0.6785714285714286,
+    "side_dimension_accuracy": 0.8452380952380952,
+    "per_emotion": {
+      "fear": {
+        "n": 28,
+        "exact_accuracy": 0.8214285714285714,
+        "mae": 0.17857142857142858
+      },
+      "sadness": {
+        "n": 28,
+        "exact_accuracy": 0.8571428571428571,
+        "mae": 0.14285714285714285
+      },
+      "overwhelm": {
+        "n": 28,
+        "exact_accuracy": 0.7857142857142857,
+        "mae": 0.21428571428571427
+      },
+      "shame": {
+        "n": 28,
+        "exact_accuracy": 0.75,
+        "mae": 0.25
+      }
+    },
+    "variant": "_full"
+  },
+  {
+    "comparison": "engine_vs_draft_labels",
+    "labels_scored": 112,
+    "exact_accuracy": 0.8303571428571429,
+    "mae": 0.16964285714285715,
+    "quadratic_weighted_kappa": 0.7349277528649726,
+    "change_detection": {
+      "precision": 0.4375,
+      "recall": 0.4117647058823529,
+      "f1": 0.42424242424242425,
+      "direction_accuracy": 1.0
+    },
+    "target_dimension_accuracy": 0.6785714285714286,
+    "side_dimension_accuracy": 0.8809523809523809,
+    "per_emotion": {
+      "fear": {
+        "n": 28,
+        "exact_accuracy": 0.8214285714285714,
+        "mae": 0.17857142857142858
+      },
+      "sadness": {
+        "n": 28,
+        "exact_accuracy": 0.7857142857142857,
+        "mae": 0.21428571428571427
+      },
+      "overwhelm": {
+        "n": 28,
+        "exact_accuracy": 0.8571428571428571,
+        "mae": 0.14285714285714285
+      },
+      "shame": {
+        "n": 28,
+        "exact_accuracy": 0.8571428571428571,
+        "mae": 0.14285714285714285
+      }
+    },
+    "variant": "_full"
+  }
+]

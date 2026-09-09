@@ -1,0 +1,2067 @@
+{
+  "scenario": "A 78-year-old man presents with increased shortness of breath. The case involves atrial fibrillation with rapid ventricular response, congestive heart failure, and a recent echocardiogram showing severe aortic stenosis. The patient becomes hypotensive and requires tailored hemodynamic management.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Patient Activation": "high",
+    "Anger": "high",
+    "Trust in Provider": "high",
+    "Optimism": "low",
+    "Health Literacy": "low"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get me a 12-lead ECG now. He's in rapid a-fib around 150.",
+          "turn_index": 0,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 153.0,
+            "BP_sys": 98.0,
+            "BP_dia": 48.0,
+            "RR": 31.0,
+            "O2Sat": 94.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 0,
+          "payload": {
+            "test_name": "Initial ECG",
+            "ordered_at_turn": 0,
+            "ready_at_turn": 2,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Sir, when did this racing heart start, and are you having any chest pain or trouble breathing right now?",
+          "turn_index": 1,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 156.0,
+            "BP_sys": 92.0,
+            "BP_dia": 46.0,
+            "RR": 32.0,
+            "O2Sat": 93.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 1,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Sir, when did this racing heart start, and are you having any chest pain or trouble breathing right now?] The utterance is a clinical history-taking question asking about symptom onset, chest pain, and breathing. It discloses no new serious abnormality, worsening condition, or need to escalate care, so fear stays absent. No loss/anticipated loss language, so sadness stays absent. It is a single, simple question, not a pile-up of information or urgent decisions, so overwhelm stays absent. No blame, judgment, or exposure, so shame stays absent."
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "ECG's back: LVH and atrial fibrillation. He's at 156, BP 92/46, satting 93 on a non-rebreather at 80 percent, RR 32.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "I don't know about any racing heart, but my breathing's been getting worse for about four days now. Right now it's harder to breathe, and I can't lie flat. There's a bit of pressure in my chest too, gets worse when I move around.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Get me a portable chest X-ray now. He's got four days of worsening dyspnea, can't lie flat, and he's hypoxic. I want to see if he's in pulmonary edema before I touch his rate with that pressure.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 159.0,
+            "BP_sys": 87.0,
+            "BP_dia": 44.0,
+            "RR": 33.0,
+            "O2Sat": 92.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 2,
+          "payload": {
+            "test_name": "Initial ECG",
+            "ordered_at_turn": 0,
+            "ready_at_turn": 2,
+            "released_at_turn": 2
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 2,
+          "payload": {
+            "test_name": "Chest X-ray",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 5,
+            "turnaround_turns": 3
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Let's get him on BiPAP now, he's still working hard and only satting 92 on the non-rebreather. Likely pulmonary edema, and I'm holding off on rate control until his pressure and oxygenation come up.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "I'm putting a mask over your nose and mouth now. It's going to push air in and feel tight, but I need you to keep it on and breathe with it. Let me know if it feels like too much.",
+          "turn_index": 3,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "BiPAP",
+          "FiO2": null,
+          "PEEP_used": true,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 159.0,
+            "BP_sys": 82.0,
+            "BP_dia": 42.0,
+            "RR": 29.0,
+            "O2Sat": 96.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "atrial_fibrillation",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "BiPAP",
+                "FiO2": null,
+                "PEEP_used": true,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "BiPAP",
+              "FiO2": null,
+              "PEEP_used": true,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[nurse: I'm putting a mask over your nose and mouth now. It's going to push air in and feel tight, but I need you to keep it on and breathe with it. Let me know if it feels like too much.] fear absent->present: an invasive, tight-feeling intervention (BiPAP) is being applied due to ongoing respiratory distress; this is an escalation of care that raises fear, buffered by clear guidance so not extreme. overwhelm absent->present: sensory/procedural intensity of a mask pushing air in while struggling to breathe, plus instructions to comply, exceeds easy processing for a low-health-literacy patient in distress. sadness stays absent: no loss framed. shame stays absent: instructions are neutral and non-judgmental, no blame or exposure."
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Alright, I'll try to keep it on and breathe with it. It's still hard to breathe though, and that pressure in my chest is still there.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "clinician",
+          "content": "He's in unstable rapid a-fib, HR 159 with a pressure of 82/42. Set up for synchronized cardioversion at 120 joules, synced. His pressure's too low for rate-control drugs. Give him some brief sedation and let's be ready to shock.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Synchronized cardioversion at 120 joules is charged and ready. Sync mode confirmed, pads placed. Ready on your count.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "synchronized_cardioversion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "synchronized_cardioversion",
+        "params": {
+          "site": null,
+          "side": null,
+          "device": null,
+          "energy_J": 120
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 70.0,
+            "BP_sys": 110.0,
+            "BP_dia": 54.0,
+            "RR": 24.0,
+            "O2Sat": 98.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 4,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "synchronized_cardioversion",
+              "params": {
+                "site": null,
+                "side": null,
+                "device": null,
+                "energy_J": 120
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 4,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "synchronized_cardioversion",
+            "raw_text": null,
+            "params": {
+              "site": null,
+              "side": null,
+              "device": null,
+              "energy_J": 120
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Post-shock he's converted to sinus, HR 70, pressure up to 110/54, satting 98 on BiPAP at 100 percent, RR 24. Portable chest X-ray confirms CHF with pulmonary edema.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Good, he converted and his pressure's holding at 110/54. Start nitroglycerin now for the pulmonary edema - his pressure tolerates a vasodilator, and I want to offload him.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Nitroglycerin is on and running.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "vasodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasodilator",
+        "params": {
+          "drug_name": "nitroglycerin",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 82.0,
+            "BP_sys": 82.0,
+            "BP_dia": 42.0,
+            "RR": 26.0,
+            "O2Sat": 96.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CHF"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "Chest X-ray",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 5,
+            "released_at_turn": 5
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasodilator",
+              "params": {
+                "drug_name": "nitroglycerin",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "vasodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "nitroglycerin",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Send a troponin. He's got chest pressure worse with exertion, and I want to know if there's an ischemic driver behind his failure.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 86.0,
+            "BP_sys": 77.0,
+            "BP_dia": 40.0,
+            "RR": 27.0,
+            "O2Sat": 96.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CHF"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 6,
+          "payload": {
+            "test_name": "Troponin",
+            "ordered_at_turn": 6,
+            "ready_at_turn": 8,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Now that we've got your rhythm back and the nitro running, is that chest pressure any better, worse, or the same? And when did the breathing trouble first start over these last few days?",
+          "turn_index": 7,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 88.0,
+            "BP_sys": 73.0,
+            "BP_dia": 38.0,
+            "RR": 27.0,
+            "O2Sat": 96.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CHF"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 7,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: Now that we've got your rhythm back and the nitro running, is that chest pressure any better, worse, or the same? And when did the breathing trouble first start over these last few days?] fear: stays present - the utterance offers mild reassurance ('rhythm back', 'nitro running') but asks about ongoing chest pressure and breathing trouble, sustaining rather than resolving the threat; not enough concrete relief to drop to absent. overwhelm: stays present - the clinician asks the patient (low health literacy) to rate symptoms and recount timeline, a processing demand that sustains overload. sadness: stays absent - no loss content. shame: stays absent - no blame, exposure, or judgment."
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Troponin's back - Troponin I 40, elevated. Also note his pressure's dropped since the nitro started, now 73/38, HR 88, sinus, satting 96 on BiPAP.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "The pressure's about the same, still there, and it gets worse when I move around. The breathing trouble started about four days ago and it's just been getting worse since. I still can't lie flat.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Stop the nitroglycerin now - his pressure's dropped too low at 73/38. Recheck the pressure once it's off.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 92.0,
+            "BP_sys": 67.0,
+            "BP_dia": 35.0,
+            "RR": 28.0,
+            "O2Sat": 96.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CHF"
+            },
+            {
+              "name": "Troponin",
+              "result": "Troponin I 40"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 8,
+          "payload": {
+            "test_name": "Troponin",
+            "ordered_at_turn": 6,
+            "ready_at_turn": 8,
+            "released_at_turn": 8
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 8,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "family/kind_hint mismatch: 'vasodilator' belongs to 'circulation_hemodynamics', not 'medication_toxicology_metabolic'."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start dobutamine - he's still hypotensive at 67/35 even off the nitro, and with his troponin elevated and failing heart he needs inotropic support to keep his output up. Recheck his pressure once it's running.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "inotrope",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "inotrope",
+        "params": {
+          "drug_name": "dobutamine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 60.0,
+            "BP_dia": 31.0,
+            "RR": 30.0,
+            "O2Sat": 96.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CHF"
+            },
+            {
+              "name": "Troponin",
+              "result": "Troponin I 40"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "inotrope",
+              "params": {
+                "drug_name": "dobutamine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "inotrope",
+            "raw_text": null,
+            "params": {
+              "drug_name": "dobutamine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get me a bedside echo now - he's still hypotensive at 60/31 on dobutamine and I need to see his pump function to guide where we go next.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 117.0,
+            "BP_sys": 53.0,
+            "BP_dia": 27.0,
+            "RR": 31.0,
+            "O2Sat": 95.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CHF"
+            },
+            {
+              "name": "Troponin",
+              "result": "Troponin I 40"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 10,
+          "payload": {
+            "test_name": "Echocardiogram",
+            "ordered_at_turn": 10,
+            "ready_at_turn": 11,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Echo's back: EF 35%, reduced LV function, dilated LV and LA, and severe aortic stenosis. No pulmonary hypertension. His pressure is still low on the dobutamine - 53/27, HR 117, RR 31, satting 95 on BiPAP.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start norepinephrine now. He's still profoundly hypotensive at 53/27 on dobutamine, and with severe aortic stenosis the dobutamine is dropping his afterload and killing his coronary perfusion. Recheck the pressure once it's running.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Norepinephrine is hung and running.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "norepinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 78.0,
+            "BP_dia": 40.0,
+            "RR": 31.0,
+            "O2Sat": 95.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CHF"
+            },
+            {
+              "name": "Troponin",
+              "result": "Troponin I 40"
+            },
+            {
+              "name": "Echocardiogram",
+              "result": "Reduced LV function with EF 35%; dilated LV; dilated LA; severe aortic stenosis; no pulmonary hypertension."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 11,
+          "payload": {
+            "test_name": "Echocardiogram",
+            "ordered_at_turn": 10,
+            "ready_at_turn": 11,
+            "released_at_turn": 11
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 11,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "norepinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 11,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "norepinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Add phenylephrine now - he's still profoundly hypotensive on what we've got running, and in this severe AS I need the pure afterload support to hold his coronary perfusion. Recheck the pressure once it's up.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "phenylephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 104.0,
+            "BP_sys": 103.0,
+            "BP_dia": 53.0,
+            "RR": 31.0,
+            "O2Sat": 95.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CHF"
+            },
+            {
+              "name": "Troponin",
+              "result": "Troponin I 40"
+            },
+            {
+              "name": "Echocardiogram",
+              "result": "Reduced LV function with EF 35%; dilated LV; dilated LA; severe aortic stenosis; no pulmonary hypertension."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 12,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "phenylephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 12,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "phenylephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Send a venous blood gas now - I need his lactate and acid-base to see if the pressor support is actually restoring his perfusion.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 107.0,
+            "BP_sys": 99.0,
+            "BP_dia": 51.0,
+            "RR": 32.0,
+            "O2Sat": 94.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CHF"
+            },
+            {
+              "name": "Troponin",
+              "result": "Troponin I 40"
+            },
+            {
+              "name": "Echocardiogram",
+              "result": "Reduced LV function with EF 35%; dilated LV; dilated LA; severe aortic stenosis; no pulmonary hypertension."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 13,
+          "payload": {
+            "test_name": "Venous Blood Gas",
+            "ordered_at_turn": 13,
+            "ready_at_turn": 14,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "VBG is back: pH 7.30, PCO2 35, PO2 95, HCO3 25, lactate 2.0 - lactate's not climbing. Current pressure 99/51, HR 107, RR 32, satting 94 on BiPAP.",
+          "turn_index": 14,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Your pressure has come up to 99 over 51 and it's holding on the medications we're running. I'll be straight with you: your heart scan shows a severely narrowed heart valve and a weakened pump, which is why you've been so hard to stabilize. I need one thing from you now - do you take any regular medications at home, and have you missed or run out of any recently?",
+          "turn_index": 14,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 109.0,
+            "BP_sys": 96.0,
+            "BP_dia": 50.0,
+            "RR": 33.0,
+            "O2Sat": 94.0,
+            "T": 36.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "BiPAP",
+            "FiO2": 1.0,
+            "intubated": false,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 10
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Initial ECG",
+              "result": "LVH and A.fib"
+            },
+            {
+              "name": "Chest X-ray",
+              "result": "CHF"
+            },
+            {
+              "name": "Troponin",
+              "result": "Troponin I 40"
+            },
+            {
+              "name": "Echocardiogram",
+              "result": "Reduced LV function with EF 35%; dilated LV; dilated LA; severe aortic stenosis; no pulmonary hypertension."
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.30, PCO2 35, PO2 95, HCO3 25, Lactate 2.0"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 14,
+          "payload": {
+            "test_name": "Venous Blood Gas",
+            "ordered_at_turn": 13,
+            "ready_at_turn": 14,
+            "released_at_turn": 14
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 14,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: Your pressure has come up to 99 over 51 and it's holding on the medications we're running. I'll be straight with you: your heart scan shows a severely narrowed heart valve and a weakened pump, which is why you've been so hard to stabilize. I need one thing from you now - do you take any regular medications at home, and have you missed or run out of any recently?] sadness absent->present: the disclosure of a severely narrowed valve and weakened pump (a serious, likely irreversible structural loss and poor prognosis in a 78-year-old with low optimism) conveys anticipated devastating loss, newly raising sadness. fear stays present: the news is serious but partially buffered by 'pressure has come up and it's holding' - stabilization holds fear rather than escalating it. overwhelm stays present: a single focused question buffers overload but the grim diagnosis sustains it. shame stays absent: the medication question is neutral/nonjudgmental, no blame or exposure."
+      }
+    }
+  ],
+  "scenario_path": "transitions/Cardiology/Aortic Stenosis with A Fib and CHF.json"
+}

@@ -1,0 +1,63 @@
+{
+  "relative_traits": [
+    {
+      "trait": "Health Literacy",
+      "definition": "Health literacy is the degree to which an individual has the capacity to obtain, process, and understand basic health information and services needed to make appropriate health decisions. It is a stable individual capacity (assessed at a point in time, not a momentary state), spanning reading and numeracy, comprehension of health concepts, and the ability to communicate with providers and navigate the health system.",
+      "trigger": {
+        "low": [
+          "Provider uses medical jargon or complex explanations -> patient asks the provider to repeat or rephrase; signals not understanding",
+          "Information is given or a decision is requested -> patient asks fewer questions; is passive and defers to the provider",
+          "Patient describes their own condition or medications -> avoids medical terminology; does not refer to medications by name; vague",
+          "Discharge / self-management instructions are given -> limited grasp; does not request added services or seek new information"
+        ]
+      }
+    },
+    {
+      "trait": "Trust in Provider",
+      "definition": "Trust in the provider is the patient's willingness to be vulnerable to the provider, based on the expectation that the provider will act in the patient's interest, even when the patient cannot monitor or control what the provider does. It is future-oriented and relational -- distinct from satisfaction, which evaluates past experience -- and spans five overlapping domains: fidelity (caring for and advocating the patient's welfare, no conflict of interest), competence, honesty, confidentiality, and global trust.",
+      "trigger": {
+        "high": [
+          "Accepts and follows recommendations without demanding justification; grants the provider decisional authority",
+          "Discloses openly, including sensitive or embarrassing information",
+          "Voices confidence in the provider's competence and good intentions; no wish to switch or seek a second opinion"
+        ],
+        "low": [
+          "Questions or resists recommendations; wants justification before agreeing",
+          "Guarded; withholds information",
+          "Voices suspicion about motives (cost, convenience, hidden agenda) or doubts competence/honesty",
+          "Asks for a second opinion; raises disputes; considers switching providers"
+        ]
+      }
+    },
+    {
+      "trait": "Caregiver Activation / Advocacy",
+      "definition": "Caregiver activation is the caregiver's knowledge, skills, and confidence for managing the health and health care of the person they care for, including the belief, ability, and persistence to manage that care. It manifests as advocacy in clinical encounters: contributing to the treatment decision-making process, most often by asking questions about treatment options -- how they work, their likelihood of success, their side effects, and the provider's opinion about the best choice for the patient.",
+      "trigger": {
+        "high": [
+          "Asks questions about treatment options: how they work, likelihood of success, side effects, and the provider's opinion on the best choice for the patient",
+          "Contributes to the treatment decision-making process; advocates on the patient's behalf",
+          "Persists until questions are answered and concerns are addressed"
+        ],
+        "low": [
+          "Passive in the encounter; defers entirely to the providers and the patient",
+          "Does not contribute to decision-making; does not ask about options or raise concerns"
+        ]
+      }
+    },
+    {
+      "trait": "Topic Avoidance",
+      "definition": "Topic avoidance is the strategic avoidance of discussing certain topics; it is distinct from keeping secrets in that all parties are aware the information is being suppressed or avoided. Family members avoid difficult health topics -- such as prognosis, death and dying, and distressing emotions -- to protect one another from distressing emotions, to protect themselves, or to respect privacy. A closely related form is protective buffering: hiding concerns or denying problems in an effort to keep one's own stress from affecting others.",
+      "trigger": {
+        "high": [
+          "Steers conversation away from distressing topics (prognosis, death and dying, severity), especially in front of the patient",
+          "Hides own concerns or denies problems so their stress does not affect the patient or other family members (protective buffering)",
+          "Deflects or shuts down when providers raise difficult subjects (\"let's not talk about that now\")"
+        ],
+        "low": [
+          "Discusses difficult topics (prognosis, risks, end-of-life concerns) openly with providers and the patient",
+          "Voices own worries and concerns directly rather than concealing them"
+        ]
+      }
+    }
+  ]
+}

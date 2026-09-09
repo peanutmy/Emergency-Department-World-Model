@@ -1,0 +1,2252 @@
+{
+  "scenario": "A 2-week-old neonate presents in shock with poor feeding, vomiting, lethargy, hypoglycemia, differential oxygen saturations and blood pressures, and findings concerning for coarctation of the aorta. The scenario emphasizes glucose correction, gentle fluid boluses, PGE1 infusion for a likely ductal-dependent lesion, and airway management for PGE-associated apnea.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Anger": "high",
+    "Patient Activation": "low",
+    "Trust in Provider": "high",
+    "Health Literacy": "low"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Glucose is 1.5 — that's critical. Give an IV dextrose 10% bolus now, then recheck glucose after it's in.",
+          "turn_index": 0,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "dextrose 10%",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 172.0,
+            "BP_sys": 80.0,
+            "BP_dia": 40.0,
+            "RR": 50.0,
+            "O2Sat": 94.0,
+            "T": 36.0
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 0,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "dextrose 10%",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 0,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "dextrose 10%",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "His blood sugar was dangerously low, so we just gave sugar through the IV. I need to understand why. When did he last feed, and has he been feeding poorly or gone floppy?",
+          "turn_index": 1,
+          "recipient": "relative"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 174.0,
+            "BP_sys": 78.0,
+            "BP_dia": 39.0,
+            "RR": 50.0,
+            "O2Sat": 94.0,
+            "T": 36.0
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 1,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "relative"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 1,
+          "payload": {
+            "test_name": "Basic Metabolic Panel",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: His blood sugar was dangerously low, so we just gave sugar through the IV. I need to understand why. When did he last feed, and has he been feeding poorly or gone floppy?] fear absent->present: the clinician discloses to the relative that the neonate's blood sugar was 'dangerously low,' a serious symptomatic instability in their infant, which is bad news that raises fear even though sugar was given. sadness stays absent: no explicit devastating loss framed as close or likely. overwhelm stays absent: the message is a single finding plus a focused question, not a pile-up of technical data or urgent decisions. shame stays absent: the questions about feeding are neutral information-gathering, not blame or judgment toward the relative."
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "relative"
+      ],
+      "messages": [
+        {
+          "speaker": "relative",
+          "content": "He has no medical problems and takes no medicines, he was born at 38 weeks normally. Is he going to be okay? Why did his sugar drop so low?",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start a continuous dextrose 10% infusion now that the bolus is in, and recheck a bedside glucose to confirm he's responding.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "dextrose 10% infusion",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 166.0,
+            "BP_sys": 78.0,
+            "BP_dia": 39.0,
+            "RR": 50.0,
+            "O2Sat": 94.0,
+            "T": 36.0
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 2,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "relative",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 2,
+          "payload": {
+            "agent": "relative",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "dextrose 10% infusion",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "dextrose 10% infusion",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Dextrose bolus and continuous D10 infusion are both in. BMP back: Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, glucose 1.5. Still tachycardic at 166, RR 50, BP 78/39, sat 94% on room air, GCS 12. Bedside recheck glucose pending.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "His blood sugar was dangerously low, and that's why he's so drowsy — we're correcting it with the dextrose going through his IV and rechecking to confirm he responds. I can't promise anything yet until I see he's turning around. In a baby this new, sugar this low usually comes from either not feeding enough or an underlying metabolic or hormone problem, and we have to find the cause. Since he was born, how has his feeding been — and has he had any vomiting, sweating, jitteriness, or episodes of going floppy?",
+          "turn_index": 3,
+          "recipient": "relative"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 170.0,
+            "BP_sys": 74.0,
+            "BP_dia": 37.0,
+            "RR": 50.0,
+            "O2Sat": 93.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 1.5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 3,
+          "payload": {
+            "test_name": "Basic Metabolic Panel",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "released_at_turn": 3
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 3,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "relative"
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 3,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: His blood sugar was dangerously low, and that's why he's so drowsy — we're correcting it with the dextrose going through his IV and rechecking to confirm he responds. I can't promise anything yet until I see he's turning around. In a baby this new, sugar this low usually comes from either not feeding enough or an underlying metabolic or hormone problem, and we have to find the cause. Since he was born, how has his feeding been — and has he had any vomiting, sweating, jitteriness, or episodes of going floppy?] overwhelm absent->present: the utterance piles multiple burdens at once - dangerously low sugar, drowsiness, uncertainty ('can't promise anything yet'), two possible serious causes (metabolic or hormone problem), and a multi-part question about feeding, vomiting, sweating, jitteriness, floppiness, exceeding the relative's processing capacity in an acute crisis. fear stays present: the disclosure sustains threat (uncertain outcome, unresolved cause) but does not reach breakdown-level. sadness stays absent: no devastating loss framed as imminent or incurred yet. shame stays absent: no blame or judgment, questions are neutral fact-finding."
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician",
+        "relative"
+      ],
+      "messages": [
+        {
+          "speaker": "relative",
+          "content": "He's been feeding much less than usual — hardly taking the breast the last day, and he seemed more sleepy and floppy than before. I don't think there was vomiting. Are you sure the sugar is the real problem and not something you're missing?",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Glucose is still critically low at 1.5 despite the bolus and infusion — give another dextrose 10% bolus now, and make sure the continuous infusion keeps running. Recheck a bedside glucose once it's in.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Dextrose 10% bolus is in.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "dextrose 10% bolus",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 162.0,
+            "BP_sys": 74.0,
+            "BP_dia": 37.0,
+            "RR": 50.0,
+            "O2Sat": 93.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 1.5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 4,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "relative",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 4,
+          "payload": {
+            "agent": "relative",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 4,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "dextrose 10% bolus",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 4,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "dextrose 10% bolus",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Glucose is still 1.5 despite repeated dextrose boluses and the infusion — this is refractory. Give IV hydrocortisone now, stress dose for the low sugar. Keep the D10 infusion running and recheck a bedside glucose.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "corticosteroid",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "corticosteroid",
+        "params": {
+          "drug_name": "hydrocortisone",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 162.0,
+            "BP_sys": 74.0,
+            "BP_dia": 37.0,
+            "RR": 50.0,
+            "O2Sat": 93.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 1.5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 5,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "corticosteroid",
+              "params": {
+                "drug_name": "hydrocortisone",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "corticosteroid",
+            "raw_text": null,
+            "params": {
+              "drug_name": "hydrocortisone",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Glucose is still 1.5 — refractory. Give another dextrose 10% bolus now and turn up the continuous D10 infusion rate. Recheck a bedside glucose once it's in.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "dextrose 10% bolus",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 156.0,
+            "BP_sys": 74.0,
+            "BP_dia": 37.0,
+            "RR": 50.0,
+            "O2Sat": 93.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 1.5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 6,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "dextrose 10% bolus",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 6,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "dextrose 10% bolus",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Glucose is still 1.5 despite repeated dextrose boluses and hydrocortisone — give glucagon now as an adjunct for refractory hypoglycemia. Keep the D10 infusion running and recheck a bedside glucose.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Glucagon is in — administered now.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "glucagon",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 156.0,
+            "BP_sys": 74.0,
+            "BP_dia": 37.0,
+            "RR": 50.0,
+            "O2Sat": 93.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 1.5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "glucagon",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "glucagon",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Glucose is still critically low at 1.5 despite repeated dextrose boluses, the infusion, hydrocortisone, and now glucagon. Recheck a bedside glucose and send a venous blood gas. Keep the D10 infusion running.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 158.0,
+            "BP_sys": 72.0,
+            "BP_dia": 36.0,
+            "RR": 50.0,
+            "O2Sat": 93.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 1.5"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 8,
+          "payload": {
+            "test_name": "Venous Blood Gas",
+            "ordered_at_turn": 8,
+            "ready_at_turn": 9,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "VBG back: pH 7.29, PCO2 50, PO2 95, HCO3 18, lactate 3.0. Bedside glucose still critically low at 1.5 despite all measures. HR 158, RR 50, BP 72/36, sat 93% on room air, T 35.8, GCS 12. D10 infusion still running.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Glucose is still 1.5 despite everything — give a dextrose 25% bolus now and turn up the D10 infusion to increase the glucose delivery rate. Recheck a bedside glucose once it's in.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Dextrose 25% bolus is in.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "dextrose 25% bolus",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 152.0,
+            "BP_sys": 72.0,
+            "BP_dia": 36.0,
+            "RR": 50.0,
+            "O2Sat": 93.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 1.5"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.29, PCO2 50, PO2 95, HCO3 18, Lactate 3.0"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 9,
+          "payload": {
+            "test_name": "Venous Blood Gas",
+            "ordered_at_turn": 8,
+            "ready_at_turn": 9,
+            "released_at_turn": 9
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "dextrose 25% bolus",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "dextrose 25% bolus",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your baby's blood sugar is dangerously low and isn't coming up despite sugar and hormone treatments — we're giving another dose of hydrocortisone now. I need one thing quickly: has he had any feeding problems since birth, birth complications, or any family history of metabolic or hormone conditions?",
+          "turn_index": 10,
+          "recipient": "relative"
+        }
+      ],
+      "physiology_action_kind_hint": "corticosteroid",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "corticosteroid",
+        "params": {
+          "drug_name": "hydrocortisone",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 152.0,
+            "BP_sys": 72.0,
+            "BP_dia": 36.0,
+            "RR": 50.0,
+            "O2Sat": 93.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 1.5"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.29, PCO2 50, PO2 95, HCO3 18, Lactate 3.0"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 10,
+          "payload": {
+            "question_id": "q5",
+            "source_agent": "clinician",
+            "target_agent": "relative"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 10,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "corticosteroid",
+              "params": {
+                "drug_name": "hydrocortisone",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 10,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "corticosteroid",
+            "raw_text": null,
+            "params": {
+              "drug_name": "hydrocortisone",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: Your baby's blood sugar is dangerously low and isn't coming up despite sugar and hormone treatments — we're giving another dose of hydrocortisone now. I need one thing quickly: has he had any feeding problems since birth, birth complications, or any family history of metabolic or hormone conditions?] sadness absent->present: the utterance emphasizes that repeated treatments are failing ('isn't coming up despite sugar and hormone treatments'), making a devastating outcome for the baby feel closer and evoking helplessness/anticipated loss. fear stays present: the danger is reiterated but no new escalation beyond current level. overwhelm stays present: an urgent multi-part question is added, sustaining the processing burden but not pushing to breakdown. shame stays absent: the question is neutral, non-blaming history-gathering. No emotion reaches extreme since the parent can still listen and answer."
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "relative"
+      ],
+      "messages": [
+        {
+          "speaker": "relative",
+          "content": "There were no birth complications, he was born normally at 38 weeks. The only thing is he's been feeding much less since yesterday. I don't know of any metabolic or hormone problems in the family. Please, why isn't the sugar coming up — is he getting worse?",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "I'll be straight with you: his blood sugar is still critically low despite all the sugar and hormone treatments we've given. We're now increasing the concentrated sugar going in through his drip. This level of sugar that refuses to come up in a newborn is serious, and it points to an underlying hormone or metabolic problem that we're still working to control. We are not giving up, but I need you to understand he remains critically ill.",
+          "turn_index": 11,
+          "recipient": "relative"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Dextrose 25% is up and running now.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "dextrose 25% infusion",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 144.0,
+            "BP_sys": 72.0,
+            "BP_dia": 36.0,
+            "RR": 50.0,
+            "O2Sat": 93.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 1.5"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.29, PCO2 50, PO2 95, HCO3 18, Lactate 3.0"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 11,
+          "payload": {
+            "question_id": "q6",
+            "source_agent": "relative",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 11,
+          "payload": {
+            "agent": "relative",
+            "question_ids": [
+              "q5"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 11,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "dextrose 25% infusion",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 11,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "dextrose 25% infusion",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": "[clinician: I'll be straight with you: his blood sugar is still critically low despite all the sugar and hormone treatments we've given. We're now increasing the concentrated sugar going in through his drip. This level of sugar that refuses to come up in a newborn is serious, and it points to an underlying hormone or metabolic problem that we're still working to control. We are not giving up, but I need you to understand he remains critically ill.] fear stays present: reinforced serious bad news (critically low sugar, critically ill) but no new terminal cue and clinician frames a plan ('not giving up'), so no escalation to extreme. sadness stays present: anticipated devastating loss of the newborn remains, no resolution. overwhelm stays present: continued serious/complex disclosure sustains load but nothing new pushes to breakdown. shame stays absent: nonjudgmental, honest disclosure with no blame or exposure."
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "His pressure is low at 72/36 with poor perfusion — give a 30 mL normal saline bolus, that's 10 mL/kg. Keep the D25 infusion running and recheck a bedside glucose once the bolus is in.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 30
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 142.0,
+            "BP_sys": 76.0,
+            "BP_dia": 38.0,
+            "RR": 50.0,
+            "O2Sat": 93.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 1.5"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.29, PCO2 50, PO2 95, HCO3 18, Lactate 3.0"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 12,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q6"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 12,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 30
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 12,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 30
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Glucose is still critically low at 1.5 — give another dextrose 25% bolus now. Keep the D25 infusion running and recheck a bedside glucose once it's in.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Dextrose 25% bolus is in.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "dextrose 25% bolus",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 136.0,
+            "BP_sys": 76.0,
+            "BP_dia": 38.0,
+            "RR": 50.0,
+            "O2Sat": 93.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 1.5"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.29, PCO2 50, PO2 95, HCO3 18, Lactate 3.0"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 13,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "dextrose 25% bolus",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 13,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "dextrose 25% bolus",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Glucose is still 1.5 despite everything, so start a continuous glucagon infusion for this refractory hypoglycemia. Keep the D25 infusion running and recheck a bedside glucose once the glucagon is up.",
+          "turn_index": 14,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Hold on—the order reads prostaglandin infusion but the drug pulled is glucagon. These don't match. Please clarify which drug and dose you want before I run anything.",
+          "turn_index": 14,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "prostaglandin_infusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "prostaglandin_infusion",
+        "params": {
+          "drug_name": "glucagon",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 132.0,
+            "BP_sys": 76.0,
+            "BP_dia": 38.0,
+            "RR": 50.0,
+            "O2Sat": 93.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "NSR",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 12 (E2 V4 M6)",
+            "glucose_mmol_l": 1.5
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 140, K 5.6, Cl 105, HCO3 25, BUN 5, Cr 80, Glu 1.5"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.29, PCO2 50, PO2 95, HCO3 18, Lactate 3.0"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 14,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "prostaglandin_infusion",
+              "params": {
+                "drug_name": "glucagon",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 14,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "relative_emotion",
+            "fear": "present",
+            "sadness": "present",
+            "overwhelm": "present",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "prostaglandin_infusion",
+            "raw_text": null,
+            "params": {
+              "drug_name": "glucagon",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      },
+      "relative_emotion": {
+        "fear": "present",
+        "sadness": "present",
+        "overwhelm": "present",
+        "shame": "absent",
+        "notes": null
+      }
+    }
+  ],
+  "relative_traits": {
+    "Topic Avoidance": "low",
+    "Trust in Provider": "low"
+  },
+  "scenario_path": "transitions/Cardiology/Coarctation of the Aorta.json"
+}

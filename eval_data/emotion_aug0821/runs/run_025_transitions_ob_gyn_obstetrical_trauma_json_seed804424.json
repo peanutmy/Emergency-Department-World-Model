@@ -1,0 +1,1962 @@
+{
+  "scenario": "A 33-year-old G1P0 female at 32 weeks gestation presents after a high-speed MVC with altered level of consciousness, hypotension, left tension pneumothorax/hemothorax, pelvic instability, fetal distress, and need for trauma resuscitation, chest decompression/tube thoracostomy, transfusion, and intubation.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Patient Activation": "low"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Let's get a liter of normal saline in wide open — she's hypotensive at 80/50 and tachy at 155.",
+          "turn_index": 0,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Normal saline 1 liter bolus is up and running wide open.",
+          "turn_index": 0,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 153.0,
+            "BP_sys": 85.0,
+            "BP_dia": 54.0,
+            "RR": 40.0,
+            "O2Sat": 90.0,
+            "T": 35.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 0,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 0,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get me a bedside FAST now — she's in shock and I need to look for free fluid.",
+          "turn_index": 1,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 158.0,
+            "BP_sys": 79.0,
+            "BP_dia": 51.0,
+            "RR": 40.0,
+            "O2Sat": 88.0,
+            "T": 35.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 1,
+          "payload": {
+            "test_name": "FAST Ultrasound",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 2,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "FAST is back: no pericardial effusion, but positive free fluid in the abdomen. She's still unstable — 79/51, HR 158, sat 88 on the non-rebreather, RR 40, GCS 9.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Activate the massive transfusion protocol and hang 2 units of packed red cells now. She's still in shock after the liter of saline with free fluid in the belly — this is hemorrhage.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting massive transfusion protocol — hanging 2 units packed red cells now. I'll keep them coming and monitor vitals.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "packed_rbc",
+          "units": 2,
+          "strategy": "massive_transfusion"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 152.0,
+            "BP_sys": 90.0,
+            "BP_dia": 57.0,
+            "RR": 40.0,
+            "O2Sat": 88.0,
+            "T": 35.2
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 2,
+          "payload": {
+            "test_name": "FAST Ultrasound",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 2,
+            "released_at_turn": 2
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "packed_rbc",
+                "units": 2,
+                "strategy": "massive_transfusion"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "packed_rbc",
+              "units": 2,
+              "strategy": "massive_transfusion"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Set up for RSI now — GCS is 9 and she can't protect her airway, and she's only satting 88 on the non-rebreather. Preoxygenate with the BVM and draw up the RSI meds while the blood keeps running.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "RSI meds drawn up and ready, BVM ventilating now. Suction and tube confirmed at bedside. Ready when you are.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "airway_management",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "airway_management",
+        "params": {
+          "stage": "preparation",
+          "rsi_medication_used": true,
+          "bvm_before": true,
+          "intubated": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 158.0,
+            "BP_sys": 82.0,
+            "BP_dia": 52.0,
+            "RR": 40.0,
+            "O2Sat": 85.0,
+            "T": 35.2
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.8,
+            "intubated": true,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 9 (E2 V2 M5)",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "airway_management",
+              "params": {
+                "stage": "preparation",
+                "rsi_medication_used": true,
+                "bvm_before": true,
+                "intubated": null
+              }
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "features",
+              "status_flags"
+            ]
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "airway_management",
+            "raw_text": null,
+            "params": {
+              "stage": "preparation",
+              "rsi_medication_used": true,
+              "bvm_before": true,
+              "intubated": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Push the RSI meds and let's intubate now — she's not protecting her airway and only satting 85. Confirm tube placement with EtCO2 and auscultation once it's in, keep the blood running.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Intubation complete. RSI meds given, patient was bagged prior to the attempt, tube's in.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "airway_management",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "airway_management",
+        "params": {
+          "stage": "completed",
+          "rsi_medication_used": true,
+          "bvm_before": true,
+          "intubated": true
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 143.0,
+            "BP_sys": 82.0,
+            "BP_dia": 52.0,
+            "RR": 12.0,
+            "O2Sat": 88.0,
+            "T": 35.2
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 4,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "airway_management",
+              "params": {
+                "stage": "completed",
+                "rsi_medication_used": true,
+                "bvm_before": true,
+                "intubated": true
+              }
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "features",
+              "status_flags"
+            ]
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 4,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "airway_management",
+            "raw_text": null,
+            "params": {
+              "stage": "completed",
+              "rsi_medication_used": true,
+              "bvm_before": true,
+              "intubated": true
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Hang 2 units of plasma now to keep the massive transfusion going in a balanced ratio — she's still hypotensive and tachy with free fluid in the belly. Keep the blood coming and get surgery to the bedside now for source control.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Hanging 2 units plasma per massive transfusion protocol now. I'll keep the products coming and update you on the ratio.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "plasma",
+          "units": 2,
+          "strategy": "massive_transfusion"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 137.0,
+            "BP_sys": 94.0,
+            "BP_dia": 58.0,
+            "RR": 12.0,
+            "O2Sat": 88.0,
+            "T": 35.2
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "plasma",
+                "units": 2,
+                "strategy": "massive_transfusion"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "plasma",
+              "units": 2,
+              "strategy": "massive_transfusion"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Hang 2 more units of packed red cells now, continuing the massive transfusion protocol — she's still hypotensive and tachy with free fluid in the belly. Run it through a fluid warmer, she's cold. And where the hell is surgery? I need them at the bedside for source control now.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting massive transfusion protocol — 2 units packed RBCs going in now. I'll keep the products coming and monitor for transfusion reaction.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "packed_rbc",
+          "units": 2,
+          "strategy": "massive_transfusion"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 130.0,
+            "BP_sys": 105.0,
+            "BP_dia": 64.0,
+            "RR": 12.0,
+            "O2Sat": 88.0,
+            "T": 35.0
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 6,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "packed_rbc",
+                "units": 2,
+                "strategy": "massive_transfusion"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 6,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "packed_rbc",
+              "units": 2,
+              "strategy": "massive_transfusion"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Hang 1 unit of platelets now to keep the ratio balanced — she's still tachy at 130 with free fluid in the belly. Run it through the warmer, her temp's 35. And I need surgery at the bedside now for source control.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "platelets",
+          "units": 1,
+          "strategy": "massive_transfusion"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 126.0,
+            "BP_sys": 102.0,
+            "BP_dia": 66.0,
+            "RR": 12.0,
+            "O2Sat": 88.0,
+            "T": 35.0
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "platelets",
+                "units": 1,
+                "strategy": "massive_transfusion"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "platelets",
+              "units": 1,
+              "strategy": "massive_transfusion"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Hang 2 more units of packed cells through the warmer now, keep the massive transfusion going — she's still tachy at 126 and cold at 35 with free fluid in the belly. I need surgery at the bedside this minute for source control.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting massive transfusion protocol, 2 units packed red cells going up now.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "packed_rbc",
+          "units": 2,
+          "strategy": "massive_transfusion"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 114.0,
+            "BP_dia": 72.0,
+            "RR": 12.0,
+            "O2Sat": 88.0,
+            "T": 35.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 5,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "packed_rbc",
+                "units": 2,
+                "strategy": "massive_transfusion"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "packed_rbc",
+              "units": 2,
+              "strategy": "massive_transfusion"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "She's still only satting 88% on the vent at 100% oxygen. Bump the PEEP up to 10 to recruit and improve her oxygenation, then recheck the sat and confirm equal breath sounds bilaterally.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "vent",
+          "FiO2": 1.0,
+          "PEEP_used": true,
+          "PEEP_cmH2O": 10
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 113.0,
+            "BP_sys": 106.0,
+            "BP_dia": 68.0,
+            "RR": 12.0,
+            "O2Sat": 90.0,
+            "T": 35.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 10,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "vent",
+                "FiO2": 1.0,
+                "PEEP_used": true,
+                "PEEP_cmH2O": 10
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "vent",
+              "FiO2": 1.0,
+              "PEEP_used": true,
+              "PEEP_cmH2O": 10
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get me a bedside obstetric ultrasound now — she's a reproductive-age woman with free fluid in the belly, and I need to know if she's pregnant and whether there's an obstetric source of bleeding. It changes our surgical priorities.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 117.0,
+            "BP_sys": 101.0,
+            "BP_dia": 65.0,
+            "RR": 12.0,
+            "O2Sat": 89.0,
+            "T": 35.4
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 10,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 10,
+          "payload": {
+            "test_name": "Obstetric Ultrasound",
+            "ordered_at_turn": 10,
+            "ready_at_turn": 11,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Bedside OB ultrasound back: positive fetal heart activity, she's pregnant. Sat's up slightly to 89% on PEEP 10, HR 117, BP 101/65, temp still 35.4.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Two more units of packed cells through the warmer now, keep the massive transfusion going — she's still tachy at 117 and cold at 35.4 with free fluid in the belly. And she's pregnant with fetal heart activity confirmed — I need surgery at the bedside this minute for source control.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting massive transfusion protocol, hanging 2 units packed red cells now.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "packed_rbc",
+          "units": 2,
+          "strategy": "massive_transfusion"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 102.0,
+            "BP_sys": 110.0,
+            "BP_dia": 70.0,
+            "RR": 12.0,
+            "O2Sat": 89.0,
+            "T": 35.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 10,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            },
+            {
+              "name": "Obstetric Ultrasound",
+              "result": "Uterus: + fetal heart activity"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 11,
+          "payload": {
+            "test_name": "Obstetric Ultrasound",
+            "ordered_at_turn": 10,
+            "ready_at_turn": 11,
+            "released_at_turn": 11
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 11,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "packed_rbc",
+                "units": 2,
+                "strategy": "massive_transfusion"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 11,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "packed_rbc",
+              "units": 2,
+              "strategy": "massive_transfusion"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Start norepinephrine now to support her pressure while the transfusion keeps running — she's still hypotensive and tachy at 102 with free fluid in the belly. And I need surgery at the bedside this minute for source control.",
+          "turn_index": 12,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Norepinephrine is up and running.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "norepinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 98.0,
+            "BP_sys": 122.0,
+            "BP_dia": 78.0,
+            "RR": 12.0,
+            "O2Sat": 90.0,
+            "T": 35.6
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 10,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            },
+            {
+              "name": "Obstetric Ultrasound",
+              "result": "Uterus: + fetal heart activity"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 12,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "norepinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 12,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "norepinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Hang 2 units of plasma through the warmer now to keep the massive transfusion ratio balanced — she's still bleeding with free fluid in the belly and cold at 35.6. I need surgery at the bedside now for source control.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Hanging 2 units plasma now per massive transfusion protocol. I'll keep the products coming and let you know as they're in.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "plasma",
+          "units": 2,
+          "strategy": "massive_transfusion"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 94.0,
+            "BP_sys": 128.0,
+            "BP_dia": 82.0,
+            "RR": 12.0,
+            "O2Sat": 91.0,
+            "T": 36.0
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 10,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            },
+            {
+              "name": "Obstetric Ultrasound",
+              "result": "Uterus: + fetal heart activity"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 13,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "plasma",
+                "units": 2,
+                "strategy": "massive_transfusion"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 13,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "plasma",
+              "units": 2,
+              "strategy": "massive_transfusion"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get me a portable pelvis film now — she's got free fluid in the belly and I need to rule out a pelvic fracture as a bleeding source.",
+          "turn_index": 14,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 99.0,
+            "BP_sys": 122.0,
+            "BP_dia": 79.0,
+            "RR": 12.0,
+            "O2Sat": 89.0,
+            "T": 35.8
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "vent",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": 10,
+            "neuro_status": "intubated and sedated",
+            "glucose_mmol_l": 6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "FAST Ultrasound",
+              "result": "Pericardium: no PCE; abdomen: + FF"
+            },
+            {
+              "name": "Obstetric Ultrasound",
+              "result": "Uterus: + fetal heart activity"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 14,
+          "payload": {
+            "test_name": "Pelvis X-ray",
+            "ordered_at_turn": 14,
+            "ready_at_turn": 17,
+            "turnaround_turns": 3
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    }
+  ],
+  "scenario_path": "transitions/OB-GYN/Obstetrical Trauma.json"
+}

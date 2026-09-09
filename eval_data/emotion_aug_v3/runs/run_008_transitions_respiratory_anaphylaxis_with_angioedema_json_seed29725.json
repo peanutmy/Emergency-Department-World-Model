@@ -1,0 +1,1602 @@
+{
+  "scenario": "A 45-year-old previously healthy female being treated for pyelonephritis with IV ceftriaxone develops stridor, respiratory distress, angioedema, and a widespread urticarial rash consistent with anaphylaxis. The scenario focuses on anaphylaxis management, difficult airway planning, failed intubation, and surgical cricothyrotomy.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Trust in Provider": "high",
+    "Anger": "high"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your oxygen level is low, so I'm putting a mask on you to give you more oxygen. When did the trouble breathing start, and what other symptoms are you having?",
+          "turn_index": 0,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Non-rebreather on now at 60% FiO2, sats being monitored.",
+          "turn_index": 0,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "NRB",
+          "FiO2": 0.6,
+          "PEEP_used": null,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 130.0,
+            "BP_sys": 100.0,
+            "BP_dia": 65.0,
+            "RR": 31.0,
+            "O2Sat": 91.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.6,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 0,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 0,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "NRB",
+                "FiO2": 0.6,
+                "PEEP_used": null,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 0,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "NRB",
+              "FiO2": 0.6,
+              "PEEP_used": null,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: Your oxygen level is low, so I'm putting a mask on you to give you more oxygen. When did the trouble breathing start, and what other symptoms are you having?] Fear: not at all->low, because being told oxygen is low and needing a mask is a direct disclosure of a worsening/threatening clinical finding in a patient already struggling to breathe. Overwhelm: not at all->low, because on top of the low-oxygen news the patient is immediately pressed with questions (onset timing, other symptoms) while in respiratory distress, adding processing load. Sadness stays not at all - no loss or irreversible outcome mentioned. Shame stays not at all - nothing judgmental or exposing in the utterance."
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I don't know exactly when it started! It's hard to breathe, my throat feels tight... my lips and tongue feel swollen. I'm covered in this itchy rash, all over. I feel dizzy, like I'm gonna pass out, and I'm nauseous, I already threw up. I also have a fever and it burns when I pee.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give epinephrine IM now - concerned for anaphylaxis with airway swelling, rash, and her vitals.",
+          "turn_index": 1,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Epinephrine is in now.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "anaphylaxis_treatment",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anaphylaxis_treatment",
+        "params": {
+          "drug_name": "epinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 140.0,
+            "BP_sys": 115.0,
+            "BP_dia": 73.0,
+            "RR": 27.0,
+            "O2Sat": 94.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.6,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 1,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anaphylaxis_treatment",
+              "params": {
+                "drug_name": "epinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 1,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "anaphylaxis_treatment",
+            "raw_text": null,
+            "params": {
+              "drug_name": "epinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "You've had the epinephrine and oxygen, but you're still dizzy and your heart's racing, so I'm giving you IV fluids now to help your blood pressure. Quickly - what did you eat, take, or come into contact with right before this started, and do you have any allergies or take any medications?",
+          "turn_index": 2,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting the 500 mL normal saline bolus now.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 500
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 144.0,
+            "BP_sys": 119.0,
+            "BP_dia": 75.0,
+            "RR": 29.0,
+            "O2Sat": 92.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.6,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 2,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 500
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 500
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": "[clinician: You've had the epinephrine and oxygen, but you're still dizzy and your heart's racing, so I'm giving you IV fluids now to help your blood pressure. Quickly - what did you eat, take, or come into contact with right before this started, and do you have any allergies or take any medications?] Fear: low->high because the clinician directly discloses that despite treatment the patient remains unstable (still dizzy, racing heart, low blood pressure needing fluids) - a concrete worsening/ongoing-threat disclosure to a symptomatic, unstable patient. Overwhelm: low->high because the utterance stacks multiple things at once - explaining a new intervention (IV fluids) while simultaneously firing off several urgent questions ('Quickly - what did you eat, take, or come into contact with...allergies...medications') that demand rapid recall under distress, exceeding easy processing capacity. Sadness stays 'not at all' - no loss, prognosis, or irreversible outcome mentioned. Shame stays 'not at all' - the questions are neutral clinical history-taking, not judgmental or accusatory."
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I don't know what caused this! I didn't eat anything weird... the only thing is I've been taking nitrofurantoin recently, for a bladder infection. I don't have any allergies that I know of, no other medications.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Repeat IM epinephrine now - she's still tachycardic, tachypneic, and hypoxic despite the first dose, oxygen, and fluids.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Epinephrine given now for the anaphylaxis. Watching vitals and airway closely.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "anaphylaxis_treatment",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "anaphylaxis_treatment",
+        "params": {
+          "drug_name": "epinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 154.0,
+            "BP_sys": 140.0,
+            "BP_dia": 85.0,
+            "RR": 28.0,
+            "O2Sat": 93.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.6,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "anaphylaxis_treatment",
+              "params": {
+                "drug_name": "epinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "anaphylaxis_treatment",
+            "raw_text": null,
+            "params": {
+              "drug_name": "epinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I'm giving you a steroid now to help calm down this allergic reaction and keep it from coming back. The nitrofurantoin you've been taking for your bladder infection is almost certainly what triggered this - you should not take that medication again.",
+          "turn_index": 4,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Giving methylprednisolone now — what dose do you want, and IV or IM?",
+          "turn_index": 4,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "corticosteroid",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "corticosteroid",
+        "params": {
+          "drug_name": "methylprednisolone",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 158.0,
+            "BP_sys": 135.0,
+            "BP_dia": 82.0,
+            "RR": 30.0,
+            "O2Sat": 91.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.6,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 4,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "corticosteroid",
+              "params": {
+                "drug_name": "methylprednisolone",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 4,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "nurse",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 4,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "corticosteroid",
+            "raw_text": null,
+            "params": {
+              "drug_name": "methylprednisolone",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": "[clinician: I'm giving you a steroid now to help calm down this allergic reaction and keep it from coming back. The nitrofurantoin you've been taking for your bladder infection is almost certainly what triggered this - you should not take that medication again.] Fear stays high: identifying the trigger and giving a steroid to prevent recurrence is clarifying/stabilizing rather than new bad news, so no escalation is warranted, but the underlying crisis isn't resolved so it doesn't drop either. Overwhelm stays high: another piece of information (steroid, cause, future avoidance) is being added but it's not a qualitatively bigger load than already present, so no jump to extreme. Sadness stays not at all: no loss, prognosis, or irreversible outcome mentioned. Shame stays not at all: naming a prescribed medication as the anaphylaxis trigger is neutral medical disclosure, not blame or judgment of the patient's behavior."
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay, I won't take that again. I still feel short of breath, my throat's still tight, and I still feel dizzy and faint.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's prepare for intubation now - she's still got throat tightness and hypoxic despite two rounds of epi, fluids, oxygen, and steroids. Get the airway cart and RSI meds ready.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Airway cart's at bedside, suction on, monitor's up. Ready for your RSI orders whenever you want to proceed.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "airway_management",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "airway_management",
+        "params": {
+          "stage": "preparation",
+          "rsi_medication_used": null,
+          "bvm_before": null,
+          "intubated": false
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 162.0,
+            "BP_sys": 128.0,
+            "BP_dia": 78.0,
+            "RR": 32.0,
+            "O2Sat": 88.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.6,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 5,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "airway_management",
+              "params": {
+                "stage": "preparation",
+                "rsi_medication_used": null,
+                "bvm_before": null,
+                "intubated": false
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "airway_management",
+            "raw_text": null,
+            "params": {
+              "stage": "preparation",
+              "rsi_medication_used": null,
+              "bvm_before": null,
+              "intubated": false
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Even with the epinephrine, fluids, and steroid, you're still struggling to breathe and your throat's still tight. We need to place a breathing tube to protect your airway. I'm giving you medication now to put you to sleep safely for this.",
+          "turn_index": 6,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Ketamine administered as ordered.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "airway_medication",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "airway_medication",
+        "params": {
+          "drug_name": "ketamine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 167.0,
+            "BP_sys": 134.0,
+            "BP_dia": 82.0,
+            "RR": 30.0,
+            "O2Sat": 88.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.6,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 6,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "airway_medication",
+              "params": {
+                "drug_name": "ketamine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 6,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "airway_medication",
+            "raw_text": null,
+            "params": {
+              "drug_name": "ketamine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": "[clinician: Even with the epinephrine, fluids, and steroid, you're still struggling to breathe and your throat's still tight. We need to place a breathing tube to protect your airway. I'm giving you medication now to put you to sleep safely for this.] Fear: stays at high — this is bad news (treatments failing, need for emergent intubation), which would normally push fear up, but fear is already at the high ceiling per rules (only escalates further to extreme with an explicit catastrophic/collapse cue, which isn't present). Overwhelm: stays at high — multiple urgent, simultaneous developments (failed epi/fluids/steroid, emergency airway placement, induction medication) reinforce the existing high overwhelm, but there's no explicit sign of total breakdown/panic needed to justify jumping to the terminal 'extreme' level. Sadness: unchanged at not at all — no loss, permanent damage, or hopelessness is expressed; this is an active rescue intervention, not a prognosis of loss. Shame: unchanged at not at all — no judgment, blame, or exposure is present in this purely clinical, supportive disclosure."
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay... I'm scared, please just hurry.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "The medication's starting to work, you'll feel drowsy very soon. We're placing the breathing tube now to protect your airway.",
+          "turn_index": 7,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "RSI meds are in, moving to intubation attempt now.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "airway_management",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "airway_management",
+        "params": {
+          "stage": "attempt",
+          "rsi_medication_used": true,
+          "bvm_before": null,
+          "intubated": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 175.0,
+            "BP_sys": 124.0,
+            "BP_dia": 76.0,
+            "RR": 6.0,
+            "O2Sat": 73.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "NRB",
+            "FiO2": 0.6,
+            "intubated": true,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "airway_management",
+              "params": {
+                "stage": "attempt",
+                "rsi_medication_used": true,
+                "bvm_before": null,
+                "intubated": null
+              }
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "features",
+              "status_flags"
+            ]
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "airway_management",
+            "raw_text": null,
+            "params": {
+              "stage": "attempt",
+              "rsi_medication_used": true,
+              "bvm_before": null,
+              "intubated": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": "[clinician: The medication's starting to work, you'll feel drowsy very soon. We're placing the breathing tube now to protect your airway.] No emotions changed. Fear stays high: this is a continuation of the already-disclosed need for intubation, not new bad news, and while 'medication's starting to work' offers mild reassurance, the invasive airway procedure is actively happening, so it's not enough to lower fear a level. Overwhelm stays high: the statement is a single simple update (drowsiness, then tube placement), not a pile of new technical findings or decisions, so it doesn't add further load but also doesn't resolve the existing overwhelm from the rapid RSI/intubation sequence. Sadness and shame are untouched by this utterance - no loss, prognosis, or judgment content - so they remain not at all."
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Bag her now with 100% oxygen through the ETT - her rate's down to 6 and sat's still 73%. Let's get her on the ventilator as soon as we can.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting BVM now, FiO2 100%.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "BVM",
+          "FiO2": 1.0,
+          "PEEP_used": null,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 175.0,
+            "BP_sys": 124.0,
+            "BP_dia": 76.0,
+            "RR": 12.0,
+            "O2Sat": 75.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "BVM",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "BVM",
+                "FiO2": 1.0,
+                "PEEP_used": null,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "BVM",
+              "FiO2": 1.0,
+              "PEEP_used": null,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": "[clinician: The medication's starting to work, you'll feel drowsy very soon. We're placing the breathing tube now to protect your airway.] No emotions changed. Fear stays high: this is a continuation of the already-disclosed need for intubation, not new bad news, and while 'medication's starting to work' offers mild reassurance, the invasive airway procedure is actively happening, so it's not enough to lower fear a level. Overwhelm stays high: the statement is a single simple update (drowsiness, then tube placement), not a pile of new technical findings or decisions, so it doesn't add further load but also doesn't resolve the existing overwhelm from the rapid RSI/intubation sequence. Sadness and shame are untouched by this utterance - no loss, prognosis, or judgment content - so they remain not at all."
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get a chest x-ray now to confirm ETT placement - she's still at 75% saturation post-intubation.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 185.0,
+            "BP_sys": 115.0,
+            "BP_dia": 68.0,
+            "RR": 12.0,
+            "O2Sat": 67.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "BVM",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 9,
+          "payload": {
+            "test_name": "Chest X-ray",
+            "ordered_at_turn": 9,
+            "ready_at_turn": 12,
+            "turnaround_turns": 3
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": "[clinician: The medication's starting to work, you'll feel drowsy very soon. We're placing the breathing tube now to protect your airway.] No emotions changed. Fear stays high: this is a continuation of the already-disclosed need for intubation, not new bad news, and while 'medication's starting to work' offers mild reassurance, the invasive airway procedure is actively happening, so it's not enough to lower fear a level. Overwhelm stays high: the statement is a single simple update (drowsiness, then tube placement), not a pile of new technical findings or decisions, so it doesn't add further load but also doesn't resolve the existing overwhelm from the rapid RSI/intubation sequence. Sadness and shame are untouched by this utterance - no loss, prognosis, or judgment content - so they remain not at all."
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "While we wait on the x-ray, listen for breath sounds bilaterally and confirm the tube depth at the lips - sat's still sitting around 67% on bagging with 100%.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 188.0,
+            "BP_sys": 105.0,
+            "BP_dia": 60.0,
+            "RR": 12.0,
+            "O2Sat": 60.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "BVM",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": "[clinician: The medication's starting to work, you'll feel drowsy very soon. We're placing the breathing tube now to protect your airway.] No emotions changed. Fear stays high: this is a continuation of the already-disclosed need for intubation, not new bad news, and while 'medication's starting to work' offers mild reassurance, the invasive airway procedure is actively happening, so it's not enough to lower fear a level. Overwhelm stays high: the statement is a single simple update (drowsiness, then tube placement), not a pile of new technical findings or decisions, so it doesn't add further load but also doesn't resolve the existing overwhelm from the rapid RSI/intubation sequence. Sadness and shame are untouched by this utterance - no loss, prognosis, or judgment content - so they remain not at all."
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Get a chest X-ray now to confirm tube placement - sat's still critically low at 60% on FiO2 1.0.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 178.0,
+            "BP_sys": 95.0,
+            "BP_dia": 52.0,
+            "RR": 12.0,
+            "O2Sat": 54.0,
+            "T": 37.3
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "BVM",
+            "FiO2": 1.0,
+            "intubated": true,
+            "vent": true,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 8.2
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": false,
+            "is_conscious": false
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "validation_drop",
+          "turn_index": 11,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Diagnostic test_name 'Chest X-ray' is already pending; duplicate diagnostic_order is not allowed."
+            ]
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": "[clinician: The medication's starting to work, you'll feel drowsy very soon. We're placing the breathing tube now to protect your airway.] No emotions changed. Fear stays high: this is a continuation of the already-disclosed need for intubation, not new bad news, and while 'medication's starting to work' offers mild reassurance, the invasive airway procedure is actively happening, so it's not enough to lower fear a level. Overwhelm stays high: the statement is a single simple update (drowsiness, then tube placement), not a pile of new technical findings or decisions, so it doesn't add further load but also doesn't resolve the existing overwhelm from the rapid RSI/intubation sequence. Sadness and shame are untouched by this utterance - no loss, prognosis, or judgment content - so they remain not at all."
+      }
+    }
+  ],
+  "scenario_path": "transitions/Respiratory/Anaphylaxis with Angioedema.json"
+}

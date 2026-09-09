@@ -1,0 +1,506 @@
+[
+  {
+    "idx": 1,
+    "listener": "patient",
+    "speaker": "nurse",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "There's some trapped air pressing on your right lung right now, which is why it's been hard to get a breath in. We're putting a small tube between your ribs here to let that air out and take the pressure off. You'll feel me clean the skin, then a pinch and some pressure from the numbing medicine — just try to hold still for me while I do this.",
+    "human_label_next_state": {
+      "fear": "present | putting a small tube between your ribs",
+      "sadness": "absent",
+      "overwhelm": "present | putting a small tube between your ribs",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 2,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Good news—your oxygen came right back up and the swelling in your throat has gone down. Your airway is clear, you're breathing well on your own, and you do not need a breathing tube after all.",
+    "human_label_next_state": {
+      "fear": "absent | Good news;oxygen came right back up and the swelling in your throat has gone down",
+      "sadness": "absent",
+      "overwhelm": "absent | you do not need a breathing tube after all",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 3,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The chest X-ray we're getting now will help us see how your lungs and this flare-up are affecting your breathing. Have you ever been diagnosed with asthma or COPD before, or been hospitalized or put on a breathing machine for it in the past?",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present | Have you ever been diagnosed with asthma or COPD before, or been hospitalized or put on a breathing machine for it in the past",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 4,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your blood pressure is still a bit low and you're still breathing fast even with everything we've given you so far, so we want to get another look at your heart with an ultrasound to see how well it's pumping — that'll help guide what we do next. Before we do that, can you tell me if you have any allergies to medications?",
+    "human_label_next_state": {
+      "fear": "present | Your blood pressure is still a bit low and you're still breathing fast even with everything we've given you so far",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 5,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your blood pressure isn't coming back up even with the fluids we're running, and that can happen when your body doesn't have enough steroid hormone to cope with being this sick — it's dangerous if we don't get ahead of it fast. Do you take any steroid medication regularly, like for an adrenal or pituitary condition, and have you missed or run out of any doses recently?",
+    "human_label_next_state": {
+      "fear": "present | Your blood pressure isn't coming back up even with the fluids we're running;it's dangerous if we don't get ahead of it fast",
+      "sadness": "absent",
+      "overwhelm": "present | it's dangerous if we don't get ahead of it fast",
+      "shame": "present | have you missed or run out of any doses recently"
+    }
+  },
+  {
+    "idx": 6,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The epinephrine, fluids, and steroid haven't opened things up enough — you're still working hard to breathe and your throat's still swelling. We need to place a breathing tube right now to keep your airway open. I'm giving you medication this second to put you to sleep safely so we can do this.",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 7,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your blood isn't clotting the way it should right now, so we're pushing plasma to help get that under control while we manage the bleeding. I need to know quickly — are you on any blood thinners, like aspirin or warfarin, or anything else that affects your blood?",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    }
+  },
+  {
+    "idx": 8,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your oxygen isn't coming up despite the medications, so we have to place the breathing tube right now to keep your airway open. There isn't time to walk you through it step by step - we're giving you medicine first so you're not aware of it, and then the team is moving straight in.",
+    "human_label_next_state": {
+      "fear": "present | oxygen isn't coming up; place the breathing tube right now",
+      "sadness": "absent",
+      "overwhelm": "present | There isn't time to walk you through it step by step; team is moving straight in",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 9,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Running out of your inhaler let this asthma get worse than it needed to, and it looks like you'll be staying here with us instead of heading home tonight the way you'd hoped. We're getting a chest X-ray now to look at your lungs. Have you ever been diagnosed with asthma or COPD before, or been hospitalized or put on a breathing machine for this in the past?",
+    "human_label_next_state": {
+      "fear": "present | asthma get worse than it needed to",
+      "sadness": "present | you'll be staying here with us instead of heading home tonight the way you'd hoped",
+      "overwhelm": "present | Have you ever been diagnosed with asthma or COPD before, or been hospitalized or put on a breathing machine for this in the past",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 10,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The medication's starting to work, you'll feel drowsy very soon. We're placing the breathing tube now to protect your airway - once it's in you won't be able to talk, so you won't get the chance to call your family before we start. We'll take care of everything and let them know as soon as we can.",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "present | you won't get the chance to call your family before we start",
+      "overwhelm": "present",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 11,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Can you tell me when the vomiting blood first started, and whether you felt any pain or burning before it began?",
+    "human_label_next_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 12,
+    "listener": "patient",
+    "speaker": "nurse",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The blood is in and running now — that's the one thing that matters this minute. You don't have to track anything or remember a list of symptoms. I'm staying right here at your bedside watching your vitals the whole time, so if anything changes, I'll catch it before you even have to say a word.",
+    "human_label_next_state": {
+      "fear": "absent | You don't have to track anything or remember a list of symptoms. I'm staying right here at your bedside watching your vitals the whole time",
+      "sadness": "absent",
+      "overwhelm": "absent | You don't have to track anything or remember a list of symptoms",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 13,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Good news on your breathing: since the continuous nebulizer treatments and the steroids kicked in, your oxygen number has come up and your breathing is much less labored than it was a little while ago. You do not need a breathing tube right now. Here's the plan — you stay on the oxygen mask, we repeat the breathing treatments every fifteen minutes, and I'm keeping a monitor on you and the baby the whole time so we catch it right away if anything changes.",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present | Good news on your breathing; You do not need a breathing tube right now.",
+      "shame": "present"
+    }
+  },
+  {
+    "idx": 14,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I want to ask about something specific — do you take a steroid pill every day, maybe for an adrenal or pituitary problem, and is it possible you've missed a few doses or run out recently?",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present | s it possible you've missed a few doses"
+    }
+  },
+  {
+    "idx": 15,
+    "listener": "patient",
+    "speaker": "nurse",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "We're hanging your first bag of blood now. I also need you to know what else might happen in the next few minutes: if your pressure keeps dropping, we may need to put in a breathing tube to protect your airway, and if the bleeding doesn't slow down, the doctor will place a balloon tube down your throat to press directly on the bleeding vessel. So right now we're watching four things at once — the transfusion reaction signs like itching, chills, or shortness of breath, your breathing, how alert you are, and how much you're still bleeding. Tell me right away if anything changes.",
+    "human_label_next_state": {
+      "fear": "present | if your pressure keeps dropping, we may need to put in a breathing tube to protect your airway, and if the bleeding doesn't slow down, the doctor will place a balloon tube down your throat to press directly on the bleeding vessel.",
+      "sadness": "absent",
+      "overwhelm": "present | if your pressure keeps dropping, we may need to put in a breathing tube to protect your airway, and if the bleeding doesn't slow down, the doctor will place a balloon tube down your throat to press directly on the bleeding vessel. So right now we're watching four things at once — the transfusion reaction signs like itching, chills, or shortness of breath, your breathing, how alert you are, and how much you're still bleeding. Tell me right away if anything changes.",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 16,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Okay, here's where things stand. The blood test for heart strain is high, the ultrasound shows your heart's pumping at about 35%, and one of the valves is severely narrowed, and your blood pressure's been dropping in and out, so we're adjusting your IV medications to try to keep it steady. You're still breathing hard even with the mask, so we're also sending you for a chest x-ray to check your lungs. I know that's a lot at once — has anyone ever told you before today that you had a narrowed heart valve or a murmur?",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "present | has anyone ever told you before today that you had a narrowed heart valve or a murmur",
+      "overwhelm": "present",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 17,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "I want to be clear about something: this flare is not because you did anything wrong. Pregnancy itself makes asthma harder to control, and that's really what's driving how sick you are right now, not a mistake on your part. We're checking a blood gas now to see exactly how well you're breathing and figure out the next step.",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present | We're checking a blood gas now to see exactly how well you're breathing and figure out the next step",
+      "shame": "absent | is not because you did anything wrong; not a mistake on your part"
+    }
+  },
+  {
+    "idx": 18,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I want to ask about your medication history — are you on any steroid medicine, like for an adrenal or pituitary problem? And has there been any change recently, like missing doses or running low, even by accident?",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present | has there been any change recently, like missing doses or running low, even by accident"
+    }
+  },
+  {
+    "idx": 19,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your oxygen is still dangerously low even with the mask giving you everything it can, and it looks like your numbers at home had been slipping for a few days before you got here. We need to put in a breathing tube right now so a machine can breathe for you until we get this turned around.",
+    "human_label_next_state": {
+      "fear": "present | Your oxygen is still dangerously low even with the mask giving you everything it can",
+      "sadness": "absent",
+      "overwhelm": "present | We need to put in a breathing tube right now",
+      "shame": "present | it looks like your numbers at home had been slipping for a few days before you got here"
+    }
+  },
+  {
+    "idx": 20,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I need to know when the vomiting blood started — and I have to ask, how much do you usually drink, and when was your last drink? Has this kind of bleeding happened to you before because of your drinking?",
+    "human_label_next_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "present | Has this kind of bleeding happened to you before because of your drinking"
+    }
+  },
+  {
+    "idx": 21,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your oxygen numbers keep dropping even with the mask on, and you're working so hard to breathe that you're wearing yourself out. Because you're losing blood faster than we can keep up with right now, we need to put a breathing tube in now to protect your airway and breathe for you while we get this bleeding under control.",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "present | you're losing blood faster than we can keep up with right now",
+      "overwhelm": "present",
+      "shame": "present"
+    }
+  },
+  {
+    "idx": 22,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your oxygen is still dropping and you're tiring out even with everything we've given you, so we're placing a breathing tube now to protect you and the baby. I know you've been trying to manage this asthma on your own for a while — right now the focus is getting you safely on the ventilator.",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "present | we're placing a breathing tube now to protect you and the baby",
+      "overwhelm": "present",
+      "shame": "present"
+    }
+  },
+  {
+    "idx": 23,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your oxygen is dropping even with everything we've given you, and your heart rate and the baby's heart rate are both falling right now — you're going into respiratory failure. We have to put the breathing tube in this second, because if we don't, you could stop breathing entirely and we could lose you both.",
+    "human_label_next_state": {
+      "fear": "extreme | your heart rate and the baby's heart rate are both falling right now — you're going into respiratory failure",
+      "sadness": "present | because if we don't, you could stop breathing entirely and we could lose you both.",
+      "overwhelm": "present",
+      "shame": "present"
+    }
+  },
+  {
+    "idx": 24,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your oxygen is dropping fast and the baby's heart rate is falling right along with it — if we don't get this tube in within the next minute, both of your hearts could stop. We're doing it right now.",
+    "human_label_next_state": {
+      "fear": "extreme | if we don't get this tube in within the next minute, both of your hearts could stop",
+      "sadness": "present | the baby's heart rate is falling right along with it",
+      "overwhelm": "present",
+      "shame": "present"
+    }
+  },
+  {
+    "idx": 25,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your pressure is dropping fast and that stiff valve on your heart means it may not tolerate rescue medication the way we'd hope — I need to push something right now to keep your heart from stopping, so tell me quickly: are you allergic to any medications?",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "present | Your pressure is dropping fast and that stiff valve on your heart means it may not tolerate rescue medication the way we'd hope",
+      "overwhelm": "present",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 26,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I have to tell you exactly where things stand right now. Your troponin is climbing, which means your heart muscle itself is under strain, and the ultrasound shows your heart is only pumping at about 35 percent while the aortic valve is severely narrowed, almost closed off. On top of that, your heart rhythm is racing irregularly and your blood pressure just dropped — with a valve this tight, that combination means your heart could lose its ability to keep blood moving at any moment. We're calling the cardiology team in right now to see if you need an emergency procedure on that valve tonight, and we may need to move you to the ICU within minutes. I know that is an enormous amount to take in all at once. Has anyone ever told you before today that you had a narrowed heart valve?",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "present | we may need to move you to the ICU within minutes; Has anyone ever told you before today that you had a narrowed heart valve?",
+      "overwhelm": "present",
+      "shame": "absent"
+    }
+  },
+  {
+    "idx": 27,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your oxygen is dropping and you're vomiting up so much blood you can't protect your own airway anymore - we have to sedate you and put a breathing tube in right now, in front of everyone in this room, or you're going to drown in the blood from the drinking that caused this bleed.",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "extreme | we have to sedate you and put a breathing tube in right now, in front of everyone in this room, or you're going to drown in the blood from the drinking that caused this bleed"
+    }
+  },
+  {
+    "idx": 28,
+    "listener": "patient",
+    "speaker": "clinician",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Your oxygen is still too low with the mask on and you're fighting for every breath - we have to put a breathing tube in right now before you vomit up more blood and choke on it in front of everyone in this room, because the years of drinking have torn open the veins in your throat and this is what it's done to you.",
+    "human_label_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "extreme | choke on it in front of everyone in this room, because the years of drinking have torn open the veins in your throat and this is what it's done to you."
+    }
+  }
+]

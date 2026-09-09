@@ -1,0 +1,68 @@
+case_id,source_file,pair_id,pair_type,kind_hint,target_vitals,direction_accuracy,normalized_l2,num_target_vitals,num_missing_predictions,missing_predictions,direction_match,before_vitals,target_vitals_values,predicted_vitals,llm_reasoning,llm_raw_response,llm_parse_error,llm_api_error,model
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p1,physiology_response,oxygen_support,"[""O2Sat""]",1.0,0.4,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 80, ""RR"": 34, ""T"": 36.9}","{""O2Sat"": 88}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 90, ""RR"": 34, ""T"": 36.9}","{""O2Sat"": ""The application of an NRB mask with FiO2 0.8 is expected to improve oxygenation in a patient with hypoxemia (O2Sat 80% before), leading to a predicted increase to 90% due to the high oxygen delivery.""}","{
+  ""reasoning"": {
+    ""O2Sat"": ""The application of an NRB mask with FiO2 0.8 is expected to improve oxygenation in a patient with hypoxemia (O2Sat 80% before), leading to a predicted increase to 90% due to the high oxygen delivery.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": null,
+    ""O2Sat"": 90,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4o
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p2,time_progression,no_action,"[""HR"", ""RR"", ""O2Sat""]",0.3333333333333333,2.4596747752497685,3,0,"{""HR"": false, ""O2Sat"": false, ""RR"": false}","{""HR"": false, ""O2Sat"": true, ""RR"": false}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 110, ""O2Sat"": 88, ""RR"": 34, ""T"": 36.9}","{""HR"": 120, ""O2Sat"": 85, ""RR"": 24}","{""BP_dia"": 95, ""BP_sys"": 150, ""HR"": 115, ""O2Sat"": 84, ""RR"": 36, ""T"": 36.9}","{""HR"": ""The HR is expected to increase slightly from 110 to 115 due to ongoing respiratory distress and lack of intervention, as the patient remains hypoxemic and in significant distress."", ""O2Sat"": ""The O2Sat is expected to decrease from 88 to 84 due to the lack of intervention and worsening pulmonary edema physiology, as no action was taken to improve oxygenation."", ""RR"": ""The RR is expected to increase slightly from 34 to 36 as the patient compensates for worsening hypoxemia and respiratory distress.""}","{
+  ""reasoning"": {
+    ""HR"": ""The HR is expected to increase slightly from 110 to 115 due to ongoing respiratory distress and lack of intervention, as the patient remains hypoxemic and in significant distress."",
+    ""O2Sat"": ""The O2Sat is expected to decrease from 88 to 84 due to the lack of intervention and worsening pulmonary edema physiology, as no action was taken to improve oxygenation."",
+    ""RR"": ""The RR is expected to increase slightly from 34 to 36 as the patient compensates for worsening hypoxemia and respiratory distress.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": 115,
+    ""O2Sat"": 84,
+    ""RR"": 36,
+    ""T"": null
+  }
+}",,,gpt-4o
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p3,time_progression,no_action,"[""O2Sat""]",1.0,0.4,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 82}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 80, ""RR"": 24, ""T"": null}","{""O2Sat"": ""The patient's O2Sat is expected to worsen from 85% to 80% due to ongoing respiratory distress and lack of intervention, as no action was taken to address the underlying pulmonary edema or hypoxemia.""}","{
+  ""reasoning"": {
+    ""O2Sat"": ""The patient's O2Sat is expected to worsen from 85% to 80% due to ongoing respiratory distress and lack of intervention, as no action was taken to address the underlying pulmonary edema or hypoxemia.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": null,
+    ""O2Sat"": 80,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4o
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p4,physiology_response,oxygen_support,"[""O2Sat""]",1.0,0.2,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 89}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 90, ""RR"": 24, ""T"": null}","{""O2Sat"": ""The patient's O2Sat is predicted to improve from 85 to 90 due to the use of BVM assistance with FiO2 1, which provides higher oxygen delivery compared to the previous NRB mask.""}","{
+  ""reasoning"": {
+    ""O2Sat"": ""The patient's O2Sat is predicted to improve from 85 to 90 due to the use of BVM assistance with FiO2 1, which provides higher oxygen delivery compared to the previous NRB mask.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": null,
+    ""O2Sat"": 90,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4o
+acute_respiratory_distress_pulmonary_edema,transitions/Cardiology/Acute Respiratory Distress.json,p5,physiology_response,oxygen_support,"[""O2Sat""]",1.0,0.0,1,0,"{""O2Sat"": false}","{""O2Sat"": true}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 85, ""RR"": 24, ""T"": null}","{""O2Sat"": 92}","{""BP_dia"": null, ""BP_sys"": null, ""HR"": 120, ""O2Sat"": 92, ""RR"": 24, ""T"": null}","{""O2Sat"": ""The pre-action O2Sat was 85%, and the action involves BVM with PEEP (FiO2 1, PEEP 5 cmH2O), which is expected to improve oxygenation in a patient with pulmonary edema physiology. Predicted O2Sat is 92% due to increased oxygen delivery and alveolar recruitment.""}","{
+  ""reasoning"": {
+    ""O2Sat"": ""The pre-action O2Sat was 85%, and the action involves BVM with PEEP (FiO2 1, PEEP 5 cmH2O), which is expected to improve oxygenation in a patient with pulmonary edema physiology. Predicted O2Sat is 92% due to increased oxygen delivery and alveolar recruitment.""
+  },
+  ""vitals"": {
+    ""BP_dia"": null,
+    ""BP_sys"": null,
+    ""HR"": null,
+    ""O2Sat"": 92,
+    ""RR"": null,
+    ""T"": null
+  }
+}",,,gpt-4o

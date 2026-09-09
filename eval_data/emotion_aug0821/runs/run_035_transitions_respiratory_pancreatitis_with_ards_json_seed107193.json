@@ -1,0 +1,2137 @@
+{
+  "scenario": "A 50-year-old female presents with persistent epigastric abdominal pain radiating to the back, nausea, vomiting, hypotension, and tachycardia after heavy alcohol use. The scenario focuses on aggressive resuscitation, fluid non-responsiveness, development of hypoxia/ARDS, and intubation.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Optimism": "high",
+    "Health Literacy": "low"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "She's hypotensive at 80/40 and tachy at 125. Start 1 liter normal saline, wide open.",
+          "turn_index": 0,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting the 1 liter normal saline bolus now.",
+          "turn_index": 0,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 123.0,
+            "BP_sys": 87.0,
+            "BP_dia": 43.0,
+            "RR": 20.0,
+            "O2Sat": 93.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 0,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 0,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Tell me what you're feeling right now, and when did it start?",
+          "turn_index": 1,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 125.0,
+            "BP_sys": 85.0,
+            "BP_dia": 42.0,
+            "RR": 20.0,
+            "O2Sat": 93.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 1,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Tell me what you're feeling right now, and when did it start?] The utterance is a neutral clinical question asking the patient to describe symptoms and onset. It contains no new bad news, no serious disclosure, no blame, and no resolution. Fear stays absent because no dangerous finding is disclosed to the patient. Sadness stays absent (no loss content). Overwhelm stays absent (a single simple question, not an information overload). Shame stays absent (no judgment or exposure). All emotions remain unchanged."
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I've got this bad pain up here in the top of my belly, and it goes right through to my back. I keep feeling sick and throwing up, I can't keep anything down. When I stand up I get real dizzy and weak. I'm a little short of breath too, and I had one loose bowel movement.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Send a lipase now. Epigastric pain radiating to the back with vomiting and she's still hypotensive.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 129.0,
+            "BP_sys": 81.0,
+            "BP_dia": 40.0,
+            "RR": 21.0,
+            "O2Sat": 92.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 2,
+          "payload": {
+            "test_name": "Lipase",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 4,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "She's still hypotensive at 81/40 after the first liter. Give a second liter of normal saline wide open.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting the 1 liter normal saline bolus now.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 127.0,
+            "BP_sys": 88.0,
+            "BP_dia": 43.0,
+            "RR": 21.0,
+            "O2Sat": 92.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Lipase is back at 1000. Second liter is in; she's still soft at 88/43, HR 127, sats 92 on room air.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start norepinephrine now. She's still hypotensive at 88/43 after two liters.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Norepinephrine is up and running.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "norepinephrine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 122.0,
+            "BP_sys": 110.0,
+            "BP_dia": 55.0,
+            "RR": 21.0,
+            "O2Sat": 92.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Lipase",
+              "result": "Lipase 1000."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 4,
+          "payload": {
+            "test_name": "Lipase",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 4,
+            "released_at_turn": 4
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 4,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "norepinephrine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 4,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "norepinephrine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your lab confirms your pancreas is severely inflamed, and that's what's causing this pain. I'm giving you IV pain medicine now. You'll stay on the blood pressure support and fluids while we manage this.",
+          "turn_index": 5,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "I'm giving you some fentanyl now for the pain. Let me know if you feel any different or start to feel lightheaded.",
+          "turn_index": 5,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "analgesia",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "analgesia",
+        "params": {
+          "drug_name": "fentanyl",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 119.0,
+            "BP_sys": 105.0,
+            "BP_dia": 52.0,
+            "RR": 19.0,
+            "O2Sat": 92.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Lipase",
+              "result": "Lipase 1000."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 5,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "analgesia",
+              "params": {
+                "drug_name": "fentanyl",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 5,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "analgesia",
+            "raw_text": null,
+            "params": {
+              "drug_name": "fentanyl",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Your lab confirms your pancreas is severely inflamed, and that's what's causing this pain. I'm giving you IV pain medicine now. You'll stay on the blood pressure support and fluids while we manage this.] fear absent->present: direct disclosure of a newly confirmed serious diagnosis (severely inflamed pancreas) in a symptomatic, unstable patient is bad news that raises fear; the calm tone and clear treatment plan (pain meds, BP support, fluids) buffer the size but do not cancel the rise, and the patient can still cooperate so it stays present, not extreme. sadness stays absent: no actual or anticipated devastating loss is conveyed, and the plan frames the condition as manageable. overwhelm stays absent: the utterance is a single clear diagnosis plus a coherent plan, not a pile of simultaneous technical findings or urgent decisions. shame stays absent: neutral, nonjudgmental disclosure with no blame or exposure, even though alcohol use is part of the history it is not raised here.\n[nurse: I'm giving you some fentanyl now for the pain. Let me know if you feel any different or start to feel lightheaded.] fear stays present: routine pain-medicine administration with a monitoring instruction is neutral/supportive care, not new serious bad news, so it neither raises nor fully resolves the existing fear. sadness stays absent: no loss content. overwhelm stays absent: this is a simple, single-step explanation, not information overload. shame stays absent: no blame, exposure, or judgment."
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Okay, thank you for the pain medicine. It still hurts real bad up in my belly, going through to my back, and I still feel sick to my stomach. And I feel dizzy and weak, especially when I try to stand up.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give another liter of normal saline wide open. She's still soft and tachycardic despite two liters and the norepinephrine.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Normal saline 1 liter bolus is up and running wide open.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 122.0,
+            "BP_sys": 108.0,
+            "BP_dia": 54.0,
+            "RR": 19.0,
+            "O2Sat": 92.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Lipase",
+              "result": "Lipase 1000."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 6,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 6,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I need to know what led up to this. Do you drink alcohol, have gallstones, or have you had a pancreas attack like this before?",
+          "turn_index": 7,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 125.0,
+            "BP_sys": 104.0,
+            "BP_dia": 52.0,
+            "RR": 20.0,
+            "O2Sat": 91.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Lipase",
+              "result": "Lipase 1000."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 7,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 7,
+          "payload": {
+            "test_name": "Complete blood count",
+            "ordered_at_turn": 7,
+            "ready_at_turn": 9,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": "[clinician: I need to know what led up to this. Do you drink alcohol, have gallstones, or have you had a pancreas attack like this before?] shame: absent->present because the clinician asks directly about alcohol use in a scenario where heavy drinking precipitated the illness, which can make the patient feel exposed or judged for a stigmatized behavior. fear: stays present, no new resolving trigger and no new escalation. sadness: stays absent, no loss content in the utterance. overwhelm: stays absent, the questions are simple and not a barrage of technical information."
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Yeah... I do drink. I don't know anything about gallstones, and I've never had an attack like this before, not that I know of.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Send a basic metabolic panel now. I need her electrolytes and renal function to guide the ongoing fluids and pressor.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 127.0,
+            "BP_sys": 101.0,
+            "BP_dia": 50.0,
+            "RR": 21.0,
+            "O2Sat": 90.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Lipase",
+              "result": "Lipase 1000."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 8,
+          "payload": {
+            "test_name": "Basic metabolic panel",
+            "ordered_at_turn": 8,
+            "ready_at_turn": 10,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "BMP is sent, ready in about two labs' turnaround. CBC just resulted: WBC 22, Hgb 110, Hct 0.27, platelets 145. Latest vitals HR 127, BP 101/50, sat 90% on room air, temp 35.9.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Put her on nasal cannula oxygen, her sat's 90% on room air.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "I'm putting these small prongs in your nose to give you some oxygen. Breathe normally for me.",
+          "turn_index": 9,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "nasal_cannula",
+          "FiO2": null,
+          "PEEP_used": null,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 127.0,
+            "BP_sys": 101.0,
+            "BP_dia": 50.0,
+            "RR": 21.0,
+            "O2Sat": 93.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Lipase",
+              "result": "Lipase 1000."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 22, Hg 110, Hct 0.27, Plt 145."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 9,
+          "payload": {
+            "test_name": "Complete blood count",
+            "ordered_at_turn": 7,
+            "ready_at_turn": 9,
+            "released_at_turn": 9
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "nasal_cannula",
+                "FiO2": null,
+                "PEEP_used": null,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "nasal_cannula",
+              "FiO2": null,
+              "PEEP_used": null,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": "[nurse: I'm putting these small prongs in your nose to give you some oxygen. Breathe normally for me.] Fear stays present: routine oxygen delivery with calm instruction is reassuring care, not new bad news, but it does not resolve the underlying threat so fear holds. Sadness stays absent: no loss content. Overwhelm stays absent: simple, single instruction, no processing burden. Shame stays present: nothing addresses the earlier alcohol-related exposure, so it holds unchanged."
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "BMP just back: Na 131, K 3.1, Cl 100, HCO3 8, BUN 10, Cr 132, glucose 13. Wide anion-gap metabolic acidosis with a low bicarb of 8, K down at 3.1, and Cr up at 132. Sat's come up to 93% on the nasal cannula.",
+          "turn_index": 10,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "Okay, thank you. I can feel those prongs in my nose. I'm still kind of short of breath though. And my belly still hurts up top going through to my back, and I still feel sick and dizzy.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Start IV potassium chloride replacement, her K is 3.1. Keep the fluids running and the norepinephrine going.",
+          "turn_index": 10,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Potassium chloride hanging now. Do you want a repeat potassium after infusion, and should I put the patient on continuous cardiac monitoring while it runs?",
+          "turn_index": 10,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "potassium chloride",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 127.0,
+            "BP_sys": 101.0,
+            "BP_dia": 50.0,
+            "RR": 21.0,
+            "O2Sat": 93.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Lipase",
+              "result": "Lipase 1000."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 22, Hg 110, Hct 0.27, Plt 145."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 131, K 3.1, Cl 100, HCO3 8, BUN 10, Cr 132, Glu 13."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 10,
+          "payload": {
+            "test_name": "Basic metabolic panel",
+            "ordered_at_turn": 8,
+            "ready_at_turn": 10,
+            "released_at_turn": 10
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 10,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "potassium chloride",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 10,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "nurse",
+            "target_agent": "clinician"
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 10,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "potassium chloride",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Yes to both—put her on continuous cardiac monitoring while the potassium runs, and repeat the potassium after the infusion. And send a venous blood gas so I can track her acidosis and guide resuscitation.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 129.0,
+            "BP_sys": 99.0,
+            "BP_dia": 49.0,
+            "RR": 22.0,
+            "O2Sat": 92.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Lipase",
+              "result": "Lipase 1000."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 22, Hg 110, Hct 0.27, Plt 145."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 131, K 3.1, Cl 100, HCO3 8, BUN 10, Cr 132, Glu 13."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 11,
+          "payload": {
+            "agent": "clinician",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 11,
+          "payload": {
+            "test_name": "Venous blood gas",
+            "ordered_at_turn": 11,
+            "ready_at_turn": 12,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "VBG is back: pH 7.15, PCO2 26, PO2 45, HCO3 8, lactate 6. Severe anion-gap metabolic acidosis with lactate of 6. She's on continuous monitoring now and the potassium's running. Current vitals HR 129, BP 99/49, sat 92% on the cannula, temp 35.9.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Your belly pain and blood tests point to your pancreas being inflamed. I'm ordering an ultrasound of your belly to look at what's causing it. When did this pain first start, and has it changed since then?",
+          "turn_index": 12,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 131.0,
+            "BP_sys": 97.0,
+            "BP_dia": 48.0,
+            "RR": 23.0,
+            "O2Sat": 91.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Lipase",
+              "result": "Lipase 1000."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 22, Hg 110, Hct 0.27, Plt 145."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 131, K 3.1, Cl 100, HCO3 8, BUN 10, Cr 132, Glu 13."
+            },
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.15, PCO2 26, PO2 45, HCO3 8, lactate 6."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 12,
+          "payload": {
+            "test_name": "Venous blood gas",
+            "ordered_at_turn": 11,
+            "ready_at_turn": 12,
+            "released_at_turn": 12
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 12,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 12,
+          "payload": {
+            "test_name": "Abdominal ultrasound",
+            "ordered_at_turn": 12,
+            "ready_at_turn": 13,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": "[clinician: Your belly pain and blood tests point to your pancreas being inflamed. I'm ordering an ultrasound of your belly to look at what's causing it. When did this pain first start, and has it changed since then?] fear: stays present - a new diagnosis (inflamed pancreas) is bad news that sustains fear, but delivered calmly with a clear plan (ultrasound) so no escalation to extreme. sadness: stays absent - no devastating loss framed. overwhelm: stays absent - explanation is in plain terms with one clear next step and a single question, not a pile-on of complexity. shame: stays present - not addressed by this utterance, so it keeps its current level; no blame lifted or added."
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Abdominal ultrasound just resulted: normal, no free fluid.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "I can't rightly say exactly when it started, I'm sorry. But it's still hurting real bad up in the top of my belly, going right through to my back, and it hasn't gotten any better. I still feel sick to my stomach, and dizzy and weak.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Give another liter of normal saline wide open and keep the norepinephrine running. She's still hypotensive at 97/48 and acidotic with a lactate of 6, so she needs more volume.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 129.0,
+            "BP_sys": 102.0,
+            "BP_dia": 51.0,
+            "RR": 23.0,
+            "O2Sat": 90.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Lipase",
+              "result": "Lipase 1000."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 22, Hg 110, Hct 0.27, Plt 145."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 131, K 3.1, Cl 100, HCO3 8, BUN 10, Cr 132, Glu 13."
+            },
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.15, PCO2 26, PO2 45, HCO3 8, lactate 6."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "Normal; no free fluid."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 13,
+          "payload": {
+            "test_name": "Abdominal ultrasound",
+            "ordered_at_turn": 12,
+            "ready_at_turn": 13,
+            "released_at_turn": 13
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 13,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 13,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Send liver function tests too—I want to check for a biliary cause of her pancreatitis.",
+          "turn_index": 14,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 131.0,
+            "BP_sys": 100.0,
+            "BP_dia": 50.0,
+            "RR": 24.0,
+            "O2Sat": 89.0,
+            "T": 35.9
+          },
+          "features": {
+            "rhythm": "sinus_tachycardia",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.28,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 5.8
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Lipase",
+              "result": "Lipase 1000."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 22, Hg 110, Hct 0.27, Plt 145."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 131, K 3.1, Cl 100, HCO3 8, BUN 10, Cr 132, Glu 13."
+            },
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.15, PCO2 26, PO2 45, HCO3 8, lactate 6."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "Normal; no free fluid."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 14,
+          "payload": {
+            "test_name": "Liver function tests",
+            "ordered_at_turn": 14,
+            "ready_at_turn": 16,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    }
+  ],
+  "scenario_path": "transitions/Respiratory/Pancreatitis with ARDS.json"
+}

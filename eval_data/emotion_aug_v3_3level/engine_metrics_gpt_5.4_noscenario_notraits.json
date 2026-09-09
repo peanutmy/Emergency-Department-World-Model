@@ -1,0 +1,78 @@
+[
+  {
+    "comparison": "engine_vs_human_gold",
+    "labels_scored": 112,
+    "exact_accuracy": 0.7589285714285714,
+    "mae": 0.24107142857142858,
+    "quadratic_weighted_kappa": 0.7511520737327189,
+    "change_detection": {
+      "precision": 0.5319148936170213,
+      "recall": 0.8333333333333334,
+      "f1": 0.6493506493506493,
+      "direction_accuracy": 1.0
+    },
+    "target_dimension_accuracy": 0.8928571428571429,
+    "side_dimension_accuracy": 0.7142857142857143,
+    "per_emotion": {
+      "fear": {
+        "n": 28,
+        "exact_accuracy": 0.6071428571428571,
+        "mae": 0.39285714285714285
+      },
+      "sadness": {
+        "n": 28,
+        "exact_accuracy": 0.8571428571428571,
+        "mae": 0.14285714285714285
+      },
+      "overwhelm": {
+        "n": 28,
+        "exact_accuracy": 0.6428571428571429,
+        "mae": 0.35714285714285715
+      },
+      "shame": {
+        "n": 28,
+        "exact_accuracy": 0.9285714285714286,
+        "mae": 0.07142857142857142
+      }
+    },
+    "variant": "_noscenario_notraits"
+  },
+  {
+    "comparison": "engine_vs_draft_labels",
+    "labels_scored": 112,
+    "exact_accuracy": 0.7142857142857143,
+    "mae": 0.2857142857142857,
+    "quadratic_weighted_kappa": 0.7231149567367121,
+    "change_detection": {
+      "precision": 0.3404255319148936,
+      "recall": 0.9411764705882353,
+      "f1": 0.5,
+      "direction_accuracy": 1.0
+    },
+    "target_dimension_accuracy": 0.8214285714285714,
+    "side_dimension_accuracy": 0.6785714285714286,
+    "per_emotion": {
+      "fear": {
+        "n": 28,
+        "exact_accuracy": 0.6071428571428571,
+        "mae": 0.39285714285714285
+      },
+      "sadness": {
+        "n": 28,
+        "exact_accuracy": 0.9285714285714286,
+        "mae": 0.07142857142857142
+      },
+      "overwhelm": {
+        "n": 28,
+        "exact_accuracy": 0.5,
+        "mae": 0.5
+      },
+      "shame": {
+        "n": 28,
+        "exact_accuracy": 0.8214285714285714,
+        "mae": 0.17857142857142858
+      }
+    },
+    "variant": "_noscenario_notraits"
+  }
+]

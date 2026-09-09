@@ -1,0 +1,78 @@
+[
+  {
+    "comparison": "engine_vs_human_gold",
+    "labels_scored": 106,
+    "exact_accuracy": 0.7075471698113207,
+    "mae": 0.3018867924528302,
+    "quadratic_weighted_kappa": 0.8725691252386677,
+    "change_detection": {
+      "precision": 0.5769230769230769,
+      "recall": 0.8571428571428571,
+      "f1": 0.689655172413793,
+      "direction_accuracy": 1.0
+    },
+    "target_dimension_accuracy": 0.7777777777777778,
+    "side_dimension_accuracy": 0.6835443037974683,
+    "per_emotion": {
+      "fear": {
+        "n": 27,
+        "exact_accuracy": 0.5555555555555556,
+        "mae": 0.4444444444444444
+      },
+      "sadness": {
+        "n": 25,
+        "exact_accuracy": 0.84,
+        "mae": 0.2
+      },
+      "shame": {
+        "n": 28,
+        "exact_accuracy": 0.8928571428571429,
+        "mae": 0.10714285714285714
+      },
+      "overwhelm": {
+        "n": 26,
+        "exact_accuracy": 0.5384615384615384,
+        "mae": 0.46153846153846156
+      }
+    },
+    "variant": "_noscenario_notraits"
+  },
+  {
+    "comparison": "engine_vs_draft_labels",
+    "labels_scored": 112,
+    "exact_accuracy": 0.6607142857142857,
+    "mae": 0.3392857142857143,
+    "quadratic_weighted_kappa": 0.8667251205611575,
+    "change_detection": {
+      "precision": 0.375,
+      "recall": 0.9130434782608695,
+      "f1": 0.5316455696202531,
+      "direction_accuracy": 1.0
+    },
+    "target_dimension_accuracy": 0.75,
+    "side_dimension_accuracy": 0.6309523809523809,
+    "per_emotion": {
+      "fear": {
+        "n": 28,
+        "exact_accuracy": 0.5,
+        "mae": 0.5
+      },
+      "sadness": {
+        "n": 28,
+        "exact_accuracy": 0.9285714285714286,
+        "mae": 0.07142857142857142
+      },
+      "overwhelm": {
+        "n": 28,
+        "exact_accuracy": 0.39285714285714285,
+        "mae": 0.6071428571428571
+      },
+      "shame": {
+        "n": 28,
+        "exact_accuracy": 0.8214285714285714,
+        "mae": 0.17857142857142858
+      }
+    },
+    "variant": "_noscenario_notraits"
+  }
+]

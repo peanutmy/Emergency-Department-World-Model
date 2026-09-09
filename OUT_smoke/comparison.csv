@@ -1,0 +1,8 @@
+engine,model,shots,strategy,setting,direction_accuracy_mean,normalized_l2_mean,normalized_l2_median,num_api_errors,num_parse_errors,num_pairs,output_dir
+rule_based,rule_based,0,-,-,0.4533333333333333,3.4460309872574633,1.8027756377319946,,,235,OUT_smoke/rule_based
+hybrid,gpt-4o,0,-,0shot,0.8666666666666666,0.8760898762952971,0.8,,,5,OUT_smoke/hybrid/gpt-4o/0shot
+hybrid,gpt-4o,3,static,3shot-static,0.8666666666666666,0.9960898762952972,0.8,,,5,OUT_smoke/hybrid/gpt-4o/3shot-static
+hybrid,gpt-4o,3,kind_hint_matched,3shot-kind_hint_matched,0.8666666666666666,0.9560898762952972,0.8,,,5,OUT_smoke/hybrid/gpt-4o/3shot-kind_hint_matched
+pure_llm,gpt-4o,0,-,0shot,0.8666666666666666,0.6919349550499537,0.4,0,0,5,OUT_smoke/pure_llm/gpt-4o/0shot
+pure_llm,gpt-4o,3,static,3shot-static,0.8666666666666666,0.9703060268852504,0.6,0,0,5,OUT_smoke/pure_llm/gpt-4o/3shot-static
+pure_llm,gpt-4o,3,kind_hint_matched,3shot-kind_hint_matched,0.9333333333333333,0.961426753904728,0.4,0,0,5,OUT_smoke/pure_llm/gpt-4o/3shot-kind_hint_matched

@@ -1,0 +1,1051 @@
+{
+  "scenario": "A 30-year-old G1P0 patient at 35 weeks gestational age presents with worsening shortness of breath and severe asthma exacerbation in pregnancy, initially hypoxic on room air and requiring stepwise respiratory support and asthma therapy.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Health Literacy": "low",
+    "Trust in Provider": "high",
+    "Patient Activation": "high"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I'm putting a tight oxygen mask on your face right now — just breathe normally through it. What brought you in today — what happened?",
+          "turn_index": 0,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "NRB",
+          "FiO2": 0.9,
+          "PEEP_used": null,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 95.0,
+            "BP_sys": 99.0,
+            "BP_dia": 59.0,
+            "RR": 31.0,
+            "O2Sat": 91.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.9,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 0,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 0,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "NRB",
+                "FiO2": 0.9,
+                "PEEP_used": null,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 0,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "NRB",
+              "FiO2": 0.9,
+              "PEEP_used": null,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: I'm putting a tight oxygen mask on your face right now — just breathe normally through it. What brought you in today — what happened?] FEAR: not at all → low. The immediate placement of a tight oxygen mask is a visible, urgent escalation of care that signals to the patient her condition is being treated as serious. Even with high trust in provider and a calm tone, a 35-week pregnant woman presenting with breathing difficulty would register this physical intervention as confirmation that something is medically wrong, moving fear from absent to low. The calm instruction ('just breathe normally') buffers a larger rise but does not cancel the fear trigger. OVERWHELM: not at all → low. The patient is simultaneously having a physical device placed on her face, receiving an instruction to breathe, and being asked to recount her history — all while already in respiratory distress. Her low health literacy makes parallel processing of multiple simultaneous inputs harder, justifying a mild rise in overwhelm. SADNESS: unchanged at not at all — no news of loss, permanent harm, or poor prognosis. SHAME: unchanged at not at all — no judgment, blame, or stigmatized content present."
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I can't catch my breath... it's been getting worse. I've had this dry cough for about a week and I was running a fever but that went away a few days ago. I can hear myself wheezing. And I ran out of my inhaler.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "I'm starting an albuterol breathing treatment for you right now. Before I do — any drug allergies?",
+          "turn_index": 1,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Albuterol 2.5 mg nebulizer is running.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "bronchodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "bronchodilator",
+        "params": {
+          "drug_name": "albuterol",
+          "dose": "2.5",
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 103.0,
+            "BP_sys": 99.0,
+            "BP_dia": 57.0,
+            "RR": 28.0,
+            "O2Sat": 93.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.9,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 1,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 1,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "bronchodilator",
+              "params": {
+                "drug_name": "albuterol",
+                "dose": "2.5",
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 1,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "bronchodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "albuterol",
+              "dose": "2.5",
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: I'm starting an albuterol breathing treatment for you right now. Before I do — any drug allergies?] fear: unchanged at low — starting a breathing treatment is a routine, expected therapeutic action. It signals the team is treating the problem, which is mildly reassuring, but the patient is still hypoxic and struggling to breathe, so fear does not resolve. No new bad news, no threat escalation, so fear does not rise either. sadness: unchanged at not at all — no loss, poor prognosis, or irreversible outcome mentioned. overwhelm: unchanged at low — the clinician is doing one clear action and asking a single simple binary question (drug allergies?). Even with low health literacy, this is a narrow, focused ask, not an information avalanche; no new diagnosis or complex decision is demanded. shame: unchanged at not at all — no judgment, confrontation, or stigmatizing content."
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, no drug allergies.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Have you ever been formally diagnosed with asthma, and what inhaler did you run out of?",
+          "turn_index": 2,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Methylprednisolone 125 mg administered.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "corticosteroid",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "corticosteroid",
+        "params": {
+          "drug_name": "methylprednisolone",
+          "dose": "125",
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 103.0,
+            "BP_sys": 99.0,
+            "BP_dia": 57.0,
+            "RR": 28.0,
+            "O2Sat": 93.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.9,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 2,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "corticosteroid",
+              "params": {
+                "drug_name": "methylprednisolone",
+                "dose": "125",
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "corticosteroid",
+            "raw_text": null,
+            "params": {
+              "drug_name": "methylprednisolone",
+              "dose": "125",
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: Have you ever been formally diagnosed with asthma, and what inhaler did you run out of?] No emotions change. This is a routine intake question seeking clinical history — no new bad news, no diagnosis disclosed, no threat escalated, no judgment implied. Fear stays low (still symptomatic and hypoxic, but nothing new to raise or resolve it). Sadness stays not at all (no loss or poor prognosis). Overwhelm stays low (two simple factual questions, not a complex information dump). Shame stays not at all (asking about an inhaler running out carries no blame or stigma in this neutral, clinical framing from a trusted provider)."
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Yes, I have asthma. And the inhaler I ran out of is my salbutamol — my rescue inhaler.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "We're adding ipratropium to your breathing treatment to help open the airways further. Do you take any daily preventive inhaler — something you use every day, not just when you're short of breath?",
+          "turn_index": 3,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Ipratropium 0.5 mg administered.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "bronchodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "bronchodilator",
+        "params": {
+          "drug_name": "ipratropium",
+          "dose": "0.5",
+          "unit": "mg"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 101.0,
+            "BP_sys": 99.0,
+            "BP_dia": 57.0,
+            "RR": 26.0,
+            "O2Sat": 95.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.9,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 3,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "bronchodilator",
+              "params": {
+                "drug_name": "ipratropium",
+                "dose": "0.5",
+                "unit": "mg"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "bronchodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "ipratropium",
+              "dose": "0.5",
+              "unit": "mg"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: We're adding ipratropium to your breathing treatment to help open the airways further. Do you take any daily preventive inhaler — something you use every day, not just when you're short of breath?] Fear: stays low. Adding ipratropium is a routine, positively-framed step ('to help open the airways further') — no new dangerous finding or care escalation is disclosed. No threat valence. Sadness: stays not at all — no loss, damage, or poor prognosis communicated. Overwhelm: stays low. The clinician's language is plain and explanatory, and the follow-up question ('something you use every day, not just when you're short of breath') is a single focused clarification, not a barrage of technical findings. Even with low health literacy, the informational load here is modest and well-scaffolded. Shame: stays not at all — the question about a daily preventive inhaler is framed as neutral history-gathering with no hint of judgment or blame for non-adherence."
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Yes, I take budesonide every day.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "You're not responding as much as I'd like to the treatments so far, so I'm adding IV magnesium — it helps relax the airways when the inhalers aren't enough. Have you ever been hospitalized overnight or put on a breathing machine for your asthma?",
+          "turn_index": 4,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Magnesium sulfate 2 g is going in now.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "bronchodilator",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "bronchodilator",
+        "params": {
+          "drug_name": "magnesium sulfate",
+          "dose": "2",
+          "unit": "g"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 101.0,
+            "BP_sys": 96.0,
+            "BP_dia": 55.0,
+            "RR": 23.0,
+            "O2Sat": 97.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.9,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 4,
+          "payload": {
+            "question_id": "q5",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 4,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "bronchodilator",
+              "params": {
+                "drug_name": "magnesium sulfate",
+                "dose": "2",
+                "unit": "g"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 4,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "bronchodilator",
+            "raw_text": null,
+            "params": {
+              "drug_name": "magnesium sulfate",
+              "dose": "2",
+              "unit": "g"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": "[clinician: You're not responding as much as I'd like to the treatments so far, so I'm adding IV magnesium — it helps relax the airways when the inhalers aren't enough. Have you ever been hospitalized overnight or put on a breathing machine for your asthma?] FEAR low→high: The clinician explicitly discloses treatment failure ('not responding as much as I'd like'), escalates to an IV medication because inhalers are insufficient, and then asks whether the patient has ever needed a ventilator — a strong implicit signal that intubation is on the clinician's mind. This is a compounding disclosure of worsening condition and care escalation; per the clinical threat escalation rule, fear must rise at least one level regardless of the patient's trust in the provider. low→high is appropriate for a symptomatic, unstable pregnant patient hearing this. OVERWHELM low→high: In a single utterance the patient receives (1) news that current therapies are failing, (2) a new IV intervention with a brief technical rationale, and (3) a probing question about prior hospitalization/ventilation — a question that, for a patient with low health literacy, implicitly signals the situation may be heading somewhere very serious. This informational and emotional load on top of an already escalating clinical picture justifies a one-level rise. SADNESS not at all→not at all: No news of loss, permanent harm, or irreversible outcome; unchanged. SHAME not at all→not at all: No judgment or stigmatizing content; unchanged."
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Yes... when I was 11 I was put on a breathing machine for a really bad asthma attack. And about a year ago I ended up in the ER and they gave me steroids by mouth, but I didn't have to stay overnight that time.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "That history is important, thank you. I'm ordering a blood gas now — a small blood draw that tells us whether CO2 is building up and how hard your body is working to breathe. While we do that: how long have you been struggling to breathe today, and did anything set this off beyond running out of your inhaler?",
+          "turn_index": 5,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 103.0,
+            "BP_sys": 96.0,
+            "BP_dia": 55.0,
+            "RR": 24.0,
+            "O2Sat": 96.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.9,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q5"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 5,
+          "payload": {
+            "question_id": "q6",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "Venous Blood Gas",
+            "ordered_at_turn": 5,
+            "ready_at_turn": 6,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "high",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "high",
+        "shame": "not at all",
+        "notes": "[clinician: That history is important, thank you. I'm ordering a blood gas now — a small blood draw that tells us whether CO2 is building up and how hard your body is working to breathe. While we do that: how long have you been struggling to breathe today, and did anything set this off beyond running out of your inhaler?] fear (high→high): The blood gas explanation signals to the patient that CO2 buildup is a concern, but this is framed as a diagnostic step—not a disclosure of a confirmed bad finding. No new serious abnormality is being announced, so the clinical threat escalation rule does not trigger an upward move. The follow-up questions ('how long have you been struggling,' 'what set this off') sustain fear by keeping attention on distressing content but do not escalate it. Fear stays at high. overwhelm (high→high): The utterance adds one new procedure with a brief technical rationale and two history questions—a manageable informational load, not a cascade of simultaneous interventions or complex findings. Nothing resolves the existing overwhelm trigger either, so it stays at high. sadness (not at all→not at all): No loss, poor prognosis, or irreversible outcome mentioned; remains absent. shame (not at all→not at all): The clinician thanks the patient for the history disclosure and asks neutral factual questions—no judgment or blame, remains absent."
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "VBG is back: pH 7.32, pCO2 40, pO2 69, bicarb 19, lactate 3.0.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "It's been getting harder all day. And I think the cough and fever I had — that virus — set it off. Whenever I get sick like that my asthma gets bad. Running out of my inhaler just made it worse.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "I need to be straight with you. Your blood gas just came back — your CO2 is 40, which sounds normal, but you're breathing 24 times a minute trying to blow it off. In a bad asthma attack, that CO2 should be low. The fact that it's not means your breathing muscles are tiring out. We've given you everything — albuterol, ipratropium, magnesium, steroids. There's nothing left to add. We need to prepare to place a breathing tube now, before you get too exhausted to breathe on your own.",
+          "turn_index": 6,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": null,
+      "physiology_action": null,
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 103.0,
+            "BP_sys": 96.0,
+            "BP_dia": 55.0,
+            "RR": 24.0,
+            "O2Sat": 96.0,
+            "T": 36.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "NRB",
+            "FiO2": 0.9,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15",
+            "glucose_mmol_l": 7
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.32, pCO2 40 mmHg, pO2 69 mmHg, HCO3 19, Lactate 3.0"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 6,
+          "payload": {
+            "test_name": "Venous Blood Gas",
+            "ordered_at_turn": 5,
+            "ready_at_turn": 6,
+            "released_at_turn": 6
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q6"
+            ]
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 6,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Unknown params for 'airway_management': ['drug_name']."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "extreme",
+            "sadness": "not at all",
+            "overwhelm": "extreme",
+            "shame": "not at all"
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "extreme",
+        "sadness": "not at all",
+        "overwhelm": "extreme",
+        "shame": "not at all",
+        "notes": "[clinician: I need to be straight with you. Your blood gas just came back — your CO2 is 40, which sounds normal, but you're breathing 24 times a minute trying to blow it off. In a bad asthma attack, that CO2 should be low. The fact that it's not means your breathing muscles are tiring out. We've given you everything — albuterol, ipratropium, magnesium, steroids. There's nothing left to add. We need to prepare to place a breathing tube now, before you get too exhausted to breathe on your own.] FEAR high→extreme: The clinician explicitly announces imminent intubation, a major intervention that is listed as a prototypical fear-escalating event under the CLINICAL THREAT ESCALATION rule. 'There's nothing left to add' and 'your breathing muscles are tiring out' compound the threat — the patient is 35 weeks pregnant, has prior childhood intubation trauma, and is now being told she is failing despite maximal therapy. High trust in provider buffers the style of delivery but per the rules cannot cancel a one-level rise when this severity of bad news is delivered; high→extreme is the mandated move. Extreme is warranted here because the situation is genuinely catastrophic: imminent loss of the ability to breathe independently while pregnant, with no remaining pharmacologic options. OVERWHELM high→extreme: The utterance loads the listener with multiple simultaneous technical findings (CO2=40, respiratory rate 24, explanation of why that CO2 value is paradoxically dangerous, enumeration of four drug classes already exhausted) while also demanding she process the decision for intubation immediately — exactly the scenario the rule targets, especially given her low health literacy. This alone justifies a one-level rise independent of the fear trigger. SADNESS not at all→not at all: The clinician signals escalation of care, not irreversible loss or hopeless prognosis; a next step (intubation) is being offered, so no concrete sadness trigger is present. SHAME not at all→not at all: No judgment, blame, or exposing disclosure occurs; unchanged."
+      }
+    }
+  ]
+}

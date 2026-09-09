@@ -1,0 +1,2125 @@
+{
+  "scenario": "A 73-year-old male with multiple comorbidities presents with 3 days of worsening abdominal pain, vomiting, shallow breathing from pain, and evolving shock requiring broad investigation, resuscitation, hemodynamic support, and intubation for advanced imaging and definitive care.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Patient Activation": "low",
+    "Optimism": "low",
+    "Anger": "high",
+    "Health Literacy": "low",
+    "Trust in Provider": "low"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "What's the main problem that brought you in today, and when did it start?",
+          "turn_index": 0,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 120.0,
+            "BP_sys": 110.0,
+            "BP_dia": 75.0,
+            "RR": 29.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 0,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: What's the main problem that brought you in today, and when did it start?] The utterance is a neutral open-ended intake question with no bad news, blame, loss, or processing burden. Fear stays absent (no clinical threat disclosed), sadness stays absent (no loss conveyed), overwhelm stays absent (single simple question), shame stays absent (nonjudgmental)."
+      }
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "It's my belly. It's been hurting for three days now. Started up here in the middle as a dull ache, and now it's spread across my whole stomach and it's gotten real bad. I threw up twice at home. Even taking a deep breath hurts.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Okay, three days of belly pain that's now spread everywhere with vomiting. I'm sending off some blood work on your liver and gallbladder. Any allergies, medical or surgical history, and what medications do you take at home?",
+          "turn_index": 1,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 120.0,
+            "BP_sys": 110.0,
+            "BP_dia": 75.0,
+            "RR": 29.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 1,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 1,
+          "payload": {
+            "test_name": "Liver and Biliary Tests",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: Okay, three days of belly pain that's now spread everywhere with vomiting. I'm sending off some blood work on your liver and gallbladder. Any allergies, medical or surgical history, and what medications do you take at home?] Fear stays absent: this utterance is routine history-taking and standard blood work, no disclosure of a serious abnormality or worsening condition. Sadness stays absent: no loss or anticipated devastating outcome mentioned. Overwhelm stays absent: the clinician summarizes and asks routine questions without piling on complex findings or urgent decisions. Shame stays absent: neutral, nonjudgmental questioning with no blame or exposure."
+      }
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I'm allergic to them sulfa drugs. I got high blood pressure and high cholesterol, and I got one of them belly button hernias. I smoke about five cigarettes a day and I have about four beers a day, been doing that for years. For pills I take ramipril, atorvastatin, and aspirin at home.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's get a liter of normal saline running wide open. He's tachycardic to 120 and tachypneic at 29 with a likely surgical abdomen.",
+          "turn_index": 2,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Normal saline 1000 mL bolus is up and running wide open.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 114.0,
+            "BP_sys": 116.0,
+            "BP_dia": 78.0,
+            "RR": 29.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 2,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 2,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Liver panel back: AST 204, ALT 298, GGT 86, ALP 79, Bili 14, lipase 302. Bolus is in, HR still 114, RR 29, temp 37.9.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's get him some IV morphine for the abdominal pain. He's still tachycardic at 114 and tachypneic at 29 with a likely surgical abdomen.",
+          "turn_index": 3,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "I'm giving you some morphine now for the pain. Let me know if you start feeling any nausea or lightheadedness.",
+          "turn_index": 3,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "analgesia",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "analgesia",
+        "params": {
+          "drug_name": "morphine",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 109.0,
+            "BP_sys": 110.0,
+            "BP_dia": 74.0,
+            "RR": 27.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver and Biliary Tests",
+              "result": "AST 204, ALT 298, GGT 86, ALP 79, Bili 14, Lipase 302"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 3,
+          "payload": {
+            "test_name": "Liver and Biliary Tests",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "released_at_turn": 3
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 3,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "analgesia",
+              "params": {
+                "drug_name": "morphine",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 3,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "analgesia",
+            "raw_text": null,
+            "params": {
+              "drug_name": "morphine",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[nurse: I'm giving you some morphine now for the pain. Let me know if you start feeling any nausea or lightheadedness.] No emotion changed. This is routine care providing pain relief with a clear plan, not bad news; fear stays absent. No loss content, so sadness stays absent. Single simple instruction, not overloading, so overwhelm stays absent. No blame or exposure, so shame stays absent."
+      }
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Fine, give me the morphine, but I'm telling you it still hurts something awful. It's all across my whole belly and taking a deep breath still kills me.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's get a bedside eFAST going. I'm worried about a surgical abdomen and want to look for free fluid.",
+          "turn_index": 4,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 110.0,
+            "BP_dia": 74.0,
+            "RR": 27.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver and Biliary Tests",
+              "result": "AST 204, ALT 298, GGT 86, ALP 79, Bili 14, Lipase 302"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 4,
+          "payload": {
+            "test_name": "eFAST",
+            "ordered_at_turn": 4,
+            "ready_at_turn": 5,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "eFAST back: negative for free fluid, lung sliding present bilaterally, no pericardial effusion, normal contractility, IVC collapses with inspiration. Post-morphine he's still HR 110, RR 27, BP 110/74, temp 37.9, sat 96 on room air, and he says the pain's unchanged across his whole belly.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's send a CBC. His lipase and transaminases are up and he's still tachycardic at 110 with unchanged diffuse pain, so I want to check for infection or hemoconcentration with this pancreatitis versus surgical abdomen.",
+          "turn_index": 5,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 110.0,
+            "BP_dia": 74.0,
+            "RR": 27.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver and Biliary Tests",
+              "result": "AST 204, ALT 298, GGT 86, ALP 79, Bili 14, Lipase 302"
+            },
+            {
+              "name": "eFAST",
+              "result": "Negative for free fluid; lung sliding bilaterally; no pericardial effusion; grossly normal contractility; IVC collapses with inspiration"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "eFAST",
+            "ordered_at_turn": 4,
+            "ready_at_turn": 5,
+            "released_at_turn": 5
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 5,
+          "payload": {
+            "test_name": "Complete Blood Count",
+            "ordered_at_turn": 5,
+            "ready_at_turn": 7,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Let's add a Basic Metabolic Panel. With the elevated lipase and ongoing fluids, I need his renal function and electrolytes to guide resuscitation.",
+          "turn_index": 6,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 111.0,
+            "BP_sys": 110.0,
+            "BP_dia": 74.0,
+            "RR": 27.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver and Biliary Tests",
+              "result": "AST 204, ALT 298, GGT 86, ALP 79, Bili 14, Lipase 302"
+            },
+            {
+              "name": "eFAST",
+              "result": "Negative for free fluid; lung sliding bilaterally; no pericardial effusion; grossly normal contractility; IVC collapses with inspiration"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 6,
+          "payload": {
+            "test_name": "Basic Metabolic Panel",
+            "ordered_at_turn": 6,
+            "ready_at_turn": 8,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "CBC back: WBC 17.3, Hgb 64, platelets 278. That hemoglobin is critically low at 64. BMP is pending, ready in a couple minutes. He's HR 111, RR 27, BP 110/74, temp 37.9, sat 96 on room air.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's transfuse 2 units of packed red cells now. His hemoglobin is critically low at 64 and he's still tachycardic at 111.",
+          "turn_index": 7,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Starting the 2 units of packed red cells now. I'll monitor vitals per transfusion protocol and watch for any reaction.",
+          "turn_index": 7,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "blood_transfusion",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "blood_transfusion",
+        "params": {
+          "blood_product": "packed_rbc",
+          "units": 2,
+          "strategy": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 100.0,
+            "BP_sys": 116.0,
+            "BP_dia": 77.0,
+            "RR": 27.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver and Biliary Tests",
+              "result": "AST 204, ALT 298, GGT 86, ALP 79, Bili 14, Lipase 302"
+            },
+            {
+              "name": "eFAST",
+              "result": "Negative for free fluid; lung sliding bilaterally; no pericardial effusion; grossly normal contractility; IVC collapses with inspiration"
+            },
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 17.3, Hgb 64, Plt 278"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 7,
+          "payload": {
+            "test_name": "Complete Blood Count",
+            "ordered_at_turn": 5,
+            "ready_at_turn": 7,
+            "released_at_turn": 7
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 7,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "blood_transfusion",
+              "params": {
+                "blood_product": "packed_rbc",
+                "units": 2,
+                "strategy": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 7,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "blood_transfusion",
+            "raw_text": null,
+            "params": {
+              "blood_product": "packed_rbc",
+              "units": 2,
+              "strategy": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "BMP back: Na 132, K 3.2, Cl 101, HCO3 12, AG 19, urea 38, Cr 176, GFR 32, glucose 6.9. He's got a high anion gap metabolic acidosis with acute kidney injury and a potassium of 3.2. Transfusion running, HR 100, BP 116/77, RR 27, sat 96 on room air.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Let's start potassium chloride replacement for his K of 3.2, and keep the transfusion running for that Hgb of 64.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "potassium chloride",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 100.0,
+            "BP_sys": 116.0,
+            "BP_dia": 77.0,
+            "RR": 27.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver and Biliary Tests",
+              "result": "AST 204, ALT 298, GGT 86, ALP 79, Bili 14, Lipase 302"
+            },
+            {
+              "name": "eFAST",
+              "result": "Negative for free fluid; lung sliding bilaterally; no pericardial effusion; grossly normal contractility; IVC collapses with inspiration"
+            },
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 17.3, Hgb 64, Plt 278"
+            },
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 132, K 3.2, Cl 101, HCO3 12, AG 19, Urea 38, Cr 176, GFR 32, Glucose 6.9"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 8,
+          "payload": {
+            "test_name": "Basic Metabolic Panel",
+            "ordered_at_turn": 6,
+            "ready_at_turn": 8,
+            "released_at_turn": 8
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "potassium chloride",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "potassium chloride",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Send a venous blood gas. I need a pH and lactate to see how severe this high anion gap acidosis really is while the transfusion and potassium run.",
+          "turn_index": 9,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 102.0,
+            "BP_sys": 116.0,
+            "BP_dia": 77.0,
+            "RR": 28.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver and Biliary Tests",
+              "result": "AST 204, ALT 298, GGT 86, ALP 79, Bili 14, Lipase 302"
+            },
+            {
+              "name": "eFAST",
+              "result": "Negative for free fluid; lung sliding bilaterally; no pericardial effusion; grossly normal contractility; IVC collapses with inspiration"
+            },
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 17.3, Hgb 64, Plt 278"
+            },
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 132, K 3.2, Cl 101, HCO3 12, AG 19, Urea 38, Cr 176, GFR 32, Glucose 6.9"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 9,
+          "payload": {
+            "test_name": "Venous Blood Gas",
+            "ordered_at_turn": 9,
+            "ready_at_turn": 10,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "absent",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "absent",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician",
+        "nurse"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "VBG back: pH 7.27, pCO2 27, pO2 93, HCO3 12, lactate 3.9. Confirms the high anion gap metabolic acidosis with respiratory compensation. He's HR 102, BP 116/77, RR 28, sat 96 on room air, temp 37.9. Transfusion and potassium still running.",
+          "turn_index": 10,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "I need to sort out what's going on in your belly. When did this pain start, and have you had any black or bloody stools or vomiting?",
+          "turn_index": 10,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 102.0,
+            "BP_sys": 116.0,
+            "BP_dia": 77.0,
+            "RR": 28.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver and Biliary Tests",
+              "result": "AST 204, ALT 298, GGT 86, ALP 79, Bili 14, Lipase 302"
+            },
+            {
+              "name": "eFAST",
+              "result": "Negative for free fluid; lung sliding bilaterally; no pericardial effusion; grossly normal contractility; IVC collapses with inspiration"
+            },
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 17.3, Hgb 64, Plt 278"
+            },
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 132, K 3.2, Cl 101, HCO3 12, AG 19, Urea 38, Cr 176, GFR 32, Glucose 6.9"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.27, pCO2 27, pO2 93, HCO3 12, Lactate 3.9"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 10,
+          "payload": {
+            "test_name": "Venous Blood Gas",
+            "ordered_at_turn": 9,
+            "ready_at_turn": 10,
+            "released_at_turn": 10
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 10,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": "[clinician: I need to sort out what's going on in your belly. When did this pain start, and have you had any black or bloody stools or vomiting?] fear absent->present: the clinician signals uncertainty ('I need to sort out what's going on') and probes for signs of GI bleeding, which given the patient's critically low hemoglobin implies a serious ongoing threat; this raises fear to present. Sadness stays absent: no actual or anticipated devastating loss conveyed. Overwhelm stays absent: a single focused history question is not an information/urgency overload. Shame stays absent: the question is neutral and non-judgmental, no blame or exposure."
+      }
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Like I already told you, it started three days ago. I threw up twice at home, but no, I ain't seen no black or bloody stools or nothing like that.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Send coagulation studies. With that Hgb of 64 and two units running, I need to know if he's coagulopathic before we go any further.",
+          "turn_index": 11,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 103.0,
+            "BP_sys": 116.0,
+            "BP_dia": 77.0,
+            "RR": 28.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver and Biliary Tests",
+              "result": "AST 204, ALT 298, GGT 86, ALP 79, Bili 14, Lipase 302"
+            },
+            {
+              "name": "eFAST",
+              "result": "Negative for free fluid; lung sliding bilaterally; no pericardial effusion; grossly normal contractility; IVC collapses with inspiration"
+            },
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 17.3, Hgb 64, Plt 278"
+            },
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 132, K 3.2, Cl 101, HCO3 12, AG 19, Urea 38, Cr 176, GFR 32, Glucose 6.9"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.27, pCO2 27, pO2 93, HCO3 12, Lactate 3.9"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 11,
+          "payload": {
+            "test_name": "Coagulation Studies",
+            "ordered_at_turn": 11,
+            "ready_at_turn": 13,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "absent"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "absent",
+        "notes": null
+      }
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I need to ask you straight: how much alcohol do you drink, and when was your last drink? And have you ever had trouble with your liver, pancreas, or stomach before?",
+          "turn_index": 12,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 103.0,
+            "BP_sys": 116.0,
+            "BP_dia": 77.0,
+            "RR": 28.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver and Biliary Tests",
+              "result": "AST 204, ALT 298, GGT 86, ALP 79, Bili 14, Lipase 302"
+            },
+            {
+              "name": "eFAST",
+              "result": "Negative for free fluid; lung sliding bilaterally; no pericardial effusion; grossly normal contractility; IVC collapses with inspiration"
+            },
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 17.3, Hgb 64, Plt 278"
+            },
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 132, K 3.2, Cl 101, HCO3 12, AG 19, Urea 38, Cr 176, GFR 32, Glucose 6.9"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.27, pCO2 27, pO2 93, HCO3 12, Lactate 3.9"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 12,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": "[clinician: I need to ask you straight: how much alcohol do you drink, and when was your last drink? And have you ever had trouble with your liver, pancreas, or stomach before?] shame absent->present: the pointed 'I need to ask you straight' framing about alcohol use targets a stigmatized behavior and, given the patient's high anger and low trust, lands as blaming/exposing, raising shame. fear stays present: no new clinical bad news, just questions, so it holds steady. sadness stays absent: no loss content. overwhelm stays absent: this is a simple, direct set of questions, not information overload."
+      }
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Coags back: INR 1.2, aPTT 30. He's not coagulopathic. Transfusion and potassium still running, HR 103, BP 116/77, RR 28, sat 96 on room air.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "I already told you, about four beers a day, been doing that for years. And no, I never had no trouble with my liver or pancreas or my stomach before.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Send a toxicology screen. His anion gap acidosis isn't fully explained by a lactate of 3.9, so I want to look for a toxic ingestion.",
+          "turn_index": 13,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 105.0,
+            "BP_sys": 114.0,
+            "BP_dia": 76.0,
+            "RR": 28.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver and Biliary Tests",
+              "result": "AST 204, ALT 298, GGT 86, ALP 79, Bili 14, Lipase 302"
+            },
+            {
+              "name": "eFAST",
+              "result": "Negative for free fluid; lung sliding bilaterally; no pericardial effusion; grossly normal contractility; IVC collapses with inspiration"
+            },
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 17.3, Hgb 64, Plt 278"
+            },
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 132, K 3.2, Cl 101, HCO3 12, AG 19, Urea 38, Cr 176, GFR 32, Glucose 6.9"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.27, pCO2 27, pO2 93, HCO3 12, Lactate 3.9"
+            },
+            {
+              "name": "Coagulation Studies",
+              "result": "INR 1.2, aPTT 30 sec"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 13,
+          "payload": {
+            "test_name": "Coagulation Studies",
+            "ordered_at_turn": 11,
+            "ready_at_turn": 13,
+            "released_at_turn": 13
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 13,
+          "payload": {
+            "test_name": "Toxicology",
+            "ordered_at_turn": 13,
+            "ready_at_turn": 15,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Let's start sodium bicarbonate for his severe acidosis, pH 7.27 with HCO3 of 12. He's breathing at 28 to compensate and he can't keep that up. Toxicology is still pending.",
+          "turn_index": 14,
+          "recipient": "nurse"
+        }
+      ],
+      "physiology_action_kind_hint": "electrolyte_correction",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "electrolyte_correction",
+        "params": {
+          "drug_name": "sodium bicarbonate",
+          "dose": null,
+          "unit": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 102.0,
+            "BP_sys": 114.0,
+            "BP_dia": 76.0,
+            "RR": 26.0,
+            "O2Sat": 96.0,
+            "T": 37.9
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 15 (E4 V5 M6)",
+            "glucose_mmol_l": 8.6
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver and Biliary Tests",
+              "result": "AST 204, ALT 298, GGT 86, ALP 79, Bili 14, Lipase 302"
+            },
+            {
+              "name": "eFAST",
+              "result": "Negative for free fluid; lung sliding bilaterally; no pericardial effusion; grossly normal contractility; IVC collapses with inspiration"
+            },
+            {
+              "name": "Complete Blood Count",
+              "result": "WBC 17.3, Hgb 64, Plt 278"
+            },
+            {
+              "name": "Basic Metabolic Panel",
+              "result": "Na 132, K 3.2, Cl 101, HCO3 12, AG 19, Urea 38, Cr 176, GFR 32, Glucose 6.9"
+            },
+            {
+              "name": "Venous Blood Gas",
+              "result": "pH 7.27, pCO2 27, pO2 93, HCO3 12, Lactate 3.9"
+            },
+            {
+              "name": "Coagulation Studies",
+              "result": "INR 1.2, aPTT 30 sec"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 14,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "electrolyte_correction",
+              "params": {
+                "drug_name": "sodium bicarbonate",
+                "dose": null,
+                "unit": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 14,
+          "payload": {
+            "triggered": true,
+            "spoke": false,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "present",
+            "sadness": "absent",
+            "overwhelm": "absent",
+            "shame": "present"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "electrolyte_correction",
+            "raw_text": null,
+            "params": {
+              "drug_name": "sodium bicarbonate",
+              "dose": null,
+              "unit": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "present",
+        "sadness": "absent",
+        "overwhelm": "absent",
+        "shame": "present",
+        "notes": null
+      }
+    }
+  ],
+  "scenario_path": "transitions/GI/Undifferentiated Abdominal Pain + Shock.json"
+}

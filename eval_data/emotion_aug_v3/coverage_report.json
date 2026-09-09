@@ -1,0 +1,98 @@
+{
+  "target_min_per_cell": 2,
+  "total_source_candidates": 33,
+  "total_augmented_drafts": 28,
+  "coverage_by_target": {
+    "fear": {
+      "not at all": 2,
+      "low": 2,
+      "high": 2,
+      "extreme": 2
+    },
+    "sadness": {
+      "not at all": 2,
+      "low": 2,
+      "high": 0,
+      "extreme": 0
+    },
+    "overwhelm": {
+      "not at all": 2,
+      "low": 2,
+      "high": 2,
+      "extreme": 2
+    },
+    "shame": {
+      "not at all": 2,
+      "low": 2,
+      "high": 2,
+      "extreme": 2
+    }
+  },
+  "undercovered": [
+    {
+      "emotion": "sadness",
+      "level": "high",
+      "count": 0,
+      "needed": 2
+    },
+    {
+      "emotion": "sadness",
+      "level": "extreme",
+      "count": 0,
+      "needed": 2
+    }
+  ],
+  "source_candidate_current_levels": {
+    "fear": {
+      "not at all": 6,
+      "low": 14,
+      "high": 13,
+      "extreme": 0
+    },
+    "sadness": {
+      "not at all": 33,
+      "low": 0,
+      "high": 0,
+      "extreme": 0
+    },
+    "overwhelm": {
+      "not at all": 6,
+      "low": 11,
+      "high": 16,
+      "extreme": 0
+    },
+    "shame": {
+      "not at all": 24,
+      "low": 5,
+      "high": 4,
+      "extreme": 0
+    }
+  },
+  "eligible_counts": {
+    "fear/extreme": 13,
+    "overwhelm/extreme": 16,
+    "shame/extreme": 4,
+    "sadness/extreme": 0
+  },
+  "skipped_cells": [
+    {
+      "emotion": "sadness",
+      "level": "extreme",
+      "reason": "no_eligible_candidates"
+    }
+  ],
+  "source_candidates_by_listener": {
+    "patient": 33
+  },
+  "augmented_drafts_by_listener": {
+    "patient": 28
+  },
+  "source_candidates_by_scenario": {
+    "transitions/Endocrine/Adrenal Crisis.json": 3,
+    "transitions/GI/Massive Upper GI Bleed.json": 10,
+    "transitions/Cardiology/Aortic Stenosis with A Fib and CHF.json": 8,
+    "transitions/OB-GYN/Asthma in Pregnancy.json": 4,
+    "transitions/Respiratory/COPDE with Pneumothorax.json": 3,
+    "transitions/Respiratory/Anaphylaxis with Angioedema.json": 5
+  }
+}

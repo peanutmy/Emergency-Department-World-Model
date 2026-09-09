@@ -1,0 +1,737 @@
+[
+  {
+    "idx": 1,
+    "item_id": "fear_absent_000_0000",
+    "target_emotion": "fear",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Good news — the calcium and medicine we gave have already steadied your heart rhythm, and the danger has passed. Your dialysis machine is set up and ready right now, so we'll clear that extra potassium out completely today. You're safe, and we've got this fully handled.",
+    "predicted_next_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "evidence": "“the danger has passed… You’re safe”",
+    "reasoning": "fear present->absent because the utterance gives concrete resolution of the immediate life-threatening rhythm problem and a clear treatment plan, removing the active threat. sadness stays absent because there is no loss or grief content. overwhelm stays absent because the information is simple and reassuring rather than overloaded. shame stays absent because there is no blame, exposure, or humiliation."
+  },
+  {
+    "idx": 2,
+    "item_id": "fear_absent_001_0001",
+    "target_emotion": "fear",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Can you tell me when the headache and blurry vision first started, and are you pregnant now or have you given birth recently?",
+    "predicted_next_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "evidence": "“when the headache and blurry vision first started”",
+    "reasoning": "No emotion changed. This is a routine history question, not a bad-news disclosure or a blame/judgment statement, so fear, sadness, and shame stay absent. It is not complex or urgent enough to create meaningful overwhelm beyond ordinary conversation, so overwhelm also stays absent."
+  },
+  {
+    "idx": 3,
+    "item_id": "fear_absent_002_0002",
+    "target_emotion": "fear",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Good news - your blood pressure has come back up and is holding steady now, your heart rhythm has settled, and your breathing is much easier. The medications are working and you're stable; you're through the dangerous part, so there's nothing threatening happening right now.",
+    "predicted_next_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "evidence": "“blood pressure has come back up and is holding steady… heart rhythm has settled… breathing is much easier… you’re stable… nothing threatening happening right now”",
+    "reasoning": "fear present->absent because the clinician gives concrete reassuring resolution of the immediate threat and says the patient is stable and through the dangerous part. sadness stays absent because there is no loss, grief, or helplessness being conveyed. overwhelm stays absent because the message is simple, calming, and not information-overloading. shame stays absent because there is no blame, humiliation, or judgment."
+  },
+  {
+    "idx": 4,
+    "item_id": "fear_present_000_0003",
+    "target_emotion": "fear",
+    "target_level": "present",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your blood pressure is running very low and it hasn't come up the way we'd expect, which tells us your body is in a dangerous state right now. We're giving you sugar and fluids and watching you closely - can you tell me if you're diabetic or on any diabetes medicine?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“blood pressure is running very low… dangerous state right now” / “giving you sugar and fluids… are you diabetic or on any diabetes medicine?”",
+    "reasoning": "fear: absent->present בגלל direct disclosure of a dangerous, unstable condition and need for urgent treatment. overwhelm: absent->present because the patient is given multiple serious findings plus immediate treatment steps and a screening question to process. sadness stays absent because the utterance does not focus on loss, grief, or hopelessness. shame stays absent because the diabetes/medication question is neutral and nonjudgmental, without blame or humiliation."
+  },
+  {
+    "idx": 5,
+    "item_id": "fear_present_001_0004",
+    "target_emotion": "fear",
+    "target_level": "present",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The reason you fainted is that you had a pregnancy growing in the wrong place, and it has started bleeding inside your belly. We're giving you blood now and the surgery team is on the way to fix it, so you're in good hands here.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“pregnancy growing in the wrong place,” “started bleeding inside your belly,” “blood now,” “surgery team is on the way”",
+    "reasoning": "fear: absent->present because the clinician disclosed a serious, life-threatening internal bleed and urgent surgery, which creates clear danger. sadness: absent->present because an ectopic pregnancy implies a threatened loss of the pregnancy/baby and a deeply upsetting outcome. overwhelm: absent->present because several serious findings and urgent interventions were delivered at once. shame stays absent because the message is nonjudgmental and does not blame, expose, or humiliate the patient."
+  },
+  {
+    "idx": 6,
+    "item_id": "fear_present_002_0005",
+    "target_emotion": "fear",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "That history helps me understand what happened. Those days of worsening breathlessness and leaning so hard on the Ventolin point to a severe COPD flare, and he was tiring out trying to breathe on his own. His oxygen is sitting around 94% on the ventilator now after the nebulizer and steroids, so that's steadier for the moment. I won't pretend it isn't still a serious situation — his breathing was in a dangerous place, and we're watching him closely.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "severe COPD flare... oxygen is sitting around 94% on the ventilator... still a serious situation",
+    "reasoning": "overwhelm changed absent->present because the clinician gives several medical findings and treatments at once, including severe COPD flare, ventilator oxygen level, nebulizer, steroids, and ongoing danger, which is a lot for a low-health-literacy relative to process. Fear stayed present because the situation remains serious and dangerous, though somewhat steadier for the moment. Sadness stayed present because there is no new resolution of the threatened loss or helplessness. Shame stayed absent because the wording is explanatory and not blaming or humiliating."
+  },
+  {
+    "idx": 7,
+    "item_id": "fear_extreme_000_0006",
+    "target_emotion": "fear",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your heart just stopped and we had to shock it back — the anesthetic has poisoned your whole system and it's about to seize and arrest you again right now, so the team is jumping on your chest this second.",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "present",
+      "overwhelm": "extreme",
+      "shame": "absent"
+    },
+    "evidence": "“heart just stopped,” “about to seize and arrest you again right now,” “jumping on your chest this second”",
+    "reasoning": "fear present->extreme because the utterance describes imminent recurrent arrest and immediate resuscitation, making survival threat overwhelming and likely to trigger crisis-level panic/breakdown. sadness absent->present because the patient is confronted with a devastating near-term loss of life and helplessness. overwhelm present->extreme because multiple catastrophic findings and urgent simultaneous interventions are being delivered at once. shame stays absent because there is no blame, exposure, or humiliation in the utterance."
+  },
+  {
+    "idx": 8,
+    "item_id": "fear_extreme_001_0007",
+    "target_emotion": "fear",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your blood pressure just spiked again and the baby's heart rate is dropping fast — we can't keep you both safe any longer, we have to open you up and take the baby out right now, this second, and I can't promise you'll both come through this.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“we can't keep you both safe any longer… right now… I can't promise you'll both come through this”",
+    "reasoning": "sadness absent->present because the utterance makes possible loss of the baby and/or the patient feel immediate and deeply threatening; overwhelm absent->present because it delivers multiple urgent findings and demands an immediate life-saving decision; fear stays present because the news is still highly threatening but does not clearly meet the breakdown threshold for extreme; shame stays absent because there is no blame, judgment, or humiliation."
+  },
+  {
+    "idx": 9,
+    "item_id": "fear_extreme_002_0008",
+    "target_emotion": "fear",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "We couldn't get the breathing tube in the normal way and his oxygen was dropping to a level where he could have died in the room, so we had to cut an emergency airway into his neck just to keep him alive. He is hanging on by a thread right now, and I have to tell you honestly he may not survive the next few minutes.",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "he may not survive the next few minutes",
+    "reasoning": "fear changed present->extreme because the clinician says the patient nearly died, required an emergency airway cut into his neck, is 'hanging on by a thread,' and may die within minutes, making panic or breakdown likely for a relative. sadness changed absent->present because the utterance makes the imminent loss of the patient feel close and personally devastating. overwhelm changed absent->present because the listener must process multiple urgent, technical, catastrophic facts at once: failed normal intubation, oxygen dropping, emergency neck airway, and possible death within minutes. shame stayed absent because there is no blame, humiliation, judgment, or exposure directed at the listener."
+  },
+  {
+    "idx": 10,
+    "item_id": "sadness_absent_000_0009",
+    "target_emotion": "sadness",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Here's what's going on: there's some internal bleeding in your belly that's making you weak and dizzy, and that's why you fainted. We're already giving you blood to help, and the surgery team is on their way to fix the source of the bleeding. You're in good hands and we're moving fast. Do you have any allergies to medications?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "internal bleeding in your belly ... we're already giving you blood ... surgery team is on their way",
+    "reasoning": "fear: absent->present בגלל disclosure of serious bad news and urgent escalation (internal bleeding, blood transfusion, surgery). overwhelm: absent->present because the patient is being told multiple serious findings and immediate interventions at once. sadness stays absent because the utterance signals danger and treatment need, but not clear loss, grief, or hopelessness. shame stays absent because there is no blame, judgment, humiliation, or loss of dignity."
+  },
+  {
+    "idx": 11,
+    "item_id": "sadness_absent_001_0010",
+    "target_emotion": "sadness",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The ultrasound showed the bleeding was from your pregnancy, and I know that's a hard loss — but the surgery will stop the bleeding and fix this completely, and you yourself are going to come through this and be healthy again.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“the bleeding was from your pregnancy,” “that’s a hard loss,” “the surgery will stop the bleeding”",
+    "reasoning": "No emotion changed. Fear stayed present because this is still serious bad news, but the clear treatment plan and reassurance kept it from escalating. Sadness stayed present because the pregnancy loss is directly acknowledged. Overwhelm stayed present because the patient is still processing a major diagnosis and urgent surgery, though the explanation is organized. Shame stayed absent because there is no blame, judgment, or humiliation."
+  },
+  {
+    "idx": 12,
+    "item_id": "sadness_absent_002_0011",
+    "target_emotion": "sadness",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Can you tell me what you're feeling right now, and when this shortness of breath first started?",
+    "predicted_next_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "evidence": "“Can you tell me what you're feeling right now, and when this shortness of breath first started?”",
+    "reasoning": "Fear stays absent because the clinician asks for information without adding new bad news or a new threat. Sadness stays absent because there is no mention of loss, grief, or hopelessness. Overwhelm stays absent because this is a simple, single question rather than a dense or urgent multi-step explanation. Shame stays absent because there is no blame, judgment, exposure, or humiliation."
+  },
+  {
+    "idx": 13,
+    "item_id": "sadness_present_000_0012",
+    "target_emotion": "sadness",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The blood is helping — your pressure is climbing back up. The reason you're bleeding is that the pregnancy grew in the wrong place and it's ruptured, so we can't save it; what we're doing now is getting you safely to the operating room, and OB and surgery are on their way. I've told them about your shellfish allergy.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“the pregnancy grew in the wrong place and it’s ruptured, so we can’t save it”",
+    "reasoning": "fear: present->present, because the clinician discloses a ruptured ectopic pregnancy and urgent OR transfer, which is serious bad news but the patient already had fear and the concrete plan buffers escalation. sadness: present->present, because “we can’t save it” directly confirms loss of the pregnancy, but this does not clearly reach emotional collapse. overwhelm: present->present, because the utterance combines diagnosis, prognosis, transfusion response, and urgent surgery logistics, but it does not add enough beyond the current overload to justify a level change. shame: absent->absent, because the message is nonjudgmental and does not blame or humiliate the patient."
+  },
+  {
+    "idx": 14,
+    "item_id": "sadness_present_001_0013",
+    "target_emotion": "sadness",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "His heart has a narrowing that he was born with, and it's why he's this sick. There's a real chance his heart may not be strong enough to recover, and I have to be honest that some babies with this don't make it. We're doing everything we can, but I want you to know how serious this is for him.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“there's a real chance his heart may not be strong enough to recover” / “some babies with this don't make it”",
+    "reasoning": "sadness: absent->present იმიტომ the utterance makes possible death and devastating loss feel concrete (“some babies with this don't make it”); overwhelm: absent->present because it delivers a new serious diagnosis plus grave prognosis all at once; fear stays present because the situation is still life-threatening but was already active and is not pushed into breakdown-level crisis; shame stays absent because there is no blame, judgment, or humiliation."
+  },
+  {
+    "idx": 15,
+    "item_id": "sadness_present_002_0014",
+    "target_emotion": "sadness",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I'm putting this oxygen mask on to help you breathe. I have to be honest with you - that reaction to the numbing medicine was a serious one, and your heart even stopped for a bit before we brought you back, so recovery may take some time and things may feel different for a while.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“your heart even stopped for a bit before we brought you back” and “recovery may take some time and things may feel different”",
+    "reasoning": "sadness absent->present because the utterance introduces possible lasting loss or impairment with “recovery may take some time and things may feel different.” fear stays present because the serious event and brief cardiac arrest are alarming but do not push him into breakdown-level panic. overwhelm stays present because multiple serious facts are being disclosed at once, but not to an extreme shutdown level. shame stays absent because there is no blame, judgment, or humiliation."
+  },
+  {
+    "idx": 16,
+    "item_id": "sadness_extreme_000_0015",
+    "target_emotion": "sadness",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I'm so sorry — there's no gentle way to say this. You were pregnant, early on, but the pregnancy grew in the wrong place and it burst, and that's what's causing all this bleeding inside you. There was no baby we could save, and we can't wait — the only way to keep you alive now is to take you to surgery this minute.",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "present",
+      "overwhelm": "extreme",
+      "shame": "absent"
+    },
+    "evidence": "it burst... bleeding inside you... no baby we could save... only way to keep you alive now is... surgery this minute",
+    "reasoning": "fear changed present->extreme because the clinician discloses an immediately life-threatening rupture with internal bleeding and says surgery is the only way to keep her alive now, making panic-level fear plausible despite the plan. overwhelm changed present->extreme because the patient is suddenly told she was pregnant, the pregnancy ruptured, she is bleeding internally, the baby cannot be saved, and she must go to surgery immediately; this is urgent, complex, and emotionally overloaded. sadness stayed present because the utterance confirms the loss of the pregnancy, sustaining sadness, but it does not necessarily show complete grief collapse. shame stayed absent because the clinician is apologetic and nonjudgmental, with no blame or humiliation."
+  },
+  {
+    "idx": 17,
+    "item_id": "sadness_extreme_001_0016",
+    "target_emotion": "sadness",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "I'm so sorry — the seizure and the time your breathing stopped cut off oxygen to the baby, and there is no longer a heartbeat. We could not save your baby.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "extreme",
+      "overwhelm": "extreme",
+      "shame": "present"
+    },
+    "evidence": "“there is no longer a heartbeat. We could not save your baby.”",
+    "reasoning": "sadness present->extreme because the utterance delivers catastrophic, irreversible loss of the baby; overwhelm present->extreme because the patient is suddenly faced with devastating news that is emotionally unmanageable. Fear stays present because she is still critically ill, but this sentence does not add a new direct threat to her own survival beyond the existing situation. Shame stays present because there is no blame, judgment, or humiliation in the disclosure."
+  },
+  {
+    "idx": 18,
+    "item_id": "sadness_extreme_002_0017",
+    "target_emotion": "sadness",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I'm so sorry — the ultrasound shows the pregnancy was growing outside your womb and it's ruptured, that's what's causing the bleeding. There's no way to save this pregnancy, sweetheart; the baby cannot survive, and we have to take you to surgery right now to stop the bleeding and save your life.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“pregnancy was growing outside your womb and it's ruptured” / “the baby cannot survive” / “take you to surgery right now”",
+    "reasoning": "Fear stays present->present because the clinician discloses a life-threatening rupture and urgent surgery, but fear was already active. Sadness stays present->present because the pregnancy loss is explicit and devastating, but the utterance does not push to emotional collapse. Overwhelm stays present->present because multiple serious findings and an immediate operative plan must be processed at once, but it does not clearly exceed crisis threshold. Shame stays absent->absent because the message is grave but not blaming, humiliating, or judgmental."
+  },
+  {
+    "idx": 19,
+    "item_id": "overwhelm_absent_000_0018",
+    "target_emotion": "overwhelm",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Here's where we are right now: the magnesium and the blood pressure medicine are working, and your numbers are already coming down. The best thing for you and your baby is keeping your pressure controlled and stopping the seizures, and that's exactly what we're doing. We'll keep a close watch on both of you.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "evidence": "“the magnesium and the blood pressure medicine are working, and your numbers are already coming down”",
+    "reasoning": "fear stays present: this is reassuring improvement, but she is still in a high-risk eclampsia/HTN situation and the threat is not fully resolved. sadness stays absent because there is no loss or helplessness disclosed. overwhelm stays absent because the update is brief and clear rather than information-heavy. shame stays absent because there is no blame, exposure, or judgment."
+  },
+  {
+    "idx": 20,
+    "item_id": "overwhelm_absent_001_0019",
+    "target_emotion": "overwhelm",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Let me ask you just a couple of quick things so I can help you. What's been bothering you the most, and when did it start? And do you take any steroid pills or have any health conditions I should know about?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“What’s been bothering you the most… when did it start? And do you take any steroid pills or have any health conditions”",
+    "reasoning": "overwhelm absent->present because the clinician asks several rapid questions at once and the patient must process and answer while acutely ill. fear stays present because there is no new bad news or reassurance that resolves the existing medical threat. sadness stays absent because the utterance does not convey loss or hopelessness. shame stays absent because the questions are medically relevant and nonjudgmental, with no blame or humiliation."
+  },
+  {
+    "idx": 21,
+    "item_id": "overwhelm_absent_002_0020",
+    "target_emotion": "overwhelm",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your blood sugar dropped too low, so we gave you some sugar through the IV and it's already coming back up. To help us sort out why this happened, can you tell me if you take insulin or any medicine for diabetes?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "evidence": "“Your blood sugar dropped too low… IV… already coming back up”",
+    "reasoning": "fear: absent->present because the clinician disclosed a serious acute abnormality (hypoglycemia), even though it was immediately treated and improving. sadness stayed absent because no loss, grief, or hopeless outcome was communicated. overwhelm stayed absent because the message was brief and straightforward, with no heavy technical pileup. shame stayed absent because the question about insulin/diabetes was neutral and not blaming or humiliating."
+  },
+  {
+    "idx": 22,
+    "item_id": "overwhelm_present_000_0021",
+    "target_emotion": "overwhelm",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Okay, here's where we are, and there's a lot happening at once, so let me walk you through it. The magnesium is preventing more seizures, the blood pressure medicine is bringing your numbers down, we're starting continuous monitoring on the baby, and the obstetric team is coming in to check things directly. On top of all of that, at 32 weeks with preeclampsia this severe, we have to be ready to deliver early if you don't stay stable. That's a lot to take in, I know.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“there's a lot happening at once” and “we have to be ready to deliver early if you don't stay stable”",
+    "reasoning": "overwhelm absent->present because the clinician packs multiple active treatments and contingencies into one update, creating clear informational overload. fear stays present because the patient is already afraid in the setting of severe preeclampsia/eclampsia, and the mention of possible early delivery and instability is ongoing bad news, but the reassuring treatment plan keeps it from escalating. sadness stays absent because this is mainly threat and uncertainty, not an explicit loss or grief disclosure. shame stays absent because the clinician is neutral, nonjudgmental, and does not blame or humiliate the patient."
+  },
+  {
+    "idx": 23,
+    "item_id": "overwhelm_present_001_0022",
+    "target_emotion": "overwhelm",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The blood products are helping your pressure for now — it's 102/62 — but that's only buying time; it won't stop the bleeding on its own. The surgery is what actually stops it, and the team is taking you to the operating room right now. The dizziness and the nausea are from the blood loss, and they should settle once the bleeding is controlled.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“only buying time”; “taking you to the operating room right now”; “won’t stop the bleeding on its own”",
+    "reasoning": "No emotion changes level. Fear stays present because the utterance confirms ongoing serious bleeding and urgent surgery, but it also provides a concrete plan, so it does not reach extreme. Sadness stays present because the situation still implies serious bodily loss and helplessness, but no new explicit irreversible loss is stated. Overwhelm stays present because the patient is being told multiple urgent facts at once: temporary stabilization, ongoing bleeding, and immediate transfer to the OR. Shame stays absent because there is no blame, judgment, or humiliating language."
+  },
+  {
+    "idx": 24,
+    "item_id": "overwhelm_present_002_0023",
+    "target_emotion": "overwhelm",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "The dizziness, the weakness, the nausea — all of that is from the blood you've lost, and that part should settle once we stop the bleeding. Your pressure has come up to 100 over 62 with the blood we're running in now. The one thing that actually stops the bleeding is surgery, and the gynecology team is coming to take you back to the operating room now.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“the blood you've lost” / “the gynecology team is coming to take you back to the operating room now”",
+    "reasoning": "Fear stays present->present because this is still serious bad news with urgent surgery, even though the clinician also gives a concrete plan and some stabilization. Sadness stays present->present because the utterance confirms significant blood loss and a dangerous loss of bodily function, but does not add a new devastating loss. Overwhelm stays present->present because the patient is still being asked to process multiple urgent details at once—blood loss, transfusion, and immediate OR transfer—but the explanation is clear enough that it does not push to extreme. Shame stays absent->absent because there is no blame, judgment, humiliation, or loss of dignity in the wording."
+  },
+  {
+    "idx": 25,
+    "item_id": "overwhelm_extreme_000_0024",
+    "target_emotion": "overwhelm",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "You're bleeding inside faster than the blood we're pouring in can keep up with — your pregnancy has burst open an artery and you are losing blood into your belly right now. We are running down the hall to the operating room this second, the surgeon is scrubbing, we're squeezing bag after bag of blood into both arms, and if we don't cut this bleeding off in the next few minutes your heart will stop. There's no time to explain more — we go now.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“bleeding inside faster... can keep up with” / “if we don't... your heart will stop” / “We are running... to the operating room”",
+    "reasoning": "Fear stays present: the utterance delivers imminent life-threatening bad news and urgent surgery, but the patient can still be moved to treatment, so it does not need to rise to extreme. Sadness stays present: the threat of death and loss is devastating, but this disclosure does not clearly push her into collapse-level grief. Overwhelm stays present: there are several urgent, technical, and simultaneous actions to process, but the clinician also gives a concrete plan, so it does not necessarily become extreme. Shame stays absent: there is no blame, humiliation, or judgment."
+  },
+  {
+    "idx": 26,
+    "item_id": "overwhelm_extreme_001_0025",
+    "target_emotion": "overwhelm",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your heart just stopped again and I need you to stay with me — we're pushing drugs, shocking you, squeezing this bag to breathe for you, the lipid's running, everyone's on you at once, hold on, hold on!",
+    "predicted_next_state": {
+      "fear": "extreme",
+      "sadness": "present",
+      "overwhelm": "extreme",
+      "shame": "absent"
+    },
+    "evidence": "Your heart just stopped again... shocking you... squeezing this bag to breathe for you... everyone's on you at once",
+    "reasoning": "fear changed present->extreme because the nurse directly conveys recurrent cardiac arrest, assisted breathing, shocks, and imminent life-threatening danger in a frantic way likely to cause panic or breakdown. sadness changed absent->present because the utterance makes loss of survival feel immediate and personally devastating. overwhelm changed present->extreme because multiple simultaneous urgent interventions and 'everyone's on you at once' create extreme sensory, procedural, and cognitive overload. shame stayed absent because there is no blame, judgment, humiliation, or exposure conveyed."
+  },
+  {
+    "idx": 27,
+    "item_id": "overwhelm_extreme_002_0026",
+    "target_emotion": "overwhelm",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "You're bleeding into your belly right now and we can't stop it here — the whole trauma team is rushing you to surgery this second, we're pouring blood into both arms, and I need your allergies before the anesthesia doctor puts you under, right now, we can't wait.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“bleeding into your belly right now,” “whole trauma team is rushing you to surgery,” “we’re pouring blood into both arms,” “right now, we can’t wait”",
+    "reasoning": "fear stays present->present because the utterance gives severe bad news and urgent escalation, but a concrete surgical plan means she can still cooperate rather than break down; sadness stays present->present because it implies a potentially devastating loss and serious threat without resolving that loss; overwhelm stays present->present because multiple urgent technical details and immediate decisions create heavy processing burden; shame stays absent->absent because there is no blame, judgment, humiliation, or dignity attack."
+  },
+  {
+    "idx": 28,
+    "item_id": "shame_absent_000_0027",
+    "target_emotion": "shame",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Help me pin down the timing here. When your heart started pounding and you got that funny taste in your mouth, what were you doing right then, and about how long after we numbed your leg did that begin?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“Help me pin down the timing here... what were you doing right then... about how long after...”",
+    "reasoning": "Fear stayed present: the clinician is asking about a concerning symptom sequence, which keeps attention on a possible serious event but does not add new bad news. Overwhelm stayed present: the patient is being asked to reconstruct timing and circumstances, which adds some processing burden but not enough for a level change. Sadness stayed absent because there is no loss or grief content. Shame stayed absent because the question is neutral and not blaming or humiliating."
+  },
+  {
+    "idx": 29,
+    "item_id": "shame_absent_001_0028",
+    "target_emotion": "shame",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I'm slipping this oxygen mask over your nose and mouth to help you breathe easier while we work. Just let it rest there and take slow, easy breaths with me.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“slipping this oxygen mask over your nose and mouth to help you breathe easier”",
+    "reasoning": "fear stayed present -> present because this is a concrete supportive intervention, but the patient is still in an emergency and nothing in the utterance fully resolves the serious situation. sadness stays absent because there is no mention of loss, grief, or helplessness. overwhelm stays present because the patient is still in an acute, high-intensity ED event, and this brief instruction does not remove the broader cognitive load. shame stays absent because the nurse uses neutral, nonjudgmental language with no blame or humiliation."
+  },
+  {
+    "idx": 30,
+    "item_id": "shame_absent_002_0029",
+    "target_emotion": "shame",
+    "target_level": "absent",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "augmented_utterance": "One thing that would help me care for him: in the days before this happened, did you notice him more short of breath, feverish, or just not himself than usual?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "absent",
+      "shame": "absent"
+    },
+    "evidence": "“did you notice him more short of breath, feverish, or just not himself than usual?”",
+    "reasoning": "fear stayed present->present because the clinician is asking about prior worsening symptoms, which keeps the serious illness threat salient but does not add a new escalation. sadness stayed present->present because the question does not address any loss or prognosis. overwhelm stayed absent->absent because this is a single, straightforward question, not an information overload. shame stayed absent->absent because there is no blame, judgment, or humiliation."
+  },
+  {
+    "idx": 31,
+    "item_id": "shame_present_000_0030",
+    "target_emotion": "shame",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "Your pregnancy test came back positive — did you know you were pregnant? Because if you'd told us at the start that there was any chance, we'd have caught this bleeding sooner. The ultrasound shows the pregnancy grew outside the womb and ruptured, and that's what's making you bleed inside. We're taking you to surgery now to stop it.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "evidence": "“did you know you were pregnant?... if you'd told us... we'd have caught this bleeding sooner”; “pregnancy grew outside the womb and ruptured”; “we're taking you to surgery now”",
+    "reasoning": "shame absent->present because the clinician’s wording implies blame and delayed disclosure (“if you'd told us”), which can make the patient feel judged and exposed. Fear stays present because the utterance gives bad news about a ruptured ectopic pregnancy and urgent surgery, but it is buffered by a concrete plan and does not clearly reach breakdown-level crisis. Sadness stays present because the news confirms a dangerous loss/rupture of the pregnancy, but there is no clear cue of catastrophic grief overwhelming her ability to continue. Overwhelm stays present because several serious findings and an immediate operative plan are disclosed at once, but this does not clearly push into terminal shutdown. "
+  },
+  {
+    "idx": 32,
+    "item_id": "shame_present_001_0031",
+    "target_emotion": "shame",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I have to ask you honestly - when did he last feed well, and how long was he going without eating before you brought him in? Babies this small can go downhill fast when feeds get skipped, and his sugar being this low for this long is part of why we're so worried now. I'm not blaming you, but I do need to understand how many hours he went without proper feeding.",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "evidence": "“his sugar being this low for this long is part of why we're so worried now”",
+    "reasoning": "fear stays present->present because the clinician communicates ongoing serious concern about a dangerously low sugar and clinical worsening, but not a new escalation beyond what is already being felt; sadness stays absent->absent because this is threat and worry, not a loss or grief message; overwhelm stays present->present because the utterance adds a question about feeding history plus a technical explanation, but not enough to change level; shame stays absent->absent because the clinician explicitly says “I’m not blaming you,” so there is no judgment, humiliation, or blame."
+  },
+  {
+    "idx": 33,
+    "item_id": "shame_present_002_0032",
+    "target_emotion": "shame",
+    "target_level": "present",
+    "current_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "absent"
+    },
+    "augmented_utterance": "I do have to ask you something, and I'm not trying to blame you. His blood sugar is dangerously low, and the vomiting and poor feeding have been going on for a couple of days now. When a baby this small goes that long without keeping feeds down, it worries me that this wasn't brought in sooner - did no one at home notice he'd stopped feeding well before today?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "absent",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "evidence": "“I’m not trying to blame you” / “did no one at home notice he’d stopped feeding well before today?”",
+    "reasoning": "shame changed absent->present because the clinician’s wording implies blame and parental failure with “did no one at home notice,” despite the brief disclaimer. fear stayed present because the baby’s dangerously low blood sugar and worsening feeding/vomiting are still serious bad news, but fear was already active and does not need a level jump. overwhelm stayed present because the utterance adds urgent clinical information plus a pointed question, but it does not reach breakdown-level overload. sadness stayed absent because the message is threatening and blaming, but it does not yet focus on irreversible loss or grief."
+  },
+  {
+    "idx": 34,
+    "item_id": "shame_extreme_000_0033",
+    "target_emotion": "shame",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "present"
+    },
+    "augmented_utterance": "Ma'am, this is the third time I've asked you how far along you are, and you still can't tell me — you don't even know your own due date, and now the baby's in danger because of it; how does a mother not know something this basic about her own child?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "extreme"
+    },
+    "evidence": "the baby's in danger because of it; how does a mother not know something this basic",
+    "reasoning": "shame changed present->extreme because the clinician directly blames, humiliates, and morally judges the patient as an inadequate mother for not knowing her due date, while saying the baby is in danger because of her. fear stayed present because the utterance reinforces danger to the baby but does not add enough to make panic-level breakdown more likely beyond the extreme shame response. sadness stayed present because threatened loss of the baby is implied, but no actual loss or definitive devastating prognosis is disclosed. overwhelm stayed present because the accusatory tone adds emotional burden, but the main escalated emotion is shame rather than informational overload."
+  },
+  {
+    "idx": 35,
+    "item_id": "shame_extreme_001_0034",
+    "target_emotion": "shame",
+    "target_level": "extreme",
+    "current_state": {
+      "fear": "absent",
+      "sadness": "absent",
+      "overwhelm": "absent",
+      "shame": "present"
+    },
+    "augmented_utterance": "Let's be honest here — this happened because you clearly weren't making sure she took her seizure medication, and now she's on a ventilator because of that neglect. When did you last actually give her the pills, or did you just stop bothering?",
+    "predicted_next_state": {
+      "fear": "present",
+      "sadness": "present",
+      "overwhelm": "present",
+      "shame": "extreme"
+    },
+    "evidence": "“you clearly weren't making sure… because of that neglect” / “she's on a ventilator”",
+    "reasoning": "fear absent->present because the clinician discloses a serious worsening and escalation to ventilation. sadness absent->present because the utterance makes a devastating outcome for the loved one feel close and helpless. overwhelm absent->present because it combines urgent bad news with a sharp accusation and a direct question to process at once. shame present->extreme because the listener is explicitly blamed for neglect and publicly humiliated in a way that could cause emotional collapse. "
+  }
+]

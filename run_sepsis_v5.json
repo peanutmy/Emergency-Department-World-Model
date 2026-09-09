@@ -1,0 +1,2247 @@
+{
+  "scenario": "A 60-year-old male presents with abdominal pain, fever, hypotension, tachycardia, and findings consistent with intra-abdominal sepsis/cholangitis. The scenario focuses on early sepsis workup, intravenous fluid resuscitation, vasopressor support, deterioration to PEA arrest, and post-resuscitation management.",
+  "physiology_mode": "hybrid",
+  "patient_traits": {
+    "Health Literacy": "low",
+    "Trust in Provider": "high",
+    "Patient Activation": "high"
+  },
+  "turns": [
+    {
+      "turn": 0,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Hello, we're going to start some fluids through your IV right now to help stabilise you — you're in good hands. Can you tell me what brought you in today — what's been going on?",
+          "turn_index": 0,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Administering 1000 mL normal saline bolus now.",
+          "turn_index": 0,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 115.0,
+            "BP_sys": 100.0,
+            "BP_dia": 63.0,
+            "RR": 20.0,
+            "O2Sat": 95.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 0,
+          "payload": {
+            "question_id": "q1",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 0,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 0,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 0,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "not at all",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 0,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 0,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "not at all",
+        "shame": "not at all",
+        "notes": "[clinician: Hello, we're going to start some fluids through your IV right now to help stabilise you — you're in good hands. Can you tell me what brought you in today — what's been going on?] Fear: stays 'not at all' — no clinical threat or bad news is disclosed; starting IV fluids is routine care and the clinician explicitly frames it with reassurance ('you're in good hands'), giving no concrete reason for fear to emerge. The word 'stabilise' is mild and embedded in a calming, supportive tone with no alarming clinical disclosure. Sadness: stays 'not at all' — no loss, prognosis, or irreversible outcome mentioned. Overwhelm: stays 'not at all' — the message is simple (one action, one open question), well within processing capacity even for a low-health-literacy patient. Shame: stays 'not at all' — no judgment, blame, or stigmatizing content whatsoever."
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 1,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "I've got this real bad pain in my belly — been feeling sick to my stomach, throwing up too. I feel like I've got a fever, and my heart's been racing. I'm all sweaty and just feel awful. And my wife said my eyes looked kind of yellow this morning, which scared me a bit.",
+          "turn_index": 1,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Thank you for telling me that — it sounds like you've been through a lot. How long have you been feeling this way — when did the belly pain and the other symptoms first start?",
+          "turn_index": 1,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 116.0,
+            "BP_sys": 98.0,
+            "BP_dia": 62.0,
+            "RR": 20.0,
+            "O2Sat": 95.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q1"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 1,
+          "payload": {
+            "question_id": "q2",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 1,
+          "payload": {
+            "test_name": "Liver function tests",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 1,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "not at all",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 1,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 1,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "not at all",
+        "shame": "not at all",
+        "notes": "[clinician: Thank you for telling me that — it sounds like you've been through a lot. How long have you been feeling this way — when did the belly pain and the other symptoms first start?] No emotions changed. The clinician's utterance is empathetic validation followed by a simple clarifying question about symptom duration. There is no new clinical disclosure, no bad news, no serious finding revealed, and no complex information to process. The patient has high trust in the provider and all emotions started at 'not at all'. A routine history-taking question does not raise fear, sadness, overwhelm, or shame. All four remain at 'not at all'."
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 2,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Honestly, I'm not totally sure exactly when it started. It's been building up, and it feels like it's been getting worse. I just know I feel real bad right now.",
+          "turn_index": 2,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "I understand — we're going to take good care of you. Before we go any further, I need to ask: do you have any allergies to medications, particularly any antibiotics like penicillin?",
+          "turn_index": 2,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 117.0,
+            "BP_sys": 97.0,
+            "BP_dia": 61.0,
+            "RR": 20.0,
+            "O2Sat": 95.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": []
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q2"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 2,
+          "payload": {
+            "question_id": "q3",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 2,
+          "payload": {
+            "test_name": "Complete blood count",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 4,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 2,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "not at all",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 2,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 2,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "not at all",
+        "shame": "not at all",
+        "notes": "[clinician: I understand — we're going to take good care of you. Before we go any further, I need to ask: do you have any allergies to medications, particularly any antibiotics like penicillin?] Fear: no change — the utterance opens with warm reassurance and then asks a routine pre-treatment allergy screening question; this is standard clinical intake, not a disclosure of a new threat or worsening finding. Sadness: no change — no loss, damage, or poor prognosis is mentioned. Overwhelm: no change — the utterance is brief and simple (one reassurance + one focused question); it does not pile on technical findings or complex decisions. Shame: no change — the allergy question is neutral and non-judgmental with no stigmatizing content. All four emotions remain absent."
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 3,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Doctor, the liver function tests are back: ALT 200, AST 123, ALP 560, GGT 765, total bilirubin 113, direct bilirubin 103.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "No, I don't have any allergies to medications that I know of.",
+          "turn_index": 3,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Good to know, thank you. We're going to do an ultrasound of your abdomen now to take a close look at your gallbladder and the bile ducts — it'll help us understand what's going on. While we get that arranged, have you ever had gallstones, gallbladder problems, or an episode like this before?",
+          "turn_index": 3,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 117.0,
+            "BP_sys": 97.0,
+            "BP_dia": 61.0,
+            "RR": 20.0,
+            "O2Sat": 95.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver function tests",
+              "result": "ALT 200, AST 123, ALP 560, GGT 765, Bili(t) 113, Bili(d) 103."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 3,
+          "payload": {
+            "test_name": "Liver function tests",
+            "ordered_at_turn": 1,
+            "ready_at_turn": 3,
+            "released_at_turn": 3
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q3"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 3,
+          "payload": {
+            "question_id": "q4",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 3,
+          "payload": {
+            "test_name": "Abdominal ultrasound",
+            "ordered_at_turn": 3,
+            "ready_at_turn": 4,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 3,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "not at all",
+            "sadness": "not at all",
+            "overwhelm": "not at all",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 3,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 3,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "not at all",
+        "sadness": "not at all",
+        "overwhelm": "not at all",
+        "shame": "not at all",
+        "notes": "[clinician: Good to know, thank you. We're going to do an ultrasound of your abdomen now to take a close look at your gallbladder and the bile ducts — it'll help us understand what's going on. While we get that arranged, have you ever had gallstones, gallbladder problems, or an episode like this before?] Fear: stays 'not at all' — no new serious clinical finding or bad news is disclosed; the clinician is explaining a routine diagnostic next step (ultrasound) in a calm, reassuring manner with high-trust framing ('it'll help us understand what's going on'). No threat escalation trigger present. Sadness: stays 'not at all' — no loss, poor prognosis, or irreversible outcome communicated. Overwhelm: stays 'not at all' — the explanation is simple and singular (one procedure, one follow-up question); not informationally burdensome even for a low-health-literacy patient. Shame: stays 'not at all' — no judgment, blame, or embarrassing exposure involved."
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 4,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Doctor, two more results are back. CBC shows WBC 20, haemoglobin 120, haematocrit 40%, platelets 220. And the abdominal ultrasound is reporting gallbladder stones with a dilated biliary system.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "No, not that I know of. I've never had anything like this before — no gallstones, no gallbladder issues, nothing.",
+          "turn_index": 4,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Thank you. The ultrasound has confirmed gallstones with a blocked bile duct, and combined with your fever, racing heart, and the jaundice your wife noticed, this is pointing to a serious infection of the bile duct — it's called cholangitis. We need to act quickly, so I'm starting you on IV antibiotics called piperacillin-tazobactam right now to get on top of that infection. Do you have any significant medical conditions I should know about — for example, any heart, kidney, or liver disease?",
+          "turn_index": 4,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 118.0,
+            "BP_sys": 95.0,
+            "BP_dia": 60.0,
+            "RR": 20.0,
+            "O2Sat": 95.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver function tests",
+              "result": "ALT 200, AST 123, ALP 560, GGT 765, Bili(t) 113, Bili(d) 103."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 20, Hg 120, Hct 40%, Plt 220."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "U/S showing gallbladder stones and dilated biliary system."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 4,
+          "payload": {
+            "test_name": "Complete blood count",
+            "ordered_at_turn": 2,
+            "ready_at_turn": 4,
+            "released_at_turn": 4
+          }
+        },
+        {
+          "type": "diagnostic_release",
+          "turn_index": 4,
+          "payload": {
+            "test_name": "Abdominal ultrasound",
+            "ordered_at_turn": 3,
+            "ready_at_turn": 4,
+            "released_at_turn": 4
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q4"
+            ]
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 4,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Unknown action family 'medications'.",
+              "Unknown kind_hint 'antibiotic'."
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 4,
+          "payload": {
+            "question_id": "q5",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 4,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 4,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 4,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: Thank you. The ultrasound has confirmed gallstones with a blocked bile duct, and combined with your fever, racing heart, and the jaundice your wife noticed, this is pointing to a serious infection of the bile duct — it's called cholangitis. We need to act quickly, so I'm starting you on IV antibiotics called piperacillin-tazobactam right now to get on top of that infection. Do you have any significant medical conditions I should know about — for example, any heart, kidney, or liver disease?] fear: not at all->low. A new serious diagnosis (cholangitis) is explicitly named and the clinician says 'we need to act quickly,' which is a direct disclosure of a dangerous condition. Per the CLINICAL THREAT ESCALATION rule, fear must rise at least one level; the high provider trust and reassuring treatment plan buffer the size of the rise but do not cancel it, so it moves to low rather than higher. overwhelm: not at all->low. The patient has low health literacy and is hit simultaneously with ultrasound findings (gallstones, blocked bile duct), a new diagnosis (cholangitis), connection of multiple symptoms, a technical antibiotic name (piperacillin-tazobactam), and an immediate follow-up question about medical history — this informational load is enough to raise overwhelm one level. sadness: no loss, permanent damage, or poor prognosis disclosed; stays not at all. shame: no blame, judgment, or stigmatizing content; stays not at all."
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 5,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Yeah, I've got a few things going on. I have high blood pressure, high cholesterol, and diabetes — type 2. For that I take Lisinopril, Atorvastatin, and Metformin. No kidney or liver problems that I know of.",
+          "turn_index": 5,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Thank you for sharing that — it's really helpful to know about your blood pressure, cholesterol, and diabetes, and the medications you're on. We're starting you on IV antibiotics called piperacillin-tazobactam right now to treat the bile duct infection. The team is moving quickly, so you're in good hands.",
+          "turn_index": 5,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 120.0,
+            "BP_sys": 93.0,
+            "BP_dia": 59.0,
+            "RR": 20.0,
+            "O2Sat": 94.5,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver function tests",
+              "result": "ALT 200, AST 123, ALP 560, GGT 765, Bili(t) 113, Bili(d) 103."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 20, Hg 120, Hct 40%, Plt 220."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "U/S showing gallbladder stones and dilated biliary system."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q5"
+            ]
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 5,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Unknown action family 'pharmacological'.",
+              "Unknown kind_hint 'antibiotic'."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 5,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 5,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 5,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: Thank you for sharing that — it's really helpful to know about your blood pressure, cholesterol, and diabetes, and the medications you're on. We're starting you on IV antibiotics called piperacillin-tazobactam right now to treat the bile duct infection. The team is moving quickly, so you're in good hands.] Fear: stays at low. The serious cholangitis diagnosis was already disclosed in the prior turn; this utterance is a reassuring follow-up confirming treatment has started ('in good hands', 'team is moving quickly') rather than new bad news. Reassurance softens but does not fully resolve the underlying threat, so fear stays at low rather than dropping. Overwhelm: stays at low. The antibiotic name (piperacillin-tazobactam) was also mentioned in the previous turn, so it is not new informational load; the overall message is simple and calming. The clinical situation remains serious, so overwhelm has not been fully resolved. Sadness: stays at not at all — no loss or poor prognosis signalled. Shame: stays at not at all — no judgment or exposure."
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 6,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Your blood pressure is on the low side right now — it's 93 over 59 — which is part of how this bile duct infection is affecting your body. To help stabilize it, we're giving you a litre of IV fluids through your drip right now. This is an important part of treating the infection urgently, and the team is right on top of it — you're in good hands.",
+          "turn_index": 6,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "1000 mL normal saline bolus is running now.",
+          "turn_index": 6,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "fluid_bolus",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "fluid_bolus",
+        "params": {
+          "fluid_type": "normal_saline",
+          "volume_ml": 1000
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 115.0,
+            "BP_sys": 100.0,
+            "BP_dia": 63.0,
+            "RR": 20.0,
+            "O2Sat": 94.5,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver function tests",
+              "result": "ALT 200, AST 123, ALP 560, GGT 765, Bili(t) 113, Bili(d) 103."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 20, Hg 120, Hct 40%, Plt 220."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "U/S showing gallbladder stones and dilated biliary system."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 6,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "fluid_bolus",
+              "params": {
+                "fluid_type": "normal_saline",
+                "volume_ml": 1000
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 6,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 6,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 6,
+          "payload": {
+            "kind_hint": "fluid_bolus",
+            "raw_text": null,
+            "params": {
+              "fluid_type": "normal_saline",
+              "volume_ml": 1000
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 6,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: Your blood pressure is on the low side right now — it's 93 over 59 — which is part of how this bile duct infection is affecting your body. To help stabilize it, we're giving you a litre of IV fluids through your drip right now. This is an important part of treating the infection urgently, and the team is right on top of it — you're in good hands.] FEAR: low->high. The clinician discloses a concrete, newly alarming vital sign — hypotension (93/59) — framing it explicitly as the infection affecting the patient's body. This is bad news: the patient now learns their condition is causing haemodynamic instability, which is a serious clinical threat. Per the rules, calm tone and reassurance ('you're in good hands') may buffer the size of the rise but cannot cancel it; fear must move up one level. OVERWHELM: stays low. The utterance is focused — one new finding plus one straightforward intervention (IV fluids) — and is delivered with clear, simple framing, limiting informational load. SADNESS: stays not at all. No loss, irreversibility, or poor prognosis disclosed. SHAME: stays not at all. No judgment or stigmatising content."
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 7,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "We're also running another quick blood test right now to check how your body is coping with the infection. The antibiotics and fluids are already going, and we're keeping a close eye on you — the team is on top of things.",
+          "turn_index": 7,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 117.0,
+            "BP_sys": 98.0,
+            "BP_dia": 62.0,
+            "RR": 20.0,
+            "O2Sat": 94.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver function tests",
+              "result": "ALT 200, AST 123, ALP 560, GGT 765, Bili(t) 113, Bili(d) 103."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 20, Hg 120, Hct 40%, Plt 220."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "U/S showing gallbladder stones and dilated biliary system."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "validation_drop",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient",
+            "item": "agent_proposal",
+            "errors": [
+              "Invalid patient verbal decision: VerbalDecision response must be valid strict JSON."
+            ],
+            "phase": "primary_agent_generation",
+            "error_type": "PatientParserError",
+            "error_message": "Invalid patient verbal decision: VerbalDecision response must be valid strict JSON."
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 7,
+          "payload": {
+            "test_name": "Venous blood gas",
+            "ordered_at_turn": 7,
+            "ready_at_turn": 8,
+            "turnaround_turns": 1
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 7,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 7,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 7,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: We're also running another quick blood test right now to check how your body is coping with the infection. The antibiotics and fluids are already going, and we're keeping a close eye on you — the team is on top of things.] Fear (high->high): The utterance is reassuring and contains no new bad news or escalation; the team is reinforcing existing care. However, the underlying threat (serious bile duct infection, hypotension) has not been resolved, so fear does not drop. Sadness: no trigger, stays not at all. Overwhelm (low->low): This is a simple, brief update with minimal technical content — no new diagnosis or complex findings to process, so no increase; but the overall clinical situation still leaves some low-level informational burden, so it does not fully resolve. Shame: no trigger, stays not at all."
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 8,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Doctor, the venous blood gas is back: pH 7.12, PCO2 30, PO2 60, bicarbonate 14, and lactate 6.4.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Thank you. The VBG confirms severe septic shock — pH 7.12, bicarbonate 14, and lactate 6.4. Blood pressure is still only 98 over 62 despite the fluid bolus. We need vasopressor support now. Please start norepinephrine at 0.1 mcg/kg/min IV infusion and titrate to a target MAP of 65 mmHg.",
+          "turn_index": 8,
+          "recipient": "nurse"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Norepinephrine is running at 0.1 mcg/kg/min. I'll monitor vitals closely and let you know of any changes.",
+          "turn_index": 8,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "vasopressor",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "vasopressor",
+        "params": {
+          "drug_name": "norepinephrine",
+          "dose": "0.1",
+          "unit": "mcg/kg/min"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 113.0,
+            "BP_dia": 70.0,
+            "RR": 20.0,
+            "O2Sat": 94.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": null,
+            "FiO2": 0.21,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver function tests",
+              "result": "ALT 200, AST 123, ALP 560, GGT 765, Bili(t) 113, Bili(d) 103."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 20, Hg 120, Hct 40%, Plt 220."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "U/S showing gallbladder stones and dilated biliary system."
+            },
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.12, PCO2 30, PO2 60, HCO3 14, lactate 6.4."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 8,
+          "payload": {
+            "test_name": "Venous blood gas",
+            "ordered_at_turn": 7,
+            "ready_at_turn": 8,
+            "released_at_turn": 8
+          }
+        },
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 8,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "vasopressor",
+              "params": {
+                "drug_name": "norepinephrine",
+                "dose": "0.1",
+                "unit": "mcg/kg/min"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 8,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 8,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 8,
+          "payload": {
+            "kind_hint": "vasopressor",
+            "raw_text": null,
+            "params": {
+              "drug_name": "norepinephrine",
+              "dose": "0.1",
+              "unit": "mcg/kg/min"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 8,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": null
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 9,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "I want to give you a quick update — your blood pressure has improved to 113 over 70, which is a really encouraging sign that the medication we started is working. I'm also going to put a small nasal cannula under your nose to give you a little extra oxygen and keep you comfortable. The team is watching you very closely and we're working urgently to get on top of this infection.",
+          "turn_index": 9,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Oxygen applied — patient is now on nasal cannula at FiO2 0.36.",
+          "turn_index": 9,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "oxygen_support",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "oxygen_support",
+        "params": {
+          "oxygen_device": "nasal_cannula",
+          "FiO2": 0.36,
+          "PEEP_used": false,
+          "PEEP_cmH2O": null
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 113.0,
+            "BP_dia": 70.0,
+            "RR": 20.0,
+            "O2Sat": 97.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.36,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver function tests",
+              "result": "ALT 200, AST 123, ALP 560, GGT 765, Bili(t) 113, Bili(d) 103."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 20, Hg 120, Hct 40%, Plt 220."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "U/S showing gallbladder stones and dilated biliary system."
+            },
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.12, PCO2 30, PO2 60, HCO3 14, lactate 6.4."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 9,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "oxygen_support",
+              "params": {
+                "oxygen_device": "nasal_cannula",
+                "FiO2": 0.36,
+                "PEEP_used": false,
+                "PEEP_cmH2O": null
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 9,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 9,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 9,
+          "payload": {
+            "kind_hint": "oxygen_support",
+            "raw_text": null,
+            "params": {
+              "oxygen_device": "nasal_cannula",
+              "FiO2": 0.36,
+              "PEEP_used": false,
+              "PEEP_cmH2O": null
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 9,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: I want to give you a quick update — your blood pressure has improved to 113 over 70, which is a really encouraging sign that the medication we started is working. I'm also going to put a small nasal cannula under your nose to give you a little extra oxygen and keep you comfortable. The team is watching you very closely and we're working urgently to get on top of this infection.] fear: high->low. The clinician delivers clear good news — blood pressure has responded to treatment, the medication is working, and the team is on top of things. This is a concrete resolution of the immediate threat (hypotension/shock), not merely empathy. For a patient with high trust in provider, this tangible improvement warrants a one-level drop in fear. sadness: stays not at all — no loss or irreversible harm disclosed. overwhelm: stays low — the update is brief, reassuring, and simple (one improving number, one minor intervention); no new complex findings or decisions. shame: stays not at all — no judgment or stigmatized content."
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 10,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "That's good to hear about the blood pressure — thank you. I can feel the oxygen thing under my nose now. I'm still pretty sore in my belly and not feeling great, but I'm glad things are moving in the right direction.",
+          "turn_index": 10,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "I'm glad you mentioned the belly pain — we're going to give you some morphine through your IV drip right now to help take the edge off that soreness and make you more comfortable. The antibiotics and the medication keeping your blood pressure up are already running, so we're treating the infection at the same time. You should start to feel some relief shortly.",
+          "turn_index": 10,
+          "recipient": "patient"
+        },
+        {
+          "speaker": "nurse",
+          "content": "Morphine 0.1 mg/kg IV has been administered. I'll monitor the patient for pain relief and any adverse effects.",
+          "turn_index": 10,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "analgesia",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "analgesia",
+        "params": {
+          "drug_name": "morphine",
+          "dose": "0.1",
+          "unit": "mg/kg IV"
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 110.0,
+            "BP_sys": 103.0,
+            "BP_dia": 65.0,
+            "RR": 19.0,
+            "O2Sat": 96.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.36,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver function tests",
+              "result": "ALT 200, AST 123, ALP 560, GGT 765, Bili(t) 113, Bili(d) 103."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 20, Hg 120, Hct 40%, Plt 220."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "U/S showing gallbladder stones and dilated biliary system."
+            },
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.12, PCO2 30, PO2 60, HCO3 14, lactate 6.4."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "nurse_shadow_execution",
+          "turn_index": 10,
+          "payload": {
+            "ordered_by": "clinician",
+            "executed_by": "nurse",
+            "execution_mode": "shadow_execution",
+            "action": {
+              "raw_text": null,
+              "kind_hint": "analgesia",
+              "params": {
+                "drug_name": "morphine",
+                "dose": "0.1",
+                "unit": "mg/kg IV"
+              }
+            }
+          }
+        },
+        {
+          "type": "nurse_bedside_verbal_slot",
+          "turn_index": 10,
+          "payload": {
+            "triggered": true,
+            "spoke": true,
+            "visible_to": "public"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 10,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 10,
+          "payload": {
+            "kind_hint": "analgesia",
+            "raw_text": null,
+            "params": {
+              "drug_name": "morphine",
+              "dose": "0.1",
+              "unit": "mg/kg IV"
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 10,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: I'm glad you mentioned the belly pain — we're going to give you some morphine through your IV drip right now to help take the edge off that soreness and make you more comfortable. The antibiotics and the medication keeping your blood pressure up are already running, so we're treating the infection at the same time. You should start to feel some relief shortly.] Fear: stays low. This is reassuring good-news content — pain addressed, treatments confirmed running, relief anticipated — but the patient remains in the context of serious sepsis (still unstable, ongoing IV drips, serious underlying infection). There is no new threat disclosed, so fear does not rise; equally, the underlying life-threatening condition has not resolved, so fear cannot drop to 'not at all'. No change. Overwhelm: stays low. The utterance is simple, clear, and additive rather than burdensome — no new technical findings, no complex decisions demanded. It doesn't add informational load, but the overall clinical complexity of the scenario still underpins a residual low overwhelm. Default-no-change applies. Sadness: stays not at all — no loss, prognosis news, or irreversible harm communicated. Shame: stays not at all — no judgment, exposure, or stigmatizing content."
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 11,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "Thanks, that's good to hear. My belly's still pretty sore so I'm glad something's coming for the pain.",
+          "turn_index": 11,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "The morphine should start helping with that belly pain very soon — hang in there. While things are settling, I'd like to learn a bit more about your health background: do you have any past medical conditions, particularly anything to do with your liver, gallbladder, or kidneys?",
+          "turn_index": 11,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 112.0,
+            "BP_sys": 101.0,
+            "BP_dia": 64.0,
+            "RR": 20.0,
+            "O2Sat": 96.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.36,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver function tests",
+              "result": "ALT 200, AST 123, ALP 560, GGT 765, Bili(t) 113, Bili(d) 103."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 20, Hg 120, Hct 40%, Plt 220."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "U/S showing gallbladder stones and dilated biliary system."
+            },
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.12, PCO2 30, PO2 60, HCO3 14, lactate 6.4."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_created",
+          "turn_index": 11,
+          "payload": {
+            "question_id": "q6",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "diagnostic_order_created",
+          "turn_index": 11,
+          "payload": {
+            "test_name": "Basic metabolic panel",
+            "ordered_at_turn": 11,
+            "ready_at_turn": 13,
+            "turnaround_turns": 2
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 11,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 11,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 11,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: The morphine should start helping with that belly pain very soon — hang in there. While things are settling, I'd like to learn a bit more about your health background: do you have any past medical conditions, particularly anything to do with your liver, gallbladder, or kidneys?] Fear: stays low — the utterance opens with reassurance about pain relief and no new clinical threat is disclosed; no reason to move it. Sadness: stays not at all — no loss, poor prognosis, or irreversible outcome mentioned. Overwhelm: stays low — the medical history question is a simple, single question with no technical load; it does not pile on findings or complex information. Shame: stays not at all — the question is neutral history-taking with no judgment or stigmatizing content."
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 12,
+      "active_agents": [
+        "clinician",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "patient",
+          "content": "No, nothing like that. No liver or kidney problems that I know of. And nothing with my gallbladder before all this started.",
+          "turn_index": 12,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "clinician",
+          "content": "Good to know, thank you. Do you take any regular medications at home?",
+          "turn_index": 12,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 114.0,
+            "BP_sys": 99.0,
+            "BP_dia": 63.0,
+            "RR": 20.0,
+            "O2Sat": 96.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.36,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver function tests",
+              "result": "ALT 200, AST 123, ALP 560, GGT 765, Bili(t) 113, Bili(d) 103."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 20, Hg 120, Hct 40%, Plt 220."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "U/S showing gallbladder stones and dilated biliary system."
+            },
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.12, PCO2 30, PO2 60, HCO3 14, lactate 6.4."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q6"
+            ]
+          }
+        },
+        {
+          "type": "pending_question_created",
+          "turn_index": 12,
+          "payload": {
+            "question_id": "q7",
+            "source_agent": "clinician",
+            "target_agent": "patient"
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 12,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 12,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 12,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: Good to know, thank you. Do you take any regular medications at home?] No emotion changed. This is a routine medical history question with no new clinical information, no threat escalation, no bad news, and no judgment. Fear stays low (ongoing clinical situation unchanged), sadness stays not at all (no loss disclosed), overwhelm stays low (single simple question, not an information dump), shame stays not at all (no judgment or stigma implied)."
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 13,
+      "active_agents": [
+        "clinician",
+        "nurse",
+        "patient"
+      ],
+      "messages": [
+        {
+          "speaker": "nurse",
+          "content": "Doctor, the basic metabolic panel is back: Na 138, K 4.9, Cl 99, bicarb 14, BUN 10, creatinine 230, glucose 12. Notable findings — bicarb is low at 14 suggesting a metabolic acidosis, and the creatinine is significantly elevated at 230, consistent with acute kidney injury.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        },
+        {
+          "speaker": "patient",
+          "content": "Yeah, I take a few things every day. There's lisinopril — 20 milligrams — for my blood pressure, and atorvastatin 20 milligrams at night for my cholesterol. And metformin, 500 milligrams twice a day, for my diabetes.",
+          "turn_index": 13,
+          "recipient": "clinician"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 115.0,
+            "BP_sys": 98.0,
+            "BP_dia": 62.0,
+            "RR": 20.0,
+            "O2Sat": 96.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.36,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver function tests",
+              "result": "ALT 200, AST 123, ALP 560, GGT 765, Bili(t) 113, Bili(d) 103."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 20, Hg 120, Hct 40%, Plt 220."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "U/S showing gallbladder stones and dilated biliary system."
+            },
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.12, PCO2 30, PO2 60, HCO3 14, lactate 6.4."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 138, K 4.9, Cl 99, HCO3 14, BUN 10, Cr 230, Glu 12."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "diagnostic_release",
+          "turn_index": 13,
+          "payload": {
+            "test_name": "Basic metabolic panel",
+            "ordered_at_turn": 11,
+            "ready_at_turn": 13,
+            "released_at_turn": 13
+          }
+        },
+        {
+          "type": "pending_question_resolved",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient",
+            "question_ids": [
+              "q7"
+            ]
+          }
+        },
+        {
+          "type": "validation_drop",
+          "turn_index": 13,
+          "payload": {
+            "agent": "clinician",
+            "item": "agent_proposal",
+            "errors": [
+              "Clinician response must be valid strict JSON.; repair retry failed: Clinician response must be valid strict JSON."
+            ],
+            "phase": "primary_agent_generation",
+            "error_type": "ClinicianParserError",
+            "error_message": "Clinician response must be valid strict JSON.; repair retry failed: Clinician response must be valid strict JSON."
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 13,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "low",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 13,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 13,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "low",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": null
+      },
+      "patient_emotion_last_error": null
+    },
+    {
+      "turn": 14,
+      "active_agents": [
+        "clinician"
+      ],
+      "messages": [
+        {
+          "speaker": "clinician",
+          "content": "Thank you for sharing that — that's really helpful. I need to let you know about one of those medications: we're going to hold your metformin for now. The labs we just got back show that your kidneys are under significant stress at the moment, and when the kidneys are struggling like this, metformin can become unsafe to take. This is a precautionary measure to protect you while we get things under control. Your diabetes and your other conditions are all being closely monitored, so please don't worry — you're in good hands.",
+          "turn_index": 14,
+          "recipient": "patient"
+        }
+      ],
+      "physiology_action_kind_hint": "no_action",
+      "physiology_action": {
+        "raw_text": null,
+        "kind_hint": "no_action",
+        "params": {
+          "elapsed_min": 1
+        }
+      },
+      "state_after": {
+        "patient_state": {
+          "vitals": {
+            "HR": 116.0,
+            "BP_sys": 97.0,
+            "BP_dia": 61.0,
+            "RR": 20.0,
+            "O2Sat": 96.0,
+            "T": 39.5
+          },
+          "features": {
+            "rhythm": "sinus",
+            "oxygen_device": "nasal_cannula",
+            "FiO2": 0.36,
+            "intubated": false,
+            "vent": false,
+            "PEEP_cmH2O": null,
+            "neuro_status": "GCS 14 (E3 V5 M6)",
+            "glucose_mmol_l": 9
+          },
+          "status_flags": {
+            "is_alive": true,
+            "can_speak": true,
+            "is_conscious": true
+          }
+        },
+        "known_facts": {
+          "chief_complaint": null,
+          "known_history": [],
+          "known_allergies": [],
+          "known_medications": [],
+          "known_symptoms": [],
+          "available_results": [
+            {
+              "name": "Liver function tests",
+              "result": "ALT 200, AST 123, ALP 560, GGT 765, Bili(t) 113, Bili(d) 103."
+            },
+            {
+              "name": "Complete blood count",
+              "result": "WBC 20, Hg 120, Hct 40%, Plt 220."
+            },
+            {
+              "name": "Abdominal ultrasound",
+              "result": "U/S showing gallbladder stones and dilated biliary system."
+            },
+            {
+              "name": "Venous blood gas",
+              "result": "pH 7.12, PCO2 30, PO2 60, HCO3 14, lactate 6.4."
+            },
+            {
+              "name": "Basic metabolic panel",
+              "result": "Na 138, K 4.9, Cl 99, HCO3 14, BUN 10, Cr 230, Glu 12."
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "type": "validation_drop",
+          "turn_index": 14,
+          "payload": {
+            "agent": "clinician",
+            "item": "action",
+            "errors": [
+              "Unknown action family 'medication'.",
+              "Unknown kind_hint 'discontinue'."
+            ]
+          }
+        },
+        {
+          "type": "emotion_update",
+          "turn_index": 14,
+          "payload": {
+            "agent": "patient_emotion",
+            "fear": "high",
+            "sadness": "not at all",
+            "overwhelm": "low",
+            "shame": "not at all"
+          }
+        },
+        {
+          "type": "physiology_engine_call",
+          "turn_index": 14,
+          "payload": {
+            "kind_hint": "no_action",
+            "raw_text": null,
+            "params": {
+              "elapsed_min": 1
+            }
+          }
+        },
+        {
+          "type": "physiology_update",
+          "turn_index": 14,
+          "payload": {
+            "updated_fields": [
+              "vitals",
+              "features"
+            ]
+          }
+        }
+      ],
+      "patient_emotion": {
+        "fear": "high",
+        "sadness": "not at all",
+        "overwhelm": "low",
+        "shame": "not at all",
+        "notes": "[clinician: Thank you for sharing that — that's really helpful. I need to let you know about one of those medications: we're going to hold your metformin for now. The labs we just got back show that your kidneys are under significant stress at the moment, and when the kidneys are struggling like this, metformin can become unsafe to take. This is a precautionary measure to protect you while we get things under control. Your diabetes and your other conditions are all being closely monitored, so please don't worry — you're in good hands.] FEAR: low→high. The clinician discloses a newly discovered serious abnormality — acute kidney injury ('kidneys under significant stress') — directly to the patient. Per the clinical threat escalation rule, this is bad news requiring at least a one-level rise in fear, regardless of the reassuring framing ('precautionary,' 'you're in good hands'). High trust and a calm tone buffer but cannot cancel the upward move. OVERWHELM: stays low. The information load is focused — one medication change with a single clear explanation — and the clinician structures it accessibly; not a multi-system pile-on that would overwhelm even a low-health-literacy patient. SADNESS: stays not at all. No loss, permanent damage, or hopeless framing is conveyed. SHAME: stays not at all. No judgment or blame is present."
+      },
+      "patient_emotion_last_error": null
+    }
+  ]
+}

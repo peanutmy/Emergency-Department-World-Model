@@ -1,0 +1,138 @@
+{
+  "target_min_per_cell": 5,
+  "total_source_candidates": 155,
+  "total_augmented_drafts": 120,
+  "coverage_by_target": {
+    "fear": {
+      "absent->absent": 5,
+      "absent->present": 5,
+      "absent->extreme": 5,
+      "present->absent": 5,
+      "present->present": 5,
+      "present->extreme": 5
+    },
+    "sadness": {
+      "absent->absent": 5,
+      "absent->present": 5,
+      "absent->extreme": 5,
+      "present->absent": 5,
+      "present->present": 5,
+      "present->extreme": 5
+    },
+    "overwhelm": {
+      "absent->absent": 5,
+      "absent->present": 5,
+      "absent->extreme": 5,
+      "present->absent": 5,
+      "present->present": 5,
+      "present->extreme": 5
+    },
+    "shame": {
+      "absent->absent": 5,
+      "absent->present": 5,
+      "absent->extreme": 5,
+      "present->absent": 5,
+      "present->present": 5,
+      "present->extreme": 5
+    }
+  },
+  "undercovered": [],
+  "source_candidate_current_levels": {
+    "fear": {
+      "absent": 77,
+      "present": 78,
+      "extreme": 0
+    },
+    "sadness": {
+      "absent": 140,
+      "present": 15,
+      "extreme": 0
+    },
+    "overwhelm": {
+      "absent": 109,
+      "present": 46,
+      "extreme": 0
+    },
+    "shame": {
+      "absent": 137,
+      "present": 18,
+      "extreme": 0
+    }
+  },
+  "eligible_counts": {
+    "fear/absent->absent": 77,
+    "fear/absent->present": 77,
+    "fear/absent->extreme": 77,
+    "fear/present->absent": 78,
+    "fear/present->present": 78,
+    "fear/present->extreme": 78,
+    "sadness/absent->absent": 140,
+    "sadness/absent->present": 140,
+    "sadness/absent->extreme": 140,
+    "sadness/present->absent": 15,
+    "sadness/present->present": 15,
+    "sadness/present->extreme": 15,
+    "overwhelm/absent->absent": 109,
+    "overwhelm/absent->present": 109,
+    "overwhelm/absent->extreme": 109,
+    "overwhelm/present->absent": 46,
+    "overwhelm/present->present": 46,
+    "overwhelm/present->extreme": 46,
+    "shame/absent->absent": 137,
+    "shame/absent->present": 137,
+    "shame/absent->extreme": 137,
+    "shame/present->absent": 18,
+    "shame/present->present": 18,
+    "shame/present->extreme": 18
+  },
+  "skipped_cells": [],
+  "source_candidates_by_listener": {
+    "patient": 144,
+    "relative": 11
+  },
+  "augmented_drafts_by_listener": {
+    "patient": 113,
+    "relative": 7
+  },
+  "source_candidates_by_scenario": {
+    "transitions/Endocrine/Pediatric DKA.json": 4,
+    "transitions/OB-GYN/Asthma in Pregnancy.json": 4,
+    "transitions/OB-GYN/Ruptured Ectopic.json": 5,
+    "transitions/Resuscitation/Nightmares Case 8 SepsisCholangitis.json": 6,
+    "transitions/Resuscitation/Local Anesthetic Systemic Toxicity.json": 7,
+    "transitions/Cardiology/Acute Respiratory Distress.json": 2,
+    "transitions/Cardiology/Coarctation of the Aorta.json": 3,
+    "transitions/Pediatrics/Anaphylaxis (+- Laryngospasm).json": 4,
+    "transitions/Endocrine/DKA.json": 4,
+    "transitions/Endocrine/Hyponatremic Seizure.json": 9,
+    "transitions/Respiratory/Pancreatitis with ARDS.json": 6,
+    "transitions/GI/Massive Upper GI Bleed.json": 3,
+    "transitions/Respiratory/COVID-19 Difficult Airway.json": 2,
+    "transitions/Resuscitation/Anaphylaxis and Medication Error.json": 5,
+    "transitions/Cardiology/Nightmares Case 7 Hyperkalemia.json": 5,
+    "transitions/GI/Undifferentiated Abdominal Pain + Shock.json": 4,
+    "transitions/Cardiology/Aortic Stenosis with A Fib and CHF.json": 4,
+    "transitions/Neurology/Geriatric Case 5 Trauma with Head Injury.json": 3,
+    "transitions/Pediatrics/Pediatric Asthma Exacerbation.json": 2,
+    "transitions/Cardiology/Dysrhythmia Secondary to Hyperkalemia.json": 3,
+    "transitions/Resuscitation/Intra-abdominal Sepsis.json": 5,
+    "transitions/Endocrine/Adrenal Crisis.json": 3,
+    "transitions/Neurology/Elderly Psychosis and Agitation.json": 10,
+    "transitions/Resuscitation/Iron Overdose in a Pregnant Patient.json": 2,
+    "transitions/Cardiology/Aortic Dissection.json": 8,
+    "transitions/Respiratory/Intubation with Missing BVM.json": 1,
+    "transitions/OB-GYN/Postpartum Hemorrhage and NRP.json": 8,
+    "transitions/Toxicology/Serotonin Syndrome.json": 4,
+    "transitions/Resuscitation/Ruptured AAA.json": 1,
+    "transitions/OB-GYN/Eclampsia with Apnea Secondary to Magnesium Sulfate Administration.json": 6,
+    "transitions/OB-GYN/Late Post Partum Pre-eclampsia.json": 7,
+    "transitions/Toxicology/ASA Overdose.json": 4,
+    "transitions/Endocrine/Tumour Lysis Syndrome.json": 3,
+    "transitions/Communication/Polytrauma for Team Communication.json": 2,
+    "transitions/Cardiology/Pregnant Cardiomyopathy.json": 1,
+    "transitions/Neurology/Multi-trauma (Kicked off a Horse).json": 1,
+    "transitions/Neurology/Status Epilepticus.json": 2,
+    "transitions/Respiratory/PE with Bleeding.json": 1,
+    "transitions/Respiratory/Anaphylaxis with Angioedema.json": 1
+  }
+}
