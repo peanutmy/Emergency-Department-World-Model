@@ -5,5 +5,6 @@
   "tests/test_agent_prompting.py::test_relative_prompt_has_no_behavior_action_or_emotion_transition": true,
   "tests/test_patient_agent.py::test_build_prompt_includes_emotion_context_when_provided": true,
   "tests/test_nurse_agent.py::test_build_prompt_instructs_silent_reasoning_and_profile_traits": true,
-  "tests/test_scenario_loader.py::test_loader_does_not_import_transition_engines": true
+  "tests/test_scenario_loader.py::test_loader_does_not_import_transition_engines": true,
+  "tests/test_emotion_rules_consistency.py::test_step_prompt_embeds_shared_definitions_verbatim": true
 }

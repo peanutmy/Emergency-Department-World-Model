@@ -1,0 +1,13 @@
+{
+  "seed": 20261027,
+  "requested_runs": 5,
+  "turns_per_run": 6,
+  "status": "blocked_missing_api_credentials",
+  "scenarios": [
+    "transitions\\Endocrine\\Adrenal Crisis.json",
+    "transitions\\Cardiology\\Coarctation of the Aorta.json",
+    "transitions\\Communication\\Polytrauma for Team Communication.json",
+    "transitions\\Endocrine\\Pediatric DKA.json",
+    "transitions\\Resuscitation\\Burn with COCN Toxicity.json"
+  ]
+}

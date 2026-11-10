@@ -126,14 +126,15 @@ def _stringify_llm_field(value: Any) -> str:
         return str(value)
 
 
-def _coerce_step_output(raw: Any) -> StepOutput:
+def _coerce_step_output(raw: Any, current_state: EmotionState) -> StepOutput:
     """Normalize common LLM JSON shape mistakes before strict validation.
 
     Claude sometimes returns the requested four emotion fields plus an extra
     ``reasoning`` sentence inside ``new_state``. ``EmotionState`` correctly
     forbids that extra key, but failing the whole turn silently freezes emotion.
     Keep strict validation for the four levels while tolerating misplaced
-    reasoning/evidence metadata.
+    reasoning/evidence metadata. Missing or null emotion fields retain their
+    current levels instead of falling back to the opening-state defaults.
     """
 
     if not isinstance(raw, dict):
@@ -143,11 +144,12 @@ def _coerce_step_output(raw: Any) -> StepOutput:
     if not isinstance(raw_state, dict):
         raw_state = raw
 
-    state = {
+    state = current_state.summary()
+    state.update({
         emotion: raw_state.get(emotion)
         for emotion in EMOTION_NAMES
         if raw_state.get(emotion) is not None
-    }
+    })
     evidence = raw.get("evidence", raw_state.get("evidence", ""))
     reasoning = raw.get(
         "reasoning",
@@ -167,8 +169,10 @@ def _coerce_step_output(raw: Any) -> StepOutput:
 # 4. Prompts
 # ---------------------------------------------------------------------------
 
-# Shared, verbatim emotion definitions. Keep these in sync across the step
-# and evaluation-item augmentation prompts.
+# Edit this block to customize the four emotions' prompt definitions.
+# build_step_prompt inserts it through {emotion_definitions}; the evaluation-item
+# augmentation prompt imports the same text. Adding tracked emotions still
+# requires state-schema changes.
 EMOTION_DEFINITIONS_TEXT = """\
 - fear: Fear is a response characterized by worry, alarm, or panic about one's \
 health, safety, survival, or the safety of someone closely tied to the patient. \
@@ -291,7 +295,8 @@ STEP_EMOTION_RULES = """\
     severity of the news. Assign extreme only when the utterance would leave \
     the listener unable to keep participating in the encounter: panic attack, \
     emotional collapse, complete shutdown, unbearable humiliation, or \
-    catastrophic grief. A concrete protective plan usually buffers extreme, \
+    catastrophic grief. \
+    A concrete protective plan usually buffers extreme, \
     but it does not automatically block extreme when the utterance conveys \
     imminent death, catastrophic loss, total loss of control, or devastating \
     humiliation/blame in a way that would plausibly make breakdown likely. \
@@ -405,9 +410,7 @@ You are tracking one agent's full emotional state in an Emergency Department \
 simulation.
 
 Emotion definitions:
-"""
-    + EMOTION_DEFINITIONS_TEXT
-    + """
+{emotion_definitions}
 
 Context for this tick:
   - Listener (the agent whose state you update): {listener_role}
@@ -494,6 +497,7 @@ def build_step_prompt(
     """Build the single-utterance emotion judge prompt."""
 
     return STEP_PROMPT_TEMPLATE.format(
+        emotion_definitions=EMOTION_DEFINITIONS_TEXT,
         listener_role=listener_role,
         speaker_role=speaker_role,
         fear=state.fear,
@@ -606,7 +610,7 @@ def step_emotion(
         utterance=utterance.strip(),
     )
     raw = llm_call(prompt)
-    parsed = _coerce_step_output(raw)
+    parsed = _coerce_step_output(raw, st)
     new_values = {name: parsed.new_state.level_of(name) for name in EMOTION_NAMES}
     clamped_extremes: list[EmotionName] = []
     for name in EMOTION_NAMES:
